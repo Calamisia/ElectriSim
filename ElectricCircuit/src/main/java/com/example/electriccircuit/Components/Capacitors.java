@@ -1,6 +1,7 @@
 package com.example.electriccircuit.Components;
 
 public class Capacitors {
+    
 }
 
 // ADD CONNECTING INPUT

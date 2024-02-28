@@ -5,7 +5,6 @@ import com.example.electriccircuit.Logic.Physics;
 
 public class Amp extends Physics {
     private double current;
-    private int test;
     /* constructor directly with the value given */
     public Amp(double current){
         this.current = current;
