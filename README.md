@@ -1,43 +1,8 @@
 # ElectriSim
 
-February 9, 2024
-
-1 Introduction	3
-1.1 Importance	3
-1.2 Objectives	4
-2 Design	5
-2.1 Problem Analysis	5
-2.1.1 Breadboard Algorithm	5
-2.1.2 Pseudocode #1	6
-2.1.3 Pseudocode #2	6
-2.2 Theory	7
-2.2.1 Units	7
-2.2.2 Laws	8
-2.2.3 Components	9
-2.2.4 Circuits	10
-2.3 UML Diagrams	11
-2.3.1 Operator Classes	11
-2.3.2 Component Classes	12
-2.3.3 GUI Classes	13
-2.4 GUI	14
-2.4.1 Title Screen	14
-2.4.2 Settings Screen	15
-2.4.3 Level Selection	16
-2.4.4 Achievements Screen	17
-2.4.5 Main Screen	18
-2.5 Timeline	19
-2.6 Software	20
-3 Features	20
-3.1 Necessary Features	20
-3.2 Optional Features	21
-4 Conclusion	22
-
-
 1	Introduction
 
-After three semesters of learning different aspects of Java, starting from the basics and ending with visual effects, we have learned to design programs with visual clarity to help us solve challenges related to science and mathematics. Many of us have trouble with physics as it is a difficult subject so we have decided to create a tool to help us learn about building circuits with resistors, capacitors, and more.
-
-As such, we aim to generate visual representations of circuits that allow users to determine optimal builds for maximum functionality, depending on their goals. This would make it easier to develop circuits for both the professional & personal spheres of work by providing a means to test out ideas and offering a projected budget. With a low entry-skill requirement coupled with a limitless skill ceiling, this software conforms to the needs of anyone who uses it. This project is made to facilitate understanding of circuits for any who need it by providing an easy building tool with a clear visual output. To add user retention, we will implement different challenges similar to levels to give an objective to the player and encourage them to think outside the box. We will also implement a sandbox to provide a way for the user to freely build the circuit of their choice. 
+We aim to generate visual representations of circuits that allow users to determine optimal builds for maximum functionality, depending on their goals. This would make it easier to develop circuits for both the professional & personal spheres of work by providing a means to test out ideas and offering a projected budget. With a low entry-skill requirement coupled with a limitless skill ceiling, this software conforms to the needs of anyone who uses it. This project is made to facilitate understanding of circuits for any who need it by providing an easy building tool with a clear visual output. To add user retention, we will implement different challenges similar to levels to give an objective to the player and encourage them to think outside the box. We will also implement a sandbox to provide a way for the user to freely build the circuit of their choice. 
 
 Not only are we developing a software to help with learning circuit building, this project will be the biggest challenge to us during our stay at cégep. It will help us improve in areas that we have been working in for these three semesters as well as helping us learn various new techniques such as dragging a screen to extend the possible range of operations. We will also get better at working on a large project with a team which will be useful for actual work in the industry.
 
