@@ -1,16 +1,304 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.electriccircuit.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="823.0" prefWidth="952.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+    <children>
+        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="651.0" StackPane.alignment="TOP_LEFT">
+            <children>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="651.0">
+               <children>
+                        <GridPane prefHeight="651.0" prefWidth="651.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                     <children>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+                     </children>
+                        </GridPane>
+               </children></AnchorPane>
+            </children>
+            <StackPane.margin>
+                <Insets left="151.0" />
+            </StackPane.margin>
+        </Pane>
+        <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="823.0" prefWidth="952.0" StackPane.alignment="CENTER_RIGHT">
+            <left>
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="658.0" prefWidth="151.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="52.0" prefWidth="151.0" spacing="20.0">
+                            <children>
+                                <Circle fill="DODGERBLUE" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Settings">
+                                    <HBox.margin>
+                                        <Insets top="5.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets top="20.0" />
+                            </padding>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </HBox>
+                        <Line endX="50.0" startX="-100.0">
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </Line>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="150.0" text="Goal">
+                            <font>
+                                <Font name="Calibri" size="44.0" />
+                            </font>
+                            <padding>
+                                <Insets right="10.0" top="30.0" />
+                            </padding>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="162.0" prefWidth="150.0" text="Make a circuit with two resistors that get 10 volts each" wrapText="true">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <padding>
+                                <Insets left="10.0" />
+                            </padding>
+                        </Label>
+                        <Line endX="50.0" startX="-100.0" />
+                        <Label alignment="CENTER" prefHeight="78.0" prefWidth="150.0" text="Budget">
+                            <font>
+                                <Font name="Calibri" size="42.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="110.0" prefWidth="150.0" text="30$">
+                            <font>
+                                <Font size="40.0" />
+                            </font>
+                        </Label>
+                        <Line endX="50.0" startX="-100.0" />
+                    </children>
+                </VBox>
+            </left>
+            <right>
+                <VBox maxHeight="-Infinity" prefHeight="226.0" prefWidth="151.0" spacing="15.0" BorderPane.alignment="TOP_CENTER">
+                    <children>
+                  <GridPane prefHeight="130.0" prefWidth="130.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <Line endX="50.0" startX="-100.0" />
+                        <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="15.0">
+                            <children>
+                                <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label alignment="CENTER" text="Hint?" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                            </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                        </HBox>
+                    </children>
+               <BorderPane.margin>
+                  <Insets right="10.0" top="10.0" />
+               </BorderPane.margin>
+                </VBox>
+            </right>
+            <bottom>
+                <VBox minHeight="-Infinity" minWidth="-Infinity" prefWidth="952.0" spacing="10.0" BorderPane.alignment="CENTER">
+                    <children>
+                  <GridPane minWidth="-Infinity" prefHeight="130.0" prefWidth="2100.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                                <HBox prefHeight="135.0" prefWidth="300.0">
+                                    <children>
+                                        <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                        <VBox alignment="TOP_CENTER" prefHeight="130.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Label" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="135.0" prefWidth="300.0" GridPane.columnIndex="1">
+                                    <children>
+                                        <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                        <VBox alignment="TOP_CENTER" prefHeight="130.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Label" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="135.0" prefWidth="300.0" GridPane.columnIndex="2">
+                                    <children>
+                                        <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Label" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="135.0" prefWidth="300.0" GridPane.columnIndex="3">
+                                    <children>
+                                        <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Label" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="135.0" prefWidth="300.0" GridPane.columnIndex="4">
+                                    <children>
+                                        <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Label" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="135.0" prefWidth="300.0" GridPane.columnIndex="5">
+                                    <children>
+                                        <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Label" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="150.0" prefWidth="300.0" GridPane.columnIndex="6">
+                                    <children>
+                                        <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                        <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Label" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </GridPane>
+                        <Slider maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="952.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                        </Slider>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                    </padding>
+                </VBox>
+            </bottom>
+        </BorderPane>
+    </children>
+</StackPane>
