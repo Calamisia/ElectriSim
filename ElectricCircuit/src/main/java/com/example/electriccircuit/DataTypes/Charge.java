@@ -1,5 +1,4 @@
 package com.example.electriccircuit.DataTypes;
-
 import com.example.electriccircuit.Logic.Physics;
 
 public class Charge extends Physics {
@@ -7,17 +6,14 @@ public class Charge extends Physics {
 
     public Charge(double coulomb){
         this.coulomb = coulomb;
-    }
+    } // constructor
 
-    public Charge(Capacitance farad, Volt potential){
-        this.coulomb = capacitanceLaw(farad, potential);
-    }
+    public void setCharge(double coulomb){
+        this.coulomb = coulomb;
+    } // setter
 
     public double getCharge(){
         return coulomb;
-    }
+    } // getter
 
-    public void setCharge(double coulomb){
-    this.coulomb = coulomb;
-    }
 }
