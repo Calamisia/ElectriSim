@@ -1,7 +1,16 @@
 package com.example.electriccircuit.Components;
 
 public class Capacitors {
-    
+
+    private int capacitance;
+
+    public void setCapacitance(int capacitance) {
+        this.capacitance = capacitance;
+    }
+
+    public int getCapacitance() {
+        return capacitance;
+    }
 }
 
 // ADD CONNECTING INPUT
