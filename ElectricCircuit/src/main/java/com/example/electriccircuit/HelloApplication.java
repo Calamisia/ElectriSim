@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
         SplitPane splitpane = new SplitPane(grid);
         Pane pane = new Pane(splitpane);
         */
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene1.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);
