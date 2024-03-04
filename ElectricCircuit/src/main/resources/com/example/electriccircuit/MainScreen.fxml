@@ -7,28 +7,12 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="823.0" prefWidth="952.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <children>
-        <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="823.0" prefWidth="952.0" StackPane.alignment="CENTER_RIGHT">
+        <BorderPane minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
             <left>
-                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="658.0" prefWidth="151.0" style="-fx-background-color: #838383;" BorderPane.alignment="CENTER">
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="461.0" prefWidth="151.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
                     <children>
-                        <HBox alignment="TOP_CENTER" prefHeight="52.0" prefWidth="151.0" spacing="20.0">
-                            <children>
-                                <Circle fill="DODGERBLUE" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
-                                <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Settings">
-                                    <HBox.margin>
-                                        <Insets top="5.0" />
-                                    </HBox.margin>
-                                </Button>
-                            </children>
-                            <padding>
-                                <Insets top="20.0" />
-                            </padding>
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                        </HBox>
                         <Line endX="50.0" startX="-100.0">
                             <VBox.margin>
                                 <Insets top="20.0" />
@@ -63,64 +47,13 @@
                         </Label>
                         <Line endX="50.0" startX="-100.0" />
                     </children>
+                    <BorderPane.margin>
+                        <Insets top="71.0" />
+                    </BorderPane.margin>
                 </VBox>
             </left>
-            <center>
-                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="649.0">
-                    <children>
-                        <GridPane prefHeight="649.0" prefWidth="649.0">
-                            <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                            </columnConstraints>
-                            <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            </rowConstraints>
-                            <children>
-
-                            </children>
-                        </GridPane>
-                    </children></AnchorPane>
-            </center>
             <right>
-                <VBox maxHeight="-Infinity" prefHeight="226.0" prefWidth="151.0" spacing="15.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
+                <VBox maxHeight="-Infinity" prefHeight="157.0" prefWidth="151.0" spacing="15.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
                     <children>
                         <GridPane prefHeight="130.0" prefWidth="130.0">
                             <columnConstraints>
@@ -138,37 +71,59 @@
                             </VBox.margin>
                         </GridPane>
                         <Line endX="50.0" startX="-100.0" />
-                        <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="15.0">
-                            <children>
-                                <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-                                <Label alignment="CENTER" text="Hint?" textAlignment="CENTER">
-                                    <HBox.margin>
-                                        <Insets />
-                                    </HBox.margin>
-                                    <font>
-                                        <Font name="System Bold" size="20.0" />
-                                    </font>
-                                </Label>
-                            </children>
-                            <padding>
-                                <Insets left="10.0" />
-                            </padding>
-                        </HBox>
                     </children>
                     <BorderPane.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                     </BorderPane.margin>
                 </VBox>
             </right>
-            <bottom>
-                <ScrollPane style="-fx-background-color: #838383;" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+        </BorderPane>
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
+            <children>
+                <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="-56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="151.0" spacing="20.0" style="-fx-background-color: #838383;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Circle fill="DODGERBLUE" radius="16.0" stroke="BLACK" strokeType="INSIDE">
+                            <HBox.margin>
+                                <Insets left="5.0" />
+                            </HBox.margin>
+                        </Circle>
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Settings">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <padding>
+                                <Insets right="20.0" />
+                            </padding>
+                        </Button>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" layoutY="171.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="151.0" spacing="15.0" style="-fx-background-color: #838383;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="157.0">
+                    <children>
+                        <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
+                            <HBox.margin>
+                                <Insets bottom="10.0" top="10.0" />
+                            </HBox.margin></Circle>
+                        <Label alignment="CENTER" text="Hint?" textAlignment="CENTER">
+                            <HBox.margin>
+                                <Insets right="40.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" style="-fx-background-color: #838383;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <content>
-                        <AnchorPane prefHeight="170.0" prefWidth="2110.0" style="-fx-background-color: #838383;">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="2100.0" style="-fx-background-color: #838383;">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
                             <children>
-                                <GridPane layoutX="10.0" minWidth="-Infinity" prefHeight="150.0" prefWidth="2100.0">
+                                <GridPane layoutX="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="2100.0">
                                     <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -286,12 +241,7 @@
                         </AnchorPane>
                     </content>
                 </ScrollPane>
-            </bottom>
-        </BorderPane>
-        <AnchorPane mouseTransparent="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: 00FFFFFF;">
-            <children>
-                <Circle fx:id="Circle2" fill="DODGERBLUE" layoutX="352.0" layoutY="249.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-            </children>
-        </AnchorPane>
+                <Circle fx:id="Circle2" fill="DODGERBLUE" layoutX="606.0" layoutY="372.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" />
+            </children></AnchorPane>
     </children>
 </StackPane>
