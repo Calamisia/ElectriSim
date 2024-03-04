@@ -1,6 +1,7 @@
 package com.example.electriccircuit.Logic;
 
 import javafx.scene.Node;
+import javafx.scene.shape.Circle;
 
 public class draggable {
     private double mouseAnchorX;
@@ -17,4 +18,6 @@ public class draggable {
             node.setLayoutY(e.getSceneY() - mouseAnchorY);
         });
     }
+
+
 }

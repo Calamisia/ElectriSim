@@ -78,7 +78,7 @@
                 </VBox>
             </right>
         </BorderPane>
-        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
+        <AnchorPane fx:id="anchorpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
             <children>
                 <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="-56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="151.0" spacing="20.0" style="-fx-background-color: #838383;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
@@ -116,9 +116,9 @@
                         </Label>
                     </children>
                 </HBox>
-                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" style="-fx-background-color: #838383;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <content>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="2100.0" style="-fx-background-color: #838383;">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="2100.0">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
@@ -139,7 +139,7 @@
                                     <children>
                                         <HBox prefHeight="135.0" prefWidth="300.0">
                                             <children>
-                                                <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                                <ImageView fitHeight="150.0" fitWidth="150.0" onMouseClicked="#spawn" pickOnBounds="true" preserveRatio="true" />
                                                 <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                                     <children>
                                                         <Label alignment="CENTER" text="Label" />
