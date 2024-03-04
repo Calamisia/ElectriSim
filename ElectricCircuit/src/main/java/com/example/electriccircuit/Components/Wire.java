@@ -1,7 +1,10 @@
 package com.example.electriccircuit.Components;
 
+import javafx.scene.paint.Color;
+
 public class Wire {
     private int length;
+    private Color wireColor;
     private boolean isConnected;
     private double passingCurrent;
     private double passingVoltage;
@@ -27,6 +30,14 @@ public class Wire {
 
     public double getPassingCurrent() {
         return passingCurrent;
+    }
+
+    public void setWireColor(Color color){
+        this.wireColor = color;
+    }
+
+    public Color getWireColor() {
+        return wireColor;
     }
 
     public void setPassingVoltage(double passingVoltage) {
@@ -70,9 +81,5 @@ public class Wire {
     }
 }
 
-// ADD CONNECTING INPUT
-// ADD OUTPUT
-// PROGRAM WIRES TO DO STUFF WITH INPUTS AND OUTPUTS
-// PROGRAM WIRES TO HAVE JUNCTIONS FOR PARALLEL
-// MAKE GRAPH LOGIC TO CALCULATE ALL VABIABLES
+
 // ADD COLORS

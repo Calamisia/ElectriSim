@@ -1,4 +1,9 @@
-package com.example.electriccircuit.Components;
+package com.example.electriccircuit.Logic;
+
+import com.example.electriccircuit.Components.Capacitors;
+import com.example.electriccircuit.Components.PowerSupply;
+import com.example.electriccircuit.Components.Resistors;
+import com.example.electriccircuit.Components.Wire;
 
 public class Budget {
 
@@ -14,7 +19,7 @@ public class Budget {
     } // set budget
     public double getBudget(){
         return budget;
-    } // get budget\
+    } // get budget
 
     // determine the price of components
     public double createWirePrice(Wire wire) {

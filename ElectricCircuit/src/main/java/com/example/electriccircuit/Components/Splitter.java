@@ -2,11 +2,11 @@ package com.example.electriccircuit.Components;
 
 public class Splitter {
     private boolean inputDetected;
-    private int nOfOutputs;
-    private Wire inputWire;
-    private Wire outputWireOne;
-    private Wire outputWireTwo;
-    private Wire outputWireThree;
+    private static int nOfOutputs;
+    private static Wire inputWire;
+    private static Wire outputWireOne;
+    private static Wire outputWireTwo;
+    private static Wire outputWireThree;
 
     public Splitter(){}
 
@@ -15,23 +15,16 @@ public class Splitter {
         inputDetected = true;
     }
 
-    public boolean isInputDetected() {
-        return inputDetected;
-    }
-
     public void setInputDetected(boolean inputDetected) {
         this.inputDetected = inputDetected;
     }
 
-    public int getnOfOutputs() {
-        return nOfOutputs;
-    }
 
     public void setnOfOutputs(int nOfOutputs) {
         this.nOfOutputs = nOfOutputs;
     }
 
-    public void calculate(){
+    public static void calculate(){
         switch (nOfOutputs) {
            case 1 : {
                outputWireOne.setPassingCurrent(inputWire.getPassingCurrent());
