@@ -4,10 +4,8 @@ import java.io.*;
 import java.util.*;
 
 public class SaveFiles {
-    private static PrintWriter sandBoxSaver;
-    private static Scanner sandBoxLoader;
-    private PrintWriter achievementSaver;
-    private Scanner achievementLoader;
+    private static PrintWriter Saver;
+    private static Scanner Loader;
 
     public static void main(String[] args) throws FileNotFoundException {
         int[][] test = new int[20][20];
@@ -42,16 +40,16 @@ public class SaveFiles {
 
 
     public static void writeToFile(StringBuilder dataString, String filePath) throws FileNotFoundException {
-        PrintWriter sandBoxSaver = new PrintWriter(filePath);
-        sandBoxSaver.write(dataString.toString());
-        sandBoxSaver.close();
+        Saver = new PrintWriter(filePath);
+        Saver.write(dataString.toString());
+        Saver.close();
     }
 
     public static String readFromFile(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
-        sandBoxLoader = new Scanner(file);
-        String dataString = sandBoxLoader.nextLine();
-        sandBoxLoader.close();
+        Loader = new Scanner(file);
+        String dataString = Loader.nextLine();
+        Loader.close();
         return dataString;
     }
 
