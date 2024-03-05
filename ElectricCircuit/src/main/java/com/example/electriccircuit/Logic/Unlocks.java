@@ -1,18 +1,16 @@
 package com.example.electriccircuit.Logic;
 
 public class Unlocks {
-    private String achievementBitString;
+    private static String achievementBitString;
 
-    public String getAchievementBitString() {
+    public static String getAchievementBitString() {
         return achievementBitString;
     }
 
     public void setAchievementBitString(String achievementBitString) {
-        this.achievementBitString = achievementBitString;
+        Unlocks.achievementBitString = achievementBitString;
     }
 
-    // an object of type achievementloader will be made
-    // set the achievementloader string = loadAchievements();
 
 
     // bit string for achivements
