@@ -23,7 +23,7 @@
                                       <children>
                                           <ImageView fitHeight="150.0" fitWidth="150.0" onDragEntered="#spawn" pickOnBounds="true">
                                  <image>
-                                    <Image url="@Black.jpg" />
+                                    <Image url="file:/C:/Users/victo/Documents/GitHub/ElectriSim/ElectricCircuit/src/main/resources/com/example/electriccircuit/Black.jpg" />
                                  </image></ImageView>
                                           <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                               <children>
@@ -162,7 +162,7 @@
                     </children>
                 </HBox>
             </children></AnchorPane>
-        <BorderPane minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
+        <BorderPane minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" onMousePressed="#spawn" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
             <!--Visual Pane-->
             <left>
                 <!--Left side of border pane-->

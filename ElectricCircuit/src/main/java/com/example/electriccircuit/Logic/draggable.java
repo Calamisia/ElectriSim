@@ -8,6 +8,7 @@ import javafx.scene.shape.Circle;
  * Any object that passes through a draggable object instance can be dragged
  */
 public class draggable {
+    //Mouse position X and Y
     private double mouseAnchorX;
     private double mouseAnchorY;
 
