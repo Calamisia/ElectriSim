@@ -32,7 +32,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
                               <Label text="Achievement name" />
-                              <Label text="Description" />
+                              <Label prefHeight="100.0" prefWidth="150.0" text="Finish a level only using half the given budget." />
                            </children>
                         </VBox>
                          <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="155.0" spacing="5.0" GridPane.columnIndex="1">
