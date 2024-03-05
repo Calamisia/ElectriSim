@@ -7,11 +7,15 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+    <!--stackPane to have visual foreground and interactible background-->
     <children>
         <BorderPane minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
+            <!--Visual Pane-->
             <left>
+                <!--Left side of border pane-->
                 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="461.0" prefWidth="151.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
+                    <!--Goal and budget visuals-->
                     <children>
                         <Line endX="50.0" startX="-100.0">
                             <VBox.margin>
@@ -53,7 +57,9 @@
                 </VBox>
             </left>
             <right>
+                <!--Right side of border pane -->
                 <VBox maxHeight="-Infinity" prefHeight="157.0" prefWidth="151.0" spacing="15.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
+                    <!--Grid to give useful info -->
                     <children>
                         <GridPane prefHeight="130.0" prefWidth="130.0">
                             <columnConstraints>
@@ -241,7 +247,12 @@
                         </AnchorPane>
                     </content>
                 </ScrollPane>
-                <Circle fx:id="Circle2" fill="DODGERBLUE" layoutX="606.0" layoutY="372.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="Circle2" fill="DODGERBLUE" radius="36.0" stroke="BLACK" strokeType="INSIDE" />
             </children></AnchorPane>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #838383;">
+         <StackPane.margin>
+            <Insets bottom="172.0" left="151.0" right="151.0" />
+         </StackPane.margin>
+      </AnchorPane>
     </children>
 </StackPane>
