@@ -72,33 +72,14 @@ public class HelloController implements Initializable {
     public void spawn(MouseEvent e) {
         System.out.println("pls");
         Circle circle = new Circle(50);
-        anchorpane.getChildren().add(circle);
+        smallanchorpane.getChildren().add(circle);
         circle.toFront();
         final boolean[] isEventEnabled = {true};
-        anchorpane.setOnMouseMoved(mouseEvent -> {
+
+        smallanchorpane.setOnMouseDragged(mouseEvent -> {
             circle.setCenterX(mouseEvent.getX());
             circle.setCenterY(mouseEvent.getY());
-
-            anchorpane.setOnMouseReleased(f -> {
-                if(isEventEnabled[0]){
-                    anchorpane.getChildren().remove(circle);
-                    System.out.println(e.getX() + " " + e.getY());
-                    Circle solidcircle = new Circle(50);
-                    anchorpane.getChildren().add(solidcircle);
-                    solidcircle.toFront();
-                    solidcircle.setCenterX(f.getX());
-                    solidcircle.setCenterY(f.getY());
-
-                    isEventEnabled[0] = false;
-                }
-            });
-
         });
-        smallanchorpane.setOnMouseMoved(mouseEvent -> {
-            circle.setCenterX(mouseEvent.getX());
-            circle.setCenterY(mouseEvent.getY());
-            smallanchorpane.getChildren().add(circle);
-            circle.toFront();
-        });
+
     }
 }
