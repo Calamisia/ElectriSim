@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.example.electriccircuit.Logic.SaveFiles.*;
+
 public class HelloController implements Initializable {
     private Stage stage;
     private Scene scene;

@@ -12,7 +12,7 @@ public class BuilderMatrix {
     private final int SPLITTERID = 5;
     private final int MERGERID = 6;
     private boolean isClosedCircuit;
-    private StringBuilder circuitPath = new StringBuilder();
+    private StringBuilder circuitPath = new StringBuilder(); // used for calculation grid
 
     public BuilderMatrix(){
         // initialize every value to zero
@@ -24,22 +24,29 @@ public class BuilderMatrix {
 
     }
 
+    // Used to add a component Id to a box
     public void setBoxID(int row, int column, int iD) {
         grid[row][column] = iD;
     }
 
+    // Used to get the component at a certain box in the matrix
     public int getBoxID(int row, int column) {
         return grid[row][column];
     }
 
+    // used to get the matrix (Used to save the sandbox)
     public static int[][] getGrid(){
         return grid;
     }
 
+    // used to set the matrix (used to load the sandbox)
     public void setGrid(int[][] grid) {
         this.grid = grid;
     }
 
+    // this method checks all 8 surrounding cases around a given case, to see if there is an ID in one of them.
+    // it returns an ArrayList with the first index being a boolean, representing whether or not there is a surrounding ID.
+    // If there is a surroudning ID, the second and third entries in the ArrayList are its row and column coordinates.
     public ArrayList surrounding(int row, int column) {
         ArrayList arraylist = new ArrayList(3);
         if (grid[row - 1][column - 1] != 0){
@@ -92,17 +99,20 @@ public class BuilderMatrix {
        return arraylist;
     }
 
+
+    // this method is used to check if the circuit is closed, before doing any calculations.
     public boolean closedCircuit(){
-        int[] componentIndex = new int[2];
+        int[] componentIndex = new int[2]; // indexes for a certain component
 
 
         ArrayList surroundingInfo;
         outerloop:
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
+                // this checks every single box on the grid if for surrounding components
                 surroundingInfo = surrounding(i, j);
                 if ((boolean) (surroundingInfo.get(0))) {
-                    // this means that there is surrounding objects
+                    // if there is a surrounding component, check if it's a powerSupply
                     if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
                         componentIndex[0] = i;
                         componentIndex[1] = j;

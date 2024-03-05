@@ -15,16 +15,38 @@ public class Unlocks {
         this.achievementBitString = achievementBitString;
     }
 
-    public boolean isUnlocked(int achievement){
-       return true;
+    public boolean isAchievementUnlocked(int achievementIndex){
+        if (achievementBitString.charAt(achievementIndex) == 1)
+            return true;
+        else return false;
     }
 
-    public void static vodi
-
-    //check if an achievement is unlocked, arg given is int
-        // and return t or f depending if 0 or 1
-        //is at that spot in the bitstring
-    // check if level is unlocked folliwng thw amount of achievements unlocked
-
+    public boolean isLevelUnlocked(int levelAsked){
+        int sum = 0;
+        for (int i = 0; i < 10; i++) {
+            sum += achievementBitString.charAt(i);
+        }
+        switch (levelAsked){
+            case 6 :
+                if( sum >= 1)
+                    return true;
+                else return false;
+            case 7 :
+                if( sum >= 3)
+                    return true;
+                else return false;
+            case 8 :
+                if( sum >= 5)
+                    return true;
+                else return false;
+            case 9 :
+                if( sum >= 9)
+                    return true;
+                else return false;
+        }
+        return false;
+    }
 
 }
+
+// ADD A WAY TO UNLOCK ACHIEVEMENTS (i.e. detect if they have kept the budget under half)
