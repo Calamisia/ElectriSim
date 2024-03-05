@@ -24,8 +24,8 @@ public class BuilderMatrix {
 
     }
 
-    public void setBoxID(int row, int column, int index) {
-        grid[row][column] = index;
+    public void setBoxID(int row, int column, int iD) {
+        grid[row][column] = iD;
     }
 
     public int getBoxID(int row, int column) {
@@ -135,7 +135,7 @@ public class BuilderMatrix {
         // make a copy of circuit path string
         // modify the grid values using anchor panes
         // check if circuitPath = old circuit path. If true, do nothing (since the circuit didn't change)
-        // if false, the circuit changed. Therefore, run closedCircuit to see if it works well.
+        // if false, the circuit changed. erefore, run closedCircuit to see if it works well.
     }
 
 }
@@ -144,3 +144,4 @@ public class BuilderMatrix {
 // HAVE TO RECURSIVELY CALL THE METHOD ON SPLITTERS AND MERGERS
 // ALSO HAVE TO SPLIT THE CIRCUIT PATH STRING WHEN FINDING SPLITTERS AND MERGERS
 // MAKE SURE NO NEGATIVE INDEXES WHEN SUBTRACTING INDEXES
+//getb set ncircuit parth
