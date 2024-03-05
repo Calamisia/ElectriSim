@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -56,6 +57,9 @@ public class HelloController implements Initializable {
     private ImageView imgv;
 
     @FXML
+    private Button Button1;
+
+    @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
@@ -67,6 +71,10 @@ public class HelloController implements Initializable {
         draggableMaker.dragging(Circle2);
 
     }
+
+    /* Switch to achievements screen */
+    @FXML
+
 
     @FXML
     public void spawn(MouseEvent e) {
