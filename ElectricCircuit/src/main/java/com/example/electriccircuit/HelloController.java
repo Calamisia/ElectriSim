@@ -106,24 +106,40 @@ public class HelloController implements Initializable {
             if(isEventEnabled[0]) {
                 System.out.println(mouseEvent.getX());
                 Circle solidcircle = new Circle(20);
-                if(Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)) > 20 || Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)) < 0){
-                    break;
-                } else{
-                    solidcircle.setCenterY(Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)) * (smallanchorpane.getHeight() / 20));
-                    solidcircle.setCenterX(Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)) * (smallanchorpane.getWidth() / 20));
-                    smallanchorpane.getChildren().add(solidcircle);
-                    solidcircle.toFront();
+
+                double Hspacing = (smallanchorpane.getHeight() / 20);
+                double Wspacing = (smallanchorpane.getWidth() / 20);
+                int Hindex = (int)Math.round(mouseEvent.getY() / (Hspacing)); //13
+                int Windex = (int)Math.round(mouseEvent.getX() / (Wspacing)); //7
+
+                if(Hindex == 20){
+                    Hindex = 19;
+                } if(Windex == -1){{
+                    Windex = 0;
+                }} if(Windex == 20){
+                    Windex = 19;
+                }
+
+                if(Hindex < 20 && Hindex >= 0) {
+                    if (Windex < 20 && Windex >= 0) {
+                        solidcircle.setCenterY(Hindex * (Hspacing) + (Hspacing / 2));
+                        solidcircle.setCenterX(Windex * (Wspacing) + (Wspacing / 2));
+                        smallanchorpane.getChildren().add(solidcircle);
+                        solidcircle.toFront();
+
+                        sandboxMatrix.setBoxID(Windex, Hindex, 1);
+                        System.out.println(sandboxMatrix.getBoxID(Windex, Hindex));
+                    }
                 }
                 smallanchorpane.getChildren().remove(circle);
                 anchorpane.getChildren().remove(circle);
 
-                System.out.println(Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)));
-                System.out.println(Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)));
-
-                sandboxMatrix.setBoxID((int) Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)), (int) Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)), 1);
-                System.out.println(sandboxMatrix.getBoxID((int) Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)), (int) Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20))));
+                System.out.println(Hindex);
+                System.out.println(Windex);
 
                 isEventEnabled[0] = false;
+                saveGame();//DELETE THIS
+
             }
         });
     }
