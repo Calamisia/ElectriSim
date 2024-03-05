@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import com.example.electriccircuit.Logic.BuilderMatrix;
 
 import java.io.IOException;
 

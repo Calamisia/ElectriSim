@@ -1,6 +1,8 @@
 package com.example.electriccircuit;
 
+import com.example.electriccircuit.Logic.BuilderMatrix;
 import com.example.electriccircuit.Logic.draggable;
+import com.example.electriccircuit.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +25,7 @@ public class HelloController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    BuilderMatrix sandboxMatrix = new BuilderMatrix();
 
     public void switchtoScene1(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
