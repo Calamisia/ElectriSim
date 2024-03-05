@@ -57,9 +57,6 @@ public class HelloController implements Initializable {
     private ImageView imgv;
 
     @FXML
-    private Button Button1;
-
-    @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
@@ -68,13 +65,19 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        draggableMaker.dragging(Circle2);
-
+       // draggableMaker.dragging(Circle2);
     }
 
     /* Switch to achievements screen */
     @FXML
-
+    private void Achievements(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Achievements screen.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.setMaximized(false);
+        stage.setMaximized(true);}
 
     @FXML
     public void spawn(MouseEvent e) {

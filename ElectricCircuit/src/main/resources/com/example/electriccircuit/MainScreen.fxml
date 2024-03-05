@@ -23,7 +23,7 @@
                                       <children>
                                           <ImageView fitHeight="150.0" fitWidth="150.0" onDragEntered="#spawn" pickOnBounds="true">
                                  <image>
-                                    <Image url="@Black.jpg" />
+                                    <Image url="file:/C:/Users/victo/Documents/GitHub/ElectriSim/ElectricCircuit/src/main/resources/com/example/electriccircuit/Black.jpg" />
                                  </image></ImageView>
                                           <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                               <children>
@@ -132,7 +132,7 @@
                                 <Insets left="5.0" />
                             </HBox.margin>
                         </Circle>
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Settings">
+                        <Button mnemonicParsing="false" onAction="#Achievements" prefHeight="26.0" prefWidth="82.0" text="Settings">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
@@ -161,7 +161,6 @@
                         </Label>
                     </children>
                 </HBox>
-            <Circle fx:id="Circle2" fill="DODGERBLUE" radius="36.0" stroke="BLACK" strokeType="INSIDE" />
             </children></AnchorPane>
         <BorderPane minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
             <!--Visual Pane-->

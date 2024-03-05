@@ -13,13 +13,11 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainScreen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Mainscreen.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         primaryStage.setTitle("Hello!");
         primaryStage.setScene(scene);
-        primaryStage.setMaximized(true);
         primaryStage.show();
-
-
+        primaryStage.setMaximized(true);
     }
 }
