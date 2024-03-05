@@ -8,35 +8,27 @@ public class SaveFiles {
     private static Scanner Loader;
 
     public static void main(String[] args) throws FileNotFoundException {
-        int[][] test = new int[20][20];
-        for (int i = 0; i < test.length; i++) {
-            for (int j = 0; j < test[i].length; j++) {
-                test[i][j] = (int) Math.floor(Math.random() * 5);
-            }
-        }
 
-        saveSandbox(test);
-        int[][] outputTest;
-        outputTest = loadSandbox();
-
-        for (int i = 0; i < outputTest.length; i++) {
-            for (int j = 0; j < outputTest[i].length; j++) {
-                System.out.print(outputTest[i][j] + " ");
-            }
-            System.out.println();
-        }
-
-        StringBuilder achievementBitString = new StringBuilder();
-        for (int i = 0; i < 10; i++) {
-            achievementBitString.append((int) Math.floor(Math.random()*2));
-        }
-        saveAchievements(achievementBitString);
-        String achievementOutputTest;
-        achievementOutputTest = loadAchievements();
-        System.out.println(achievementOutputTest);
+        saveGame();
+        loadGame();
 
     }
 
+    public static void saveGame(){
+        int[][] grid = BuilderMatrix.getGrid();
+        saveSandbox(grid);
+
+        StringBuilder achievementBitString = new StringBuilder("0001000001"); // TO BE CHANGED
+        saveAchievements(achievementBitString);
+    }
+
+    public static void loadGame(){
+        BuilderMatrix grid = new BuilderMatrix();
+        grid.setGrid(loadSandbox());
+
+        // an object of type achievementloader will be made
+        // set the achievementloader string = loadAchievements();
+    }
 
 
     public static void writeToFile(StringBuilder dataString, String filePath) throws FileNotFoundException {
@@ -79,12 +71,12 @@ public class SaveFiles {
     }
 
 
-    public static void saveSandbox(int[][] test) {
+    public static void saveSandbox(int[][] grid) {
         StringBuilder sandboxBitString = new StringBuilder(400);
         String filePath = "ElectricCircuit/src/main/resources/SaveFiles/sandboxSaveFile.txt";
-        for (int i = 0; i < test.length; i++) {
-            for (int j = 0; j < test[i].length; j++) {
-                sandboxBitString.append(test[i][j]);
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                sandboxBitString.append(grid[i][j]);
             }
         }
         try {
