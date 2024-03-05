@@ -104,12 +104,19 @@ public class HelloController implements Initializable {
             if(isEventEnabled[0]) {
                 System.out.println(mouseEvent.getX());
                 Circle solidcircle = new Circle(20);
-                solidcircle.setCenterY(Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)) * (smallanchorpane.getHeight() / 20));
-                solidcircle.setCenterX(Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)) * (smallanchorpane.getWidth() / 20));
-                smallanchorpane.getChildren().add(solidcircle);
-                solidcircle.toFront();
+                if(Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)) > 20 || Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)) < 0){
+                    break;
+                } else{
+                    solidcircle.setCenterY(Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)) * (smallanchorpane.getHeight() / 20));
+                    solidcircle.setCenterX(Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)) * (smallanchorpane.getWidth() / 20));
+                    smallanchorpane.getChildren().add(solidcircle);
+                    solidcircle.toFront();
+                }
                 smallanchorpane.getChildren().remove(circle);
                 anchorpane.getChildren().remove(circle);
+
+                System.out.println(Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)));
+                System.out.println(Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)));
 
                 sandboxMatrix.setBoxID((int) Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)), (int) Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)), 1);
                 System.out.println(sandboxMatrix.getBoxID((int) Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)), (int) Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20))));
