@@ -19,7 +19,7 @@
                                 <Insets />
                             </VBox.margin>
                             <children>
-                                  <HBox layoutX="10.0" onMousePressed="#spawn" prefHeight="135.0" prefWidth="300.0">
+                                  <HBox layoutX="10.0" onDragDetected="#spawn" prefHeight="135.0" prefWidth="300.0">
                                       <children>
                                           <ImageView fitHeight="150.0" fitWidth="150.0" onDragEntered="#spawn" pickOnBounds="true" preserveRatio="true" />
                                           <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
