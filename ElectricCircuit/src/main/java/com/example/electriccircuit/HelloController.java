@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
@@ -49,6 +50,9 @@ public class HelloController implements Initializable {
     private Circle Circle2;
 
     @FXML
+    private ImageView imgv;
+
+    @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
@@ -57,13 +61,21 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         draggableMaker.dragging(Circle2);
+
     }
 
     @FXML
     public void spawn(MouseEvent e){
         System.out.println("pls");
-        Circle circle = new Circle(500);
+        Circle circle = new Circle(50);
         anchorpane.getChildren().add(circle);
         circle.toFront();
+        anchorpane.setOnMouseMoved(mouseEvent -> {
+            circle.setCenterX(mouseEvent.getX());
+            circle.setCenterY(mouseEvent.getY());
+        });
+        anchorpane.setOnMouseReleased(mouseEvent -> {
+            anchorpane.getChildren().remove(circle);
+        });
     }
 }
