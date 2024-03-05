@@ -7,12 +7,12 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
         <AnchorPane fx:id="anchorpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
             <children>
-                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
                     <content>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="2100.0">
                             <VBox.margin>
@@ -21,7 +21,10 @@
                             <children>
                                   <HBox layoutX="10.0" onDragDetected="#spawn" prefHeight="135.0" prefWidth="300.0">
                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" onDragEntered="#spawn" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" onDragEntered="#spawn" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@Black.jpg" />
+                                 </image></ImageView>
                                           <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                               <children>
                                                   <Label alignment="CENTER" text="Label" />
@@ -129,7 +132,7 @@
                                 <Insets left="5.0" />
                             </HBox.margin>
                         </Circle>
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Settings">
+                        <Button mnemonicParsing="false" onAction="#Achievements" prefHeight="26.0" prefWidth="82.0" text="Settings">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
@@ -164,7 +167,7 @@
             <!--Visual Pane-->
             <left>
                 <!--Left side of border pane-->
-                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="461.0" prefWidth="151.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="628.0" prefWidth="151.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
                     <!--Goal and budget visuals-->
                     <children>
                         <Line endX="50.0" startX="-100.0">

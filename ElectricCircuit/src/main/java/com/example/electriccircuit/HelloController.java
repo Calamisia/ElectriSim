@@ -99,6 +99,8 @@ public class HelloController implements Initializable {
             solidcircle.toFront();
             smallanchorpane.getChildren().remove(circle);
             anchorpane.getChildren().remove(circle);
+
+            sandboxMatrix.setBoxID(Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20),);
         });
     }
 }
