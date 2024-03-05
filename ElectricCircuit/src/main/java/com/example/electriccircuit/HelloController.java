@@ -77,7 +77,7 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        draggableMaker.dragging(Circle2);
+        //draggableMaker.dragging(Circle2);
 
     }
 
@@ -101,14 +101,15 @@ public class HelloController implements Initializable {
         });
 
         smallanchorpane.setOnMouseReleased(mouseEvent -> {
-            System.out.println(mouseEvent.getX());
-            Circle solidcircle = new Circle(20);
-            solidcircle.setCenterY(Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)) * (smallanchorpane.getHeight() / 20));
-            solidcircle.setCenterX(Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)) * (smallanchorpane.getWidth() / 20));
-            smallanchorpane.getChildren().add(solidcircle);
-            solidcircle.toFront();
-            smallanchorpane.getChildren().remove(circle);
-            anchorpane.getChildren().remove(circle);
+            if(isEventEnabled[0]) {
+                System.out.println(mouseEvent.getX());
+                Circle solidcircle = new Circle(20);
+                solidcircle.setCenterY(Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)) * (smallanchorpane.getHeight() / 20));
+                solidcircle.setCenterX(Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)) * (smallanchorpane.getWidth() / 20));
+                smallanchorpane.getChildren().add(solidcircle);
+                solidcircle.toFront();
+                smallanchorpane.getChildren().remove(circle);
+                anchorpane.getChildren().remove(circle);
 
                 sandboxMatrix.setBoxID((int) Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)), (int) Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)), 1);
                 System.out.println(sandboxMatrix.getBoxID((int) Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)), (int) Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20))));
