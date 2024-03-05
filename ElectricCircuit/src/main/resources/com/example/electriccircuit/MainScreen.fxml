@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
         <BorderPane minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
@@ -249,7 +249,7 @@
                 </ScrollPane>
             <Circle fx:id="Circle2" fill="DODGERBLUE" radius="36.0" stroke="BLACK" strokeType="INSIDE" />
             </children></AnchorPane>
-      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #838383;">
+      <AnchorPane fx:id="smallanchorpane" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #838383;">
          <StackPane.margin>
             <Insets bottom="172.0" left="151.0" right="151.0" />
          </StackPane.margin>

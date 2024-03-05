@@ -26,7 +26,7 @@ public class HelloController implements Initializable {
 
     public void switchtoScene1(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -34,7 +34,7 @@ public class HelloController implements Initializable {
 
     public void switchtoScene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -42,6 +42,9 @@ public class HelloController implements Initializable {
 
     @FXML
     private AnchorPane anchorpane;
+
+    @FXML
+    private AnchorPane smallanchorpane;
 
     @FXML
     private Label welcomeText;
@@ -58,6 +61,7 @@ public class HelloController implements Initializable {
     }
 
     draggable draggableMaker = new draggable();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         draggableMaker.dragging(Circle2);
@@ -65,17 +69,36 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    public void spawn(MouseEvent e){
+    public void spawn(MouseEvent e) {
         System.out.println("pls");
         Circle circle = new Circle(50);
         anchorpane.getChildren().add(circle);
         circle.toFront();
+        final boolean[] isEventEnabled = {true};
         anchorpane.setOnMouseMoved(mouseEvent -> {
             circle.setCenterX(mouseEvent.getX());
             circle.setCenterY(mouseEvent.getY());
+
+            anchorpane.setOnMouseReleased(f -> {
+                if(isEventEnabled[0]){
+                    anchorpane.getChildren().remove(circle);
+                    System.out.println(e.getX() + " " + e.getY());
+                    Circle solidcircle = new Circle(50);
+                    anchorpane.getChildren().add(solidcircle);
+                    solidcircle.toFront();
+                    solidcircle.setCenterX(f.getX());
+                    solidcircle.setCenterY(f.getY());
+
+                    isEventEnabled[0] = false;
+                }
+            });
+
         });
-        anchorpane.setOnMouseReleased(mouseEvent -> {
-            anchorpane.getChildren().remove(circle);
+        smallanchorpane.setOnMouseMoved(mouseEvent -> {
+            circle.setCenterX(mouseEvent.getX());
+            circle.setCenterY(mouseEvent.getY());
+            smallanchorpane.getChildren().add(circle);
+            circle.toFront();
         });
     }
 }
