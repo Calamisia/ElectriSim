@@ -18,7 +18,8 @@ public class SaveFiles {
         int[][] grid = BuilderMatrix.getGrid();
         saveSandbox(grid);
 
-        StringBuilder achievementBitString = new StringBuilder(Unlocks.getAchievementBitString());
+        Unlocks achievementSaver = new Unlocks();
+        StringBuilder achievementBitString = new StringBuilder(achievementSaver.getAchievementBitString());
         saveAchievements(achievementBitString);
     }
 
@@ -28,7 +29,6 @@ public class SaveFiles {
 
         Unlocks achievementLoader = new Unlocks();
         achievementLoader.setAchievementBitString(loadAchievements());
-        // set the achievementloader string = loadAchievements();
     }
 
 
