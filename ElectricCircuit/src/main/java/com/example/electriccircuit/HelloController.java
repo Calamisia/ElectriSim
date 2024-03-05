@@ -29,6 +29,7 @@ public class HelloController implements Initializable {
     private Parent root;
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
 
+    //allows scene switching from scene 2 to 1
     public void switchtoScene1(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -80,18 +81,20 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //draggableMaker.dragging(Circle2);
-
+        //FIGURE THIS OUT SOON
     }
 
     @FXML
     public void spawn(MouseEvent e) {
-        System.out.println("pls");
+        //Creates the object
         Circle circle = new Circle(20);
         anchorpane.getChildren().add(circle);
         smallanchorpane.getChildren().add(circle);
         circle.toFront();
+
         final boolean[] isEventEnabled = {true};
 
+        /*On mouse movement, calibrates to small and large anchor panes */
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
             circle.setCenterX(mouseEvent.getX());
             circle.setCenterY(mouseEvent.getY());
@@ -103,8 +106,8 @@ public class HelloController implements Initializable {
         });
 
         smallanchorpane.setOnMouseReleased(mouseEvent -> {
-            if(isEventEnabled[0]) {
-                System.out.println(mouseEvent.getX());
+            if(isEventEnabled[0]) { //makes sure you can only release once
+                //Creates the solid circle
                 Circle solidcircle = new Circle(20);
 
                 double Hspacing = (smallanchorpane.getHeight() / 20);
@@ -112,6 +115,7 @@ public class HelloController implements Initializable {
                 int Hindex = (int)Math.round(mouseEvent.getY() / (Hspacing)); //13
                 int Windex = (int)Math.round(mouseEvent.getX() / (Wspacing)); //7
 
+                /* more fluid input */
                 if(Hindex == 20){
                     Hindex = 19;
                 } if(Windex == -1){{
@@ -120,24 +124,24 @@ public class HelloController implements Initializable {
                     Windex = 19;
                 }
 
-                if(Hindex < 20 && Hindex >= 0) {
+                if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                     if (Windex < 20 && Windex >= 0) {
+                        //snaps to grid
                         solidcircle.setCenterY(Hindex * (Hspacing) + (Hspacing / 2));
                         solidcircle.setCenterX(Windex * (Wspacing) + (Wspacing / 2));
                         smallanchorpane.getChildren().add(solidcircle);
                         solidcircle.toFront();
 
+                        //Sandbox Matrix creation
                         sandboxMatrix.setBoxID(Windex, Hindex, 1);
-                        System.out.println(sandboxMatrix.getBoxID(Windex, Hindex));
                     }
                 }
+                //removes carrying component
                 smallanchorpane.getChildren().remove(circle);
                 anchorpane.getChildren().remove(circle);
 
-                System.out.println(Hindex);
-                System.out.println(Windex);
-
                 isEventEnabled[0] = false;
+                //saves game
                 saveGame();//DELETE THIS
 
             }

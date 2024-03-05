@@ -103,7 +103,7 @@ public class BuilderMatrix {
     // this method is used to check if the circuit is closed, before doing any calculations.
     public boolean closedCircuit(){
         int[] componentIndex = new int[2]; // indexes for a certain component
-
+        boolean foundPower = false;
 
         ArrayList surroundingInfo;
         outerloop:
@@ -114,28 +114,37 @@ public class BuilderMatrix {
                 if ((boolean) (surroundingInfo.get(0))) {
                     // if there is a surrounding component, check if it's a powerSupply
                     if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
+                        //if it is a power supply, make that the componentIndex, and start the circuitPath from there
                         componentIndex[0] = i;
                         componentIndex[1] = j;
                         circuitPath.append(2);
+                        foundPower = true;
                         break outerloop;
+                        // we can break this loop, since we found the start of the circuit
                     }
                 }
-                return false;
             }
         }
-        while (true) {
+        if (foundPower == false) // if no powerSupply was found, the circuit is, by deduction, not closed.
+            return false;
+
+        // now that we have identified where the power supply is, we run surrounding and create
+        // a circuitpath. Every time a new component is found, surrounding is called on that component
+        // until we get back to the power supply.
+
+        while (true) { // loops until back to power supply
             surroundingInfo = surrounding(componentIndex[0], componentIndex[1]);
             if ((boolean) (surroundingInfo.get(0))) {
                 if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
-                    circuitPath.append(2);
+                    circuitPath.append(2); // if it found the battery, return true
                     return true;
                 }
-                else {
+                else { // if the surrounding component isn't the battery, make that component the new center component.
                     componentIndex[0] = (int) surroundingInfo.get(1);
                     componentIndex[1] = (int) surroundingInfo.get(2);
                     circuitPath.append(grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
                 }
-            } else break;
+            } else break; // if a surrounding component isn't found, then the circuit is not closed.
         }
         return false;
     }
@@ -154,4 +163,4 @@ public class BuilderMatrix {
 // HAVE TO RECURSIVELY CALL THE METHOD ON SPLITTERS AND MERGERS
 // ALSO HAVE TO SPLIT THE CIRCUIT PATH STRING WHEN FINDING SPLITTERS AND MERGERS
 // MAKE SURE NO NEGATIVE INDEXES WHEN SUBTRACTING INDEXES
-//getb set ncircuit parth
+// get n set circuitPart

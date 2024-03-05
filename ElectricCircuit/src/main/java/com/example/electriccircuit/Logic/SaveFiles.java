@@ -7,13 +7,14 @@ public class SaveFiles {
     private static PrintWriter Saver;
     private static Scanner Loader;
 
-    public static void main(String[] args) throws FileNotFoundException {
-
+    public static void main(String[] args) throws FileNotFoundException { // TO BE DELETED
+        // CHECKING IF THEY WORK
         saveGame();
         loadGame();
 
     }
 
+    // method that saves files, both achievements and sandbox
     public static void saveGame(){
         int[][] grid = BuilderMatrix.getGrid();
         saveSandbox(grid);
@@ -23,6 +24,7 @@ public class SaveFiles {
         saveAchievements(achievementBitString);
     }
 
+    // method that loads files, both achievements and sandbox
     public static void loadGame(){
         BuilderMatrix grid = new BuilderMatrix();
         grid.setGrid(loadSandbox());
@@ -31,13 +33,14 @@ public class SaveFiles {
         achievementLoader.setAchievementBitString(loadAchievements());
     }
 
-
+    // this is the method that writes a string of data to a given file, used for saving
     public static void writeToFile(StringBuilder dataString, String filePath) throws FileNotFoundException {
         Saver = new PrintWriter(filePath);
         Saver.write(dataString.toString());
         Saver.close();
     }
 
+    // this is the method that reads a string of datato a given file, used for loading
     public static String readFromFile(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
         Loader = new Scanner(file);
@@ -46,6 +49,7 @@ public class SaveFiles {
         return dataString;
     }
 
+    //this attmepts to write to a file. If it doesn't exist, it creates the file, and then calls itself to try again.
     public static void saveAchievements(StringBuilder achievementBitString){
         String filePath = "ElectricCircuit/src/main/resources/SaveFiles/achievementSaveFile.txt";
         try {
@@ -59,6 +63,7 @@ public class SaveFiles {
         }
     }
 
+    //this attmepts to read from a file. If it doesn't exist, it does nothing
     public static String loadAchievements(){
         String filePath = "ElectricCircuit/src/main/resources/SaveFiles/achievementSaveFile.txt";
         String dataString = "";
@@ -71,7 +76,8 @@ public class SaveFiles {
         return dataString;
     }
 
-
+    //this attmepts to write to a file. If it doesn't exist, it creates the file, and then calls itself to try again.
+    // it creates a string out of a matrix
     public static void saveSandbox(int[][] grid) {
         StringBuilder sandboxBitString = new StringBuilder(400);
         String filePath = "ElectricCircuit/src/main/resources/SaveFiles/sandboxSaveFile.txt";
@@ -90,6 +96,9 @@ public class SaveFiles {
             }
         }
     }
+
+    //this attmepts to read from a file. If it doesn't exist, it does nothing
+    //it assigns the values from a string to a matrix following the same pattern as it was read
     public static int[][] loadSandbox() {
         String filePath = "ElectricCircuit/src/main/resources/SaveFiles/sandboxSaveFile.txt";
         String dataString = "";
