@@ -71,7 +71,7 @@ public class HelloController implements Initializable {
     @FXML
     public void spawn(MouseEvent e) {
         System.out.println("pls");
-        Circle circle = new Circle(50);
+        Circle circle = new Circle(20);
         anchorpane.getChildren().add(circle);
         smallanchorpane.getChildren().add(circle);
         circle.toFront();
@@ -89,9 +89,9 @@ public class HelloController implements Initializable {
 
         smallanchorpane.setOnMouseReleased(mouseEvent -> {
             System.out.println(mouseEvent.getX());
-            Circle solidcircle = new Circle(50);
-            solidcircle.setCenterY(mouseEvent.getY());
-            solidcircle.setCenterX(mouseEvent.getX());
+            Circle solidcircle = new Circle(20);
+            solidcircle.setCenterY(Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)) * (smallanchorpane.getHeight() / 20));
+            solidcircle.setCenterX(Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)) * (smallanchorpane.getWidth() / 20));
             smallanchorpane.getChildren().add(solidcircle);
             solidcircle.toFront();
             smallanchorpane.getChildren().remove(circle);
