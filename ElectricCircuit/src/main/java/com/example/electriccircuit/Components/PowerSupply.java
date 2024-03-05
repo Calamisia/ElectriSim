@@ -6,9 +6,10 @@ public class PowerSupply {
 
     public void setVoltage(int voltage) {
         this.voltage = voltage;
-    }
+    } // setter
 
     public int getVoltage() {
         return voltage;
-    }
+    } // getter
+
 }

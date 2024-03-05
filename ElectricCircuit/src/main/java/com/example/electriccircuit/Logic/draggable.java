@@ -19,7 +19,4 @@ public class draggable {
                 node.setLayoutY(e.getSceneY() - mouseAnchorY);
         });
     }
-
-
-
 }

@@ -6,15 +6,10 @@ public class Capacitors {
 
     public void setCapacitance(int capacitance) {
         this.capacitance = capacitance;
-    }
+    } // setter
 
     public int getCapacitance() {
         return capacitance;
-    }
-}
+    } // getter
 
-// ADD CONNECTING INPUT
-// ADD OUTPUT
-// PROGRAM WIRES TO DO STUFF WITH INPUTS AND OUTPUTS
-// PROGRAM WIRES TO HAVE JUNCTIONS FOR PARALLEL
-// MAKE GRAPH LOGIC TO CALCULATE ALL VABIABLES
+}
