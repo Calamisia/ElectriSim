@@ -35,6 +35,16 @@ public class HelloController implements Initializable {
         stage.show();
     }
 
+    /* Switch to achievements screen */
+    @FXML
+    private void Achievements(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Achievements screen.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();;}
+
     public void switchtoScene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -100,7 +110,11 @@ public class HelloController implements Initializable {
             smallanchorpane.getChildren().remove(circle);
             anchorpane.getChildren().remove(circle);
 
-            sandboxMatrix.setBoxID(Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20),);
+                sandboxMatrix.setBoxID((int) Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)), (int) Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20)), 1);
+                System.out.println(sandboxMatrix.getBoxID((int) Math.round(mouseEvent.getX() / (smallanchorpane.getWidth() / 20)), (int) Math.round(mouseEvent.getY() / (smallanchorpane.getHeight() / 20))));
+
+                isEventEnabled[0] = false;
+            }
         });
     }
 }
