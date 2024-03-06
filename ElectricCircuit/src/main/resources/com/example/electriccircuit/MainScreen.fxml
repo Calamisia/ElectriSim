@@ -19,125 +19,125 @@
                                 <Insets />
                             </VBox.margin>
                             <children>
-                                  <HBox layoutX="10.0" onDragDetected="#spawn" prefHeight="150.0" prefWidth="300.0">
-                                      <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" onDragEntered="#spawn" pickOnBounds="true">
-                                 <image>
-                                    <Image url="@Black.jpg" />
-                                 </image></ImageView>
-                                          <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
-                                              <children>
-                                                  <Label alignment="CENTER" text="Label" />
-                                                  <Label text="Label" />
-                                              </children>
-                                              <padding>
-                                                  <Insets top="10.0" />
-                                              </padding>
-                                          </VBox>
-                                      </children>
-                                  </HBox>
-                                  <HBox layoutX="310.0" prefHeight="150.0" prefWidth="300.0">
-                                      <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
-                                 <image>
-                                    <Image url="@Color-blue.jpg" />
-                                 </image></ImageView>
-                                          <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
-                                              <children>
-                                                  <Label alignment="CENTER" text="Label" />
-                                                  <Label text="Label" />
-                                              </children>
-                                              <padding>
-                                                  <Insets top="10.0" />
-                                              </padding>
-                                          </VBox>
-                                      </children>
-                                  </HBox>
-                                  <HBox layoutX="610.0" prefHeight="150.0" prefWidth="300.0">
-                                      <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
-                                              <image>
-                                                  <Image url="@Color-Green.jpg" />
-                                              </image></ImageView>
-                                          <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
-                                              <children>
-                                                  <Label alignment="CENTER" text="Label" />
-                                                  <Label text="Label" />
-                                              </children>
-                                              <padding>
-                                                  <Insets top="10.0" />
-                                              </padding>
-                                          </VBox>
-                                      </children>
-                                  </HBox>
-                                  <HBox layoutX="910.0" prefHeight="150.0" prefWidth="300.0">
-                                      <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
-                                              <image>
-                                                  <Image url="@Color-orange.jpg" />
-                                              </image></ImageView>
-                                          <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
-                                              <children>
-                                                  <Label alignment="CENTER" text="Label" />
-                                                  <Label text="Label" />
-                                              </children>
-                                              <padding>
-                                                  <Insets top="10.0" />
-                                              </padding>
-                                          </VBox>
-                                      </children>
-                                  </HBox>
-                                  <HBox layoutX="1210.0" prefHeight="150.0" prefWidth="300.0">
-                                      <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
-                                              <image>
-                                                  <Image url="@Colour_red.jpg" />
-                                              </image></ImageView>
-                                          <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
-                                              <children>
-                                                  <Label alignment="CENTER" text="Label" />
-                                                  <Label text="Label" />
-                                              </children>
-                                              <padding>
-                                                  <Insets top="10.0" />
-                                              </padding>
-                                          </VBox>
-                                      </children>
-                                  </HBox>
-                                  <HBox layoutX="1510.0" prefHeight="150.0" prefWidth="300.0">
-                                      <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
-                                              <image>
-                                                  <Image url="@Purplecolor.jpg" />
-                                              </image></ImageView>
-                                          <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
-                                              <children>
-                                                  <Label alignment="CENTER" text="Label" />
-                                                  <Label text="Label" />
-                                              </children>
-                                              <padding>
-                                                  <Insets top="10.0" />
-                                              </padding>
-                                          </VBox>
-                                      </children>
-                                  </HBox>
-                                  <HBox layoutX="1810.0" prefHeight="150.0" prefWidth="300.0">
-                                      <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
-                                              <image>
-                                                  <Image url="@Pink.jpg" />
-                                              </image></ImageView>
-                                          <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
-                                              <children>
-                                                  <Label alignment="CENTER" text="Label" />
-                                                  <Label text="Label" />
-                                              </children>
-                                              <padding>
-                                                  <Insets top="10.0" />
-                                              </padding>
-                                          </VBox>
-                                      </children>
-                                  </HBox>
+                                <HBox fx:id="wire" layoutX="10.0" onDragDetected="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                    <children>
+                                        <ImageView fitHeight="150.0" fitWidth="150.0" onMousePressed="#spawn" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@Black.jpg" />
+                                            </image></ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Wire" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="powerSupply" layoutX="310.0" prefHeight="150.0" prefWidth="300.0">
+                                    <children>
+                                        <ImageView fitHeight="150.0" fitWidth="150.0" onMousePressed="#spawn" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@Color-blue.jpg" />
+                                            </image></ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Power Supply" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="resistor" layoutX="610.0" prefHeight="150.0" prefWidth="300.0">
+                                    <children>
+                                        <ImageView fitHeight="150.0" fitWidth="150.0" onMousePressed="#spawn" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@Color-Green.jpg" />
+                                            </image></ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Resistor" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="capacitor" layoutX="910.0" prefHeight="150.0" prefWidth="300.0">
+                                    <children>
+                                        <ImageView fitHeight="150.0" fitWidth="150.0" onMousePressed="#spawn" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@Color-orange.jpg" />
+                                            </image></ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Capacitor" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="merger" layoutX="1210.0" prefHeight="150.0" prefWidth="300.0">
+                                    <children>
+                                        <ImageView fitHeight="150.0" fitWidth="150.0" onMousePressed="#spawn" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@Colour_red.jpg" />
+                                            </image></ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Merger" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="splitter" layoutX="1510.0" prefHeight="150.0" prefWidth="300.0">
+                                    <children>
+                                        <ImageView fitHeight="150.0" fitWidth="150.0" onMousePressed="#spawn" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@Purplecolor.jpg" />
+                                            </image></ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Splitter" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox layoutX="1810.0" prefHeight="150.0" prefWidth="300.0">
+                                    <children>
+                                        <ImageView fitHeight="150.0" fitWidth="150.0" onMousePressed="#spawn" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@Pink.jpg" />
+                                            </image></ImageView>
+                                        <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                            <children>
+                                                <Label alignment="CENTER" text="Label" />
+                                                <Label text="Label" />
+                                            </children>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </VBox>
+                                    </children>
+                                </HBox>
                             </children>
                         </AnchorPane>
                     </content>

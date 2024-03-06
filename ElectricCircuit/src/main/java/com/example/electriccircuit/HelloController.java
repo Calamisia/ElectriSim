@@ -11,9 +11,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -73,6 +75,15 @@ public class HelloController implements Initializable {
     private ImageView imgv;
 
     @FXML
+    private SplitPane splitPane;
+
+    @FXML
+    private ImageView logotitle;
+
+    @FXML
+    private HBox logotitlehbox;
+
+    @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
@@ -84,6 +95,40 @@ public class HelloController implements Initializable {
         //draggableMaker.dragging(Circle2);
         //FIGURE THIS OUT SOON
     }
+
+    //initialize variables
+    public HelloController() {
+    }
+
+    //bind the properties of imageview when launching title screen
+    @FXML
+    public void titleinitialize(){
+        splitPane.setDividerPositions(0.5);
+        // Get the scene
+        Scene scene = logotitlehbox.getScene();
+
+        // Bind HBox size to Scene size
+        logotitlehbox.setMaxWidth(splitPane.getWidth()/2);
+
+        logotitle.setPreserveRatio(true); // Disable preserving aspect ratio
+        logotitle.fitWidthProperty().bind(logotitlehbox.widthProperty()); // Bind fitWidth to HBox width
+        logotitle.fitHeightProperty().bind(logotitlehbox.heightProperty()); // Bind fitHeight to HBox height
+
+    }
+
+    // Method to adjust HBox position relative to the scene
+    private void adjustHBoxPosition() {
+        // Get the position of the divider in the SplitPane
+        double dividerPosition = splitPane.getDividerPositions()[0];
+
+        // Calculate the position of the HBox based on the SplitPane's size and the divider position
+        double splitPaneWidth = splitPane.getWidth();
+        double hboxWidth = logotitlehbox.prefWidth(-1); // Use -1 to get the preferred width
+        double newPosition = (splitPaneWidth - hboxWidth) * dividerPosition;
+
+        // Set the new position of the HBox within the SplitPane
+        logotitlehbox.setLayoutX(newPosition);
+        }
 
     @FXML
     public void spawn(MouseEvent e) {
