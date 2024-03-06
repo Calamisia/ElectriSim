@@ -168,7 +168,7 @@ public class HelloController implements Initializable {
                 solidcircle.setFill(color);
 
                 double Hspacing = (smallanchorpane.getHeight() / 20);
-                double Wspacing = (smallanchorpane.getWidth() / 20);
+                double Wspacing = (smallanchorpane.getWidth() / 35);
                 int Hindex = (int)Math.round(mouseEvent.getY() / (Hspacing)); //13
                 int Windex = (int)Math.round(mouseEvent.getX() / (Wspacing)); //7
 
@@ -177,12 +177,12 @@ public class HelloController implements Initializable {
                     Hindex = 19;
                 } if(Windex == -1){{
                     Windex = 0;
-                }} if(Windex == 20){
-                    Windex = 19;
+                }} if(Windex == 35){
+                    Windex = 34;
                 }
 
                 if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
-                    if (Windex < 20 && Windex >= 0) {
+                    if (Windex < 35 && Windex >= 0) {
                         //snaps to grid
                         solidcircle.setCenterY(Hindex * (Hspacing) + (Hspacing / 2));
                         solidcircle.setCenterX(Windex * (Wspacing) + (Wspacing / 2));
