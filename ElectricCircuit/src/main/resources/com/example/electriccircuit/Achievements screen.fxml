@@ -18,7 +18,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="file:/C:/Users/victo/Documents/GitHub/ElectriSim/ElectricCircuit/src/main/resources/com/example/electriccircuit/lock.jpg" />
+                                    <Image url="@lock.jpg" />
                                  </image>
                               </ImageView>
                               <Label text="Achievement name" />
@@ -36,7 +36,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="file:/C:/Users/victo/Documents/GitHub/ElectriSim/ElectricCircuit/src/main/resources/com/example/electriccircuit/lock.jpg" />
+                                    <Image url="@lock.jpg" />
                                  </image>
                               </ImageView>
                               <Label text="Achievement name" />
@@ -54,7 +54,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="file:/C:/Users/victo/Documents/GitHub/ElectriSim/ElectricCircuit/src/main/resources/com/example/electriccircuit/lock.jpg" />
+                                    <Image url="@lock.jpg" />
                                  </image>
                               </ImageView>
                               <Label text="Achievement name" />
@@ -72,7 +72,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="file:/C:/Users/victo/Documents/GitHub/ElectriSim/ElectricCircuit/src/main/resources/com/example/electriccircuit/lock.jpg" />
+                                    <Image url="@lock.jpg" />
                                  </image>
                               </ImageView>
                               <Label text="Achievement name" />
@@ -90,7 +90,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="file:/C:/Users/victo/Documents/GitHub/ElectriSim/ElectricCircuit/src/main/resources/com/example/electriccircuit/lock.jpg" />
+                                    <Image url="@lock.jpg" />
                                  </image>
                               </ImageView>
                               <Label text="Achievement name" />
@@ -108,7 +108,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="file:/C:/Users/victo/Documents/GitHub/ElectriSim/ElectricCircuit/src/main/resources/com/example/electriccircuit/lock.jpg" />
+                                    <Image url="@lock.jpg" />
                                  </image>
                               </ImageView>
                               <Label text="Achievement name" />
@@ -126,7 +126,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="file:/C:/Users/victo/Documents/GitHub/ElectriSim/ElectricCircuit/src/main/resources/com/example/electriccircuit/lock.jpg" />
+                                    <Image url="@lock.jpg" />
                                  </image>
                               </ImageView>
                               <Label text="Achievement name" />
@@ -144,7 +144,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="file:/C:/Users/victo/Documents/GitHub/ElectriSim/ElectricCircuit/src/main/resources/com/example/electriccircuit/lock.jpg" />
+                                    <Image url="@lock.jpg" />
                                  </image>
                               </ImageView>
                               <Label text="Achievement name" />
