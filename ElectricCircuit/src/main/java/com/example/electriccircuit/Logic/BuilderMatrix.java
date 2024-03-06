@@ -73,64 +73,36 @@ public class BuilderMatrix {
             columnnegbuffer = 1;
         int rowtopbuffer = 0;
         int columntopbuffer = 0; // these buffers prevent indexing out of bounds
-        if (row + 1 <= 35)
-            rowtopbuffer = -1;
-        if (column + 1 <= 20)
-            columntopbuffer = -1;
+        if (row + 1 >= 35)
+            rowtopbuffer = 1;
+        if (column + 1 >= 20)
+            columntopbuffer = 1;
 
-        if (grid[row - 1 + rownegbuffer][column - 1 + columnnegbuffer] != 0 && (row - 1 + rownegbuffer)!= prevRow && (column - 1 + columnnegbuffer)!= prevCol){
+        if (grid[row - 1 + rownegbuffer][column] != 0 && (row - 1 + rownegbuffer)!= prevRow && (column)!= prevCol){
             arraylist.add(true);
-            arraylist.add(row-1);
-            arraylist.add(column-1);
-            arraylist.add(row); // adds the index of the current component so the next component cant find it again.
+            arraylist.add(row-1 + rownegbuffer);
             arraylist.add(column);
-        }
-        else if (grid[row - 1 + rownegbuffer][column] != 0 && (row - 1 + rownegbuffer)!= prevRow && (column)!= prevCol){
-            arraylist.add(true);
-            arraylist.add(row-1);
-            arraylist.add(column);
-            arraylist.add(row);
-            arraylist.add(column);
-        }
-        else if (grid[row - 1 + rownegbuffer][column + 1 + columntopbuffer] != 0 && (row - 1 + rownegbuffer)!= prevRow && (column + 1 + columntopbuffer)!= prevCol){
-            arraylist.add(true);
-            arraylist.add(row-1);
-            arraylist.add(column+1);
             arraylist.add(row);
             arraylist.add(column);
         }
         else if (grid[row][column - 1 + columnnegbuffer] != 0 && (row)!= prevRow && (column - 1 + columnnegbuffer)!= prevCol){
             arraylist.add(true);
             arraylist.add(row);
-            arraylist.add(column-1);
+            arraylist.add(column-1 + columnnegbuffer);
             arraylist.add(row);
             arraylist.add(column);
         }
-        else if (grid[row][column + 1 + columntopbuffer] != 0 && (row)!= prevRow && (column + 1 + columntopbuffer)!= prevCol){
+        else if (grid[row][column + 1 - columntopbuffer] != 0 && (row)!= prevRow && (column + 1 - columntopbuffer)!= prevCol){
             arraylist.add(true);
             arraylist.add(row);
-            arraylist.add(column+1);
-            arraylist.add(row);
-            arraylist.add(column);
-        }
-        else if (grid[row + 1 + rowtopbuffer][column - 1 + columnnegbuffer] != 0 && (row + 1 + rowtopbuffer)!= prevRow && (column - 1 + columnnegbuffer)!= prevCol){
-            arraylist.add(true);
-            arraylist.add(row+1);
-            arraylist.add(column-1);
+            arraylist.add(column+1 - columntopbuffer);
             arraylist.add(row);
             arraylist.add(column);
         }
-        else if (grid[row + 1 + rowtopbuffer][column] != 0 && (row + 1 + rowtopbuffer)!= prevRow && (column)!= prevCol){
+        else if (grid[row + 1 - rowtopbuffer][column] != 0 && (row + 1 - rowtopbuffer)!= prevRow && (column)!= prevCol){
             arraylist.add(true);
-            arraylist.add(row+1);
+            arraylist.add(row+1 - rowtopbuffer);
             arraylist.add(column);
-            arraylist.add(row);
-            arraylist.add(column);
-        }
-        else if (grid[row + 1 + rowtopbuffer][column + 1 + columntopbuffer] != 0 && (row + 1 + rowtopbuffer)!= prevRow && (column + 1 + columntopbuffer)!= prevCol){
-            arraylist.add(true);
-            arraylist.add(row+1);
-            arraylist.add(column+1);
             arraylist.add(row);
             arraylist.add(column);
         }
@@ -144,50 +116,62 @@ public class BuilderMatrix {
     public boolean closedCircuit(){
         int[] componentIndex = new int[4]; // indexes for a certain component
         boolean foundPower = false;
+        ArrayList surroundingInfo = new ArrayList();
 
-        ArrayList surroundingInfo;
         outerloop:
         for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
+            for (int j = 0; j < grid[i].length; j++) {
                 // this checks every single box on the grid if for surrounding components
                 surroundingInfo = surrounding(i, j, 999, 999);
                 if ((boolean) (surroundingInfo.get(0))) {
                     // if there is a surrounding component, check if it's a powerSupply
                     if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
                         //if it is a power supply, make that the componentIndex, and start the circuitPath from there
-                        componentIndex[0] = i;
-                        componentIndex[1] = j;
+                        componentIndex[0] = (int) surroundingInfo.get(1);
+                        componentIndex[1] = (int) surroundingInfo.get(2);
+                        componentIndex[2] = (int) surroundingInfo.get(3);
+                        componentIndex[3] = (int) surroundingInfo.get(4);
                         circuitPath.append(2);
                         foundPower = true;
+                        System.out.println("Found index of powersupply " + i + " " + j);
                         break outerloop;
                         // we can break this loop, since we found the start of the circuit
                     }
                 }
             }
         }
-        if (foundPower == false) // if no powerSupply was found, the circuit is, by deduction, not closed.
+        if (foundPower == false) {
+            // if no powerSupply was found, the circuit is, by deduction, not closed.
             return false;
+        }
+
 
         // now that we have identified where the power supply is, we run surrounding and create
         // a circuitpath. Every time a new component is found, surrounding is called on that component
         // until we get back to the power supply.
-
-        while (true) { // loops until back to power supply
+        do {
             surroundingInfo = surrounding(componentIndex[0], componentIndex[1], componentIndex[2], componentIndex[3]);
+            System.out.println(componentIndex[0] + ","+ componentIndex[1] + " and the old comp indices were "+componentIndex[2] + "," + componentIndex[3]);
             if ((boolean) (surroundingInfo.get(0))) {
                 if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
                     circuitPath.append(2); // if it found the battery, return true
+                    System.out.println("Found ending batt");
+                    System.out.println(circuitPath);
                     return true;
-                }
-                else { // if the surrounding component isn't the battery, make that component the new center component.
+                } else {
+                    // if the surrounding component isn't the battery, make that component the new center component.
                     componentIndex[0] = (int) surroundingInfo.get(1);
                     componentIndex[1] = (int) surroundingInfo.get(2);
                     componentIndex[2] = (int) surroundingInfo.get(3);
                     componentIndex[3] = (int) surroundingInfo.get(4);
                     circuitPath.append(grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
+                    System.out.println("Found another component and appended it to circuit path");
+                    System.out.println(circuitPath);
                 }
-            } else break; // if a surrounding component isn't found, then the circuit is not closed.
-        }
+            } else {
+                break; // Exit the loop if no surrounding component is found
+            }
+        } while (true);
         return false;
     }
 
