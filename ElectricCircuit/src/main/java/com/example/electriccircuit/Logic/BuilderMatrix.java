@@ -84,6 +84,7 @@ public class BuilderMatrix {
             arraylist.add(column);
             arraylist.add(row);
             arraylist.add(column);
+            return arraylist;
         }
         else if (grid[row][column - 1 + columnnegbuffer] != 0 && (row)!= prevRow && (column - 1 + columnnegbuffer)!= prevCol){
             arraylist.add(true);
@@ -91,6 +92,7 @@ public class BuilderMatrix {
             arraylist.add(column-1 + columnnegbuffer);
             arraylist.add(row);
             arraylist.add(column);
+            return arraylist;
         }
         else if (grid[row][column + 1 - columntopbuffer] != 0 && (row)!= prevRow && (column + 1 - columntopbuffer)!= prevCol){
             arraylist.add(true);
@@ -98,6 +100,7 @@ public class BuilderMatrix {
             arraylist.add(column+1 - columntopbuffer);
             arraylist.add(row);
             arraylist.add(column);
+            return arraylist;
         }
         else if (grid[row + 1 - rowtopbuffer][column] != 0 && (row + 1 - rowtopbuffer)!= prevRow && (column)!= prevCol){
             arraylist.add(true);
@@ -105,6 +108,7 @@ public class BuilderMatrix {
             arraylist.add(column);
             arraylist.add(row);
             arraylist.add(column);
+            return arraylist;
         }
         else arraylist.add(false);
 
