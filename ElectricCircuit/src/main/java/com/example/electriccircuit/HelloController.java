@@ -14,11 +14,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -42,17 +45,6 @@ public class HelloController implements Initializable {
         stage.show();
     }
 
-    /* Switch to achievements screen */
-    @FXML
-    private void Achievements(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("Achievements screen.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setMaximized(false);
-        stage.setMaximized(true);
-        stage.show();;}
-
     public void switchtoScene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -75,6 +67,27 @@ public class HelloController implements Initializable {
 
     @FXML
     private ImageView imgv;
+
+    @FXML
+    private SplitPane splitPane;
+
+    @FXML
+    private ImageView logotitle;
+
+    @FXML
+    private HBox logotitlehbox;
+
+    @FXML
+    private ImageView lockimage;
+
+    @FXML
+    private VBox achievementsvbox;
+
+    @FXML
+    private HBox wideachievementshbox;
+
+    @FXML
+    private HBox achievementshbox;
 
     @FXML
     protected void onHelloButtonClick() {
@@ -101,6 +114,52 @@ public class HelloController implements Initializable {
     private HBox merger;
     @FXML
     private HBox splitter;
+
+    //initialize variables
+    public HelloController() {
+    }
+
+    //bind the properties of imageview when launching title screen
+    @FXML
+    public void titleinitialize(){
+        //set the divider position to the middle of the screen
+        splitPane.setDividerPositions(0.5);
+
+        //Set max size of hbox to half of splitpane
+        logotitlehbox.setMaxWidth(splitPane.getWidth()/2);
+
+        logotitle.setPreserveRatio(true); // Disable preserving aspect ratio
+        logotitle.fitWidthProperty().bind(logotitlehbox.widthProperty()); // Bind fitWidth to HBox width
+        logotitle.fitHeightProperty().bind(logotitlehbox.heightProperty()); // Bind fitHeight to HBox height
+
+    }
+
+    /* Switch to achievements screen and initialize*/
+    @FXML
+    private void Achievements(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Achievements screen.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(false);
+        stage.setMaximized(true);
+
+        lockimage.setPreserveRatio(true); // Disable preserving aspect ratio
+        lockimage.fitWidthProperty().bind(achievementshbox.widthProperty()); // Bind fitWidth to HBox width
+        lockimage.fitHeightProperty().bind(achievementshbox.heightProperty()); // Bind fitHeight to HBox height
+
+        stage.show();;}
+
+    /* Switch to main screen and initialize*/
+    @FXML
+    private void MainScreen(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(false);
+        stage.setMaximized(true);
+        stage.show();;}
 
     @FXML
     public void spawn(MouseEvent e) {

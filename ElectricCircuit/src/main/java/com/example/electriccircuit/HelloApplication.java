@@ -24,6 +24,8 @@ public class HelloApplication extends Application {
         primaryStage.setMaximized(true);
         primaryStage.show();
 
+        HelloController controller = fxmlLoader.getController();
+        controller.titleinitialize();
         primaryStage.setOnCloseRequest( e -> {
             saveGame();
             CalculatingGrid calc = new CalculatingGrid();
