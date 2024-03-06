@@ -44,7 +44,7 @@ public class Unlocks {
                     return true;
                 else return false;
             case 9 :
-                if( sum >= 9)
+                if( sum >= 8)
                     return true;
                 else return false;
         }
