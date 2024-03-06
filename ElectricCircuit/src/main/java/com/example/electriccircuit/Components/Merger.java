@@ -1,5 +1,7 @@
 package com.example.electriccircuit.Components;
 
+import javafx.scene.paint.Color;
+
 public class Merger {
     private static Wire inputWireOne;
     private static Wire inputWireTwo;
@@ -39,6 +41,12 @@ public class Merger {
             } break;
 
         }
+    }
+    public int getId(){
+        return 5;
+    }
+    public Color getColor(){
+        return Color.RED;
     }
 
 }

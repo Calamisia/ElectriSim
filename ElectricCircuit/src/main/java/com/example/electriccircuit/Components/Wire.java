@@ -2,7 +2,7 @@ package com.example.electriccircuit.Components;
 
 import javafx.scene.paint.Color;
 
-import static java.awt.Color.black;
+
 
 public class Wire {
     private int length;

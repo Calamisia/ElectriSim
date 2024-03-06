@@ -1,6 +1,6 @@
 package com.example.electriccircuit;
 
-import com.example.electriccircuit.Components.Wire;
+import com.example.electriccircuit.Components.*;
 import com.example.electriccircuit.Logic.BuilderMatrix;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.HelloApplication;
@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -88,20 +89,60 @@ public class HelloController implements Initializable {
     }
 
     @FXML
+    private HBox wire;
+    @FXML
+    private HBox powerSupply;
+    @FXML
+    private HBox resistor;
+    @FXML
+    private HBox capacitor;
+    @FXML
+    private HBox merger;
+    @FXML
+    private HBox splitter;
+
+    @FXML
     public void spawn(MouseEvent e) {
         int iD;
         Color color;
-        if(e.getTarget() == ){
+        if(((HBox) e.getSource()).getId().equals(wire.getId())){
             Wire carry = new Wire();
             iD = carry.getId();
             color = carry.getColor();
+            System.out.println("Wire selected");
+        } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
+            PowerSupply carry = new PowerSupply();
+            iD = carry.getId();
+            color = carry.getColor();
+        } else if(((HBox) e.getSource()).getId().equals(resistor.getId())){
+            Resistors carry = new Resistors();
+            iD = carry.getId();
+            color = carry.getColor();
+        } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
+            Capacitors carry = new Capacitors();
+            iD = carry.getId();
+            color = carry.getColor();
+        } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
+            Merger carry = new Merger();
+            iD = carry.getId();
+            color = carry.getColor();
+        } else if(((HBox) e.getSource()).getId().equals(splitter.getId())){
+            Splitter carry = new Splitter();
+            iD = carry.getId();
+            color = carry.getColor();
+        }else {
+            System.out.println("HELP");
+            color = null;
+            iD = -1;
         }
+
         //Creates the object
         Circle circle = new Circle(20);
         circle.setFill(color);
+        circle.setOpacity(0);
         anchorpane.getChildren().add(circle);
         smallanchorpane.getChildren().add(circle);
-        circle.toFront();
+
 
         final boolean[] isEventEnabled = {true};
 
@@ -109,11 +150,15 @@ public class HelloController implements Initializable {
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
             circle.setCenterX(mouseEvent.getX());
             circle.setCenterY(mouseEvent.getY());
+            if (!circle.isFocused())
+                circle.setOpacity(100);
         });
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
             circle.setCenterX((smallanchorpane.getWidth() - anchorpane.getWidth()) / 2  + mouseEvent.getX());
             circle.setCenterY(mouseEvent.getY());
+            if (!circle.isFocused())
+                circle.setOpacity(100);
         });
 
         smallanchorpane.setOnMouseReleased(mouseEvent -> {
@@ -160,3 +205,4 @@ public class HelloController implements Initializable {
         });
     }
 }
+

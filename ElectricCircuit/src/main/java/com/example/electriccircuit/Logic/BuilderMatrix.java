@@ -9,8 +9,9 @@ public class BuilderMatrix {
     private final int POWERSUPPLYID = 2;
     private final int RESISTORID = 3;
     private final int CAPACITORID = 4;
-    private final int SPLITTERID = 5;
-    private final int MERGERID = 6;
+
+    private final int MERGERID = 5;
+    private final int SPLITTERID = 6;
     private boolean isClosedCircuit;
     private StringBuilder circuitPath = new StringBuilder(); // used for calculation grid
 

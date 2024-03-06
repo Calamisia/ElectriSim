@@ -1,5 +1,7 @@
 package com.example.electriccircuit.Components;
 
+import javafx.scene.paint.Color;
+
 public class Splitter {
     private boolean inputDetected;
     private static int nOfOutputs;
@@ -47,6 +49,12 @@ public class Splitter {
            } break;
         }
 
+    }
+    public int getId(){
+        return 5;
+    }
+    public Color getColor(){
+        return Color.PURPLE;
     }
 
 }
