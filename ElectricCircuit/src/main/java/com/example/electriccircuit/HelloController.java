@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -226,7 +227,7 @@ public class HelloController implements Initializable {
                 //Creates the solid circle
                 Circle solidcircle = new Circle(20);
                 solidcircle.setFill(color);
-
+                draggableMaker.dragging(solidcircle);
                 double Hspacing = (smallanchorpane.getHeight() / 20);
                 double Wspacing = (smallanchorpane.getWidth() / 35);
 
@@ -254,11 +255,12 @@ public class HelloController implements Initializable {
                         BuilderMatrix.setBoxID(Windex, Hindex, iD);
                     }
                 }
-                //removes carrying component
-                smallanchorpane.getChildren().remove(circle);
-                anchorpane.getChildren().remove(circle);
+                if(!mouseEvent.isShiftDown()){
+                    smallanchorpane.getChildren().remove(circle);
+                    anchorpane.getChildren().remove(circle);
 
-                isEventEnabled[0] = false;
+                    isEventEnabled[0] = false;
+                }
             }
         });
     }
