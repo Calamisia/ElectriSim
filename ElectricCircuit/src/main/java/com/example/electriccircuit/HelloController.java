@@ -45,6 +45,7 @@ public class HelloController implements Initializable {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setMaximized(false);
         stage.setMaximized(true);
         stage.show();;}
 

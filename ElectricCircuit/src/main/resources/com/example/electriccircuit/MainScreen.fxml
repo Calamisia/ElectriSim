@@ -23,11 +23,11 @@
                                       <children>
                                           <ImageView fitHeight="150.0" fitWidth="150.0" onDragEntered="#spawn" pickOnBounds="true">
                                  <image>
-                                    <Image url="@Black.jpg" />
+                                    <Image url="@ElectricCircuit/src/main/resources/com/example/electriccircuit/Purplecolor.jpg" />
                                  </image></ImageView>
                                           <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                               <children>
-                                                  <Label alignment="CENTER" text="Label" />
+                                                  <Label alignment="CENTER" text="Power Supply" />
                                                   <Label text="Label" />
                                               </children>
                                               <padding>
