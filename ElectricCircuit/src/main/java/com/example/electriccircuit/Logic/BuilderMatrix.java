@@ -32,7 +32,7 @@ public class BuilderMatrix {
     }
 
     // Used to add a component Id to a box
-    public void setBoxID(int row, int column, int iD) {
+    public static void setBoxID(int row, int column, int iD) {
         grid[row][column] = iD;
     }
 
