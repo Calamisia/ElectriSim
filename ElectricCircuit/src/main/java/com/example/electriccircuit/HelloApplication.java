@@ -1,5 +1,6 @@
 package com.example.electriccircuit;
 
+import com.example.electriccircuit.Logic.CalculatingGrid;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -11,6 +12,8 @@ import com.example.electriccircuit.Logic.BuilderMatrix;
 
 import java.io.IOException;
 
+import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
+
 public class HelloApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -21,6 +24,10 @@ public class HelloApplication extends Application {
         primaryStage.setMaximized(true);
         primaryStage.show();
 
+        primaryStage.setOnCloseRequest( e -> {
+            saveGame();
+            CalculatingGrid calc = new CalculatingGrid();
+        });
 
     }
 }

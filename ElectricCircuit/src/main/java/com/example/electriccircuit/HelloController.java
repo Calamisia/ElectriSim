@@ -2,6 +2,8 @@ package com.example.electriccircuit;
 
 import com.example.electriccircuit.Components.*;
 import com.example.electriccircuit.Logic.BuilderMatrix;
+import com.example.electriccircuit.Logic.CalculatingGrid;
+import com.example.electriccircuit.Logic.SaveFiles;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.HelloApplication;
 import javafx.event.ActionEvent;
@@ -30,7 +32,6 @@ public class HelloController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    BuilderMatrix sandboxMatrix = new BuilderMatrix();
 
     //allows scene switching from scene 2 to 1
     public void switchtoScene1(ActionEvent event) throws IOException {
@@ -169,8 +170,9 @@ public class HelloController implements Initializable {
 
                 double Hspacing = (smallanchorpane.getHeight() / 20);
                 double Wspacing = (smallanchorpane.getWidth() / 35);
-                int Hindex = (int)Math.round(mouseEvent.getY() / (Hspacing)); //13
-                int Windex = (int)Math.round(mouseEvent.getX() / (Wspacing)); //7
+
+                int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing));
+                int Windex = (int)Math.round((mouseEvent.getX() - Wspacing / 2) / (Wspacing));
 
                 /* more fluid input */
                 if(Hindex == 20){
@@ -184,13 +186,13 @@ public class HelloController implements Initializable {
                 if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                     if (Windex < 35 && Windex >= 0) {
                         //snaps to grid
-                        solidcircle.setCenterY(Hindex * (Hspacing) + (Hspacing / 2));
-                        solidcircle.setCenterX(Windex * (Wspacing) + (Wspacing / 2));
+                        solidcircle.setCenterY(Hindex * (Hspacing) + Hspacing / 2);
+                        solidcircle.setCenterX(Windex * (Wspacing) + Wspacing / 2);
                         smallanchorpane.getChildren().add(solidcircle);
                         solidcircle.toFront();
 
                         //Sandbox Matrix creation
-                        sandboxMatrix.setBoxID(Windex, Hindex, iD);
+                        BuilderMatrix.setBoxID(Windex, Hindex, iD);
                     }
                 }
                 //removes carrying component
@@ -198,11 +200,10 @@ public class HelloController implements Initializable {
                 anchorpane.getChildren().remove(circle);
 
                 isEventEnabled[0] = false;
-                //saves game
-                saveGame();//DELETE THIS
-
             }
         });
     }
+
+
 }
 

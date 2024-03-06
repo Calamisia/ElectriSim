@@ -21,11 +21,18 @@ public class BuilderMatrix {
                 grid[i][j] = 0;
             }
         }
-
+    }
+    public BuilderMatrix(int[][] matrix){
+        // initialize every value to given value
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                grid[i][j] = matrix[i][j];
+            }
+        }
     }
 
     // Used to add a component Id to a box
-    public void setBoxID(int row, int column, int iD) {
+    public static void setBoxID(int row, int column, int iD) {
         grid[row][column] = iD;
     }
 
@@ -56,49 +63,59 @@ public class BuilderMatrix {
     // this method checks all 8 surrounding cases around a given case, to see if there is an ID in one of them.
     // it returns an ArrayList with the first index being a boolean, representing whether or not there is a surrounding ID.
     // If there is a surroudning ID, the second and third entries in the ArrayList are its row and column coordinates.
-    public ArrayList surrounding(int row, int column) {
-        ArrayList arraylist = new ArrayList(3);
-        if (grid[row - 1][column - 1] != 0){
+    public ArrayList surrounding(int row, int column){ //}, int prevRow, int prevCol) {
+        ArrayList arraylist = new ArrayList(5);
+        int rownegbuffer = 0;
+        int columnnegbuffer = 0; // these buffers prevent indexing negative values
+        if (row - 1 < 0)
+            rownegbuffer = 1;
+        if (column - 1 < 0)
+            columnnegbuffer = 1;
+        int rowtopbuffer = 0;
+        int columntopbuffer = 0; // these buffers prevent indexing out of bounds
+        if (row + 1 <= 35)
+            rowtopbuffer = -1;
+        if (column + 1 <= 20)
+            columntopbuffer = -1;
+
+        if (grid[row - 1 + rownegbuffer][column - 1 + columnnegbuffer] != 0){// && (row - 1 + rowbuffer)!= prevRow && (column - 1 + columnbuffer)!= prevCol){
             arraylist.add(true);
             arraylist.add(row-1);
             arraylist.add(column-1);
+            arraylist.add(row); // adds the index of the current component so the next component cant find it again.
+            arraylist.add(column);
         }
-        else if (grid[row - 1][column] != 0){
+        else if (grid[row - 1 + rownegbuffer][column] != 0 ){ //&& (row)){
             arraylist.add(true);
             arraylist.add(row-1);
             arraylist.add(column);
         }
-        else if (grid[row - 1][column + 1] != 0){
+        else if (grid[row - 1 + rownegbuffer][column + 1 + columntopbuffer] != 0){
             arraylist.add(true);
             arraylist.add(row-1);
             arraylist.add(column+1);
         }
-        else if (grid[row][column - 1] != 0){
+        else if (grid[row][column - 1 + columnnegbuffer] != 0){
             arraylist.add(true);
             arraylist.add(row);
             arraylist.add(column-1);
         }
-        else if (grid[row][column] != 0){
-            arraylist.add(true);
-            arraylist.add(row);
-            arraylist.add(column);
-        }
-        else if (grid[row][column + 1] != 0){
+        else if (grid[row][column + 1 + columntopbuffer] != 0){
             arraylist.add(true);
             arraylist.add(row);
             arraylist.add(column+1);
         }
-        else if (grid[row + 1][column - 1] != 0){
+        else if (grid[row + 1 + rowtopbuffer][column - 1 + columnnegbuffer] != 0){
             arraylist.add(true);
             arraylist.add(row+1);
             arraylist.add(column-1);
         }
-        else if (grid[row + 1][column] != 0){
+        else if (grid[row + 1 + rowtopbuffer][column] != 0){
             arraylist.add(true);
             arraylist.add(row+1);
             arraylist.add(column);
         }
-        else if (grid[row + 1][column + 1] != 0){
+        else if (grid[row + 1 + rowtopbuffer][column + 1 + columntopbuffer] != 0){
             arraylist.add(true);
             arraylist.add(row+1);
             arraylist.add(column+1);
@@ -119,7 +136,7 @@ public class BuilderMatrix {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 // this checks every single box on the grid if for surrounding components
-                surroundingInfo = surrounding(i, j);
+                surroundingInfo = surrounding(i, j); // , 999, 999);
                 if ((boolean) (surroundingInfo.get(0))) {
                     // if there is a surrounding component, check if it's a powerSupply
                     if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
@@ -158,17 +175,11 @@ public class BuilderMatrix {
         return false;
     }
 
-    public void refresh() {
-        boolean doesItWork = closedCircuit();
-        // make a copy of circuit path string
-        // modify the grid values using anchor panes
-        // check if circuitPath = old circuit path. If true, do nothing (since the circuit didn't change)
-        // if false, the circuit changed. erefore, run closedCircuit to see if it works well.
-    }
-
 }
 
-// SURROUNDING RETURNS TRUE FROM THE PREVIOUS COMPONENT SO IT DOESN'T WORK
+// SURROUNDING RETURNS TRUE FROM THE PREVIOUS COMPONENT SO IT DOESN'T WORK im doing this
+
+
+
 // HAVE TO RECURSIVELY CALL THE METHOD ON SPLITTERS AND MERGERS
 // ALSO HAVE TO SPLIT THE CIRCUIT PATH STRING WHEN FINDING SPLITTERS AND MERGERS
-// MAKE SURE NO NEGATIVE INDEXES WHEN SUBTRACTING INDEXES
