@@ -141,6 +141,7 @@ public class BuilderMatrix {
                         componentIndex[1] = (int) surroundingInfo.get(2);
                         componentIndex[2] = (int) surroundingInfo.get(3);
                         componentIndex[3] = (int) surroundingInfo.get(4);
+                        grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] = 9;
                         circuitPath.append(2);
                         foundPower = true;
                         System.out.println("Found index of powersupply " + i + " " + j);
@@ -162,7 +163,7 @@ public class BuilderMatrix {
         while (true) {
             surroundingInfo = surrounding(componentIndex[0], componentIndex[1], componentIndex[2], componentIndex[3]);
             if ((boolean) (surroundingInfo.get(0))) {
-                if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
+                if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 9) {
                     circuitPath.append(2); // if it found the battery, return true
                     return true;
                 } else {
