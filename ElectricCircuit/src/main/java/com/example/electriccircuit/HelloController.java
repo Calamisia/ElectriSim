@@ -1,5 +1,6 @@
 package com.example.electriccircuit;
 
+import com.example.electriccircuit.Components.Wire;
 import com.example.electriccircuit.Logic.BuilderMatrix;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.HelloApplication;
@@ -14,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -87,8 +89,16 @@ public class HelloController implements Initializable {
 
     @FXML
     public void spawn(MouseEvent e) {
+        int iD;
+        Color color;
+        if(e.getTarget() == ){
+            Wire carry = new Wire();
+            iD = carry.getId();
+            color = carry.getColor();
+        }
         //Creates the object
         Circle circle = new Circle(20);
+        circle.setFill(color);
         anchorpane.getChildren().add(circle);
         smallanchorpane.getChildren().add(circle);
         circle.toFront();
@@ -110,6 +120,7 @@ public class HelloController implements Initializable {
             if(isEventEnabled[0]) { //makes sure you can only release once
                 //Creates the solid circle
                 Circle solidcircle = new Circle(20);
+                solidcircle.setFill(color);
 
                 double Hspacing = (smallanchorpane.getHeight() / 20);
                 double Wspacing = (smallanchorpane.getWidth() / 20);
@@ -134,7 +145,7 @@ public class HelloController implements Initializable {
                         solidcircle.toFront();
 
                         //Sandbox Matrix creation
-                        sandboxMatrix.setBoxID(Windex, Hindex, 1);
+                        sandboxMatrix.setBoxID(Windex, Hindex, iD);
                     }
                 }
                 //removes carrying component

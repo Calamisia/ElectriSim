@@ -2,6 +2,8 @@ package com.example.electriccircuit.Components;
 
 import javafx.scene.paint.Color;
 
+import static java.awt.Color.black;
+
 public class Wire {
     private int length;
     private Color wireColor;
@@ -78,5 +80,11 @@ public class Wire {
             connectedVoltage = 0;
             passingVoltage = 0;
         } // if it isn't connected, there's no data to transfer.
+    }
+    public int getId(){
+        return 1;
+    }
+    public Color getColor(){
+        return Color.BLACK;
     }
 }
