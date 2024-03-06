@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
         <AnchorPane fx:id="anchorpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
@@ -19,15 +19,15 @@
                                 <Insets />
                             </VBox.margin>
                             <children>
-                                  <HBox layoutX="10.0" onMousePressed="#spawn" prefHeight="135.0" prefWidth="300.0">
+                                  <HBox layoutX="10.0" onDragDetected="#spawn" prefHeight="150.0" prefWidth="300.0">
                                       <children>
                                           <ImageView fitHeight="150.0" fitWidth="150.0" onDragEntered="#spawn" pickOnBounds="true">
                                  <image>
-                                    <Image url="@ElectricCircuit/src/main/resources/com/example/electriccircuit/Purplecolor.jpg" />
+                                    <Image url="@Black.jpg" />
                                  </image></ImageView>
                                           <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                               <children>
-                                                  <Label alignment="CENTER" text="Power Supply" />
+                                                  <Label alignment="CENTER" text="Label" />
                                                   <Label text="Label" />
                                               </children>
                                               <padding>
@@ -36,9 +36,12 @@
                                           </VBox>
                                       </children>
                                   </HBox>
-                                  <HBox layoutX="310.0" prefHeight="135.0" prefWidth="300.0">
+                                  <HBox layoutX="310.0" prefHeight="150.0" prefWidth="300.0">
                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@Color-blue.jpg" />
+                                 </image></ImageView>
                                           <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                               <children>
                                                   <Label alignment="CENTER" text="Label" />
@@ -52,7 +55,10 @@
                                   </HBox>
                                   <HBox layoutX="610.0" prefHeight="150.0" prefWidth="300.0">
                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                              <image>
+                                                  <Image url="@Color-Green.jpg" />
+                                              </image></ImageView>
                                           <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                               <children>
                                                   <Label alignment="CENTER" text="Label" />
@@ -64,9 +70,12 @@
                                           </VBox>
                                       </children>
                                   </HBox>
-                                  <HBox layoutX="910.0" prefHeight="135.0" prefWidth="300.0">
+                                  <HBox layoutX="910.0" prefHeight="150.0" prefWidth="300.0">
                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                              <image>
+                                                  <Image url="@Color-orange.jpg" />
+                                              </image></ImageView>
                                           <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                               <children>
                                                   <Label alignment="CENTER" text="Label" />
@@ -78,9 +87,12 @@
                                           </VBox>
                                       </children>
                                   </HBox>
-                                  <HBox layoutX="1210.0" prefHeight="135.0" prefWidth="300.0">
+                                  <HBox layoutX="1210.0" prefHeight="150.0" prefWidth="300.0">
                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                              <image>
+                                                  <Image url="@Colour_red.jpg" />
+                                              </image></ImageView>
                                           <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                               <children>
                                                   <Label alignment="CENTER" text="Label" />
@@ -92,9 +104,12 @@
                                           </VBox>
                                       </children>
                                   </HBox>
-                                  <HBox layoutX="1510.0" prefHeight="135.0" prefWidth="300.0">
+                                  <HBox layoutX="1510.0" prefHeight="150.0" prefWidth="300.0">
                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                              <image>
+                                                  <Image url="@Purplecolor.jpg" />
+                                              </image></ImageView>
                                           <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                               <children>
                                                   <Label alignment="CENTER" text="Label" />
@@ -108,7 +123,10 @@
                                   </HBox>
                                   <HBox layoutX="1810.0" prefHeight="150.0" prefWidth="300.0">
                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                              <image>
+                                                  <Image url="@Pink.jpg" />
+                                              </image></ImageView>
                                           <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                               <children>
                                                   <Label alignment="CENTER" text="Label" />
@@ -162,7 +180,7 @@
                     </children>
                 </HBox>
             </children></AnchorPane>
-        <BorderPane minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" onMousePressed="#spawn" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
+        <BorderPane minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
             <!--Visual Pane-->
             <left>
                 <!--Left side of border pane-->
