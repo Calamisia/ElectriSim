@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -39,17 +40,6 @@ public class HelloController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-    /* Switch to achievements screen */
-    @FXML
-    private void Achievements(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("Achievements screen.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setMaximized(false);
-        stage.setMaximized(true);
-        stage.show();;}
 
     public void switchtoScene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
@@ -84,6 +74,18 @@ public class HelloController implements Initializable {
     private HBox logotitlehbox;
 
     @FXML
+    private ImageView lockimage;
+
+    @FXML
+    private VBox achievementsvbox;
+
+    @FXML
+    private HBox wideachievementshbox;
+
+    @FXML
+    private HBox achievementshbox;
+
+    @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
@@ -103,11 +105,10 @@ public class HelloController implements Initializable {
     //bind the properties of imageview when launching title screen
     @FXML
     public void titleinitialize(){
+        //set the divider position to the middle of the screen
         splitPane.setDividerPositions(0.5);
-        // Get the scene
-        Scene scene = logotitlehbox.getScene();
 
-        // Bind HBox size to Scene size
+        //Set max size of hbox to half of splitpane
         logotitlehbox.setMaxWidth(splitPane.getWidth()/2);
 
         logotitle.setPreserveRatio(true); // Disable preserving aspect ratio
@@ -116,19 +117,32 @@ public class HelloController implements Initializable {
 
     }
 
-    // Method to adjust HBox position relative to the scene
-    private void adjustHBoxPosition() {
-        // Get the position of the divider in the SplitPane
-        double dividerPosition = splitPane.getDividerPositions()[0];
+    /* Switch to achievements screen and initialize*/
+    @FXML
+    private void Achievements(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Achievements screen.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(false);
+        stage.setMaximized(true);
 
-        // Calculate the position of the HBox based on the SplitPane's size and the divider position
-        double splitPaneWidth = splitPane.getWidth();
-        double hboxWidth = logotitlehbox.prefWidth(-1); // Use -1 to get the preferred width
-        double newPosition = (splitPaneWidth - hboxWidth) * dividerPosition;
+        lockimage.setPreserveRatio(true); // Disable preserving aspect ratio
+        lockimage.fitWidthProperty().bind(achievementshbox.widthProperty()); // Bind fitWidth to HBox width
+        lockimage.fitHeightProperty().bind(achievementshbox.heightProperty()); // Bind fitHeight to HBox height
 
-        // Set the new position of the HBox within the SplitPane
-        logotitlehbox.setLayoutX(newPosition);
-        }
+        stage.show();;}
+
+    /* Switch to main screen and initialize*/
+    @FXML
+    private void MainScreen(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(false);
+        stage.setMaximized(true);
+        stage.show();;}
 
     @FXML
     public void spawn(MouseEvent e) {
