@@ -79,7 +79,7 @@ public class SaveFiles {
     //this attmepts to write to a file. If it doesn't exist, it creates the file, and then calls itself to try again.
     // it creates a string out of a matrix
     public static void saveSandbox(int[][] grid) {
-        StringBuilder sandboxBitString = new StringBuilder(400);
+        StringBuilder sandboxBitString = new StringBuilder(700);
         String filePath = "ElectricCircuit/src/main/resources/SaveFiles/sandboxSaveFile.txt";
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
@@ -102,7 +102,7 @@ public class SaveFiles {
     public static int[][] loadSandbox() {
         String filePath = "ElectricCircuit/src/main/resources/SaveFiles/sandboxSaveFile.txt";
         String dataString = "";
-        int[][] data = new int[20][20];
+        int[][] data = new int[35][20];
         int counter = 0;
 
         try {

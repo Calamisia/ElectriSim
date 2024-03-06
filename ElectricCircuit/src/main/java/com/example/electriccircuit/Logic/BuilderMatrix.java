@@ -4,12 +4,11 @@ import java.util.ArrayList;
 
 public class BuilderMatrix {
 
-    private static int[][] grid = new int[20][20];
+    private static int[][] grid = new int[35][20];
     private final int WIREID = 1;
     private final int POWERSUPPLYID = 2;
     private final int RESISTORID = 3;
     private final int CAPACITORID = 4;
-
     private final int MERGERID = 5;
     private final int SPLITTERID = 6;
     private boolean isClosedCircuit;
@@ -42,7 +41,16 @@ public class BuilderMatrix {
 
     // used to set the matrix (used to load the sandbox)
     public void setGrid(int[][] grid) {
-        this.grid = grid;
+        BuilderMatrix.grid = grid;
+    }
+
+    // get the circuit path, used for calculating grid
+    public String getCircuitPath() {
+        return circuitPath.toString();
+    }
+    // set the circuit path
+    public void setCircuitPath(StringBuilder circuitPath) {
+        this.circuitPath = circuitPath;
     }
 
     // this method checks all 8 surrounding cases around a given case, to see if there is an ID in one of them.
@@ -97,7 +105,7 @@ public class BuilderMatrix {
         }
         else arraylist.add(false);
 
-       return arraylist;
+        return arraylist;
     }
 
 
@@ -164,4 +172,3 @@ public class BuilderMatrix {
 // HAVE TO RECURSIVELY CALL THE METHOD ON SPLITTERS AND MERGERS
 // ALSO HAVE TO SPLIT THE CIRCUIT PATH STRING WHEN FINDING SPLITTERS AND MERGERS
 // MAKE SURE NO NEGATIVE INDEXES WHEN SUBTRACTING INDEXES
-// get n set circuitPart
