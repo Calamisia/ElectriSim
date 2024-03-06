@@ -17,7 +17,7 @@ import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainScreen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("title.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         primaryStage.setTitle("Hello!");
         primaryStage.setScene(scene);
