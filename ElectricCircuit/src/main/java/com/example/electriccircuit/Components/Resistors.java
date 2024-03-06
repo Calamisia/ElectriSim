@@ -6,9 +6,10 @@ public class Resistors {
 
     public void setResistance(int resistance) {
         this.resistance = resistance;
-    }
+    } // setter
 
     public int getResistance() {
         return resistance;
-    }
+    } // getter
+
 }

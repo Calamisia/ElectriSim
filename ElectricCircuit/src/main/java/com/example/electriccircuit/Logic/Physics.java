@@ -17,6 +17,8 @@ public class Physics implements Maxims {
         return (potential.getVolt() / resistance.getOhm());
     }
 
+
+
     // powerLaw for watts
     public double powerLaw(Volt potential, Amp current) {
         return (potential.getVolt() * current.getAmp());
@@ -29,15 +31,17 @@ public class Physics implements Maxims {
     public double powerLaw(Volt potential, Watt power) {
         return (power.getWatt() / potential.getVolt());
     }
+
+    // capacitanceLaw for couloumbs
     public double capacitanceLaw(Capacitance farad, Volt potential) {
         return (farad.getCapacitance() * potential.getVolt());
     }
+    // capacitanceLaw for farads
     public double capacitanceLaw(Charge coulomb, Volt potential) {
         return (coulomb.getCharge() / potential.getVolt());
     }
+    // capacitanceLaw for volts
     public double capacitanceLaw(Charge coulomb, Capacitance farad) {
         return (coulomb.getCharge() / farad.getCapacitance());
     }
 }
-
-
