@@ -78,7 +78,7 @@ public class BuilderMatrix {
         if (column + 1 == 20)
             columntopbuffer = 1;
 
-        if (grid[row - 1 + rownegbuffer][column] != 0 && (row - 1 + rownegbuffer)!= prevRow && (column)!= prevCol){
+        if (grid[row - 1 + rownegbuffer][column] != 0 && ((row - 1 + rownegbuffer)!= prevRow || (column)!= prevCol)){
             arraylist.add(true);
             arraylist.add(row - 1 + rownegbuffer);
             arraylist.add(column);
@@ -86,7 +86,7 @@ public class BuilderMatrix {
             arraylist.add(column);
             return arraylist;
         }
-        else if (grid[row][column - 1 + columnnegbuffer] != 0 && (row)!= prevRow && (column - 1 + columnnegbuffer)!= prevCol){
+        else if (grid[row][column - 1 + columnnegbuffer] != 0 && ((row)!= prevRow || (column - 1 + columnnegbuffer)!= prevCol)){
             arraylist.add(true);
             arraylist.add(row);
             arraylist.add(column-1 + columnnegbuffer);
@@ -94,7 +94,7 @@ public class BuilderMatrix {
             arraylist.add(column);
             return arraylist;
         }
-        else if (grid[row][column + 1 - columntopbuffer] != 0 && (row)!= prevRow && (column + 1 - columntopbuffer)!= prevCol){
+        else if (grid[row][column + 1 - columntopbuffer] != 0 && ((row)!= prevRow || (column + 1 - columntopbuffer)!= prevCol)){
             arraylist.add(true);
             arraylist.add(row);
             arraylist.add(column+1 - columntopbuffer);
@@ -102,7 +102,7 @@ public class BuilderMatrix {
             arraylist.add(column);
             return arraylist;
         }
-        else if (grid[row + 1 - rowtopbuffer][column] != 0 && (row + 1 - rowtopbuffer)!= prevRow && (column)!= prevCol){
+        else if (grid[row + 1 - rowtopbuffer][column] != 0 && ((row + 1 - rowtopbuffer)!= prevRow || (column)!= prevCol)){
             arraylist.add(true);
             arraylist.add(row+1 - rowtopbuffer);
             arraylist.add(column);
@@ -137,10 +137,6 @@ public class BuilderMatrix {
                     // if there is a surrounding component, check if it's a powerSupply
                     if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
                         //if it is a power supply, make that the componentIndex, and start the circuitPath from there
-                        componentIndex[0] = (int) surroundingInfo.get(1);
-                        componentIndex[1] = (int) surroundingInfo.get(2);
-                        componentIndex[2] = (int) surroundingInfo.get(3);
-                        componentIndex[3] = (int) surroundingInfo.get(4);
                         circuitPath.append(2);
                         foundPower = true;
                         System.out.println("Found index of powersupply " + i + " " + j);
@@ -155,23 +151,18 @@ public class BuilderMatrix {
             return false;
         }
 
-
+        boolean answer;
         // now that we have identified where the power supply is, we run surrounding and create
         // a circuitpath. Every time a new component is found, surrounding is called on that component
         // until we get back to the power supply.
+        outaloop:
         while (true) {
             surroundingInfo = surrounding(componentIndex[0], componentIndex[1], componentIndex[2], componentIndex[3]);
-            System.out.println((boolean)surroundingInfo.get(0));
-            System.out.println((int)surroundingInfo.get(1));
-            System.out.println((int)surroundingInfo.get(2));
-            System.out.println((int)surroundingInfo.get(3));
-            System.out.println((int)surroundingInfo.get(4));
             if ((boolean) (surroundingInfo.get(0))) {
                 if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
                     circuitPath.append(2); // if it found the battery, return true
-                    System.out.println("Found ending batt");
-                    System.out.println(circuitPath);
-                    return true;
+                    answer = true;
+                    break outaloop;
                 } else {
                     // if the surrounding component isn't the battery, make that component the new center component.
                     componentIndex[0] = (int) surroundingInfo.get(1);
@@ -179,18 +170,16 @@ public class BuilderMatrix {
                     componentIndex[2] = (int) surroundingInfo.get(3);
                     componentIndex[3] = (int) surroundingInfo.get(4);
                     circuitPath.append(grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
-                    System.out.println("Found another component and appended it to circuit path");
-                    System.out.println(circuitPath);
                 }
-            } else
-                return false;
+            } else{
+                answer = false;
+                break outaloop;
+            }
         }
+        System.out.println("hi");
+        return answer;
     }
 }
-
-// SURROUNDING RETURNS TRUE FROM THE PREVIOUS COMPONENT SO IT DOESN'T WORK im doing this
-
-
 
 // HAVE TO RECURSIVELY CALL THE METHOD ON SPLITTERS AND MERGERS
 // ALSO HAVE TO SPLIT THE CIRCUIT PATH STRING WHEN FINDING SPLITTERS AND MERGERS
