@@ -137,6 +137,10 @@ public class BuilderMatrix {
                     // if there is a surrounding component, check if it's a powerSupply
                     if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
                         //if it is a power supply, make that the componentIndex, and start the circuitPath from there
+                        componentIndex[0] = (int) surroundingInfo.get(1);
+                        componentIndex[1] = (int) surroundingInfo.get(2);
+                        componentIndex[2] = (int) surroundingInfo.get(3);
+                        componentIndex[3] = (int) surroundingInfo.get(4);
                         circuitPath.append(2);
                         foundPower = true;
                         System.out.println("Found index of powersupply " + i + " " + j);
@@ -151,18 +155,16 @@ public class BuilderMatrix {
             return false;
         }
 
-        boolean answer;
         // now that we have identified where the power supply is, we run surrounding and create
         // a circuitpath. Every time a new component is found, surrounding is called on that component
         // until we get back to the power supply.
-        outaloop:
+
         while (true) {
             surroundingInfo = surrounding(componentIndex[0], componentIndex[1], componentIndex[2], componentIndex[3]);
             if ((boolean) (surroundingInfo.get(0))) {
                 if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
                     circuitPath.append(2); // if it found the battery, return true
-                    answer = true;
-                    break outaloop;
+                    return true;
                 } else {
                     // if the surrounding component isn't the battery, make that component the new center component.
                     componentIndex[0] = (int) surroundingInfo.get(1);
@@ -171,13 +173,9 @@ public class BuilderMatrix {
                     componentIndex[3] = (int) surroundingInfo.get(4);
                     circuitPath.append(grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
                 }
-            } else{
-                answer = false;
-                break outaloop;
-            }
+            } else
+                return false;
         }
-        System.out.println("hi");
-        return answer;
     }
 }
 
