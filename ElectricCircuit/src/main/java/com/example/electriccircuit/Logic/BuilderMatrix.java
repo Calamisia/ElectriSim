@@ -73,14 +73,14 @@ public class BuilderMatrix {
             columnnegbuffer = 1;
         int rowtopbuffer = 0;
         int columntopbuffer = 0; // these buffers prevent indexing out of bounds
-        if (row + 1 >= 35)
+        if (row + 1 == 35)
             rowtopbuffer = 1;
-        if (column + 1 >= 20)
+        if (column + 1 == 20)
             columntopbuffer = 1;
 
         if (grid[row - 1 + rownegbuffer][column] != 0 && (row - 1 + rownegbuffer)!= prevRow && (column)!= prevCol){
             arraylist.add(true);
-            arraylist.add(row-1 + rownegbuffer);
+            arraylist.add(row - 1 + rownegbuffer);
             arraylist.add(column);
             arraylist.add(row);
             arraylist.add(column);
@@ -110,14 +110,20 @@ public class BuilderMatrix {
             arraylist.add(column);
             return arraylist;
         }
-        else arraylist.add(false);
+        else {
+            arraylist.add(false);
+            arraylist.add(999);
+            arraylist.add(999);
+            arraylist.add(999);
+            arraylist.add(999);
+        }
 
         return arraylist;
     }
 
 
     // this method is used to check if the circuit is closed, before doing any calculations.
-    public boolean closedCircuit(){
+    public boolean closedCircuit() {
         int[] componentIndex = new int[4]; // indexes for a certain component
         boolean foundPower = false;
         ArrayList surroundingInfo = new ArrayList();
@@ -153,9 +159,13 @@ public class BuilderMatrix {
         // now that we have identified where the power supply is, we run surrounding and create
         // a circuitpath. Every time a new component is found, surrounding is called on that component
         // until we get back to the power supply.
-        do {
+        while (true) {
             surroundingInfo = surrounding(componentIndex[0], componentIndex[1], componentIndex[2], componentIndex[3]);
-            System.out.println(componentIndex[0] + ","+ componentIndex[1] + " and the old comp indices were "+componentIndex[2] + "," + componentIndex[3]);
+            System.out.println((boolean)surroundingInfo.get(0));
+            System.out.println((int)surroundingInfo.get(1));
+            System.out.println((int)surroundingInfo.get(2));
+            System.out.println((int)surroundingInfo.get(3));
+            System.out.println((int)surroundingInfo.get(4));
             if ((boolean) (surroundingInfo.get(0))) {
                 if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
                     circuitPath.append(2); // if it found the battery, return true
@@ -172,13 +182,10 @@ public class BuilderMatrix {
                     System.out.println("Found another component and appended it to circuit path");
                     System.out.println(circuitPath);
                 }
-            } else {
-                break; // Exit the loop if no surrounding component is found
-            }
-        } while (true);
-        return false;
+            } else
+                return false;
+        }
     }
-
 }
 
 // SURROUNDING RETURNS TRUE FROM THE PREVIOUS COMPONENT SO IT DOESN'T WORK im doing this
