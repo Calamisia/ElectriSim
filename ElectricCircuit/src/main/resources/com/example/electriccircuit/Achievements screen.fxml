@@ -6,184 +6,407 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #EFE4B0;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<AnchorPane fx:id="anchorpaneachievement" minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="500.0" style="-fx-background-color: #CE8864;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
    <children>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1000.0">
-         <children>
-            <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="80.0" minHeight="0.0" minWidth="0.0" prefHeight="344.0" prefWidth="844.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+      <ScrollPane fx:id="scrollPaneachievement" fitToHeight="true" fitToWidth="true" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="221.0">
+         <content>
+            <ScrollPane fitToHeight="true" minHeight="0.0" minWidth="0.0" prefHeight="665.0" prefWidth="1998.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
                <content>
-                  <HBox alignment="CENTER_LEFT" prefHeight="436.0" prefWidth="2000.0" spacing="20.0" style="-fx-background-color: #EFE4B0;">
+                  <HBox minHeight="0.0" minWidth="0.0" prefHeight="697.0" prefWidth="4000.0" style="-fx-background-color: #CE8864;-fx-border-color: transparent;">
                      <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="155.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                        <HBox minHeight="0.0" minWidth="0.0">
                            <children>
-                              <HBox fx:id="achievementshbox" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="358.0" VBox.vgrow="ALWAYS">
+                              <VBox fx:id="bigvbox" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <ImageView fx:id="lockimage" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@lock.jpg" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label text="Achievement name" VBox.vgrow="ALWAYS" />
-                                    <Label prefHeight="100.0" prefWidth="150.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                       <padding>
-                                          <Insets left="10.0" right="10.0" />
-                                       </padding>
-                                    </Label>
+                                    <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="499.0">
+                                       <children>
+                                          <ImageView fx:id="lockimage" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@lock.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <VBox fx:id="smallvbox" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="724.0">
+                                       <children>
+                                          <HBox fx:id="labelhbox" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label fx:id="achievementlabel" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font size="40.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
                                  </children>
                               </VBox>
                            </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="155.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                        </HBox>
+                        <HBox layoutX="11.0" layoutY="11.0" minHeight="0.0" minWidth="0.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@lock.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label text="Achievement name" />
-                              <Label prefHeight="100.0" prefWidth="150.0" text="Finish a level in less than 3 minutes." textAlignment="CENTER" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets left="10.0" right="10.0" />
-                                 </padding>
-                              </Label>
+                              <VBox alignment="TOP_CENTER" prefHeight="598.0" prefWidth="724.0" spacing="10.0">
+                                 <children>
+                                    <HBox fx:id="achievementshbox1" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="358.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <ImageView fx:id="lockimage1" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@lock.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font size="40.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="155.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                        </HBox>
+                        <HBox layoutX="735.0" layoutY="11.0" minHeight="0.0" minWidth="0.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@lock.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label text="Achievement name" />
-                              <Label prefHeight="100.0" prefWidth="150.0" text="Short-circuit yourself 5 times." textAlignment="CENTER" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets left="10.0" right="10.0" />
-                                 </padding>
-                              </Label>
+                              <VBox alignment="TOP_CENTER" prefHeight="598.0" prefWidth="724.0" spacing="10.0">
+                                 <children>
+                                    <HBox fx:id="achievementshbox11" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="358.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <ImageView fx:id="lockimage11" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@lock.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font size="40.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="155.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                        </HBox>
+                        <HBox layoutX="1459.0" layoutY="11.0" minHeight="0.0" minWidth="0.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@lock.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label text="Achievement name" />
-                              <Label prefHeight="100.0" prefWidth="150.0" text="Beat a level with no hints." textAlignment="CENTER" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets left="10.0" right="10.0" />
-                                 </padding>
-                              </Label>
+                              <VBox alignment="TOP_CENTER" prefHeight="598.0" prefWidth="724.0" spacing="10.0">
+                                 <children>
+                                    <HBox fx:id="achievementshbox111" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="358.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <ImageView fx:id="lockimage111" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@lock.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font size="40.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="155.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                        </HBox>
+                        <HBox layoutX="2183.0" layoutY="11.0" minHeight="0.0" minWidth="0.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@lock.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label text="Achievement name" />
-                              <Label prefHeight="100.0" prefWidth="150.0" text="Blow a capacitor." textAlignment="CENTER" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets left="10.0" right="10.0" />
-                                 </padding>
-                              </Label>
+                              <VBox alignment="TOP_CENTER" prefHeight="598.0" prefWidth="724.0" spacing="10.0">
+                                 <children>
+                                    <HBox fx:id="achievementshbox1111" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="358.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <ImageView fx:id="lockimage1111" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@lock.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font size="40.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="155.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                        </HBox>
+                        <HBox layoutX="2907.0" layoutY="11.0" minHeight="0.0" minWidth="0.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@lock.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label text="Achievement name" />
-                              <Label prefHeight="100.0" prefWidth="150.0" text="Achieve breakdown voltage." textAlignment="CENTER" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets left="10.0" right="10.0" />
-                                 </padding>
-                              </Label>
+                              <VBox alignment="TOP_CENTER" prefHeight="598.0" prefWidth="724.0" spacing="10.0">
+                                 <children>
+                                    <HBox fx:id="achievementshbox11111" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="358.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <ImageView fx:id="lockimage11111" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@lock.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font size="40.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="155.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                        </HBox>
+                        <HBox layoutX="3343.0" layoutY="11.0" minHeight="0.0" minWidth="0.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@lock.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label text="Achievement name" />
-                              <Label prefHeight="100.0" prefWidth="150.0" text="Fail the same level 10 times." textAlignment="CENTER" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets left="10.0" right="10.0" />
-                                 </padding>
-                              </Label>
+                              <VBox alignment="TOP_CENTER" prefHeight="598.0" prefWidth="724.0" spacing="10.0">
+                                 <children>
+                                    <HBox fx:id="achievementshbox111111" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="358.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <ImageView fx:id="lockimage111111" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@lock.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font size="40.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="155.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                        </HBox>
+                        <HBox layoutX="3438.0" layoutY="11.0" minHeight="0.0" minWidth="0.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@lock.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label text="Achievement name" />
-                              <Label prefHeight="100.0" prefWidth="150.0" text="Complete all other achievements." textAlignment="CENTER" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets left="10.0" right="10.0" />
-                                 </padding>
-                              </Label>
+                              <VBox alignment="TOP_CENTER" prefHeight="598.0" prefWidth="724.0" spacing="10.0">
+                                 <children>
+                                    <HBox fx:id="achievementshbox1111111" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="358.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <ImageView fx:id="lockimage1111111" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@lock.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="48.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font size="40.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
+                        </HBox>
                      </children>
                   </HBox>
                </content>
             </ScrollPane>
-            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="640.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="20.0">
+         </content>
+      </ScrollPane>
+      <HBox alignment="TOP_CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox fx:id="returnvbox" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Achievements">
+                  <Button fx:id="achievementsreturn" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" text="Return" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox minHeight="0.0" minWidth="0.0" prefHeight="208.0" prefWidth="445.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Achievements" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="34.0" />
                      </font>
-                     <HBox.margin>
-                        <Insets top="20.0" />
-                     </HBox.margin>
                   </Label>
                </children>
-            </HBox>
-            <Button mnemonicParsing="false" text="Return" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+            </VBox>
          </children>
-      </AnchorPane>
+      </HBox>
    </children>
-</StackPane>
+</AnchorPane>
