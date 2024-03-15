@@ -2,7 +2,7 @@ package com.example.electriccircuit.Logic;
 
 import com.example.electriccircuit.DataTypes.*;
 
-public class Physics implements Maxims {
+public class Physics  {
 
     // ohmsLaw for resistance
     public double ohmsLaw(Volt potential, Amp current){
