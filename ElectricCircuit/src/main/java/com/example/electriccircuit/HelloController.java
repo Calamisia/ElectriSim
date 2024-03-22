@@ -53,8 +53,6 @@ public class HelloController implements Initializable {
     @FXML
     private ImageView imgv;
 
-    @FXML
-    private StackPane mainContainer;
 
     //start of title screen ids
     @FXML
@@ -226,19 +224,41 @@ public class HelloController implements Initializable {
     }
 
     //bind the properties of imageview when launching title screen
-    @FXML
     public void titleinitialize(){
-        // Bind the fitHeight of the ImageView to the height of the HBox
+        // Replace current screen with the new one
+        main.getMainContainer().getChildren().setAll(main.switchToTitle());
 
-        //logotitle.setPreserveRatio(true); // Disable preserving aspect ratio
-        logotitle.fitWidthProperty().bind(logotitlehbox.widthProperty()); // Bind fitWidth to HBox width
-        logotitle.fitHeightProperty().bind(logotitlehbox.heightProperty()); // Bind fitHeight to HBox height
-
-        buttontext(bt1);
-        buttontext(bt2);
-        buttontext(bt3);
-        buttontext(bt4);
+        titlemethod();
     }
+
+    @FXML
+    public void titleScreen(ActionEvent event) {
+        // Replace current screen with the new one
+        main.getMainContainer().getChildren().setAll(main.switchToTitle());
+
+        titlemethod();
+    }
+
+    public void titlemethod(){
+        HelloController controller = main.TitleController();
+        controller.getLogotitle().fitWidthProperty().bind(controller.getTitleHbox().widthProperty()); // Bind fitWidth to HBox width
+        controller.getLogotitle().fitHeightProperty().bind(controller.getTitleHbox().heightProperty()); // Bind fitHeight to HBox height
+
+        buttontext(controller.getBt1()); //invoke the method for all buttons on title screen
+        buttontext(controller.getBt2());
+        buttontext(controller.getBt3());
+        buttontext(controller.getBt4());
+    }
+
+    //Getter methods for titlescreen
+    public ImageView getLogotitle(){
+        return logotitle;
+    }
+    public HBox getTitleHbox(){return logotitlehbox;}
+    public Button getBt1(){return  bt1;}
+    public Button getBt2(){return  bt2;}
+    public Button getBt3(){return  bt3;}
+    public Button getBt4(){return  bt4;}
 
     //Method for button resizing
     public void buttontext(Button button){
@@ -328,16 +348,12 @@ public class HelloController implements Initializable {
     /* Switch to achievements screen and initialize*/
     @FXML
     public void Achievements(ActionEvent event){
-        // Replace current screen with the new one
-        if (!mainContainer.getChildren().isEmpty()) {
-            mainContainer.getChildren().remove(0);
-        }
-        mainContainer.getChildren().add(main.switchToAchievements());
 
-        System.out.println(main.AchievementsController());
+        main.getMainContainer().getChildren().setAll(main.switchToAchievements());
+
         HelloController controller1 = main.AchievementsController();
 
-        //get the necessary variables for dynamic resizing
+      /*  //get the necessary variables for dynamic resizing
         ScrollPane scrollPane11 = controller1.getScrollPaneachievement();
         HBox bighbox11 = controller1.getBiggesthbox();
         HBox achievementtitlehbox11 = controller1.getAchievementtitlehbox();
@@ -359,7 +375,7 @@ public class HelloController implements Initializable {
         });
 
         //container to base resizing on
-        HBox hbox11 = controller1.getLabelHBox1();
+        HBox hbox11 = this.achievementshbox;
 
         //Hbox1
 
@@ -367,21 +383,21 @@ public class HelloController implements Initializable {
         ImageView lockImage11 = controller1.getLockImage1();
         Label label11 = controller1.getAchievementLabel1();
 
-        achievelock(scrollPane11,lockImage11,hbox11,label11);
+        achievelock(scrollPane11,lockimage,hbox11,label11);
 
         //Hbox2
         //get the necessary variables for dynamic resizing
         ImageView lockImage21 = controller1.getLockImage2();
         Label label21 = controller1.getAchievementLabel2();
 
-        achievelock(scrollPane11,lockImage21,hbox11,label21);
+        achievelock(scrollPane11,lockimage1,hbox11,label21);
 
         //Hbox3
         //get the necessary variables for dynamic resizing
         ImageView lockImage31 = controller1.getLockImage3();
         Label label31 = controller1.getAchievementLabel3();
 
-        achievelock(scrollPane11,lockImage31,hbox11,label31);
+        achievelock(scrollPane11,lockimage2,hbox11,label31);
 
         //Hbox4
         //get the necessary variables for dynamic resizing
@@ -416,7 +432,7 @@ public class HelloController implements Initializable {
         Label label81 = controller1.getAchievementLabel8();
 
         achievelock(scrollPane11,lockImage81,hbox11,label81);
-
+*/
     }
 
     /* getter methods for the achievements screen (global containers)*/
@@ -428,8 +444,6 @@ public class HelloController implements Initializable {
     /* getter methods for the achievements screen (Hbox1)*/
     public Label getAchievementLabel1(){return this.achievementlabel;}
 
-
-    public HBox getLabelHBox1(){return this.achievementshbox;}
     public ImageView getLockImage1(){return this.lockimage;}
 
     /* getter methods for the achievements screen (Hbox2)*/
@@ -557,10 +571,7 @@ public class HelloController implements Initializable {
         fadeTransition.setToValue(1);
         fadeTransition.play(); */
         //Replace current screen with the new one
-        if (!mainContainer.getChildren().isEmpty()) {
-            mainContainer.getChildren().remove(0);
-        }
-        mainContainer.getChildren().add(main.switchToMainScreen());
+        main.getMainContainer().getChildren().setAll(main.switchToMainScreen());
        }
 
     @FXML
