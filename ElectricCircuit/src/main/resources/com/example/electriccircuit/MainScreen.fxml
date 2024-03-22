@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
         <AnchorPane fx:id="anchorpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
