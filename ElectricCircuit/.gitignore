@@ -12,6 +12,7 @@ ElectricCircuit/src/main/resources/SaveFiles/
 *.iws
 *.iml
 *.ipr
+src/main/resources/SaveFiles/sandboxSaveFile.txt
 
 ### Eclipse ###
 .apt_generated
