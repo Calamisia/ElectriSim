@@ -7,7 +7,7 @@
 
 <SplitPane fx:id="splitPane" dividerPositions="0.5" prefHeight="700.0" prefWidth="1202.0" style="-fx-background-color: #CE8864;" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
   <items>
-      <HBox prefHeight="699.0" prefWidth="466.0">
+      <HBox prefHeight="699.0" prefWidth="466.0" HBox.hgrow="ALWAYS">
          <children>
             <VBox alignment="CENTER" prefHeight="699.0" prefWidth="353.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
@@ -16,22 +16,26 @@
                         <Insets />
                      </VBox.margin>
                      <children>
-                           <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="500.0" text="Level selection" />
+                           <Button fx:id="bt1" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#LevelSelect" prefHeight="110.0" prefWidth="500.0" text="Level selection">
+                                </Button>
                      </children>
                   </HBox>
                   <HBox alignment="TOP_CENTER" prefWidth="303.0" VBox.vgrow="ALWAYS">
                      <children>
-                           <Button mnemonicParsing="false" onAction="#Achievements" prefHeight="110.0" prefWidth="500.0" text="Achievements" HBox.hgrow="ALWAYS" />
+                           <Button fx:id="bt2" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#Achievements" prefHeight="110.0" prefWidth="500.0" text="Achievements" HBox.hgrow="ALWAYS">
+                                 </Button>
                      </children>
                   </HBox>
                   <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#MainScreen" prefHeight="110.0" prefWidth="500.0" text="Sandbox" />
+                        <Button fx:id="bt3" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#MainScreen" prefHeight="110.0" prefWidth="500.0" text="Sandbox">
+                                </Button>
                      </children>
                   </HBox>
                   <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
                      <children>
-                           <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="500.0" text="Settings" />
+                           <Button fx:id="bt4" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="500.0" text="Settings">
+                               </Button>
                      </children>
                   </HBox>
                </children>
@@ -41,7 +45,7 @@
             </VBox>
          </children>
       </HBox>
-      <HBox fx:id="logotitlehbox" alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="699.0" prefWidth="495.0">
+      <HBox fx:id="logotitlehbox" alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="699.0" prefWidth="495.0" HBox.hgrow="ALWAYS">
          <children>
             <VBox alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="704.0" prefWidth="474.0" spacing="50.0" HBox.hgrow="ALWAYS">
                <children>

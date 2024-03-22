@@ -1,7 +1,4 @@
-.gray {
--fx-background-color: #838383;
-}
-
 .split-pane-divider {
     -fx-opacity: 0; /* Hide the divider by setting its opacity to 0 */
 }
+
