@@ -6,14 +6,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<SplitPane fx:id="globalSplitPane" dividerPositions="0.3" orientation="VERTICAL" style="-fx-background-color: #128999;" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<SplitPane fx:id="globalSplitPane" dividerPositions="0.3" orientation="VERTICAL" style="-fx-background-color: #128999;" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController" >
    <items>
             <HBox fx:id="achievementtitlehbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <VBox fx:id="returnvbox" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="achievementsreturn" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#titleScreen" text="Return" VBox.vgrow="ALWAYS">
+                        <Button fx:id="achievementsreturn" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" text="Return" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>

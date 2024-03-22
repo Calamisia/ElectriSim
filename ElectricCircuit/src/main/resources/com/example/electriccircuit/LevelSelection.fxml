@@ -6,84 +6,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox spacing="15.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<AnchorPane prefHeight="580.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
    <children>
-      <HBox VBox.vgrow="ALWAYS">
-         <children>
-            <Button mnemonicParsing="false" text="Button">
-               <HBox.margin>
-                  <Insets left="15.0" top="15.0" />
-               </HBox.margin>
-            </Button>
-            <HBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label text="Level Selection">
-                     <font>
-                        <Font size="38.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-         </children>
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-      </HBox>
-      <HBox prefHeight="446.0" prefWidth="820.0" spacing="15.0" VBox.vgrow="ALWAYS">
+      <HBox layoutX="24.0" layoutY="110.0" prefHeight="446.0" prefWidth="820.0" spacing="15.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0" spacing="20.0">
                <HBox.margin>
                   <Insets left="15.0" />
                </HBox.margin>
                <children>
-                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" stylesheets="@styleSheet.css">
-                     <items>
-                        <HBox>
-                           <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <HBox VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Label text="Label" HBox.hgrow="ALWAYS">
-                                             <HBox.margin>
-                                                <Insets top="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <HBox VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Label text="Label" HBox.hgrow="ALWAYS">
-                                             <HBox.margin>
-                                                <Insets top="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                     </items>
-                  </SplitPane>
+                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label text="Label" />
+                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Label layoutX="72.0" layoutY="160.0" text="Label" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="10.0" prefHeight="200.0" prefWidth="150.0" spacing="20.0">
@@ -138,9 +77,12 @@
                </HBox.margin>
             </VBox>
          </children>
-         <VBox.margin>
-            <Insets bottom="10.0" />
-         </VBox.margin>
       </HBox>
+      <Button layoutX="44.0" layoutY="36.0" mnemonicParsing="false" text="Button" />
+      <Label layoutX="315.0" layoutY="53.0" text="Level Selection">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
    </children>
-</VBox>
+</AnchorPane>
