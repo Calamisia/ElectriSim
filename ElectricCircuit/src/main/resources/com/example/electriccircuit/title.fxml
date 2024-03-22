@@ -5,58 +5,66 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane fx:id="splitPane" dividerPositions="0.5" prefHeight="700.0" prefWidth="1202.0" style="-fx-background-color: #CE8864;" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
-  <items>
-      <HBox prefHeight="699.0" prefWidth="466.0">
-         <children>
-            <VBox alignment="CENTER" prefHeight="699.0" prefWidth="353.0" spacing="20.0" HBox.hgrow="ALWAYS">
+<StackPane fx:id="mainContainer" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+   <children>
+      <SplitPane fx:id="splitPane" dividerPositions="0.5" prefHeight="700.0" prefWidth="1202.0" style="-fx-background-color: #CE8864;" stylesheets="@styleSheet.css">
+        <items>
+            <HBox prefHeight="699.0" prefWidth="466.0" HBox.hgrow="ALWAYS">
                <children>
-                  <HBox alignment="TOP_CENTER" prefHeight="110.0" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
+                  <VBox alignment="CENTER" prefHeight="699.0" prefWidth="353.0" spacing="20.0" HBox.hgrow="ALWAYS">
                      <children>
-                           <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="500.0" text="Level selection" />
+                        <HBox alignment="TOP_CENTER" prefHeight="110.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                                 <Button fx:id="bt1" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="500.0" text="Level selection">
+                                </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" prefWidth="303.0" VBox.vgrow="ALWAYS">
+                           <children>
+                                 <Button fx:id="bt2" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#Achievements" prefHeight="110.0" prefWidth="500.0" text="Achievements" HBox.hgrow="ALWAYS">
+                                 </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="bt3" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#MainScreen" prefHeight="110.0" prefWidth="500.0" text="Sandbox">
+                                </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                           <children>
+                                 <Button fx:id="bt4" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="500.0" text="Settings">
+                               </Button>
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <HBox alignment="TOP_CENTER" prefWidth="303.0" VBox.vgrow="ALWAYS">
-                     <children>
-                           <Button mnemonicParsing="false" onAction="#Achievements" prefHeight="110.0" prefWidth="500.0" text="Achievements" HBox.hgrow="ALWAYS" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#MainScreen" prefHeight="110.0" prefWidth="500.0" text="Sandbox" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-                     <children>
-                           <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="500.0" text="Settings" />
-                     </children>
-                  </HBox>
+                     <HBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </HBox.margin>
+                  </VBox>
                </children>
-               <HBox.margin>
-                  <Insets left="20.0" top="20.0" />
-               </HBox.margin>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox fx:id="logotitlehbox" alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="699.0" prefWidth="495.0">
-         <children>
-            <VBox alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="704.0" prefWidth="474.0" spacing="50.0" HBox.hgrow="ALWAYS">
+            </HBox>
+            <HBox fx:id="logotitlehbox" alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="699.0" prefWidth="495.0" HBox.hgrow="ALWAYS">
                <children>
-                  <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="511.0" prefWidth="466.0" VBox.vgrow="ALWAYS">
+                  <VBox alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="704.0" prefWidth="474.0" spacing="50.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <ImageView fx:id="logotitle" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-                           <image>
-                              <Image url="@logo2.jpg" />
-                           </image>
-                        </ImageView>
+                        <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="511.0" prefWidth="466.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="logotitle" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                 <image>
+                                    <Image url="@logo2.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
+                  </VBox>
                </children>
-            </VBox>
-         </children>
-      </HBox>
-  </items>
-</SplitPane>
+            </HBox>
+        </items>
+      </SplitPane>
+   </children>
+</StackPane>
