@@ -64,7 +64,7 @@ public class BuilderMatrix {
     // it returns an ArrayList with the first index being a boolean, representing whether or not there is a surrounding ID.
     // If there is a surroudning ID, the second and third entries in the ArrayList are its row and column coordinates.
     public ArrayList surrounding(int row, int column, int prevRow, int prevCol) {
-        ArrayList arraylist = new ArrayList(5);
+        ArrayList arraylist = new ArrayList(5); //might want to move
         int rownegbuffer = 0;
         int columnnegbuffer = 0; // these buffers prevent indexing negative values
         if (row - 1 < 0)
