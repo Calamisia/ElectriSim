@@ -353,6 +353,8 @@ public class HelloController implements Initializable {
 
         HelloController controller1 = main.AchievementsController();
 
+
+
       /*  //get the necessary variables for dynamic resizing
         ScrollPane scrollPane11 = controller1.getScrollPaneachievement();
         HBox bighbox11 = controller1.getBiggesthbox();
