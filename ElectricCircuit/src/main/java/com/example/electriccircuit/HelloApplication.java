@@ -71,6 +71,13 @@ public class HelloApplication extends Application {
     }
     public HelloController TitleController(){return controller1;}
 
+    //Level select switching methods
+    public Node switchToLevelSelect(){
+        return scene2;
+    }
+    public HelloController LevelSelectController(){return controller2;}
+
+
     //Achievements switching methods
     public HelloController AchievementsController(){
         return controller3;

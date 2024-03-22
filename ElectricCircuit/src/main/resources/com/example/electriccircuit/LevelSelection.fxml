@@ -10,7 +10,7 @@
    <children>
       <HBox VBox.vgrow="ALWAYS">
          <children>
-            <Button mnemonicParsing="false" text="Button">
+            <Button mnemonicParsing="false" onAction="#titleScreen" text="Button">
                <HBox.margin>
                   <Insets left="15.0" top="15.0" />
                </HBox.margin>

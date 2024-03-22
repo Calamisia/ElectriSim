@@ -540,11 +540,10 @@ public class HelloController implements Initializable {
     /* Switch to level select screen and initialize*/
     @FXML
     public void LevelSelect(ActionEvent event) {
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene2);
-        HelloController controller1 = loader2.getController();
+        // Replace current screen with the new one
+        main.getMainContainer().getChildren().setAll(main.switchToLevelSelect());
 
-        //get the necessary variables for dynamic resizing
+      /*  //get the necessary variables for dynamic resizing
         ScrollPane scrollPane11 = controller1.getScrollPaneachievement();
         HBox bighbox11 = controller1.getBiggesthbox();
         HBox achievementtitlehbox11 = controller1.getAchievementtitlehbox();
@@ -559,7 +558,7 @@ public class HelloController implements Initializable {
             //scrollPane11.setMaxHeight(newHeight.doubleValue()*((double) 7 /10));
             scrollPane11.setMinHeight(newHeight.doubleValue() * ((double) 7 / 10));
             achievementtitlehbox11.setMinHeight(splitPane11.getHeight() * ((double) 3 / 10));
-        });
+        }); */
     }
 
     /* Switch to main screen and initialize*/
