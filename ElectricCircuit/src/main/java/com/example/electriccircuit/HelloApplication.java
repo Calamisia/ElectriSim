@@ -84,12 +84,16 @@ public class HelloApplication extends Application {
 
     //Title screen switching methods
     public Node switchToTitle(){
+        primaryStage.setMinHeight(350);
+        primaryStage.setMinWidth(675);
         return scene1;
     }
     public HelloController TitleController(){return controller1;}
 
     //Level select switching methods
     public Node switchToLevelSelect(){
+        primaryStage.setMinHeight(350);
+        primaryStage.setMinWidth(675);
         return scene2;
     }
     public HelloController LevelSelectController(){return controller2;}
@@ -97,6 +101,8 @@ public class HelloApplication extends Application {
 
     //Achievements switching methods
     public HelloController AchievementsController(){
+        primaryStage.setMinHeight(350);
+        primaryStage.setMinWidth(675);
         return controller3;
     }
     public Node switchToAchievements(){
@@ -105,7 +111,12 @@ public class HelloApplication extends Application {
 
     //MainScreen switching methods
     public Node switchToMainScreen(){
+        primaryStage.setMinHeight(402);
+        primaryStage.setMinWidth(743);
         return scene4;
+    }
+    public HelloController MainController(){
+        return controller4;
     }
 
 }
