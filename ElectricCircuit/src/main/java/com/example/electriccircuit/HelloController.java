@@ -7,6 +7,8 @@ import com.example.electriccircuit.Logic.SaveFiles;
 import com.example.electriccircuit.Logic.draggable;
 import javafx.animation.FadeTransition;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,8 +86,6 @@ public class HelloController implements Initializable {
     private HBox biggesthbox;
     @FXML
     private HBox achievementtitlehbox;
-    @FXML
-    private SplitPane globalSplitPane;
 
     @FXML
     private ImageView lockimage;
@@ -107,10 +107,6 @@ public class HelloController implements Initializable {
     @FXML
     private HBox achievementshbox;
 
-    // Set maximum and minimum font sizes
-    private static final double MAX_FONT_SIZE = 48.0;
-    private static final double MIN_FONT_SIZE = 20.0;
-
     @FXML
     private Label achievementlabel;
     @FXML
@@ -129,7 +125,21 @@ public class HelloController implements Initializable {
     private Label achievementlabel7;
 
     @FXML
-    private HBox labelhbox;
+    private Label achievementdlabel;
+    @FXML
+    private Label achievementdlabel1;
+    @FXML
+    private Label achievementdlabel2;
+    @FXML
+    private Label achievementdlabel3;
+    @FXML
+    private Label achievementdlabel4;
+    @FXML
+    private Label achievementdlabel5;
+    @FXML
+    private Label achievementdlabel6;
+    @FXML
+    private Label achievementdlabel7;
     //end of achievements screen ids
 
     //Start of level selection ids
@@ -307,60 +317,34 @@ public class HelloController implements Initializable {
     }
 
     //Method for achievement hbox
-    public void achievelock(ScrollPane scroll, ImageView imageView, HBox hbox, Label label, Label descriptionlabel){
+    public void achievelock(ImageView imageView, HBox hbox, Label label, Label dlabel){
         /* start of changing font size and label size */
-        scroll.widthProperty().addListener((observable, oldValue, newWidth) -> {
-            // Calculate font size based on ScrollPane width
-            double widthFontSize = newWidth.doubleValue() / 36;
-
-            // Calculate font size based on ScrollPane height
-            double heightFontSize = scroll.getHeight() / 18;
+        hbox.widthProperty().addListener((observable, oldValue, newWidth) -> {
+            double widthFontSize = newWidth.doubleValue() / 4;
+            double heightFontSize = (main.getMainContainer().getHeight() / 4)*2.35;
 
             // Choose the smaller font size to ensure it fits both width and height
-            double fontSize = Math.min(widthFontSize, heightFontSize);
-
-            // Ensure font size stays within the desired range
-            if (fontSize > MAX_FONT_SIZE) {
-                fontSize = MAX_FONT_SIZE;
-            } else if (fontSize < MIN_FONT_SIZE) {
-                fontSize = MIN_FONT_SIZE;
-            }
+            double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
 
             // Set the font size of the label
-            label.setStyle("-fx-font-size: " + (int)fontSize + "px");
-
-            // Adjust label's size to fit its content
-            label.setPrefWidth(Control.USE_COMPUTED_SIZE);
-            label.setPrefHeight(Control.USE_COMPUTED_SIZE);
-            label.autosize();
-
+            if (fontSize != 0) {
+                label.setStyle("-fx-font-size: " + fontSize + "px");
+                dlabel.setStyle("-fx-font-size: " + fontSize + "px");
+            }
         });
 
-        scroll.heightProperty().addListener((observable, oldValue, newHeight) -> {
-            // Calculate font size based on ScrollPane width
-            double widthFontSize = scroll.getWidth() / 36;
+        hbox.heightProperty().addListener((observable, oldValue, newHeight) -> {
+               double widthFontSize = main.getMainContainer().getWidth() / 4;
+               double heightFontSize = (newHeight.doubleValue() / 4)*2.35;
 
-            // Calculate font size based on ScrollPane height
-            double heightFontSize = newHeight.doubleValue() / 18;
+               // Choose the smaller font size to ensure it fits both width and height
+               double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
 
-            // Choose the smaller font size to ensure it fits both width and height
-            double fontSize = Math.min(widthFontSize, heightFontSize);
-
-            // Ensure font size stays within the desired range
-            if (fontSize > MAX_FONT_SIZE) {
-                fontSize = MAX_FONT_SIZE;
-            } else if (fontSize < MIN_FONT_SIZE) {
-                fontSize = MIN_FONT_SIZE;
-            }
-
-            // Set the font size of the label
-            label.setStyle("-fx-font-size: " + (int)fontSize + "px");
-
-            // Adjust label's size to fit its content
-            label.setPrefWidth(Control.USE_COMPUTED_SIZE);
-            label.setPrefHeight(Control.USE_COMPUTED_SIZE);
-            label.autosize();
-
+               // Set the font size of the label
+               if (fontSize != 0) {
+                    label.setStyle("-fx-font-size: " + fontSize + "px");
+                    dlabel.setStyle("-fx-font-size: " + fontSize + "px");
+               }
         });
 
         // Bind the lock image to the size of the HBox
@@ -377,190 +361,118 @@ public class HelloController implements Initializable {
 
         HelloController controller1 = main.AchievementsController();
 
+        //get the necessary variables for dynamic resizing
 
-
-      /*  //get the necessary variables for dynamic resizing
-        ScrollPane scrollPane11 = controller1.getScrollPaneachievement();
+        //Hbox needs to be at double the size of window for having half achievements on screen at a time
         HBox bighbox11 = controller1.getBiggesthbox();
-        HBox achievementtitlehbox11 = controller1.getAchievementtitlehbox();
-        SplitPane splitPane11 = controller1.getSplitPane();
 
-        bighbox11.setMaxWidth(splitPane11.getWidth()*2);
-        scrollPane11.setMinHeight(splitPane11.getHeight()*((double) 7 /10));
-        achievementtitlehbox11.setMinHeight(splitPane11.getHeight()*((double) 3 /10));
+        controller1.getAchievementtitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.25));
 
-        scrollPane11.widthProperty().addListener((observable, oldValue, newWidth) -> {
-            //set size of biggest hbox to twice the scrollpane
-            bighbox11.setMaxWidth(newWidth.doubleValue()*2);
-        });
+        //Bind the bighbox to twice the window size
+        bighbox11.prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(2));
 
-        splitPane11.heightProperty().addListener((observable, oldValue, newHeight) -> {
-            //scrollPane11.setMaxHeight(newHeight.doubleValue()*((double) 7 /10));
-            scrollPane11.setMinHeight(newHeight.doubleValue()*((double) 7 /10));
-            achievementtitlehbox11.setMinHeight(splitPane11.getHeight()*((double) 3 /10));
-        });
+        // Bind scroll pane height to maintain the desired ratio
+        controller1.getScrollPaneachievement().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.75));
 
         //container to base resizing on
-        HBox hbox11 = this.achievementshbox;
+        HBox hbox11 = controller1.getBaseHbox();
 
         //Hbox1
 
-        //get the necessary variables for dynamic resizing
-        ImageView lockImage11 = controller1.getLockImage1();
-        Label label11 = controller1.getAchievementLabel1();
-
-        achievelock(scrollPane11,lockimage,hbox11,label11);
+        //Method for binding both, above this one
+        achievelock(controller1.getLockImage1(), hbox11, controller1.getAchievementLabel1(), controller1.getAchievementDLabel());
 
         //Hbox2
-        //get the necessary variables for dynamic resizing
-        ImageView lockImage21 = controller1.getLockImage2();
-        Label label21 = controller1.getAchievementLabel2();
 
-        achievelock(scrollPane11,lockimage1,hbox11,label21);
+        //Method for binding both, above this one
+        achievelock(controller1.getLockImage2(), hbox11, controller1.getAchievementLabel2(), controller1.getAchievementDLabel1());
+
 
         //Hbox3
-        //get the necessary variables for dynamic resizing
-        ImageView lockImage31 = controller1.getLockImage3();
-        Label label31 = controller1.getAchievementLabel3();
 
-        achievelock(scrollPane11,lockimage2,hbox11,label31);
+        //Method for binding both, above this one
+        achievelock(controller1.getLockImage3(), hbox11, controller1.getAchievementLabel3(), controller1.getAchievementDLabel2());
+
 
         //Hbox4
-        //get the necessary variables for dynamic resizing
-        ImageView lockImage41 = controller1.getLockImage4();
-        Label label41 = controller1.getAchievementLabel4();
 
-        achievelock(scrollPane11,lockImage41,hbox11,label41);
+        //Method for binding both, above this one
+        achievelock(controller1.getLockImage4(), hbox11, controller1.getAchievementLabel4(), controller1.getAchievementDLabel3());
+
+
         //Hbox5
-        //get the necessary variables for dynamic resizing
-        ImageView lockImage51 = controller1.getLockImage5();
-        Label label51 = controller1.getAchievementLabel5();
 
-        achievelock(scrollPane11,lockImage51,hbox11,label51);
+        //Method for binding both, above this one
+        achievelock(controller1.getLockImage5(), hbox11, controller1.getAchievementLabel5(), controller1.getAchievementDLabel4());
+
 
         //Hbox6
-        //get the necessary variables for dynamic resizing
-        ImageView lockImage61 = controller1.getLockImage6();
-        Label label61 = controller1.getAchievementLabel6();
 
-        achievelock(scrollPane11,lockImage61,hbox11,label61);
+        //Method for binding both, above this one
+        achievelock(controller1.getLockImage6(), hbox11, controller1.getAchievementLabel6(), controller1.getAchievementDLabel5());
+
 
         //Hbox7
-        //get the necessary variables for dynamic resizing
-        ImageView lockImage71 = controller1.getLockImage7();
-        Label label71 = controller1.getAchievementLabel7();
 
-        achievelock(scrollPane11,lockImage71,hbox11,label71);
+        //Method for binding both, above this one
+        achievelock(controller1.getLockImage7(), hbox11, controller1.getAchievementLabel7(), controller1.getAchievementDLabel6());
+
 
         //Hbox8
-        //get the necessary variables for dynamic resizing
-        ImageView lockImage81 = controller1.getLockImage8();
-        Label label81 = controller1.getAchievementLabel8();
 
-        achievelock(scrollPane11,lockImage81,hbox11,label81);
-*/
+        //Method for binding both, above this one
+        achievelock(controller1.getLockImage8(), hbox11, controller1.getAchievementLabel8(), controller1.getAchievementDLabel7());
     }
 
     /* getter methods for the achievements screen (global containers)*/
     public ScrollPane getScrollPaneachievement(){return this.scrollPaneachievement;}
     public HBox getBiggesthbox(){return this.biggesthbox;}
     public HBox getAchievementtitlehbox(){return this.achievementtitlehbox;}
-    public SplitPane getSplitPane(){return this.globalSplitPane;}
+    public HBox getBaseHbox(){return this.achievementshbox;}
 
     /* getter methods for the achievements screen (Hbox1)*/
     public Label getAchievementLabel1(){return this.achievementlabel;}
-
     public ImageView getLockImage1(){return this.lockimage;}
+    public Label getAchievementDLabel(){return this.achievementdlabel;}
 
     /* getter methods for the achievements screen (Hbox2)*/
     public Label getAchievementLabel2(){return this.achievementlabel1;}
     public ImageView getLockImage2(){return this.lockimage1;}
+    public Label getAchievementDLabel1(){return this.achievementdlabel1;}
 
     /* getter methods for the achievements screen (Hbox3)*/
     public Label getAchievementLabel3(){return this.achievementlabel2;}
     public ImageView getLockImage3(){return this.lockimage2;}
+    public Label getAchievementDLabel2(){return this.achievementdlabel2;}
 
     /* getter methods for the achievements screen (Hbox4)*/
     public Label getAchievementLabel4(){return this.achievementlabel3;}
     public ImageView getLockImage4(){return this.lockimage3;}
+    public Label getAchievementDLabel3(){return this.achievementdlabel3;}
 
     /* getter methods for the achievements screen (Hbox5)*/
     public Label getAchievementLabel5(){return this.achievementlabel4;}
     public ImageView getLockImage5(){return this.lockimage4;}
+    public Label getAchievementDLabel4(){return this.achievementdlabel4;}
 
     /* getter methods for the achievements screen (Hbox6)*/
     public Label getAchievementLabel6(){return this.achievementlabel5;}
     public ImageView getLockImage6(){return this.lockimage5;}
+    public Label getAchievementDLabel5(){return this.achievementdlabel5;}
 
     /* getter methods for the achievements screen (Hbox7)*/
     public Label getAchievementLabel7(){return this.achievementlabel6;}
     public ImageView getLockImage7(){return this.lockimage6;}
+    public Label getAchievementDLabel6(){return this.achievementdlabel6;}
 
     /* getter methods for the achievements screen (Hbox8)*/
     public Label getAchievementLabel8(){return this.achievementlabel7;}
     public ImageView getLockImage8(){return this.lockimage7;}
+    public Label getAchievementDLabel7(){return this.achievementdlabel7;}
 
     //Method for achievement hbox
     public void levelimagelabel(HBox bighbox, ImageView imageView, HBox hbox, Label label){
-        /* start of changing font size and label size */
-        bighbox.widthProperty().addListener((observable, oldValue, newWidth) -> {
-            // Calculate font size based on ScrollPane width
-            double widthFontSize = newWidth.doubleValue() / 36;
 
-            // Calculate font size based on ScrollPane height
-            double heightFontSize = bighbox.getHeight() / 18;
-
-            // Choose the smaller font size to ensure it fits both width and height
-            double fontSize = Math.min(widthFontSize, heightFontSize);
-
-            // Ensure font size stays within the desired range
-            if (fontSize > MAX_FONT_SIZE) {
-                fontSize = MAX_FONT_SIZE;
-            } else if (fontSize < MIN_FONT_SIZE) {
-                fontSize = MIN_FONT_SIZE;
-            }
-
-            // Set the font size of the label
-            label.setStyle("-fx-font-size: " + (int)fontSize + "px");
-
-            // Adjust label's size to fit its content
-            label.setPrefWidth(Control.USE_COMPUTED_SIZE);
-            label.setPrefHeight(Control.USE_COMPUTED_SIZE);
-            label.autosize();
-
-        });
-
-        bighbox.heightProperty().addListener((observable, oldValue, newHeight) -> {
-            // Calculate font size based on ScrollPane width
-            double widthFontSize = bighbox.getWidth() / 36;
-
-            // Calculate font size based on ScrollPane height
-            double heightFontSize = newHeight.doubleValue() / 18;
-
-            // Choose the smaller font size to ensure it fits both width and height
-            double fontSize = Math.min(widthFontSize, heightFontSize);
-
-            // Ensure font size stays within the desired range
-            if (fontSize > MAX_FONT_SIZE) {
-                fontSize = MAX_FONT_SIZE;
-            } else if (fontSize < MIN_FONT_SIZE) {
-                fontSize = MIN_FONT_SIZE;
-            }
-
-            // Set the font size of the label
-            label.setStyle("-fx-font-size: " + (int)fontSize + "px");
-
-            // Adjust label's size to fit its content
-            label.setPrefWidth(Control.USE_COMPUTED_SIZE);
-            label.setPrefHeight(Control.USE_COMPUTED_SIZE);
-            label.autosize();
-
-        });
-
-        // Bind the lock image to the size of the HBox
-        imageView.setPreserveRatio(true); // Disable preserving aspect ratio
-        imageView.fitWidthProperty().bind(hbox.widthProperty()); // Bind fitWidth to HBox width
-        imageView.fitHeightProperty().bind(hbox.heightProperty()); // Bind fitHeight to HBox height
     }
 
     /* Switch to level select screen and initialize*/

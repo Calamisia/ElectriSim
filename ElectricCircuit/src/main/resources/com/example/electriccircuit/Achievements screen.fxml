@@ -6,359 +6,383 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<SplitPane fx:id="globalSplitPane" dividerPositions="0.3" orientation="VERTICAL" style="-fx-background-color: #128999;" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
-   <items>
-            <HBox fx:id="achievementtitlehbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <VBox fx:id="returnvbox" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+<VBox prefWidth="4000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+   <children>
+                  <HBox fx:id="achievementtitlehbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="achievementsreturn" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#titleScreen" text="Return" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Button>
-                     </children>
-                     <HBox.margin>
-                        <Insets left="20.0" top="20.0" />
-                     </HBox.margin>
-                  </VBox>
-                  <VBox minHeight="0.0" minWidth="0.0" prefHeight="208.0" prefWidth="445.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Achievements" VBox.vgrow="ALWAYS">
-                           <font>
-                              <Font size="34.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets top="20.0" />
-                     </HBox.margin>
-                  </VBox>
-               </children>
-            </HBox>
-            <ScrollPane fx:id="scrollPaneachievement" fitToHeight="true" fitToWidth="true" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <content>
-                  <ScrollPane fitToHeight="true" minHeight="0.0" minWidth="0.0" prefHeight="665.0" prefWidth="1998.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
-                     <content>
-                        <HBox fx:id="biggesthbox" minHeight="0.0" minWidth="0.0" prefHeight="697.0" prefWidth="4000.0" style="-fx-background-color: #CE8864; -fx-border-color: transparent;">
+                        <VBox fx:id="returnvbox" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: #000000;" stylesheets="@styleSheet.css" HBox.hgrow="ALWAYS">
-                                       <items>
-                                          <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="499.0" style="-fx-background-color: #222222;">
-                                             <children>
-                                                <ImageView fx:id="lockimage" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@lock.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: transparent;">
-                                             <items>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="achievementlabel" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="48.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="descriptionlabel" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="40.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                             </items>
-                                          </SplitPane>
-                                       </items>
-                                    </SplitPane>
-                                 </children>
-                              </HBox>
-                              <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: #000000;" stylesheets="@styleSheet.css" HBox.hgrow="ALWAYS">
-                                       <items>
-                                          <HBox fx:id="achievementshbox1" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="499.0" style="-fx-background-color: #222222;">
-                                             <children>
-                                                <ImageView fx:id="lockimage1" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@lock.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: transparent;">
-                                             <items>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="achievementlabel1" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="48.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="descriptionlabel1" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="40.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                             </items>
-                                          </SplitPane>
-                                       </items>
-                                    </SplitPane>
-                                 </children>
-                              </HBox>
-                              <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: #000000;" stylesheets="@styleSheet.css" HBox.hgrow="ALWAYS">
-                                       <items>
-                                          <HBox fx:id="achievementshbox2" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="499.0" style="-fx-background-color: #222222;">
-                                             <children>
-                                                <ImageView fx:id="lockimage2" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@lock.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: transparent;">
-                                             <items>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="achievementlabel2" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="48.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="descriptionlabel2" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="40.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                             </items>
-                                          </SplitPane>
-                                       </items>
-                                    </SplitPane>
-                                 </children>
-                              </HBox>
-                              <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: #000000;" stylesheets="@styleSheet.css" HBox.hgrow="ALWAYS">
-                                       <items>
-                                          <HBox fx:id="achievementshbox3" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="499.0" style="-fx-background-color: #222222;">
-                                             <children>
-                                                <ImageView fx:id="lockimage3" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@lock.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: transparent;">
-                                             <items>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="achievementlabel3" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="48.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="descriptionlabel3" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="40.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                             </items>
-                                          </SplitPane>
-                                       </items>
-                                    </SplitPane>
-                                 </children>
-                              </HBox>
-                              <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: #000000;" stylesheets="@styleSheet.css" HBox.hgrow="ALWAYS">
-                                       <items>
-                                          <HBox fx:id="achievementshbox4" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="499.0" style="-fx-background-color: #222222;">
-                                             <children>
-                                                <ImageView fx:id="lockimage4" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@lock.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: transparent;">
-                                             <items>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="achievementlabel4" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="48.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="descriptionlabel4" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="40.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                             </items>
-                                          </SplitPane>
-                                       </items>
-                                    </SplitPane>
-                                 </children>
-                              </HBox>
-                              <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: #000000;" stylesheets="@styleSheet.css" HBox.hgrow="ALWAYS">
-                                       <items>
-                                          <HBox fx:id="achievementshbox5" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="499.0" style="-fx-background-color: #222222;">
-                                             <children>
-                                                <ImageView fx:id="lockimage5" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@lock.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: transparent;">
-                                             <items>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="achievementlabel5" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="48.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="descriptionlabel5" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="40.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                             </items>
-                                          </SplitPane>
-                                       </items>
-                                    </SplitPane>
-                                 </children>
-                              </HBox>
-                              <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: #000000;" stylesheets="@styleSheet.css" HBox.hgrow="ALWAYS">
-                                       <items>
-                                          <HBox fx:id="achievementshbox6" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="499.0" style="-fx-background-color: #222222;">
-                                             <children>
-                                                <ImageView fx:id="lockimage6" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@lock.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: transparent;">
-                                             <items>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="achievementlabel6" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="48.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="descriptionlabel6" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="40.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                             </items>
-                                          </SplitPane>
-                                       </items>
-                                    </SplitPane>
-                                 </children>
-                              </HBox>
-                              <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: #000000;" stylesheets="@styleSheet.css" HBox.hgrow="ALWAYS">
-                                       <items>
-                                          <HBox fx:id="achievementshbox7" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="499.0" style="-fx-background-color: #222222;">
-                                             <children>
-                                                <ImageView fx:id="lockimage7" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@lock.jpg" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <SplitPane dividerPositions="0.5" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" style="-fx-background-color: transparent;">
-                                             <items>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="achievementlabel7" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="48.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
-                                                   <children>
-                                                      <Label fx:id="descriptionlabel7" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font size="40.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                             </items>
-                                          </SplitPane>
-                                       </items>
-                                    </SplitPane>
-                                 </children>
-                              </HBox>
+                              <Button fx:id="achievementsreturn" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#titleScreen" text="Return" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Button>
                            </children>
-                        </HBox>
+                           <HBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox minHeight="0.0" minWidth="0.0" prefHeight="208.0" prefWidth="445.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Achievements" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font size="34.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <ScrollPane fx:id="scrollPaneachievement" fitToHeight="true" fitToWidth="true" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" VBox.vgrow="ALWAYS">
+                     <content>
+                        <ScrollPane fitToHeight="true" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="1422.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                           <content>
+                              <HBox fx:id="biggesthbox" minHeight="0.0" minWidth="0.0" prefHeight="697.0" prefWidth="4000.0" style="-fx-background-color: #CE8864; -fx-border-color: transparent;">
+                                 <children>
+                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                       <children>
+                                         <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fx:id="lockimage" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@lock.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementlabel" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="48.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementdlabel" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="40.0" />
+                                                               </font>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                            </children>
+                                         </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fx:id="lockimage1" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@lock.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementlabel1" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="48.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementdlabel1" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="40.0" />
+                                                               </font>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fx:id="lockimage2" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@lock.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementlabel2" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="48.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" prefWidth="221.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementdlabel2" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="40.0" />
+                                                               </font>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fx:id="lockimage3" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@lock.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementlabel3" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="48.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementdlabel3" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="40.0" />
+                                                               </font>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fx:id="lockimage4" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@lock.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementlabel4" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="48.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementdlabel4" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="40.0" />
+                                                               </font>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fx:id="lockimage5" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@lock.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementlabel5" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="48.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementdlabel5" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="40.0" />
+                                                               </font>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fx:id="lockimage6" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@lock.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementlabel6" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="48.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementdlabel6" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="40.0" />
+                                                               </font>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fx:id="lockimage7" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@lock.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementlabel7" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="48.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementdlabel7" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="40.0" />
+                                                               </font>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </content>
+                        </ScrollPane>
                      </content>
                   </ScrollPane>
-               </content>
-            </ScrollPane>
-   </items>
-</SplitPane>
+   </children>
+</VBox>
