@@ -267,6 +267,11 @@ public class HelloController implements Initializable {
 
     @FXML
     public void titleScreen(ActionEvent event) {
+        // Fade in transition
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
         // Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToTitle());
 
@@ -319,7 +324,7 @@ public class HelloController implements Initializable {
     //Method for achievement hbox
     public void achievelock(ImageView imageView, HBox hbox, Label label, Label dlabel){
         /* start of changing font size and label size */
-        hbox.widthProperty().addListener((observable, oldValue, newWidth) -> {
+        main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
             double widthFontSize = newWidth.doubleValue() / 4;
             double heightFontSize = (main.getMainContainer().getHeight() / 4)*2.35;
 
@@ -333,7 +338,7 @@ public class HelloController implements Initializable {
             }
         });
 
-        hbox.heightProperty().addListener((observable, oldValue, newHeight) -> {
+        main.getMainContainer().heightProperty().addListener((observable, oldValue, newHeight) -> {
                double widthFontSize = main.getMainContainer().getWidth() / 4;
                double heightFontSize = (newHeight.doubleValue() / 4)*2.35;
 
@@ -357,11 +362,14 @@ public class HelloController implements Initializable {
     @FXML
     public void Achievements(ActionEvent event){
 
+        // Fade in transition
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToAchievements());
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
         main.getMainContainer().getChildren().setAll(main.switchToAchievements());
 
         HelloController controller1 = main.AchievementsController();
-
-        //get the necessary variables for dynamic resizing
 
         //Hbox needs to be at double the size of window for having half achievements on screen at a time
         HBox bighbox11 = controller1.getBiggesthbox();
@@ -387,36 +395,30 @@ public class HelloController implements Initializable {
         //Method for binding both, above this one
         achievelock(controller1.getLockImage2(), hbox11, controller1.getAchievementLabel2(), controller1.getAchievementDLabel1());
 
-
         //Hbox3
 
         //Method for binding both, above this one
         achievelock(controller1.getLockImage3(), hbox11, controller1.getAchievementLabel3(), controller1.getAchievementDLabel2());
-
 
         //Hbox4
 
         //Method for binding both, above this one
         achievelock(controller1.getLockImage4(), hbox11, controller1.getAchievementLabel4(), controller1.getAchievementDLabel3());
 
-
         //Hbox5
 
         //Method for binding both, above this one
         achievelock(controller1.getLockImage5(), hbox11, controller1.getAchievementLabel5(), controller1.getAchievementDLabel4());
-
 
         //Hbox6
 
         //Method for binding both, above this one
         achievelock(controller1.getLockImage6(), hbox11, controller1.getAchievementLabel6(), controller1.getAchievementDLabel5());
 
-
         //Hbox7
 
         //Method for binding both, above this one
         achievelock(controller1.getLockImage7(), hbox11, controller1.getAchievementLabel7(), controller1.getAchievementDLabel6());
-
 
         //Hbox8
 
@@ -503,10 +505,10 @@ public class HelloController implements Initializable {
     @FXML
     private void MainScreen(ActionEvent event) {
         // Fade in transition
-       /* FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
-        fadeTransition.play(); */
+        fadeTransition.play();
         //Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToMainScreen());
        }
