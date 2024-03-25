@@ -6,18 +6,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox spacing="15.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
    <children>
-      <HBox VBox.vgrow="ALWAYS">
+      <HBox fx:id="leveltitlehbox" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button mnemonicParsing="false" onAction="#titleScreen" text="Button">
+            <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#titleScreen" text="Button" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets left="15.0" top="15.0" />
                </HBox.margin>
             </Button>
-            <HBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+            <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Level Selection">
+                  <Label minHeight="0.0" minWidth="0.0" text="Level Selection">
                      <font>
                         <Font size="38.0" />
                      </font>
@@ -29,117 +29,340 @@
             <Insets top="10.0" />
          </VBox.margin>
       </HBox>
-      <HBox prefHeight="446.0" prefWidth="820.0" spacing="15.0" VBox.vgrow="ALWAYS">
+      <HBox fx:id="levelselecthbox" minHeight="0.0" minWidth="0.0" spacing="5.0" VBox.vgrow="ALWAYS">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0" spacing="20.0">
+            <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" HBox.hgrow="ALWAYS">
                <HBox.margin>
-                  <Insets left="15.0" />
+                  <Insets />
                </HBox.margin>
                <children>
-                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" stylesheets="@styleSheet.css">
-                     <items>
-                        <HBox>
+                  <VBox minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox fx:id="smallhboxlvl1" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <HBox VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Label text="Label" HBox.hgrow="ALWAYS">
-                                             <HBox.margin>
-                                                <Insets top="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
+                              <ImageView fx:id="imageviewlvl1" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                 <image>
+                                    <Image url="@lvl1.jpg" />
+                                 </image></ImageView>
+                                   </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="labellvl1" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </HBox>
-                        <HBox>
+                     </children>
+                  </VBox>
+                  <VBox minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0">
+                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <HBox VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Label text="Label" HBox.hgrow="ALWAYS">
-                                             <HBox.margin>
-                                                <Insets top="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
+                                    <ImageView fx:id="imageviewlvl6" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Achilvl6to9.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane minHeight="0.0" minWidth="0.0" />
                                  </children>
-                              </VBox>
+                              </StackPane>
                            </children>
                         </HBox>
-                     </items>
-                  </SplitPane>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="labellvl6" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </VBox>
-            <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="10.0" prefHeight="200.0" prefWidth="150.0" spacing="20.0">
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Label" />
-                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Label layoutX="72.0" layoutY="160.0" text="Label" />
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="10.0" prefHeight="200.0" prefWidth="150.0" spacing="20.0">
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Label" />
-                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Label layoutX="72.0" layoutY="160.0" text="Label" />
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="10.0" prefHeight="200.0" prefWidth="150.0" spacing="20.0">
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Label" />
-                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Label layoutX="72.0" layoutY="160.0" text="Label" />
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="10.0" prefHeight="200.0" prefWidth="150.0" spacing="20.0">
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label text="Label" />
-                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Label layoutX="72.0" layoutY="160.0" text="Label" />
-               </children>
+            <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" HBox.hgrow="ALWAYS">
                <HBox.margin>
-                  <Insets right="10.0" />
+                  <Insets />
                </HBox.margin>
+               <children>
+                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl2" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lvl2.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane minHeight="0.0" minWidth="0.0" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="labellvl2" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl7" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Achilvl6to9.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane minHeight="0.0" minWidth="0.0" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="labellvl7" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl3" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lvl3.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane minHeight="0.0" minWidth="0.0" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="labellvl3" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl8" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Achilvl6to9.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane minHeight="0.0" minWidth="0.0" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="labellvl8" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl4" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lvl4.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane minHeight="0.0" minWidth="0.0" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="labellvl4" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl9" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Achilvl6to9.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane minHeight="0.0" minWidth="0.0" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="labellvl9" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl5" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lvl5.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane minHeight="0.0" minWidth="0.0" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="labellvl5" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl10" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Skulllvl10.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Pane minHeight="0.0" minWidth="0.0" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="labellvl10" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="35.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
             </VBox>
          </children>
          <VBox.margin>
-            <Insets bottom="10.0" />
+            <Insets bottom="5.0" left="5.0" right="5.0" />
          </VBox.margin>
       </HBox>
    </children>

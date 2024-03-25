@@ -144,36 +144,11 @@ public class HelloController implements Initializable {
 
     //Start of level selection ids
     @FXML
-    private SplitPane splitlevel16;
+    private HBox leveltitlehbox;
     @FXML
-    private SplitPane splitlevel27;
+    private HBox levelselecthbox;
     @FXML
-    private SplitPane splitlevel38;
-    @FXML
-    private SplitPane splitlevel49;
-    @FXML
-    private SplitPane splitlevel510;
-
-    @FXML
-    private HBox bighboxlvl1;
-    @FXML
-    private HBox bighboxlvl2;
-    @FXML
-    private HBox bighboxlvl3;
-    @FXML
-    private HBox bighboxlvl4;
-    @FXML
-    private HBox bighboxlvl5;
-    @FXML
-    private HBox bighboxlvl6;
-    @FXML
-    private HBox bighboxlvl7;
-    @FXML
-    private HBox bighboxlvl8;
-    @FXML
-    private HBox bighboxlvl9;
-    @FXML
-    private HBox bighboxlvl10;
+    private HBox smallhboxlvl1;
 
     @FXML
     private Label labellvl1;
@@ -197,9 +172,6 @@ public class HelloController implements Initializable {
     private Label labellvl10;
 
     @FXML
-    private HBox smallhboxlvl1;
-
-    @FXML
     private ImageView imageviewlvl1;
     @FXML
     private ImageView imageviewlvl2;
@@ -219,6 +191,8 @@ public class HelloController implements Initializable {
     private ImageView imageviewlvl9;
     @FXML
     private ImageView imageviewlvl10;
+
+    //End of level selection ids
 
 
     @FXML
@@ -371,13 +345,10 @@ public class HelloController implements Initializable {
 
         HelloController controller1 = main.AchievementsController();
 
-        //Hbox needs to be at double the size of window for having half achievements on screen at a time
-        HBox bighbox11 = controller1.getBiggesthbox();
-
         controller1.getAchievementtitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.25));
 
         //Bind the bighbox to twice the window size
-        bighbox11.prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(2));
+        controller1.getBiggesthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(2));
 
         // Bind scroll pane height to maintain the desired ratio
         controller1.getScrollPaneachievement().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.75));
@@ -472,34 +443,169 @@ public class HelloController implements Initializable {
     public ImageView getLockImage8(){return this.lockimage7;}
     public Label getAchievementDLabel7(){return this.achievementdlabel7;}
 
-    //Method for achievement hbox
-    public void levelimagelabel(HBox bighbox, ImageView imageView, HBox hbox, Label label){
 
+    public void levelimagelabel(HBox hbox, ImageView imageView, Label label){
+        /* start of changing font size and label size */
+        main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
+            double widthFontSize = newWidth.doubleValue() / 4;
+            double heightFontSize = (main.getMainContainer().getHeight() / 4)*2.35;
+
+            // Choose the smaller font size to ensure it fits both width and height
+            double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
+
+            // Set the font size of the label
+            if (fontSize != 0) {
+                label.setStyle("-fx-font-size: " + fontSize + "px");
+            }
+        });
+
+        main.getMainContainer().heightProperty().addListener((observable, oldValue, newHeight) -> {
+            double widthFontSize = main.getMainContainer().getWidth() / 4;
+            double heightFontSize = (newHeight.doubleValue() / 4)*2.35;
+
+            // Choose the smaller font size to ensure it fits both width and height
+            double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
+
+            // Set the font size of the label
+            if (fontSize != 0) {
+                label.setStyle("-fx-font-size: " + fontSize + "px");
+            }
+        });
+
+        // Bind the lock image to the size of the HBox
+        imageView.setPreserveRatio(true); // Disable preserving aspect ratio
+        imageView.fitWidthProperty().bind(hbox.widthProperty()); // Bind fitWidth to HBox width
+        imageView.fitHeightProperty().bind(hbox.heightProperty()); // Bind fitHeight to HBox height
     }
 
     /* Switch to level select screen and initialize*/
     @FXML
     public void LevelSelect(ActionEvent event) {
-        // Replace current screen with the new one
+        // Fade in transition
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToLevelSelect());
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
         main.getMainContainer().getChildren().setAll(main.switchToLevelSelect());
 
-      /*  //get the necessary variables for dynamic resizing
-        ScrollPane scrollPane11 = controller1.getScrollPaneachievement();
-        HBox bighbox11 = controller1.getBiggesthbox();
-        HBox achievementtitlehbox11 = controller1.getAchievementtitlehbox();
-        SplitPane splitPane11 = controller1.getSplitPane();
+        HelloController controller1 = main.LevelSelectController();
 
-        scrollPane11.widthProperty().addListener((observable, oldValue, newWidth) -> {
-            //set size of biggest hbox to twice the scrollpane
-            bighbox11.setMaxWidth(newWidth.doubleValue() * 2);
-        });
+        //Hbox wants to be 1/6 of the screen
+        controller1.getLeveltitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.2));
 
-        splitPane11.heightProperty().addListener((observable, oldValue, newHeight) -> {
-            //scrollPane11.setMaxHeight(newHeight.doubleValue()*((double) 7 /10));
-            scrollPane11.setMinHeight(newHeight.doubleValue() * ((double) 7 / 10));
-            achievementtitlehbox11.setMinHeight(splitPane11.getHeight() * ((double) 3 / 10));
-        }); */
+        //Other hbox wants to be 5/6 of the screen and 90% of the width
+        controller1.getLevelselecthbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.8));
+
+        controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(0.9));
+
+
+        //container to base resizing on
+        HBox hbox11 = controller1.getSmallhboxlvl1();
+
+        //Lvl1
+
+        //Method for binding both, above this one
+        levelimagelabel(hbox11, controller1.getImageviewlvl1(), controller1.getLabellvl1());
+
+        //Lvl2
+
+        //Method for binding both, above this one
+        levelimagelabel(hbox11, controller1.getImageviewlvl2(), controller1.getLabellvl2());
+
+        //Lvl3
+
+        //Method for binding both, above this one
+        levelimagelabel(hbox11, controller1.getImageviewlvl3(), controller1.getLabellvl3());
+
+        //Lvl4
+
+        //Method for binding both, above this one
+        levelimagelabel(hbox11, controller1.getImageviewlvl4(), controller1.getLabellvl4());
+
+        //Lvl5
+
+        //Method for binding both, above this one
+        levelimagelabel(hbox11, controller1.getImageviewlvl5(), controller1.getLabellvl5());
+
+        //Lvl6
+
+        //Method for binding both, above this one
+        levelimagelabel(hbox11, controller1.getImageviewlvl6(), controller1.getLabellvl6());
+
+        //Lvl7
+
+        //Method for binding both, above this one
+        levelimagelabel(hbox11, controller1.getImageviewlvl7(), controller1.getLabellvl7());
+
+        //Lvl8
+
+        //Method for binding both, above this one
+        levelimagelabel(hbox11, controller1.getImageviewlvl8(), controller1.getLabellvl8());
+
+        //Lvl9
+
+        //Method for binding both, above this one
+        levelimagelabel(hbox11, controller1.getImageviewlvl9(), controller1.getLabellvl9());
+
+        //Lvl10
+
+        //Method for binding both, above this one
+        levelimagelabel(hbox11, controller1.getImageviewlvl10(), controller1.getLabellvl10());
+
+
     }
+
+    //Level selection screen getters
+
+    //Hbox for the top part of screen
+    public HBox getLeveltitlehbox(){return this.leveltitlehbox;}
+
+    //Hbox for rest of the screen
+    public HBox getLevelselecthbox(){return this.levelselecthbox;}
+
+    //Hbox for resizing images
+    public HBox getSmallhboxlvl1(){return this.smallhboxlvl1;}
+
+
+    //Level 1
+    public ImageView getImageviewlvl1(){return this.imageviewlvl1;}
+    public Label getLabellvl1(){return this.labellvl1;}
+
+    //Level 2
+    public ImageView getImageviewlvl2(){return this.imageviewlvl2;}
+    public Label getLabellvl2(){return this.labellvl2;}
+
+    //Level 3
+    public ImageView getImageviewlvl3(){return this.imageviewlvl3;}
+    public Label getLabellvl3(){return this.labellvl3;}
+
+    //Level 4
+    public ImageView getImageviewlvl4(){return this.imageviewlvl4;}
+    public Label getLabellvl4(){return this.labellvl4;}
+
+    //Level 5
+    public ImageView getImageviewlvl5(){return this.imageviewlvl5;}
+    public Label getLabellvl5(){return this.labellvl5;}
+
+    //Level 6
+    public ImageView getImageviewlvl6(){return this.imageviewlvl6;}
+    public Label getLabellvl6(){return this.labellvl6;}
+
+    //Level 7
+    public ImageView getImageviewlvl7(){return this.imageviewlvl7;}
+    public Label getLabellvl7(){return this.labellvl7;}
+
+    //Level 8
+    public ImageView getImageviewlvl8(){return this.imageviewlvl8;}
+    public Label getLabellvl8(){return this.labellvl8;}
+
+    //Level 9
+    public ImageView getImageviewlvl9(){return this.imageviewlvl9;}
+    public Label getLabellvl9(){return this.labellvl9;}
+
+    //Level 10
+    public ImageView getImageviewlvl10(){return this.imageviewlvl10;}
+    public Label getLabellvl10(){return this.labellvl10;}
 
     /* Switch to main screen and initialize*/
     @FXML
