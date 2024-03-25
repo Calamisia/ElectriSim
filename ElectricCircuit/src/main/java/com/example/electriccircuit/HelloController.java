@@ -190,15 +190,17 @@ public class HelloController implements Initializable {
     private ImageView imageviewlvl9;
     @FXML
     private ImageView imageviewlvl10;
-
     //End of level selection ids
 
     //Start of main screen ids
     @FXML
     private HBox scrollhbox;
+    //End of main screen ids
 
+    //Start of settings screen ids
     @FXML
-    private ScrollPane componentbar;
+    private VBox settingsvbox;
+    //End of settings screen ids
 
     draggable draggableMaker = new draggable();
 
@@ -250,6 +252,9 @@ public class HelloController implements Initializable {
         fadeTransition.play();
         // Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToTitle());
+        for (Node child : main.getMainContainer().getChildren()) {
+            child.setMouseTransparent(false);
+        }
 
         titlemethod();
     }
@@ -659,12 +664,35 @@ public class HelloController implements Initializable {
 
         HelloController controller1 = main.MainController();
 
-        controller1.getScrollhbox().prefWidthProperty().bind(controller1.getComponentbar().widthProperty().add(1350));
+        controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(1199));
        }
 
     public HBox getScrollhbox(){return this.scrollhbox;}
 
-    public ScrollPane getComponentbar(){return this.componentbar;}
+    /* Settings */
+    @FXML
+    private void settings(ActionEvent event) {
+        //Add the settings to the stage
+        for (Node child : main.getMainContainer().getChildren()) {
+            child.setMouseTransparent(true);
+        }
+        main.getMainContainer().getChildren().add(main.settings());
+        HelloController controller1 = main.settingsController();
+        controller1.getSettingsvbox().setMaxWidth(400);
+        controller1.getSettingsvbox().setMaxHeight(500);
+    }
+
+    public VBox getSettingsvbox(){return this.settingsvbox;}
+
+    /* exit settings */
+    @FXML
+    private void exitSettings(ActionEvent event) {
+        //Remove the settings from the stage
+        main.getMainContainer().getChildren().remove(main.settings());
+        for (Node child : main.getMainContainer().getChildren()) {
+            child.setMouseTransparent(false);
+        }
+    }
 
     @FXML
     public void spawn(MouseEvent e) {

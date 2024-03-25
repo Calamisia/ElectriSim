@@ -10,7 +10,7 @@
    <children>
       <HBox fx:id="leveltitlehbox" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#titleScreen" text="Button" HBox.hgrow="ALWAYS">
+            <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#titleScreen" prefHeight="25.0" prefWidth="55.0" text="Button" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets left="15.0" top="15.0" />
                </HBox.margin>
@@ -23,6 +23,9 @@
                      </font>
                   </Label>
                </children>
+               <HBox.margin>
+                  <Insets right="70.0" />
+               </HBox.margin>
             </HBox>
          </children>
          <VBox.margin>

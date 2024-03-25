@@ -34,7 +34,7 @@
                   </HBox>
                   <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
                      <children>
-                           <Button fx:id="bt4" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="500.0" text="Settings">
+                           <Button fx:id="bt4" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#settings" prefHeight="110.0" prefWidth="500.0" text="Settings">
                                </Button>
                      </children>
                   </HBox>
