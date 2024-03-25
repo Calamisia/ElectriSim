@@ -5,6 +5,7 @@ import com.example.electriccircuit.Logic.BuilderMatrix;
 import com.example.electriccircuit.Logic.CalculatingGrid;
 import com.example.electriccircuit.Logic.SaveFiles;
 import com.example.electriccircuit.Logic.draggable;
+import com.example.electriccircuit.Logic.*;
 import javafx.animation.FadeTransition;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
@@ -18,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
@@ -40,10 +42,7 @@ import static com.example.electriccircuit.Logic.SaveFiles.*;
 
 public class HelloController implements Initializable {
     private HelloApplication main;
-    private Stage stage;
-    private Scene scene1,scene2,scene3,scene4;
-    private Parent root1,root2,root3,root4;
-    private FXMLLoader loader1,loader2,loader3,loader4;
+    private Unlocks unlocked;
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
 
     @FXML
@@ -194,17 +193,13 @@ public class HelloController implements Initializable {
 
     //End of level selection ids
 
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-
     draggable draggableMaker = new draggable();
 
     public void setMain(HelloApplication main){
         this.main = main;
     }
+
+    public void setUnlocks(Unlocks unlocked) { this.unlocked = unlocked; }
 
     //initialize variables
 
@@ -297,6 +292,7 @@ public class HelloController implements Initializable {
 
     //Method for achievement hbox
     public void achievelock(ImageView imageView, HBox hbox, Label label, Label dlabel){
+
         /* start of changing font size and label size */
         main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
             double widthFontSize = newWidth.doubleValue() / 4;
@@ -358,40 +354,72 @@ public class HelloController implements Initializable {
 
         //Hbox1
 
+        Image image = new Image("lvl1.jpg");
+        //Check if the achievement is unlocked
+        if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
+
         //Method for binding both, above this one
         achievelock(controller1.getLockImage1(), hbox11, controller1.getAchievementLabel1(), controller1.getAchievementDLabel());
 
         //Hbox2
+
+        image = new Image("lvl2.jpg");
+        //Check if the achievement is unlocked
+        if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
 
         //Method for binding both, above this one
         achievelock(controller1.getLockImage2(), hbox11, controller1.getAchievementLabel2(), controller1.getAchievementDLabel1());
 
         //Hbox3
 
+        image = new Image("lvl3.jpg");
+        //Check if the achievement is unlocked
+        if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
+
         //Method for binding both, above this one
         achievelock(controller1.getLockImage3(), hbox11, controller1.getAchievementLabel3(), controller1.getAchievementDLabel2());
 
         //Hbox4
+
+        image = new Image("lvl4.jpg");
+        //Check if the achievement is unlocked
+        if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
 
         //Method for binding both, above this one
         achievelock(controller1.getLockImage4(), hbox11, controller1.getAchievementLabel4(), controller1.getAchievementDLabel3());
 
         //Hbox5
 
+        image = new Image("lvl5.jpg");
+        //Check if the achievement is unlocked
+        if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
+
         //Method for binding both, above this one
         achievelock(controller1.getLockImage5(), hbox11, controller1.getAchievementLabel5(), controller1.getAchievementDLabel4());
 
         //Hbox6
+
+        image = new Image("lvl6.jpg");
+        //Check if the achievement is unlocked
+        if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
 
         //Method for binding both, above this one
         achievelock(controller1.getLockImage6(), hbox11, controller1.getAchievementLabel6(), controller1.getAchievementDLabel5());
 
         //Hbox7
 
+        image = new Image("lvl7.jpg");
+        //Check if the achievement is unlocked
+        if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
+
         //Method for binding both, above this one
         achievelock(controller1.getLockImage7(), hbox11, controller1.getAchievementLabel7(), controller1.getAchievementDLabel6());
 
         //Hbox8
+
+        image = new Image("lvl8.jpg");
+        //Check if the achievement is unlocked
+        if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
 
         //Method for binding both, above this one
         achievelock(controller1.getLockImage8(), hbox11, controller1.getAchievementLabel8(), controller1.getAchievementDLabel7());
@@ -444,7 +472,7 @@ public class HelloController implements Initializable {
     public Label getAchievementDLabel7(){return this.achievementdlabel7;}
 
 
-    public void levelimagelabel(HBox hbox, ImageView imageView, Label label){
+    public void levelimagelabel(HBox hbox, ImageView imageView, Label label, int lvlasked){
         /* start of changing font size and label size */
         main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
             double widthFontSize = newWidth.doubleValue() / 4;
@@ -476,6 +504,10 @@ public class HelloController implements Initializable {
         imageView.setPreserveRatio(true); // Disable preserving aspect ratio
         imageView.fitWidthProperty().bind(hbox.widthProperty()); // Bind fitWidth to HBox width
         imageView.fitHeightProperty().bind(hbox.heightProperty()); // Bind fitHeight to HBox height
+
+        //Check if the level can be unlocked
+        imageView.setMouseTransparent(true);
+        if (unlocked.isLevelUnlocked(lvlasked) == true) imageView.setMouseTransparent(false);
     }
 
     /* Switch to level select screen and initialize*/
@@ -505,53 +537,53 @@ public class HelloController implements Initializable {
         //Lvl1
 
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl1(), controller1.getLabellvl1());
+        levelimagelabel(hbox11, controller1.getImageviewlvl1(), controller1.getLabellvl1(),1);
 
         //Lvl2
 
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl2(), controller1.getLabellvl2());
+        levelimagelabel(hbox11, controller1.getImageviewlvl2(), controller1.getLabellvl2(),2);
 
         //Lvl3
 
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl3(), controller1.getLabellvl3());
+        levelimagelabel(hbox11, controller1.getImageviewlvl3(), controller1.getLabellvl3(),3);
 
         //Lvl4
 
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl4(), controller1.getLabellvl4());
+        levelimagelabel(hbox11, controller1.getImageviewlvl4(), controller1.getLabellvl4(),4);
 
         //Lvl5
 
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl5(), controller1.getLabellvl5());
+        levelimagelabel(hbox11, controller1.getImageviewlvl5(), controller1.getLabellvl5(),5);
 
         //Lvl6
 
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl6(), controller1.getLabellvl6());
+        levelimagelabel(hbox11, controller1.getImageviewlvl6(), controller1.getLabellvl6(),6);
 
         //Lvl7
 
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl7(), controller1.getLabellvl7());
+        levelimagelabel(hbox11, controller1.getImageviewlvl7(), controller1.getLabellvl7(),7);
 
         //Lvl8
 
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl8(), controller1.getLabellvl8());
+        levelimagelabel(hbox11, controller1.getImageviewlvl8(), controller1.getLabellvl8(),8);
 
         //Lvl9
 
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl9(), controller1.getLabellvl9());
+        levelimagelabel(hbox11, controller1.getImageviewlvl9(), controller1.getLabellvl9(),9);
 
         //Lvl10
 
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl10(), controller1.getLabellvl10());
-
+        levelimagelabel(hbox11, controller1.getImageviewlvl10(), controller1.getLabellvl10(),10);
+        
 
     }
 

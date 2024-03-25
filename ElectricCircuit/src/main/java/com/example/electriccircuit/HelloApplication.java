@@ -1,6 +1,7 @@
 package com.example.electriccircuit;
 
 import com.example.electriccircuit.Logic.CalculatingGrid;
+import com.example.electriccircuit.Logic.Unlocks;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,6 +17,7 @@ import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 public class HelloApplication extends Application {
 
     private Stage primaryStage;
+    private Unlocks unlocked = new Unlocks();
     private Scene scene;
     private Node scene1,scene2,scene3,scene4;
     private FXMLLoader fxmlLoader1,fxmlLoader2,fxmlLoader3,fxmlLoader4;
@@ -57,6 +59,10 @@ public class HelloApplication extends Application {
         controller2.setMain(this);
         controller3.setMain(this);
         controller4.setMain(this);
+
+        //set unlocked for the level select screen and achievements screen
+        controller2.setUnlocks(this.unlocked);
+        controller3.setUnlocks(this.unlocked);
 
         controller1.titleinitialize();
 

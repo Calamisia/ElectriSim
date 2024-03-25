@@ -64,16 +64,11 @@
                      <children>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl6" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Achilvl6to9.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Pane minHeight="0.0" minWidth="0.0" />
-                                 </children>
-                              </StackPane>
+                              <ImageView fx:id="imageviewlvl6" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Achilvl6to9.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
@@ -101,16 +96,11 @@
                      <children>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl2" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@lvl2.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Pane minHeight="0.0" minWidth="0.0" />
-                                 </children>
-                              </StackPane>
+                              <ImageView fx:id="imageviewlvl2" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@lvl2.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
@@ -131,16 +121,11 @@
                      <children>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl7" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Achilvl6to9.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Pane minHeight="0.0" minWidth="0.0" />
-                                 </children>
-                              </StackPane>
+                              <ImageView fx:id="imageviewlvl7" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Achilvl6to9.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
@@ -168,16 +153,11 @@
                      <children>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl3" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@lvl3.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Pane minHeight="0.0" minWidth="0.0" />
-                                 </children>
-                              </StackPane>
+                              <ImageView fx:id="imageviewlvl3" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@lvl3.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
@@ -198,16 +178,11 @@
                      <children>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl8" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Achilvl6to9.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Pane minHeight="0.0" minWidth="0.0" />
-                                 </children>
-                              </StackPane>
+                              <ImageView fx:id="imageviewlvl8" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Achilvl6to9.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
@@ -235,16 +210,11 @@
                      <children>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl4" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@lvl4.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Pane minHeight="0.0" minWidth="0.0" />
-                                 </children>
-                              </StackPane>
+                              <ImageView fx:id="imageviewlvl4" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@lvl4.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
@@ -265,16 +235,11 @@
                      <children>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl9" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Achilvl6to9.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Pane minHeight="0.0" minWidth="0.0" />
-                                 </children>
-                              </StackPane>
+                              <ImageView fx:id="imageviewlvl9" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Achilvl6to9.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
@@ -302,16 +267,11 @@
                      <children>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl5" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@lvl5.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Pane minHeight="0.0" minWidth="0.0" />
-                                 </children>
-                              </StackPane>
+                              <ImageView fx:id="imageviewlvl5" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@lvl5.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
@@ -332,16 +292,11 @@
                      <children>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <StackPane minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl10" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Skulllvl10.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Pane minHeight="0.0" minWidth="0.0" />
-                                 </children>
-                              </StackPane>
+                              <ImageView fx:id="imageviewlvl10" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Skulllvl10.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
