@@ -12,13 +12,19 @@
             <Insets left="10.0" top="20.0" />
          </VBox.margin>
          <children>
-            <Button mnemonicParsing="false" onAction="#exitSettings" prefHeight="25.0" prefWidth="60.0" text="X" HBox.hgrow="NEVER" />
+            <Button mnemonicParsing="false" onAction="#exitSettings" prefHeight="25.0" prefWidth="60.0" text="X" HBox.hgrow="NEVER">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin></Button>
             <HBox alignment="TOP_CENTER" HBox.hgrow="NEVER">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="250.0" text="Settings" textAlignment="CENTER" HBox.hgrow="NEVER">
                      <font>
                         <Font size="30.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
                   </Label>
                </children>
                <HBox.margin>

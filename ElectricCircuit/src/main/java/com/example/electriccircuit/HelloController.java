@@ -23,12 +23,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -44,12 +41,6 @@ public class HelloController implements Initializable {
     private HelloApplication main;
     private Unlocks unlocked;
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
-
-    @FXML
-    private AnchorPane anchorpane;
-
-    @FXML
-    private AnchorPane smallanchorpane;
 
     @FXML
     private Label welcomeText;
@@ -195,12 +186,19 @@ public class HelloController implements Initializable {
     //Start of main screen ids
     @FXML
     private HBox scrollhbox;
+    @FXML
+    private BorderPane borderPane;
+    @FXML
+    private AnchorPane anchorpane;
+    @FXML
+    private AnchorPane smallanchorpane;
     //End of main screen ids
 
     //Start of settings screen ids
     @FXML
     private VBox settingsvbox;
     //End of settings screen ids
+
 
     draggable draggableMaker = new draggable();
 
@@ -664,10 +662,16 @@ public class HelloController implements Initializable {
 
         HelloController controller1 = main.MainController();
 
+        for (Node child : main.getMainContainer().getChildren()) {
+            child.setMouseTransparent(false);
+        }
+        controller1.getBorderPane().setMouseTransparent(true);
         controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(1199));
        }
 
     public HBox getScrollhbox(){return this.scrollhbox;}
+    public BorderPane getBorderPane(){return this.borderPane;}
+    public AnchorPane getAnchorpane(){return this.anchorpane;}
 
     /* Settings */
     @FXML
@@ -678,8 +682,10 @@ public class HelloController implements Initializable {
         }
         main.getMainContainer().getChildren().add(main.settings());
         HelloController controller1 = main.settingsController();
+        controller1.getSettingsvbox().setMinWidth(400);
         controller1.getSettingsvbox().setMaxWidth(400);
-        controller1.getSettingsvbox().setMaxHeight(500);
+        controller1.getSettingsvbox().setMinHeight(350);
+        controller1.getSettingsvbox().setMaxHeight(470);
     }
 
     public VBox getSettingsvbox(){return this.settingsvbox;}
@@ -692,6 +698,8 @@ public class HelloController implements Initializable {
         for (Node child : main.getMainContainer().getChildren()) {
             child.setMouseTransparent(false);
         }
+        HelloController controller1 = main.AchievementsController();
+        if (controller1.getBorderPane() != null) controller1.getBorderPane().setMouseTransparent(true);
     }
 
     @FXML

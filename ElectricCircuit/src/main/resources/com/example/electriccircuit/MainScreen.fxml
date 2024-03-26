@@ -187,7 +187,7 @@
                     </children>
                 </HBox>
             </children></AnchorPane>
-        <BorderPane minHeight="0.0" minWidth="0.0" mouseTransparent="true" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
+        <BorderPane fx:id="borderPane" minHeight="0.0" minWidth="0.0" mouseTransparent="true" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
             <!--Visual Pane-->
             <left>
                 <!--Left side of border pane-->
