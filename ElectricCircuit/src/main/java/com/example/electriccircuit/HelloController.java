@@ -233,6 +233,11 @@ public class HelloController implements Initializable {
     public HelloController() {
     }
 
+    @FXML
+    public void test(){
+        main.getMainContainer().getChildren().setAll(main.switchToTest());
+    }
+
     //bind the properties of imageview when launching title screen
     public void titleinitialize(){
         // Replace current screen with the new one
