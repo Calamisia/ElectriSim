@@ -1,6 +1,10 @@
 package com.example.electriccircuit.Logic;
 
+import javafx.scene.layout.GridPane;
+
 import java.util.ArrayList;
+
+import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 
 public class BuilderMatrix {
 
@@ -32,8 +36,10 @@ public class BuilderMatrix {
     }
 
     // Used to add a component Id to a box
-    public static void setBoxID(int row, int column, int iD) {
+    public static void setBoxID(int row, int column, int iD, GridPane dataGrid) {
         grid[row][column] = iD;
+        saveGame();
+        new CalculatingGrid(getGrid(), dataGrid);
     }
 
     // Used to get the component at a certain box in the matrix

@@ -23,12 +23,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -193,7 +190,7 @@ public class HelloController implements Initializable {
 
     //End of level selection ids
 
-    draggable draggableMaker = new draggable();
+    public static draggable draggableMaker = new draggable();
 
     public void setMain(HelloApplication main){
         this.main = main;
@@ -221,6 +218,9 @@ public class HelloController implements Initializable {
     private HBox merger;
     @FXML
     private HBox splitter;
+
+    @FXML
+    public GridPane dataGrid;
 
     //initialize variables
     public HelloController() {
@@ -716,7 +716,7 @@ public class HelloController implements Initializable {
                 //Creates the solid circle
                 Circle solidcircle = new Circle(20);
                 solidcircle.setFill(color);
-                draggableMaker.dragging(solidcircle);
+                //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (smallanchorpane.getHeight() / 20);
                 double Wspacing = (smallanchorpane.getWidth() / 35);
 
@@ -741,7 +741,7 @@ public class HelloController implements Initializable {
                         solidcircle.toFront();
 
                         //Sandbox Matrix creation
-                        BuilderMatrix.setBoxID(Windex, Hindex, iD);
+                        BuilderMatrix.setBoxID(Windex, Hindex, iD, dataGrid);
                     }
                 }
                 if(!mouseEvent.isShiftDown()){
