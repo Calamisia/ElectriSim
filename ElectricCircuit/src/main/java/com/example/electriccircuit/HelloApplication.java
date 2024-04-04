@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.example.electriccircuit.Logic.Debug.Logger;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 
 public class HelloApplication extends Application {
@@ -73,6 +74,7 @@ public class HelloApplication extends Application {
 
         primaryStage.setOnCloseRequest( e -> {
             saveGame();
+            Logger.close();
         });
     }
 

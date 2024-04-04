@@ -4,7 +4,7 @@ import javafx.scene.paint.Color;
 
 
 
-public class Wire {
+public class Wire extends Component{
     private int length;
     private Color wireColor;
     private boolean isConnected;

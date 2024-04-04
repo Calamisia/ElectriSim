@@ -13,7 +13,7 @@ public class CalculatingGrid {
 
     public CalculatingGrid(int[][] grid, GridPane dataGrid){
         BuilderMatrix sandboxMatrix = new BuilderMatrix(grid);
-        Debug.printGrid(grid, true);
+        Debug.printGrid(grid);
         if(sandboxMatrix.closedCircuit()) {
             String circuitPath = sandboxMatrix.getCircuitPath();
             for(int i = 0; i < circuitPath.length(); i++){
