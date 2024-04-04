@@ -10,8 +10,9 @@ public class CalculatingGrid {
     Ohm resistance = new Ohm(0);
     Volt potential = new Volt(0);
     Amp current = new Amp(0);
+    GridPane dataGrid;
 
-    public CalculatingGrid(int[][] grid, GridPane dataGrid){
+    public CalculatingGrid(int[][] grid){
         BuilderMatrix sandboxMatrix = new BuilderMatrix(grid);
         Debug.printGrid(grid);
         if(sandboxMatrix.closedCircuit()) {

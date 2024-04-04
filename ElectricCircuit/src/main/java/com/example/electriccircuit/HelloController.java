@@ -654,46 +654,30 @@ public class HelloController implements Initializable {
 
     @FXML
     public void spawn(MouseEvent e) {
-        int iD;
-        Color color;
+        Component component;
         if(((HBox) e.getSource()).getId().equals(wire.getId())){
-            Wire carry = new Wire();
-            iD = carry.getId();
-            color = carry.getColor();
+            component = new Wire();
         } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
-            PowerSupply carry = new PowerSupply();
-            iD = carry.getId();
-            color = carry.getColor();
+            component = new PowerSupply();
         } else if(((HBox) e.getSource()).getId().equals(resistor.getId())){
-            Resistors carry = new Resistors();
-            iD = carry.getId();
-            color = carry.getColor();
+            component = new Resistors();
         } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
-            Capacitors carry = new Capacitors();
-            iD = carry.getId();
-            color = carry.getColor();
+            component = new Capacitors();
         } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
-            Merger carry = new Merger();
-            iD = carry.getId();
-            color = carry.getColor();
+            component = new Merger();
         } else if(((HBox) e.getSource()).getId().equals(splitter.getId())){
-            Splitter carry = new Splitter();
-            iD = carry.getId();
-            color = carry.getColor();
+            component = new Splitter();
         } else if(((HBox) e.getSource()).getId().equals(wireSwitch.getId())){
-            Switch carry = new Switch();
-            iD = carry.getId();
-            color = carry.getColor();
+            component = new Switch();
             Debug.Info("wireSwitch found");
         } else {
+            component = null;
             Debug.Error("Invalid spawn component");
-            color = null;
-            iD = -1;
         }
 
         //Creates the object
         Circle circle = new Circle(20);
-        circle.setFill(color);
+        circle.setFill(component.getColor());
         circle.setOpacity(0);
         anchorpane.getChildren().add(circle);
         smallanchorpane.getChildren().add(circle);
@@ -720,7 +704,7 @@ public class HelloController implements Initializable {
             if(isEventEnabled[0]) { //makes sure you can only release once
                 //Creates the solid circle
                 Circle solidcircle = new Circle(20);
-                solidcircle.setFill(color);
+                solidcircle.setFill(component.getColor());
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (smallanchorpane.getHeight() / 20);
                 double Wspacing = (smallanchorpane.getWidth() / 35);
@@ -746,7 +730,7 @@ public class HelloController implements Initializable {
                         solidcircle.toFront();
 
                         //Sandbox Matrix creation
-                        BuilderMatrix.setBoxID(Windex, Hindex, iD, dataGrid);
+                        BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
                     }
                 }
                 if(!mouseEvent.isShiftDown()){

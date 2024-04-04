@@ -24,7 +24,7 @@ public class draggable {
             mouseAnchorY = e.getSceneY() - node.getLayoutY();
             System.out.println(iD);
             isEventEnabled[0] = true;
-            BuilderMatrix.setBoxID(indexArray[0], indexArray[1], 0, dataGrid);
+            BuilderMatrix.setBoxID(indexArray[0], indexArray[1], 0);
         });
 
         node.setOnMouseDragged(e -> { // On mouse drag with object held, make object follow mouse
@@ -72,7 +72,7 @@ public class draggable {
                         smallanchorpane.getChildren().add(solidcircle);
                         solidcircle.toFront();
                         //Sandbox Matrix creation
-                        BuilderMatrix.setBoxID(Windex, Hindex, iD, dataGrid);
+                        BuilderMatrix.setBoxID(Windex, Hindex, iD);
                     }
                 }
                 isEventEnabled[0] = false;

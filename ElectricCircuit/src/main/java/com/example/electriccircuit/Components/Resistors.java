@@ -2,7 +2,12 @@ package com.example.electriccircuit.Components;
 
 import javafx.scene.paint.Color;
 
-public class Resistors {
+public class Resistors extends Component{
+
+    public Resistors(){
+        this.color = Color.GREEN;
+        this.Id = 3;
+    }
 
     private int resistance;
 
@@ -13,11 +18,4 @@ public class Resistors {
     public int getResistance() {
         return resistance;
     } // getter
-
-    public int getId(){
-        return 3;
-    }
-    public Color getColor(){
-        return Color.GREEN;
-    }
 }

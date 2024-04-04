@@ -5,10 +5,6 @@ import javafx.scene.Node;
 import javafx.scene.paint.Color;
 
 public class Switch extends Wire{
-    Node node;
-    Switch(Node node){
-        this.node = node;
-    }
     @Override
     public int getId(){
         return 10;
@@ -18,9 +14,22 @@ public class Switch extends Wire{
         return Color.PINK;
     }
 
+    //If true, the switch is closed
+    public boolean isClosed;
+
+    public Switch(){
+        this.color = Color.PINK;
+        this.Id = 10;
+        isClosed = false;
+    }
+
     public void interact(){
         node.setOnMousePressed(e -> { // When mouse pressed on the object
-            BuilderMatrix.setBoxID(indexArray[0], indexArray[1], 0, dataGrid);
+            if(isClosed){
+                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 11);
+            } else {
+                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 10);
+            }
         });
     }
 }

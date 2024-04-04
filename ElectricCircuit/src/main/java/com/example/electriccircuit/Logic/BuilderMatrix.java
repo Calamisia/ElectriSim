@@ -38,10 +38,10 @@ public class BuilderMatrix {
     }
 
     // Used to add a component Id to a box
-    public static void setBoxID(int row, int column, int iD, GridPane dataGrid) {
+    public static void setBoxID(int row, int column, int iD) {
         grid[row][column] = iD;
         saveGame();
-        new CalculatingGrid(getGrid(), dataGrid);
+        new CalculatingGrid(getGrid());
     }
 
     // Used to get the component at a certain box in the matrix

@@ -5,6 +5,10 @@ import javafx.scene.paint.Color;
 
 
 public class Wire extends Component{
+    public Wire(){
+        this.color = Color.BLACK;
+        this.Id = 1;
+    }
     private int length;
     private Color wireColor;
     private boolean isConnected;
@@ -80,11 +84,5 @@ public class Wire extends Component{
             connectedVoltage = 0;
             passingVoltage = 0;
         } // if it isn't connected, there's no data to transfer.
-    }
-    public int getId(){
-        return 1;
-    }
-    public Color getColor(){
-        return Color.BLACK;
     }
 }
