@@ -121,7 +121,7 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox layoutX="1810.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="wireSwitch" layoutX="1810.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>

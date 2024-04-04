@@ -1,5 +1,6 @@
 package com.example.electriccircuit.Logic;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -12,8 +13,13 @@ public class Debug {
     }
 
     //Use Debug.Log(message, level)
-    private static void Log(String message, LogLevel level){
+    public static void Log(String message, LogLevel level){
         System.out.println("[" + level + "] [" + new Date() + "] " + message);
+        sendToLogs("[" + level + "] [" + new Date() + "] " + message);
+    }
+    public static void Log(String message){
+        System.out.println("[" + new Date() + "] " + message);
+        sendToLogs("[" + new Date() + "] " + message);
     }
 
     //Use Debug.Info(message, level)
@@ -72,11 +78,59 @@ public class Debug {
 
     //Track a grid in a readable layout
     public static void printGrid(int[][] grid){
+        System.out.println("\n[" + new Date() + "] Grid print:");
         for(int i = 0; i < grid[i].length; i++){
             for(int j = 0; j < grid.length; j++){
-                System.out.print(grid[j][i] + " ");
+                if(grid[j][i] < 10){
+                    System.out.print(grid[j][i] + "  ");
+                } else{
+                    System.out.print(grid[j][i] + " ");
+                }
             }
             System.out.println();
         }
     }
+
+    // if true prints the old version of grid which is more compact but does not support well integers greater or equal to 10
+    public static void printGrid(int[][] grid, boolean compact){
+        if(compact){
+            System.out.println("\n[" + new Date() + "] Compact grid print:");
+            for(int i = 0; i < grid[i].length; i++){
+                for(int j = 0; j < grid.length; j++){
+                    System.out.print(grid[j][i] + " ");
+                }
+                System.out.println();
+            }
+        } else{
+            System.out.println("\n[" + new Date() + "] Grid print:");
+            for(int i = 0; i < grid[i].length; i++){
+                for(int j = 0; j < grid.length; j++){
+                    if(grid[j][i] < 10){
+                        System.out.print(grid[j][i] + "  ");
+                    } else{
+                        System.out.print(grid[j][i] + " ");
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    private static String filePath = "ElectricCircuit/src/main/resources/SaveFiles/DebugLogs.txt";
+    private static Scanner Loader = new Scanner(filePath);
+    private static File LogFile = new File(filePath);
+    public static PrintWriter Logger;
+
+    static {
+        try {
+            Logger = new PrintWriter(new FileOutputStream(filePath, true));
+        } catch (FileNotFoundException e) {
+            handleException(e);
+        }
+    }
+
+    private static void sendToLogs(String message){
+        Logger.write(message + "\n");
+    }
+
 }

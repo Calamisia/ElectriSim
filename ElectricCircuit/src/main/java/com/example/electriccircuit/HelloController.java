@@ -217,6 +217,9 @@ public class HelloController implements Initializable {
     private HBox merger;
     @FXML
     private HBox splitter;
+    @FXML
+    private HBox wireSwitch;
+
 
     @FXML
     public GridPane dataGrid;
@@ -657,7 +660,6 @@ public class HelloController implements Initializable {
             Wire carry = new Wire();
             iD = carry.getId();
             color = carry.getColor();
-            System.out.println("Wire selected");
         } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
             PowerSupply carry = new PowerSupply();
             iD = carry.getId();
@@ -678,7 +680,12 @@ public class HelloController implements Initializable {
             Splitter carry = new Splitter();
             iD = carry.getId();
             color = carry.getColor();
-        }else {
+        } else if(((HBox) e.getSource()).getId().equals(wireSwitch.getId())){
+            Switch carry = new Switch();
+            iD = carry.getId();
+            color = carry.getColor();
+            Debug.Info("wireSwitch found");
+        } else {
             Debug.Error("Invalid spawn component");
             color = null;
             iD = -1;
