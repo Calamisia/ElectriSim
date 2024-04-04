@@ -66,15 +66,14 @@ public class HelloApplication extends Application {
 
         controller1.titleinitialize();
 
-        primaryStage.setOnCloseRequest( e -> {
-            saveGame();
-        });
-
         primaryStage.setTitle("Hello!");
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
         primaryStage.show();
 
+        primaryStage.setOnCloseRequest( e -> {
+            saveGame();
+        });
     }
 
     public StackPane getMainContainer() {

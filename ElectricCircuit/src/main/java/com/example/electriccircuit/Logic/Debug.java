@@ -51,7 +51,7 @@ public class Debug {
         e.printStackTrace();
     }
 
-    //Used to rack time between code
+    //Used to track time between code
     public static void startMonitoring() {
         startTime = System.nanoTime();
         Info("Performance monitoring started.");

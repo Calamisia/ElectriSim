@@ -202,8 +202,7 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //draggableMaker.dragging(Circle2);
-        //FIGURE THIS OUT SOON
+
     }
 
     @FXML
@@ -223,8 +222,7 @@ public class HelloController implements Initializable {
     public GridPane dataGrid;
 
     //initialize variables
-    public HelloController() {
-    }
+    public HelloController() {}
 
     //bind the properties of imageview when launching title screen
     public void titleinitialize(){
@@ -681,7 +679,7 @@ public class HelloController implements Initializable {
             iD = carry.getId();
             color = carry.getColor();
         }else {
-            System.out.println("HELP");
+            Debug.Error("Invalid spawn component");
             color = null;
             iD = -1;
         }
