@@ -12,6 +12,12 @@ public class CalculatingGrid {
     Volt potential = new Volt(0);
     Amp current = new Amp(0);
     public CalculatingGrid(int[][] grid, GridPane dataGrid){
+        for(int i = 0; i < grid[i].length; i++){
+            for(int j = 0; j < grid.length; j++){
+                System.out.print(grid[j][i] + " ");
+            }
+            System.out.println();
+        }
         BuilderMatrix sandboxMatrix = new BuilderMatrix(grid);
         if(sandboxMatrix.closedCircuit()) {
             String circuitPath = sandboxMatrix.getCircuitPath();

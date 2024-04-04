@@ -141,7 +141,7 @@ public class BuilderMatrix {
                 surroundingInfo = surrounding(i, j, 999, 999);
                 if ((boolean) (surroundingInfo.get(0))) {
                     // if there is a surrounding component, check if it's a powerSupply
-                    if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2) {
+                    if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2 || grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 9) {
                         //if it is a power supply, make that the componentIndex, and start the circuitPath from there
                         componentIndex[0] = (int) surroundingInfo.get(1);
                         componentIndex[1] = (int) surroundingInfo.get(2);
