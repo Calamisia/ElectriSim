@@ -704,7 +704,9 @@ public class HelloController implements Initializable {
             if(isEventEnabled[0]) { //makes sure you can only release once
                 //Creates the solid circle
                 Circle solidcircle = new Circle(20);
+                component.setComponentNode(solidcircle);
                 solidcircle.setFill(component.getColor());
+
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (smallanchorpane.getHeight() / 20);
                 double Wspacing = (smallanchorpane.getWidth() / 35);
@@ -723,6 +725,7 @@ public class HelloController implements Initializable {
 
                 if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                     if (Windex < 35 && Windex >= 0) {
+                        component.setLocation(Windex, Hindex);
                         //snaps to grid
                         solidcircle.setCenterY(Hindex * (Hspacing) + Hspacing / 2);
                         solidcircle.setCenterX(Windex * (Wspacing) + Wspacing / 2);
@@ -731,6 +734,7 @@ public class HelloController implements Initializable {
 
                         //Sandbox Matrix creation
                         BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
+                        component.interact();
                     }
                 }
                 if(!mouseEvent.isShiftDown()){

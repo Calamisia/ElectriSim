@@ -44,5 +44,7 @@ public class Component {
         return this.color;
     }
 
+    public void interact(){}
+
 
 }
