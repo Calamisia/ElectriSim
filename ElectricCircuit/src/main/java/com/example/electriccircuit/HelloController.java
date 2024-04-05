@@ -225,6 +225,10 @@ public class HelloController implements Initializable {
     @FXML
     public GridPane dataGrid;
 
+    public static GridPane returnDataGrid(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getDataGrid();
+    }
     public GridPane getDataGrid(){
         return dataGrid;
     }
@@ -665,6 +669,7 @@ public class HelloController implements Initializable {
        public HelloController getMainController(){
         return main.MainController();
        }
+
     @FXML
     public void spawn(MouseEvent e) {
         Component component;

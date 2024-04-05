@@ -24,6 +24,7 @@ public class HelloApplication extends Application {
     private Node scene1,scene2,scene3,scene4;
     private FXMLLoader fxmlLoader1,fxmlLoader2,fxmlLoader3,fxmlLoader4;
     private HelloController controller1,controller2,controller3,controller4;
+    private static HelloController controllerx;
 
     //No arg constructor
     public HelloApplication(){};
@@ -57,6 +58,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader4 = new FXMLLoader(HelloApplication.class.getResource("MainScreen.fxml"));
         scene4 = fxmlLoader4.load();
         controller4 = fxmlLoader4.getController();
+        controllerx = fxmlLoader4.getController();
 
 
         //set the main for every screen
@@ -87,6 +89,9 @@ public class HelloApplication extends Application {
     }
     public HelloController MainController() {
         return controller4;
+    }
+    public static HelloController statMainController() {
+        return controllerx;
     }
 
     //Title screen switching methods
