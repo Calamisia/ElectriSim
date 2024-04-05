@@ -46,6 +46,12 @@
     -fx-background-color: lightgray;
 }
 
+#calculatefalse{
+    -fx-border-color: lightgray;
+    -fx-background-color: lightgray;
+}
+
+
 #calculatetrue{
     -fx-border-color: darkgreen;
     -fx-background-color:

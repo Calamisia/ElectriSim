@@ -765,7 +765,9 @@ public class HelloController implements Initializable {
             child.setMouseTransparent(false);
         }
         HelloController controller1 = main.AchievementsController();
+        HelloController controller2 = main.MainController();
         if (controller1.getBorderPane() != null) controller1.getBorderPane().setMouseTransparent(true);
+        if (controller2.getCal() != null && controller2.getCal().getId() != "calculatetrue") controller2.getCal().setMouseTransparent(true);
     }
 
        public HelloController getMainController(){
