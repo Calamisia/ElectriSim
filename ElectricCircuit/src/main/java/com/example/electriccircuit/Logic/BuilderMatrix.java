@@ -15,6 +15,8 @@ public class BuilderMatrix {
     private final int CAPACITORID = 4;
     private final int MERGERID = 5;
     private final int SPLITTERID = 6;
+
+    private final int SWITCH = 10;
     private boolean isClosedCircuit;
     private StringBuilder circuitPath = new StringBuilder(); // used for calculation grid
 
@@ -36,10 +38,10 @@ public class BuilderMatrix {
     }
 
     // Used to add a component Id to a box
-    public static void setBoxID(int row, int column, int iD, GridPane dataGrid) {
+    public static void setBoxID(int row, int column, int iD) {
         grid[row][column] = iD;
         saveGame();
-        new CalculatingGrid(getGrid(), dataGrid);
+        new CalculatingGrid(getGrid());
     }
 
     // Used to get the component at a certain box in the matrix

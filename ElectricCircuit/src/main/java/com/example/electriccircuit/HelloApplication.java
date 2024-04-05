@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.example.electriccircuit.Logic.Debug.Logger;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 
 public class HelloApplication extends Application {
@@ -75,15 +76,15 @@ public class HelloApplication extends Application {
 
         controller1.titleinitialize();
 
-        primaryStage.setOnCloseRequest( e -> {
-            saveGame();
-        });
-
         primaryStage.setTitle("Hello!");
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
         primaryStage.show();
 
+        primaryStage.setOnCloseRequest( e -> {
+            saveGame();
+            Logger.close();
+        });
     }
 
     public StackPane getMainContainer() {

@@ -2,7 +2,7 @@ package com.example.electriccircuit.Components;
 
 import javafx.scene.paint.Color;
 
-public class Merger {
+public class Merger extends Component{
     private static Wire inputWireOne;
     private static Wire inputWireTwo;
     private static Wire inputWireThree;
@@ -10,13 +10,19 @@ public class Merger {
     private boolean isConnected;
     private static int nOfInputs;
 
-    public Merger (){} // no-arg constructor
+    public Merger (){
+        this.color = Color.RED;
+        this.Id = 5;
+    } // no-arg constructor
 
     // constructor
     public Merger (Wire inputWireOne, Wire inputWireTwo, Wire inputWireThree){
         this.inputWireOne = inputWireOne;
         this.inputWireTwo = inputWireTwo;
         this.inputWireThree = inputWireThree;
+
+        this.color = Color.RED;
+        this.Id = 5;
     }
 
     // setter
@@ -41,12 +47,6 @@ public class Merger {
             } break;
 
         }
-    }
-    public int getId(){
-        return 5;
-    }
-    public Color getColor(){
-        return Color.RED;
     }
 
 }

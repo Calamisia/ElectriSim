@@ -2,7 +2,11 @@ package com.example.electriccircuit.Components;
 
 import javafx.scene.paint.Color;
 
-public class PowerSupply {
+public class PowerSupply extends Component{
+    public PowerSupply(){
+        this.color = Color.BLUE;
+        this.Id = 2;
+    }
 
     private int voltage;
 
@@ -13,11 +17,4 @@ public class PowerSupply {
     public int getVoltage() {
         return voltage;
     } // getter
-
-    public int getId(){
-        return 2;
-    }
-    public Color getColor(){
-        return Color.BLUE;
-    }
 }

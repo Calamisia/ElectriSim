@@ -18,7 +18,9 @@ public class SaveFiles {
             try {
                 File saveFile = new File(filePath);
                 Saver = new PrintWriter(filePath);
-            } catch (IOException ignored) {}
+            } catch (IOException e) {
+                Debug.handleException(e);
+            }
         }
 
         // gets the matrix, and creates a stringBuilder
