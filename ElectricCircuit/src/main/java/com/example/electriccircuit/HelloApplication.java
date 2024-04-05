@@ -77,7 +77,6 @@ public class HelloApplication extends Application {
 
         primaryStage.setOnCloseRequest( e -> {
             saveGame();
-            CalculatingGrid calc = new CalculatingGrid();
         });
 
         primaryStage.setTitle("Hello!");
