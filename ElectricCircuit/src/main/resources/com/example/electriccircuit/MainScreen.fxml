@@ -185,12 +185,23 @@
                         </Label>
                     </children>
                 </HBox>
+                <VBox alignment="CENTER" maxHeight="172.0" maxWidth="151.0" prefHeight="172.0" prefWidth="151.0" AnchorPane.bottomAnchor="0.0" VBox.vgrow="NEVER">
+                    <children>
+                        <Button fx:id="cal" mnemonicParsing="false" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Calculate">
+                            <VBox.margin>
+                                <Insets bottom="60.0" />
+                            </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                        </Button>
+                    </children></VBox>
             </children></AnchorPane>
         <BorderPane fx:id="borderPane" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" styleClass="borderpaneborder" StackPane.alignment="CENTER_RIGHT">
             <!--Visual Pane-->
             <left>
                 <!--Left side of border pane-->
-                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="628.0" prefWidth="151.0" BorderPane.alignment="TOP_CENTER">
+                <VBox minHeight="-Infinity" prefHeight="628.0" prefWidth="151.0" BorderPane.alignment="TOP_CENTER">
                     <!--Goal and budget visuals-->
                     <children>
                   <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
@@ -230,18 +241,13 @@
                      </children>
                   </VBox>
                   <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
-                  <VBox alignment="CENTER" maxHeight="172.0" maxWidth="151.0" prefHeight="172.0" prefWidth="151.0" VBox.vgrow="NEVER">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Calculate">
-                           <VBox.margin>
-                              <Insets bottom="60.0" />
-                           </VBox.margin>
-                        </Button>
-                     </children></VBox>
                     </children>
                     <BorderPane.margin>
                         <Insets top="74.0" />
                     </BorderPane.margin>
+               <padding>
+                  <Insets bottom="172.0" />
+               </padding>
                 </VBox>
             </left>
             <right>

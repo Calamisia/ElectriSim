@@ -1,5 +1,6 @@
 package com.example.electriccircuit.Logic;
 
+import com.example.electriccircuit.HelloController;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;

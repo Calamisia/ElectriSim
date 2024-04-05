@@ -202,7 +202,6 @@ public class HelloController implements Initializable {
     private HBox scrollhbox;
     @FXML
     private BorderPane borderPane;
-
     //End of main screen ids
 
     //Start of settings screen ids
@@ -242,6 +241,8 @@ public class HelloController implements Initializable {
 
     @FXML
     public GridPane dataGrid;
+    @FXML
+    public Button cal;
 
     public static GridPane returnDataGrid(){
         HelloController controllerx = HelloApplication.statMainController();
@@ -250,6 +251,16 @@ public class HelloController implements Initializable {
     public GridPane getDataGrid(){
         return dataGrid;
     }
+
+    public static Button returnCalButton(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getCal();
+    }
+
+    public Button getCal(){
+        return cal;
+    }
+
     private static HelloController instance;
     public static HelloController getInstance() {
         return instance;

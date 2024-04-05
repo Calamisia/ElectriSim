@@ -46,6 +46,27 @@
     -fx-background-color: lightgray;
 }
 
+#calculatetrue{
+    -fx-border-color: darkgreen;
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#69ba45 0%, #288524 20%, #3c6c0c 100%),
+            linear-gradient(#3ac570, #1f693b),
+            radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,231,148,0.9) );
+    -fx-effect: dropshadow( three-pass-box , rgba(0,100,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: linear-gradient(#838383, #000000);
+}
+#calculatetrue:hover{
+    -fx-border-color: darkgreen;
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#69ba45 0%, #288524 20%, #3c6c0c 100%),
+            linear-gradient(#3ac570, #1f693b),
+            radial-gradient(center 50% 0%, radius 100%, rgba(114,231,148,0.9),rgba(255,255,255,0) );
+    -fx-effect: dropshadow( three-pass-box , rgba(0,100,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: linear-gradient(#838383, #000000);
+}
+
 /*-----------------------------------------------------Button Example-------------------------------------------------------------------*/
 /*
 .dark {

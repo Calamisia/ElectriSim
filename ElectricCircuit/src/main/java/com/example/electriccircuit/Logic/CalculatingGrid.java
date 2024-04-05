@@ -27,7 +27,7 @@ public class CalculatingGrid {
                 }
             }
             current.setAmp(current.ohmsLaw(potential, resistance));
-
+            HelloController.returnCalButton().setId("calculatetrue");
             HelloController.returnDataGrid().add(new Label(Double.toString(resistance.getOhm())), 0, 1);
             HelloController.returnDataGrid().add(new Label(Double.toString(potential.getVolt())), 1, 1);
             HelloController.returnDataGrid().add(new Label(Double.toString(current.getAmp())), 2, 1);
