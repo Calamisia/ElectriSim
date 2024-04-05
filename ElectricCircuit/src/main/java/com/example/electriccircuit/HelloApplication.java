@@ -137,9 +137,6 @@ public class HelloApplication extends Application {
         primaryStage.setMinWidth(743);
         return scene4;
     }
-    public HelloController MainController(){
-        return controller4;
-    }
 
     //Settings
     public Node settings(){return scene5;}

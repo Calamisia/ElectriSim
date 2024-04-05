@@ -758,9 +758,6 @@ public class HelloController implements Initializable {
         if (controller1.getBorderPane() != null) controller1.getBorderPane().setMouseTransparent(true);
     }
 
-       public HelloController getMainController(){
-        return main.MainController();
-       }
     @FXML
     public void spawn(MouseEvent e) {
         Component component;
