@@ -7,12 +7,12 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
         <AnchorPane fx:id="anchorpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
             <children>
-                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
+                <ScrollPane layoutX="17.0" styleClass="smallborder" prefHeight="172.0" prefWidth="939.0" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
                     <content>
                   <HBox fx:id="scrollhbox">
                      <VBox.margin>
@@ -149,15 +149,14 @@
                   </HBox>
                     </content>
                 </ScrollPane>
-                <AnchorPane fx:id="smallanchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="924.4" style="-fx-background-color: #838383;" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="0.0" />
-                <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="-56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="151.0" spacing="20.0" style="-fx-background-color: #838383;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <AnchorPane fx:id="smallanchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="924.4" styleClass="border" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="0.0" />
+                <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="-56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="151.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Circle fill="DODGERBLUE" radius="16.0" stroke="BLACK" strokeType="INSIDE">
-                            <HBox.margin>
-                                <Insets left="5.0" />
-                            </HBox.margin>
-                        </Circle>
-                        <Button mnemonicParsing="false" onAction="#Achievements" prefHeight="26.0" prefWidth="82.0" text="Settings">
+                  <Button mnemonicParsing="false" styleClass="button1" onAction="#titleScreen" text="X">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Button>
+                        <Button mnemonicParsing="false" onAction="#Achievements" styleClass="button1" prefHeight="26.0" prefWidth="82.0" text="Settings">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
@@ -170,7 +169,7 @@
                         <Insets />
                     </opaqueInsets>
                 </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutY="171.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="151.0" spacing="15.0" style="-fx-background-color: #838383;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="157.0">
+                <HBox alignment="CENTER_RIGHT" layoutY="171.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="151.0" spacing="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="157.0">
                     <children>
                         <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
                             <HBox.margin>
@@ -187,55 +186,60 @@
                     </children>
                 </HBox>
             </children></AnchorPane>
-        <BorderPane fx:id="borderPane" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
+        <BorderPane fx:id="borderPane" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" styleClass="borderpaneborder" StackPane.alignment="CENTER_RIGHT">
             <!--Visual Pane-->
             <left>
                 <!--Left side of border pane-->
-                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="628.0" prefWidth="151.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="628.0" prefWidth="151.0" BorderPane.alignment="TOP_CENTER">
                     <!--Goal and budget visuals-->
                     <children>
-                        <Line endX="50.0" startX="-100.0">
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
-                        </Line>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="150.0" text="Goal">
-                            <font>
-                                <Font name="Calibri" size="44.0" />
-                            </font>
-                            <padding>
-                                <Insets right="10.0" top="30.0" />
-                            </padding>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="162.0" prefWidth="150.0" text="Make a circuit with two resistors that get 10 volts each" wrapText="true">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                            <padding>
-                                <Insets left="10.0" />
-                            </padding>
-                        </Label>
-                        <Line endX="50.0" startX="-100.0" />
-                        <Label alignment="CENTER" prefHeight="78.0" prefWidth="150.0" text="Budget">
-                            <font>
-                                <Font name="Calibri" size="42.0" />
-                            </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="110.0" prefWidth="150.0" text="30$">
-                            <font>
-                                <Font size="40.0" />
-                            </font>
-                        </Label>
-                        <Line endX="50.0" startX="-100.0" />
+                  <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
+                  <VBox VBox.vgrow="ALWAYS">
+                     <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="150.0" text="Goal" VBox.vgrow="ALWAYS">
+                                  <font>
+                                      <Font name="Calibri" size="44.0" />
+                                  </font>
+                                  <padding>
+                                      <Insets right="10.0" top="30.0" />
+                                  </padding>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="162.0" prefWidth="150.0" text="Make a circuit with two resistors that get 10 volts each" wrapText="true" VBox.vgrow="ALWAYS">
+                                  <font>
+                                      <Font size="20.0" />
+                                  </font>
+                                  <padding>
+                                      <Insets left="10.0" />
+                                  </padding>
+                              </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
+                  <VBox VBox.vgrow="ALWAYS">
+                     <children>
+                              <Label alignment="CENTER" prefHeight="78.0" prefWidth="150.0" text="Budget" VBox.vgrow="ALWAYS">
+                                  <font>
+                                      <Font name="Calibri" size="42.0" />
+                                  </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="110.0" prefWidth="150.0" text="30$" VBox.vgrow="ALWAYS">
+                                  <font>
+                                      <Font size="40.0" />
+                                  </font>
+                              </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
+                  <VBox prefHeight="172.0" prefWidth="100.0" />
                     </children>
                     <BorderPane.margin>
-                        <Insets top="71.0" />
+                        <Insets top="74.0" />
                     </BorderPane.margin>
                 </VBox>
             </left>
             <right>
                 <!--Right side of border pane -->
-                <VBox maxHeight="-Infinity" prefHeight="157.0" prefWidth="151.0" spacing="15.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
+                <VBox maxHeight="-Infinity" prefHeight="157.0" prefWidth="151.0" spacing="15.0" BorderPane.alignment="TOP_CENTER">
                     <!--Grid to give useful info -->
                     <children>
                         <GridPane fx:id="dataGrid" prefHeight="130.0" prefWidth="130.0">
