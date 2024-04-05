@@ -28,6 +28,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -694,7 +695,7 @@ public class HelloController implements Initializable {
         }
 
         //Creates the object
-        Circle circle = new Circle(20);
+        Ellipse circle = new Ellipse(smallanchorpane.getWidth()/70,smallanchorpane.getHeight()/40);
         assert component != null;
         circle.setFill(new ImagePattern(component.getImageTexture()));
         circle.setOpacity(0);
