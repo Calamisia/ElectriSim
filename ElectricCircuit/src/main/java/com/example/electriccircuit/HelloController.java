@@ -26,6 +26,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -41,6 +43,12 @@ public class HelloController implements Initializable {
     private HelloApplication main;
     private Unlocks unlocked;
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
+
+    @FXML
+    private AnchorPane anchorpane;
+
+    @FXML
+    private AnchorPane smallanchorpane;
 
     @FXML
     private Label welcomeText;
@@ -183,15 +191,13 @@ public class HelloController implements Initializable {
     private ImageView imageviewlvl10;
     //End of level selection ids
 
+    public static draggable draggableMaker = new draggable();
     //Start of main screen ids
     @FXML
     private HBox scrollhbox;
     @FXML
     private BorderPane borderPane;
-    @FXML
-    private AnchorPane anchorpane;
-    @FXML
-    private AnchorPane smallanchorpane;
+
     //End of main screen ids
 
     //Start of settings screen ids
@@ -199,8 +205,6 @@ public class HelloController implements Initializable {
     private VBox settingsvbox;
     //End of settings screen ids
 
-
-    draggable draggableMaker = new draggable();
 
     public void setMain(HelloApplication main){
         this.main = main;
@@ -228,6 +232,9 @@ public class HelloController implements Initializable {
     private HBox merger;
     @FXML
     private HBox splitter;
+
+    @FXML
+    public GridPane dataGrid;
 
     //initialize variables
     public HelloController() {
@@ -772,7 +779,7 @@ public class HelloController implements Initializable {
                 //Creates the solid circle
                 Circle solidcircle = new Circle(20);
                 solidcircle.setFill(color);
-                draggableMaker.dragging(solidcircle);
+                //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (smallanchorpane.getHeight() / 20);
                 double Wspacing = (smallanchorpane.getWidth() / 35);
 
@@ -797,7 +804,7 @@ public class HelloController implements Initializable {
                         solidcircle.toFront();
 
                         //Sandbox Matrix creation
-                        BuilderMatrix.setBoxID(Windex, Hindex, iD);
+                        BuilderMatrix.setBoxID(Windex, Hindex, iD, dataGrid);
                     }
                 }
                 if(!mouseEvent.isShiftDown()){
