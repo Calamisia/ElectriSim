@@ -12,8 +12,8 @@
     <children>
         <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0">
             <children>
-                <AnchorPane fx:id="smallanchorpane" minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="2102.0" style="-fx-background-color: #838383;" AnchorPane.topAnchor="0.0" />
-                <ScrollPane layoutX="151.0" layoutY="186.0" minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="2102.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
+                <AnchorPane fx:id="smallanchorpane" layoutX="151.0" minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="2102.0" AnchorPane.topAnchor="0.0" />
+                <ScrollPane layoutX="151.0" layoutY="186.0" minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="2102.0" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
                     <content>
                   <HBox fx:id="scrollhbox" minHeight="0.0" minWidth="0.0">
                      <VBox.margin>
@@ -150,7 +150,7 @@
                   </HBox>
                     </content>
                 </ScrollPane>
-                <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="-56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="151.0" spacing="20.0" style="-fx-background-color: #838383;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="-56.0" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="border" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="151.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <Circle fill="DODGERBLUE" radius="16.0" stroke="BLACK" strokeType="INSIDE">
                             <HBox.margin>
@@ -170,7 +170,7 @@
                         <Insets />
                     </opaqueInsets>
                 </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutY="171.0" minHeight="0.0" minWidth="0.0" prefHeight="62.0" prefWidth="151.0" spacing="15.0" style="-fx-background-color: #838383;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="151.0">
+                <HBox alignment="CENTER_RIGHT" layoutY="171.0" minHeight="0.0" minWidth="0.0" prefHeight="62.0" styleClass="border" prefWidth="151.0" spacing="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="151.0">
                     <children>
                         <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
                             <HBox.margin>
@@ -187,11 +187,11 @@
                     </children>
                 </HBox>
             </children></AnchorPane>
-        <BorderPane fx:id="borderPane" minHeight="0.0" minWidth="0.0" mouseTransparent="true" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
+        <BorderPane fx:id="borderPane" minHeight="0.0" styleClass="border" minWidth="0.0" mouseTransparent="true" StackPane.alignment="CENTER_RIGHT">
             <!--Visual Pane-->
             <left>
                 <!--Left side of border pane-->
-                <VBox minHeight="0.0" minWidth="0.0" prefWidth="151.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
+                <VBox minHeight="0.0" minWidth="0.0" styleClass="border" prefWidth="151.0" BorderPane.alignment="TOP_CENTER">
                     <!--Goal and budget visuals-->
                     <children>
                         <Line endX="50.0" startX="-100.0">
@@ -235,7 +235,7 @@
             </left>
             <right>
                 <!--Right side of border pane -->
-                <VBox maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="151.0" prefWidth="151.0" spacing="15.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
+                <VBox maxHeight="-Infinity" minHeight="0.0" styleClass="border" minWidth="0.0" prefHeight="151.0" prefWidth="151.0" spacing="15.0" BorderPane.alignment="TOP_CENTER">
                     <!--Grid to give useful info -->
                     <children>
                         <GridPane fx:id="dataGrid" prefHeight="130.0" prefWidth="130.0">

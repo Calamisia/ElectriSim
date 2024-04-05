@@ -1,6 +1,11 @@
 
 
 /* CSS */
+.border {
+    -fx-border-color: #838383;
+    -fx-border-width: 5px;
+}
+
 .button-raised {
     -fx-text-fill: white;
     -fx-font-family: "Arial Narrow";
