@@ -41,6 +41,11 @@
     -fx-text-fill: linear-gradient(white, #d0d0d0);
 }
 
+.calculatefalse{
+    -fx-border-color: lightgray;
+    -fx-background-color: lightgray;
+}
+
 /*-----------------------------------------------------Button Example-------------------------------------------------------------------*/
 /*
 .dark {

@@ -258,15 +258,13 @@ public class HelloController implements Initializable {
     //initialize variables
     public HelloController() {}
 
-    @FXML
-    public void test(){
-        main.getMainContainer().getChildren().setAll(main.switchToTest());
-    }
-
     //bind the properties of imageview when launching title screen
     public void titleinitialize(){
         // Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToTitle());
+        for (Node child : main.getMainContainer().getChildren()) {
+            child.setMouseTransparent(false);
+        }
 
         titlemethod();
     }

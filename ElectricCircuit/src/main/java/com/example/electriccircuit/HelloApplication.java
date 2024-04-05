@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
     private Stage primaryStage;
     private Unlocks unlocked = new Unlocks();
     private Scene scene;
-    private Node scene1,scene2,scene3,scene4,scene5,scene6;
+    private Node scene1,scene2,scene3,scene4,scene5;
     private FXMLLoader fxmlLoader1,fxmlLoader2,fxmlLoader3,fxmlLoader4;
     private HelloController controller1,controller2,controller3,controller4,controller5;
     private static HelloController controllerx;
@@ -68,9 +68,6 @@ public class HelloApplication extends Application {
         scene5 = fxmlLoader5.load();
         controller5 = fxmlLoader5.getController();
 
-        FXMLLoader fxmlLoader6 = new FXMLLoader(HelloApplication.class.getResource("TestingCss.fxml"));
-        scene6 = fxmlLoader6.load();
-
         //set the main for every screen
         controller1.setMain(this);
         controller2.setMain(this);
@@ -103,12 +100,6 @@ public class HelloApplication extends Application {
     }
     public static HelloController statMainController() {
         return controllerx;
-    }
-
-    public Node switchToTest(){
-        primaryStage.setMinHeight(350);
-        primaryStage.setMinWidth(675);
-        return scene6;
     }
 
     //Title screen switching methods

@@ -12,7 +12,7 @@
     <children>
         <AnchorPane fx:id="anchorpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
             <children>
-                <ScrollPane layoutX="17.0" styleClass="smallborder" prefHeight="172.0" prefWidth="939.0" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
+                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" styleClass="smallborder" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
                     <content>
                   <HBox fx:id="scrollhbox">
                      <VBox.margin>
@@ -152,11 +152,11 @@
                 <AnchorPane fx:id="smallanchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="924.4" styleClass="border" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="0.0" />
                 <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="-56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="151.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                  <Button mnemonicParsing="false" styleClass="button1" onAction="#titleScreen" text="X">
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#titleScreen" prefHeight="26.0" prefWidth="30.0" styleClass="button1" text="X">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin></Button>
-                        <Button mnemonicParsing="false" onAction="#Achievements" styleClass="button1" prefHeight="26.0" prefWidth="82.0" text="Settings">
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#settings" prefHeight="26.0" prefWidth="82.0" styleClass="button1" text="Settings">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
@@ -230,7 +230,14 @@
                      </children>
                   </VBox>
                   <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
-                  <VBox prefHeight="172.0" prefWidth="100.0" />
+                  <VBox alignment="CENTER" maxHeight="172.0" maxWidth="151.0" prefHeight="172.0" prefWidth="151.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Calculate">
+                           <VBox.margin>
+                              <Insets bottom="60.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children></VBox>
                     </children>
                     <BorderPane.margin>
                         <Insets top="74.0" />
