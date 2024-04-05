@@ -61,9 +61,6 @@ public class HelloController implements Initializable {
     private Label welcomeText;
 
     @FXML
-    private Circle Circle2;
-
-    @FXML
     private ImageView imgv;
 
 
@@ -818,7 +815,7 @@ public class HelloController implements Initializable {
         smallanchorpane.setOnMouseReleased(mouseEvent -> {
             if(isEventEnabled[0]) { //makes sure you can only release once
                 //Creates the solid circle
-                Circle solidcircle = new Circle(20);
+                Ellipse solidcircle = new Ellipse(smallanchorpane.getWidth()/70,smallanchorpane.getHeight()/40);
                 component.setComponentNode(solidcircle);
                 solidcircle.setFill(new ImagePattern(component.getImageTexture()));
 

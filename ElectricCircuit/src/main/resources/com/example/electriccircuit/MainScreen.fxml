@@ -7,24 +7,25 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
         <AnchorPane fx:id="anchorpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
             <children>
-                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
+                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
                     <content>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="2100.0">
-                            <VBox.margin>
-                                <Insets />
-                            </VBox.margin>
-                            <children>
-                                <HBox fx:id="wire" layoutX="10.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                  <HBox fx:id="scrollhbox">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                                <HBox fx:id="wire" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@wire.png" />
-                                            </image></ImageView>
+                                            </image>
+                              </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Wire" />
@@ -36,12 +37,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="powerSupply" layoutX="310.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="powerSupply" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@power%20supply.png" />
-                                            </image></ImageView>
+                                            </image>
+                              </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Power Supply" />
@@ -53,12 +55,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="resistor" layoutX="610.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="resistor" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@resistor.png" />
-                                            </image></ImageView>
+                                            </image>
+                              </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Resistor" />
@@ -70,12 +73,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="capacitor" layoutX="910.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="capacitor" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@capacitor.png" />
-                                            </image></ImageView>
+                                            </image>
+                              </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Capacitor" />
@@ -87,12 +91,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="merger" layoutX="1210.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="merger" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@open%20switch.png" />
-                                            </image></ImageView>
+                                            </image>
+                              </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Merger" />
@@ -104,12 +109,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="splitter" layoutX="1510.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="splitter" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@Purplecolor.jpg" />
-                                            </image></ImageView>
+                                            </image>
+                              </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Splitter" />
@@ -121,12 +127,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="wireSwitch" layoutX="1810.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="wireSwitch" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@Pink.jpg" />
-                                            </image></ImageView>
+                                            </image>
+                              </ImageView>
                                         <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Label" />
@@ -138,8 +145,8 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                            </children>
-                        </AnchorPane>
+                     </children>
+                  </HBox>
                     </content>
                 </ScrollPane>
                 <AnchorPane fx:id="smallanchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="924.4" style="-fx-background-color: #838383;" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="0.0" />
@@ -180,7 +187,7 @@
                     </children>
                 </HBox>
             </children></AnchorPane>
-        <BorderPane minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
+        <BorderPane fx:id="borderPane" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
             <!--Visual Pane-->
             <left>
                 <!--Left side of border pane-->
