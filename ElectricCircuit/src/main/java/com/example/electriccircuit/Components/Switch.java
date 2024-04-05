@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
 public class Switch extends Wire{
     @Override
     public int getId(){
-        return 10;
+        return 1;
     }
     @Override
     public Color getColor(){
@@ -28,11 +28,10 @@ public class Switch extends Wire{
     public void interact(){
         node.setOnMousePressed(e -> { // When mouse pressed on the object
             if(isClosed){
-                Debug.Info(super.getLocationRow() + " " + super.getLocationColumn());
-                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 11);
+                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 0);
                 isClosed = false;
             } else {
-                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 10);
+                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 1);
                 isClosed = true;
             }
         });

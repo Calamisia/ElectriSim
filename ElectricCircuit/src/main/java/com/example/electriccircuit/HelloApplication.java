@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.electriccircuit.Logic.Debug.Logger;
+import static com.example.electriccircuit.Logic.SaveFiles.loadGame;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 
 public class HelloApplication extends Application {
@@ -23,6 +24,9 @@ public class HelloApplication extends Application {
     private Node scene1,scene2,scene3,scene4;
     private FXMLLoader fxmlLoader1,fxmlLoader2,fxmlLoader3,fxmlLoader4;
     private HelloController controller1,controller2,controller3,controller4;
+
+    //No arg constructor
+    public HelloApplication(){};
 
     // Add mainContainer
     private StackPane mainContainer = new StackPane();
@@ -80,6 +84,9 @@ public class HelloApplication extends Application {
 
     public StackPane getMainContainer() {
         return mainContainer;
+    }
+    public HelloController MainController() {
+        return controller4;
     }
 
     //Title screen switching methods
