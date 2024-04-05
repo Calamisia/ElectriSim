@@ -1,12 +1,16 @@
 package com.example.electriccircuit.Components;
 
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
+import java.io.InputStream;
 
 
 public class Wire extends Component{
     public Wire(){
-        this.color = Color.BLACK;
+        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/wire.png");
+        assert in != null;
+        this.image = new Image(in);
         this.Id = 1;
     }
     private int length;
