@@ -1,6 +1,9 @@
 package com.example.electriccircuit.Components;
 
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+
+import java.io.InputStream;
 
 public class Merger extends Component{
     private static Wire inputWireOne;
@@ -11,7 +14,9 @@ public class Merger extends Component{
     private static int nOfInputs;
 
     public Merger (){
-        this.color = Color.RED;
+        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/wire.png");
+        assert in != null;
+        this.image = new Image(in);
         this.Id = 5;
     } // no-arg constructor
 
@@ -21,7 +26,9 @@ public class Merger extends Component{
         this.inputWireTwo = inputWireTwo;
         this.inputWireThree = inputWireThree;
 
-        this.color = Color.RED;
+        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/wire.png");
+        assert in != null;
+        this.image = new Image(in);
         this.Id = 5;
     }
 

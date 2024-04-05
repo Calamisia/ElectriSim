@@ -1,6 +1,9 @@
 package com.example.electriccircuit.Components;
 
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+
+import java.io.InputStream;
 
 public class Splitter extends Component{
     private boolean inputDetected;
@@ -11,7 +14,9 @@ public class Splitter extends Component{
     private static Wire outputWireThree;
 
     public Splitter(){
-        this.color = Color.PURPLE;
+        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/wire.png");
+        assert in != null;
+        this.image = new Image(in);
         this.Id = 6;
     } // no-arg constructor
 

@@ -26,6 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -677,7 +678,8 @@ public class HelloController implements Initializable {
 
         //Creates the object
         Circle circle = new Circle(20);
-        circle.setFill(component.getColor());
+        assert component != null;
+        circle.setFill(new ImagePattern(component.getImageTexture()));
         circle.setOpacity(0);
         anchorpane.getChildren().add(circle);
         smallanchorpane.getChildren().add(circle);
@@ -705,7 +707,7 @@ public class HelloController implements Initializable {
                 //Creates the solid circle
                 Circle solidcircle = new Circle(20);
                 component.setComponentNode(solidcircle);
-                solidcircle.setFill(component.getColor());
+                solidcircle.setFill(new ImagePattern(component.getImageTexture()));
 
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (smallanchorpane.getHeight() / 20);
