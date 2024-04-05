@@ -49,12 +49,12 @@ public class SaveFiles {
 
     // method that loads files
     public static void loadGame(){
-        BuilderMatrix grid = new BuilderMatrix();
+        /*BuilderMatrix grid = new BuilderMatrix();
         String dataString = "";
         int[][] data = new int[35][20];
         int counter = 0;
 
-        // reades the matrix in string form
+        // reads the matrix in string form
         dataString = Loader.nextLine();
 
         // assigns values to the matrix "data" from the string
@@ -72,7 +72,28 @@ public class SaveFiles {
         Unlocks achievementLoader = new Unlocks();
         dataString = "";
         dataString = Loader.nextLine();
-        achievementLoader.setAchievementBitString(dataString);
+        achievementLoader.setAchievementBitString(dataString); */
+
+        File file = new File(filePath);
+        try (Scanner loader = new Scanner(file)) {
+            String dataString = loader.next();
+            Debug.Log(dataString);
+            int[][] grid = new int[35][20];
+            int counter = 0;
+            for (int i = 0; i < grid.length; i++) {
+                for (int j = 0; j < grid[i].length; j++) {
+                    grid[i][j] = (dataString.charAt(counter) - 48);
+                    if(grid[i][j] != 0) {
+                        //handle visuals
+                    }
+                    counter++;
+                }
+            }
+            Debug.printGrid(grid);
+            BuilderMatrix.setGrid(grid);
+        } catch (FileNotFoundException e) {
+            Debug.handleException(e);
+        }
     }
 
 }

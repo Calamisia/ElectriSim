@@ -40,7 +40,6 @@ public class BuilderMatrix {
     // Used to add a component Id to a box
     public static void setBoxID(int row, int column, int iD) {
         grid[row][column] = iD;
-        saveGame();
         new CalculatingGrid(getGrid());
     }
 
@@ -55,7 +54,7 @@ public class BuilderMatrix {
     }
 
     // used to set the matrix (used to load the sandbox)
-    public void setGrid(int[][] grid) {
+    public static void setGrid(int[][] grid) {
         BuilderMatrix.grid = grid;
     }
 

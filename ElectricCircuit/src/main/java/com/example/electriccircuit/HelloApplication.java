@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.electriccircuit.Logic.Debug.Logger;
+import static com.example.electriccircuit.Logic.SaveFiles.loadGame;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 
 public class HelloApplication extends Application {
@@ -23,6 +24,9 @@ public class HelloApplication extends Application {
     private Scene scene;
     private Node scene1,scene2,scene3,scene4,scene5,scene6;
     private HelloController controller1,controller2,controller3,controller4,controller5;
+
+    //No arg constructor
+    public HelloApplication(){};
 
     // Add mainContainer
     private StackPane mainContainer = new StackPane();
@@ -89,6 +93,9 @@ public class HelloApplication extends Application {
 
     public StackPane getMainContainer() {
         return mainContainer;
+    }
+    public HelloController MainController() {
+        return controller4;
     }
 
     public Node switchToTest(){

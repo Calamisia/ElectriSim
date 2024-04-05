@@ -2,6 +2,7 @@ package com.example.electriccircuit.Logic;
 
 import com.example.electriccircuit.DataTypes.*;
 
+import com.example.electriccircuit.HelloApplication;
 import com.example.electriccircuit.HelloController;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -10,6 +11,7 @@ public class CalculatingGrid {
     Ohm resistance = new Ohm(0);
     Volt potential = new Volt(0);
     Amp current = new Amp(0);
+
     GridPane dataGrid;
 
     public CalculatingGrid(int[][] grid){
