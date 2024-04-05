@@ -706,6 +706,7 @@ public class HelloController implements Initializable {
             if(isEventEnabled[0]) { //makes sure you can only release once
                 //Creates the solid circle
                 Circle solidcircle = new Circle(20);
+                solidcircle.setRotate(circle.getRotate());
                 component.setComponentNode(solidcircle);
                 solidcircle.setFill(new ImagePattern(component.getImageTexture()));
 
@@ -747,7 +748,20 @@ public class HelloController implements Initializable {
                 }
             }
         });
+        main.getMainContainer().setOnKeyPressed(event -> {
+            if (event.isControlDown() && event.getCode().toString().equals("R")) {
+                rotateComponent(circle);
+            }
+        });
+
     }
+
+    private void rotateComponent(Circle circle) {
+        circle.setRotate(circle.getRotate()+90);
+    }
+
+
+
 
 
 }

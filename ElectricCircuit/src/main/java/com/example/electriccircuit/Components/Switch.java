@@ -13,12 +13,11 @@ public class Switch extends Wire{
     public int getId(){
         return 10;
     }
-
     //If true, the switch is closed
     public boolean isClosed;
 
     public Switch(){
-        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/switch.png");
+        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/openSwitch.png");
         assert in != null;
         this.image = new Image(in);
         this.Id = 10;
@@ -29,10 +28,16 @@ public class Switch extends Wire{
     public void interact(){
         node.setOnMousePressed(e -> { // When mouse pressed on the object
             if(isClosed){
+                InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/openSwitch.png");
+                assert in != null;
+                this.image = new Image(in);
                 Debug.Info(super.getLocationRow() + " " + super.getLocationColumn());
                 BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 11);
                 isClosed = false;
             } else {
+                InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/switchClosed.png");
+                assert in != null;
+                this.image = new Image(in);
                 BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 10);
                 isClosed = true;
             }

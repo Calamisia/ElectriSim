@@ -91,7 +91,7 @@
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@open%20switch.png" />
+                                                <Image url="@openSwitch.png" />
                                             </image></ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
