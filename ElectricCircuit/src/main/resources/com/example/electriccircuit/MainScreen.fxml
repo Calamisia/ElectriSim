@@ -7,12 +7,12 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane minHeight="0.0" minWidth="0.0" prefWidth="2404.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane minHeight="0.0" minWidth="0.0" prefWidth="2404.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
         <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0">
             <children>
-                <AnchorPane fx:id="smallanchorpane" layoutX="151.0" minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="2102.0" style="-fx-background-color: #838383;" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="0.0" />
+                <AnchorPane fx:id="smallanchorpane" minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="2102.0" style="-fx-background-color: #838383;" AnchorPane.topAnchor="0.0" />
                 <ScrollPane layoutX="151.0" layoutY="186.0" minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="2102.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
                     <content>
                   <HBox fx:id="scrollhbox" minHeight="0.0" minWidth="0.0">

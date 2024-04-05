@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox prefHeight="700.0" prefWidth="1030.0" spacing="15.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<HBox fx:id="masterhbox" prefHeight="700.0" prefWidth="1030.0" spacing="15.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
    <HBox HBox.hgrow="ALWAYS">
       <VBox alignment="CENTER" minHeight="0.0" minWidth="0.0" spacing="20.0" HBox.hgrow="ALWAYS">
          <HBox alignment="TOP_CENTER" prefHeight="110.0" VBox.vgrow="ALWAYS">

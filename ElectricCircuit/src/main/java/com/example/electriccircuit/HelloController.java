@@ -40,6 +40,9 @@ import static com.example.electriccircuit.Logic.SaveFiles.*;
 public class HelloController implements Initializable {
     private HelloApplication main;
     private Unlocks unlocked;
+    private double andwid;
+    private double andhit;
+    private int countee = 0;
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
 
     @FXML
@@ -67,6 +70,7 @@ public class HelloController implements Initializable {
     private Button bt3;
     @FXML
     private Button bt4;
+
     //end of title screen ids
 
     //start of achievements screen ids
@@ -271,6 +275,7 @@ public class HelloController implements Initializable {
         buttontext(controller.getBt2());
         buttontext(controller.getBt3());
         buttontext(controller.getBt4());
+
     }
 
     //Getter methods for titlescreen
@@ -307,6 +312,19 @@ public class HelloController implements Initializable {
 
     //Method for achievement hbox
     public void achievelock(ImageView imageView, HBox hbox, Label label, Label dlabel){
+
+        double wfs = main.getMainContainer().getWidth() / 4;
+        double hfs = (main.getMainContainer().getHeight() / 4)*2.35;
+
+        // Choose the smaller font size to ensure it fits both width and height
+        double fs = Math.min(wfs, hfs) / 10;
+
+        // Set the font size of the label
+        if (fs != 0) {
+            label.setStyle("-fx-font-size: " + fs + "px");
+            dlabel.setStyle("-fx-font-size: " + fs + "px");
+        }
+
 
         /* start of changing font size and label size */
         main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
@@ -356,13 +374,13 @@ public class HelloController implements Initializable {
 
         HelloController controller1 = main.AchievementsController();
 
-        controller1.getAchievementtitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.25));
+        //controller1.getAchievementtitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.25));
 
         //Bind the bighbox to twice the window size
         controller1.getBiggesthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(2));
 
         // Bind scroll pane height to maintain the desired ratio
-        controller1.getScrollPaneachievement().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.75));
+        controller1.getScrollPaneachievement().prefHeightProperty().bind(main.getMainContainer().heightProperty().subtract(10));
 
         //container to base resizing on
         HBox hbox11 = controller1.getBaseHbox();
@@ -657,6 +675,12 @@ public class HelloController implements Initializable {
     /* Switch to main screen and initialize*/
     @FXML
     private void MainScreen(ActionEvent event) {
+        if(countee == 0){
+            main.maximise();
+            countee++;
+            andwid = main.getMainContainer().getWidth();
+            andhit = main.getMainContainer().getHeight();
+        }
         // Fade in transition
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
         fadeTransition.setFromValue(0);
@@ -666,6 +690,9 @@ public class HelloController implements Initializable {
         main.getMainContainer().getChildren().setAll(main.switchToMainScreen());
 
         HelloController controller1 = main.MainController();
+
+        controller1.getSmallanchorpane().setMinWidth(andwid-151);
+        controller1.getSmallanchorpane().setMinHeight(andhit-150);
 
         for (Node child : main.getMainContainer().getChildren()) {
             child.setMouseTransparent(false);
@@ -677,6 +704,7 @@ public class HelloController implements Initializable {
     public HBox getScrollhbox(){return this.scrollhbox;}
     public BorderPane getBorderPane(){return this.borderPane;}
     public AnchorPane getAnchorpane(){return this.anchorpane;}
+    public AnchorPane getSmallanchorpane(){return this.smallanchorpane;}
 
     /* Settings */
     @FXML
