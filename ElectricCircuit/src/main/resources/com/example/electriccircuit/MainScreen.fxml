@@ -23,7 +23,7 @@
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@Black.jpg" />
+                                                <Image url="@wire.png" />
                                             </image></ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
@@ -40,7 +40,7 @@
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@Color-blue.jpg" />
+                                                <Image url="@power%20supply.png" />
                                             </image></ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
@@ -57,7 +57,7 @@
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@Color-Green.jpg" />
+                                                <Image url="@resistor.png" />
                                             </image></ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
@@ -74,7 +74,7 @@
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@Color-orange.jpg" />
+                                                <Image url="@capacitor.png" />
                                             </image></ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
@@ -91,7 +91,7 @@
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@Colour_red.jpg" />
+                                                <Image url="@open%20switch.png" />
                                             </image></ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>

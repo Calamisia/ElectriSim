@@ -26,10 +26,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -670,10 +668,8 @@ public class HelloController implements Initializable {
     @FXML
     public void spawn(MouseEvent e) {
         Component component;
-        ImageView test = new ImageView();
         if(((HBox) e.getSource()).getId().equals(wire.getId())){
             component = new Wire();
-            test.setImage(new Image("C:\\Users\\agene\\OneDrive\\Documents\\GitHub\\ElectriSim\\ElectricCircuit\\src\\main\\resources\\com\\example\\electriccircuit\\diode.png"));
         } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
             component = new PowerSupply();
         } else if(((HBox) e.getSource()).getId().equals(resistor.getId())){
@@ -693,35 +689,37 @@ public class HelloController implements Initializable {
         }
 
         //Creates the object
-        //node.setFill(component.getColor());
-        //node.setOpacity(0);
-        anchorpane.getChildren().add(test);
-        smallanchorpane.getChildren().add(test);
+        Circle circle = new Circle(20);
+        assert component != null;
+        circle.setFill(new ImagePattern(component.getImageTexture()));
+        circle.setOpacity(0);
+        anchorpane.getChildren().add(circle);
+        smallanchorpane.getChildren().add(circle);
 
 
         final boolean[] isEventEnabled = {true};
 
         /*On mouse movement, calibrates to small and large anchor panes */
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
-            test.setLayoutX(mouseEvent.getX());
-            test.setLayoutY(mouseEvent.getY());
-            //if (!node.isFocused())
-                //node.setOpacity(100);
+            circle.setCenterX(mouseEvent.getX());
+            circle.setCenterY(mouseEvent.getY());
+            if (!circle.isFocused())
+                circle.setOpacity(100);
         });
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
-            test.setLayoutX((smallanchorpane.getWidth() - anchorpane.getWidth()) / 2  + mouseEvent.getX());
-            test.setLayoutY(mouseEvent.getY());
-            if (!test.isFocused())
-                test.setOpacity(100);
+            circle.setCenterX((smallanchorpane.getWidth() - anchorpane.getWidth()) / 2  + mouseEvent.getX());
+            circle.setCenterY(mouseEvent.getY());
+            if (!circle.isFocused())
+                circle.setOpacity(100);
         });
 
         smallanchorpane.setOnMouseReleased(mouseEvent -> {
             if(isEventEnabled[0]) { //makes sure you can only release once
                 //Creates the solid circle
-
-                ImageView solidTest = new ImageView(new Image("C:\\Users\\agene\\OneDrive\\Documents\\GitHub\\ElectriSim\\ElectricCircuit\\src\\main\\resources\\com\\example\\electriccircuit\\diode.png"));
-
+                Circle solidcircle = new Circle(20);
+                component.setComponentNode(solidcircle);
+                solidcircle.setFill(new ImagePattern(component.getImageTexture()));
 
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (smallanchorpane.getHeight() / 20);
@@ -743,11 +741,10 @@ public class HelloController implements Initializable {
                     if (Windex < 35 && Windex >= 0) {
                         component.setLocation(Windex, Hindex);
                         //snaps to grid
-                        Debug.Log(solidTest.getLayoutX() + " " + solidTest.getLayoutY());
-                        solidTest.setX(Hindex * (Hspacing) + Hspacing / 2);
-                        solidTest.setY(Windex * (Wspacing) + Wspacing / 2);
-                        smallanchorpane.getChildren().add(solidTest);
-                        solidTest.toFront();
+                        solidcircle.setCenterY(Hindex * (Hspacing) + Hspacing / 2);
+                        solidcircle.setCenterX(Windex * (Wspacing) + Wspacing / 2);
+                        smallanchorpane.getChildren().add(solidcircle);
+                        solidcircle.toFront();
 
                         //Sandbox Matrix creation
                         BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
@@ -755,8 +752,8 @@ public class HelloController implements Initializable {
                     }
                 }
                 if(!mouseEvent.isShiftDown()){
-                    smallanchorpane.getChildren().remove(test);
-                    anchorpane.getChildren().remove(test);
+                    smallanchorpane.getChildren().remove(circle);
+                    anchorpane.getChildren().remove(circle);
 
                     isEventEnabled[0] = false;
                 }
