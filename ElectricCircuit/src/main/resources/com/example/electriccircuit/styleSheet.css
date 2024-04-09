@@ -6,6 +6,10 @@
     -fx-border-width: 5px;
 }
 
+.stackpane-background{
+    -fx-background-color: #000000;
+}
+
 .borderpaneborder{
     -fx-border-color: none;
     -fx-border-width: 1px;
@@ -34,11 +38,14 @@
             #090a0c,
             linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
             linear-gradient(#20262b, #191d22),
-            radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,131,148,0.9) );
+            radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,131,148,0.5) );
     -fx-text-fill: white;
     -fx-border-radius: 50%;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
     -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
 }
 
 .calculatefalse{
@@ -64,6 +71,9 @@
 }
 #calculatetrue:hover{
     -fx-border-color: darkgreen;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
     -fx-background-color:
             #090a0c,
             linear-gradient(#69ba45 0%, #288524 20%, #3c6c0c 100%),
@@ -75,6 +85,8 @@
 
 .titlebutton{
     -fx-border-color: black;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
     -fx-background-color:
             #090a0c,
             linear-gradient(#838383, #838383, #838383),
@@ -83,14 +95,99 @@
 }
 
 .titlebutton:hover{
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
     -fx-border-color: black;
-    -fx-border-width: 1.1x;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
     -fx-background-color:
             #090a0c,
             linear-gradient(#838383, #fa8105, #838383),
             radial-gradient(center 50% 0%, radius 100%, rgba(225, 52, 30,0.5),rgba(30, 203, 225,0.1) );
     -fx-text-fill: linear-gradient(#000000, #000000);
 }
+
+.exitbutton{
+    -fx-border-color: black;
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#980503,#e30804,#980503),
+            radial-gradient(center 50% 0%, radius 100%, rgba(152, 5, 3, 0.5),rgba(152, 5, 3,0.5) );
+    -fx-text-fill: linear-gradient(#000000, #000000);
+}
+
+.exitbutton:hover{
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
+    -fx-border-color: black;
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#980503,#e30804,#980503),
+            radial-gradient(center 50% 0%, radius 100%, rgba(152, 5, 3, 0.5),rgba(152, 5, 3,0.5) );
+    -fx-text-fill: linear-gradient(#000000, #000000);
+}
+
+.checkbox .box{
+    -fx-border-color: linear-gradient(to left top, #ffffff 0%,#000000 25%,#ffffff 75%);
+    -fx-background-color:#000000;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.slider{
+    -fx-border-color: #838383;
+}
+.slider .track{
+    -fx-background-color: linear-gradient(to left, #000000,darkcyan);
+    -fx-background-radius: 2px;
+}
+
+.slider .thumb{
+    -fx-pref-height: 30px;
+    -fx-pref-width: 15px;
+    -fx-background-color: linear-gradient(to top, royalblue,aquamarine);
+    -fx-background-radius: 10px;
+}
+
+.scroll-pane{
+    -fx-border-color: #000000;
+    -fx-background-color: linear-gradient(to right, #9400D3, #4B0082, #0000FF, #00FF00, #FFFF00, #FF7F00, #FF0000);
+}
+
+.scroll-pane .thumb{
+    -fx-background-color: #838383;
+    -fx-border-color: #000000;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-opacity: 50%;
+}
+
+.scroll-pane .track{
+    -fx-background-color: linear-gradient(to right, #9400D3, #4B0082, #0000FF, #00FF00, #FFFF00, #FF7F00, #FF0000);
+    -fx-background-radius: 2px;
+}
+
+.scroll-pane1{
+    -fx-border-color: #838383;
+    -fx-border-width: 1px;
+    -fx-background-color: #000000;
+}
+
+.scroll-pane1 .thumb{
+    -fx-background-color: #838383;
+    -fx-border-color: #000000;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-opacity: 50%;
+}
+
+.scroll-pane1 .track{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 2px;
+}
+
 /*
 .reverstitlebutton:hover{
     -fx-border-color: black;

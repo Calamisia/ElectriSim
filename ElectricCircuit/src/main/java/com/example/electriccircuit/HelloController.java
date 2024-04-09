@@ -106,6 +106,8 @@ public class HelloController implements Initializable {
     private ImageView lockimage6;
     @FXML
     private ImageView lockimage7;
+    @FXML
+    private ImageView lockimage8;
 
     @FXML
     private HBox achievementshbox;
@@ -126,6 +128,8 @@ public class HelloController implements Initializable {
     private Label achievementlabel6;
     @FXML
     private Label achievementlabel7;
+    @FXML
+    private Label achievementlabel8;
 
     @FXML
     private Label achievementdlabel;
@@ -143,6 +147,8 @@ public class HelloController implements Initializable {
     private Label achievementdlabel6;
     @FXML
     private Label achievementdlabel7;
+    @FXML
+    private Label achievementdlabel8;
     //end of achievements screen ids
 
     //Start of level selection ids
@@ -364,7 +370,7 @@ public class HelloController implements Initializable {
         /* start of changing font size and label size */
         main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
             double widthFontSize = newWidth.doubleValue() / 4;
-            double heightFontSize = (main.getMainContainer().getHeight() / 4)*2.35;
+            double heightFontSize = (main.getMainContainer().getHeight() / 4.5)*2.30;
 
             // Choose the smaller font size to ensure it fits both width and height
             double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
@@ -378,7 +384,7 @@ public class HelloController implements Initializable {
 
         main.getMainContainer().heightProperty().addListener((observable, oldValue, newHeight) -> {
                double widthFontSize = main.getMainContainer().getWidth() / 4;
-               double heightFontSize = (newHeight.doubleValue() / 4)*2.35;
+               double heightFontSize = (newHeight.doubleValue() / 4.5)*2.30;
 
                // Choose the smaller font size to ensure it fits both width and height
                double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
@@ -412,7 +418,7 @@ public class HelloController implements Initializable {
         //controller1.getAchievementtitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.25));
 
         //Bind the bighbox to twice the window size
-        controller1.getBiggesthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(2));
+        controller1.getBiggesthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(2.25));
 
         // Bind scroll pane height to maintain the desired ratio
         controller1.getScrollPaneachievement().prefHeightProperty().bind(main.getMainContainer().heightProperty().subtract(10));
@@ -491,6 +497,16 @@ public class HelloController implements Initializable {
 
         //Method for binding both, above this one
         achievelock(controller1.getLockImage8(), hbox11, controller1.getAchievementLabel8(), controller1.getAchievementDLabel7());
+
+        //Hbox9
+
+        //image = new Image("lvl8.jpg");
+        //Check if the achievement is unlocked
+        //if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
+
+        //Method for binding both, above this one
+        achievelock(controller1.getLockImage9(), hbox11, controller1.getAchievementLabel9(), controller1.getAchievementDLabel8());
+
     }
 
     /* getter methods for the achievements screen (global containers)*/
@@ -538,6 +554,11 @@ public class HelloController implements Initializable {
     public Label getAchievementLabel8(){return this.achievementlabel7;}
     public ImageView getLockImage8(){return this.lockimage7;}
     public Label getAchievementDLabel7(){return this.achievementdlabel7;}
+
+    /* getter methods for the achievements screen (Hbox9)*/
+    public Label getAchievementLabel9(){return this.achievementlabel8;}
+    public ImageView getLockImage9(){return this.lockimage8;}
+    public Label getAchievementDLabel8(){return this.achievementdlabel8;}
 
 
     public void levelimagelabel(HBox hbox, ImageView imageView, Label label, int lvlasked){
@@ -879,6 +900,9 @@ public class HelloController implements Initializable {
         });
     }
 
-
+    @FXML
+    public void exit(ActionEvent event){
+        System.exit(0);
+    }
 }
 
