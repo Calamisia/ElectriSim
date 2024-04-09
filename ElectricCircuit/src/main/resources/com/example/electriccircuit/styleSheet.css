@@ -68,10 +68,78 @@
             #090a0c,
             linear-gradient(#69ba45 0%, #288524 20%, #3c6c0c 100%),
             linear-gradient(#3ac570, #1f693b),
-            radial-gradient(center 50% 0%, radius 100%, rgba(114,231,148,0.9),rgba(255,255,255,0) );
+            radial-gradient(center 100% 0%, radius 100%, rgba(114,231,148,0.9),rgba(255,255,255,0) );
     -fx-effect: dropshadow( three-pass-box , rgba(0,100,0,0.6) , 5, 0.0 , 0 , 1 );
     -fx-text-fill: linear-gradient(#838383, #000000);
 }
+
+.titlebutton{
+    -fx-border-color: black;
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#838383, #838383, #838383),
+            radial-gradient(center 50% 0%, radius 100%, rgba(225, 52, 30,0.5),rgba(30, 203, 225,0.1) );
+    -fx-text-fill: linear-gradient(#000000, #000000);
+}
+
+.titlebutton:hover{
+    -fx-border-color: black;
+    -fx-border-width: 1.1x;
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#838383, #fa8105, #838383),
+            radial-gradient(center 50% 0%, radius 100%, rgba(225, 52, 30,0.5),rgba(30, 203, 225,0.1) );
+    -fx-text-fill: linear-gradient(#000000, #000000);
+}
+/*
+.reverstitlebutton:hover{
+    -fx-border-color: black;
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#1ecbe1, #E1141E, #E0041E),
+            radial-gradient(center 50% 0%, radius 100%, rgba(225, 52, 30,0.5),rgba(30, 203, 225,0.1) );
+    -fx-text-fill: linear-gradient(#000000, #000000);
+}
+
+.reverstitlebutton{
+    -fx-border-color: black;
+    -fx-background-color:
+            #090a0c,
+            linear-gradient(#E1141E, #E0041E,#1ecbe1),
+            radial-gradient(center 50% 0%, radius 100%, rgba(30, 203, 225,0.2),rgba(225, 52, 30,0.3) );
+    -fx-text-fill: linear-gradient(#000000, #000000);
+}
+
+ */
+
+
+.title-background{
+    width: 100%;
+    height: 100%;
+    -fx-background-image: url(Titlebackground2.png);
+    /*
+    -fx-background-position: 0 0;
+    -fx-animated: animation-frames 1s steps(352, end) infinite;
+    */
+
+}
+/*
+@keyframes animation-frames {
+
+    from {
+
+        background-position: 0 0;
+
+    }
+
+    to {
+
+        background-position: -1000px 0;
+
+    }
+
+}
+*/
 
 /*-----------------------------------------------------Button Example-------------------------------------------------------------------*/
 /*

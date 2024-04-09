@@ -281,6 +281,11 @@ public class HelloController implements Initializable {
     }
 
     @FXML
+    public void test(ActionEvent event) {
+        System.out.println("yes");
+    }
+
+    @FXML
     public void titleScreen(ActionEvent event) {
         // Fade in transition
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
@@ -730,6 +735,10 @@ public class HelloController implements Initializable {
             child.setMouseTransparent(false);
         }
         controller1.getBorderPane().setMouseTransparent(true);
+        if (controller1.getCal() != null && controller1.getCal().getId() != "calculatetrue") {
+            controller1.getCal().setMouseTransparent(true);
+            controller1.getCal().setOpacity(0.5);
+        }
         controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(1199));
         loadGame();
        }
