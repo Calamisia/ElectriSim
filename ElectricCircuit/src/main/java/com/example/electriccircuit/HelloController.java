@@ -201,6 +201,8 @@ public class HelloController implements Initializable {
     public GridPane dataGrid;
     @FXML
     public Button cal;
+    @FXML
+    public ScrollPane pan;
 
     //components
     @FXML
@@ -411,7 +413,7 @@ public class HelloController implements Initializable {
         if(countee == 0){
             main.maximise();
             countee++;
-            ancwidth = main.getMainContainer().getWidth() - 312;
+            ancwidth = main.getMainContainer().getWidth() - 309;
             ancheight = main.getMainContainer().getHeight() - 177;
             controller1.getSmallanchorpane().setMinWidth(ancwidth);
             controller1.getSmallanchorpane().setMaxWidth(ancwidth);
@@ -438,6 +440,11 @@ public class HelloController implements Initializable {
         }
         controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(1199));
         loadGame();
+        if(sandboxMatrix.closedCircuit()) {
+            controller1.getCal().setId("calculatetrue");
+            controller1.getCal().setMouseTransparent(false);
+            controller1.getCal().setOpacity(1);
+        }
        }
 
     /* Settings */
@@ -517,7 +524,7 @@ public class HelloController implements Initializable {
                 sprite.setOpacity(100);
         });
 
-        smallanchorpane.setOnMouseReleased(mouseEvent -> {
+        pan.setOnMouseReleased(mouseEvent -> {
             if(isEventEnabled[0]) { //makes sure you can only release once
                 //Creates the solid circle
                 Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
@@ -544,8 +551,8 @@ public class HelloController implements Initializable {
                     if (Windex < 35 && Windex >= 0) {
                         component.setLocation(Windex, Hindex);
                         //snaps to grid
-                        solidSprite.setY(Hindex * (Hspacing)+10);
-                        solidSprite.setX(Windex * (Wspacing)+4);
+                        solidSprite.setY(Hindex * (Hspacing)+7);
+                        solidSprite.setX(Windex * (Wspacing));
                         smallanchorpane.getChildren().add(solidSprite);
                         solidSprite.toFront();
 
@@ -579,6 +586,10 @@ public class HelloController implements Initializable {
             }
         }
         smallanchorpane.getChildren().clear();
+        HelloController controller1 = main.MainController();
+        controller1.getCal().setId("calculatefalse");
+        controller1.getCal().setMouseTransparent(true);
+        controller1.getCal().setOpacity(0.5);
     }
 
     public void titlemethod(){

@@ -166,7 +166,7 @@
 .scroll-pane1{
     -fx-border-color: #838383;
     -fx-border-width: 1px;
-    -fx-background-color: #000000;
+    -fx-background-color: none;
 }
 
 .scroll-pane1 .thumb{
