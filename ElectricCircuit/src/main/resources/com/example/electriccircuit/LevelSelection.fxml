@@ -10,7 +10,7 @@
    <children>
       <HBox fx:id="leveltitlehbox" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#titleScreen" prefHeight="25.0" prefWidth="55.0" text="Button" HBox.hgrow="ALWAYS">
+            <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#titleScreen" prefHeight="25.0" prefWidth="55.0" styleClass="button1" text="Return" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets left="15.0" top="15.0" />
                </HBox.margin>
@@ -51,7 +51,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="labellvl1" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                              <Label fx:id="labellvl1" minHeight="0.0" minWidth="0.0" text="Level 1" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>
@@ -76,7 +76,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="labellvl6" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                              <Label fx:id="labellvl6" minHeight="0.0" minWidth="0.0" text="Level 6" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>
@@ -108,7 +108,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="labellvl2" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                              <Label fx:id="labellvl2" minHeight="0.0" minWidth="0.0" text="Level 2" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>
@@ -133,7 +133,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="labellvl7" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                              <Label fx:id="labellvl7" minHeight="0.0" minWidth="0.0" text="Level 7" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>
@@ -165,7 +165,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="labellvl3" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                              <Label fx:id="labellvl3" minHeight="0.0" minWidth="0.0" text="Level3" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>
@@ -190,7 +190,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="labellvl8" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                              <Label fx:id="labellvl8" minHeight="0.0" minWidth="0.0" text="Level 8" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>
@@ -222,7 +222,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="labellvl4" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                              <Label fx:id="labellvl4" minHeight="0.0" minWidth="0.0" text="Level 4" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>
@@ -247,7 +247,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="labellvl9" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                              <Label fx:id="labellvl9" minHeight="0.0" minWidth="0.0" text="Level 9" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>
@@ -279,7 +279,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="labellvl5" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                              <Label fx:id="labellvl5" minHeight="0.0" minWidth="0.0" text="Level 5" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>
@@ -304,7 +304,7 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="labellvl10" minHeight="0.0" minWidth="0.0" text="Label" HBox.hgrow="ALWAYS">
+                              <Label fx:id="labellvl10" minHeight="0.0" minWidth="0.0" text="Level 10" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>

@@ -43,9 +43,6 @@
     -fx-border-radius: 50%;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
     -fx-text-fill: linear-gradient(white, #d0d0d0);
-    -fx-scale-x: 1.1;
-    -fx-scale-y: 1.1;
-    -fx-scale-z: 1.1;
 }
 
 .calculatefalse{
@@ -71,9 +68,6 @@
 }
 #calculatetrue:hover{
     -fx-border-color: darkgreen;
-    -fx-scale-x: 1.1;
-    -fx-scale-y: 1.1;
-    -fx-scale-z: 1.1;
     -fx-background-color:
             #090a0c,
             linear-gradient(#69ba45 0%, #288524 20%, #3c6c0c 100%),
@@ -90,7 +84,7 @@
     -fx-background-color:
             #090a0c,
             linear-gradient(#838383, #838383, #838383),
-            radial-gradient(center 50% 0%, radius 100%, rgba(225, 52, 30,0.5),rgba(30, 203, 225,0.1) );
+            radial-gradient(center 50% 0%, radius 100%, rgba(225, 52, 30,0.5),rgba(255, 255, 255,0.5) );
     -fx-text-fill: linear-gradient(#000000, #000000);
 }
 
@@ -208,12 +202,19 @@
 }
 
  */
+.labeldesc{
+    -fx-text-fill: darkgoldenrod;
+}
 
+.labelpopping{
+    -fx-text-fill: linear-gradient(white,goldenrod,black);
+}
 
 .title-background{
     width: 100%;
     height: 100%;
-    -fx-background-image: url(Titlebackground2.png);
+    -fx-background-color: black;
+    -fx-background-size: 25%;
     /*
     -fx-background-position: 0 0;
     -fx-animated: animation-frames 1s steps(352, end) infinite;
