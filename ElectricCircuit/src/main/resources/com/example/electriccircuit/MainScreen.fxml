@@ -253,7 +253,7 @@
                       </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="151.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <CheckBox mnemonicParsing="false" text="Show Grid" styleClass="checkbox" fx:id="checkGrid" onAction="showGrid" HBox.hgrow="ALWAYS">
+                        <CheckBox mnemonicParsing="false" text="Show Grid" styleClass="checkbox" fx:id="checkGrid" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
