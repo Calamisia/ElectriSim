@@ -7,12 +7,12 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
         <AnchorPane fx:id="anchorpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
             <children>
-                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" styleClass="smallborder" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
+                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" styleClass="scroll-pane1" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
                     <content>
                   <HBox fx:id="scrollhbox">
                      <VBox.margin>
@@ -41,7 +41,7 @@
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@power%20supply.png" />
+                                                <Image url="@power supply.png" />
                                             </image>
                               </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
@@ -95,7 +95,7 @@
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@open%20switch.png" />
+                                                 <Image url="@open switch.png" />
                                             </image>
                               </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
@@ -187,7 +187,7 @@
                 </HBox>
                 <VBox alignment="CENTER" maxHeight="172.0" maxWidth="151.0" prefHeight="172.0" prefWidth="151.0" AnchorPane.bottomAnchor="0.0" VBox.vgrow="NEVER">
                     <children>
-                        <Button fx:id="cal" mnemonicParsing="false" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Calculate">
+                        <Button fx:id="cal" mnemonicParsing="false" onAction="#test" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Calculate">
                             <VBox.margin>
                                 <Insets bottom="60.0" />
                             </VBox.margin>
