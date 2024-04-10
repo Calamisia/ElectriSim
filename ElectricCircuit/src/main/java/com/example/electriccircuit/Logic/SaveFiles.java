@@ -1,6 +1,7 @@
 package com.example.electriccircuit.Logic;
 
 import com.example.electriccircuit.Components.*;
+import com.example.electriccircuit.HelloController;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
@@ -126,13 +127,13 @@ public class SaveFiles {
                         component = null;
                         Debug.Error("Invalid spawn component");
                     }
-                    Rectangle solidSprite = new Rectangle(smallanchorpane.getWidth()/35,smallanchorpane.getHeight()/20);
+                    Rectangle solidSprite = new Rectangle(HelloController.returnSmallAnchorPane().getWidth()/35,HelloController.returnSmallAnchorPane().getHeight()/20);
                     component.setComponentNode(solidSprite);
                     solidSprite.setFill(new ImagePattern(component.getImageTexture()));
 
                     //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
-                    double Hspacing = (smallanchorpane.getHeight() / 20);
-                    double Wspacing = (smallanchorpane.getWidth() / 35);
+                    double Hspacing = (HelloController.returnSmallAnchorPane().getHeight() / 20);
+                    double Wspacing = (HelloController.returnSmallAnchorPane().getWidth() / 35);
 
                     int Hindex = j;
                     int Windex = i;
@@ -143,7 +144,7 @@ public class SaveFiles {
                             //snaps to grid
                             solidSprite.setY(Hindex * (Hspacing));
                             solidSprite.setX(Windex * (Wspacing));
-                            smallanchorpane.getChildren().add(solidSprite);
+                            HelloController.returnSmallAnchorPane().getChildren().add(solidSprite);
                             solidSprite.toFront();
 
                             //Sandbox Matrix creation
