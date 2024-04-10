@@ -800,7 +800,6 @@ public class HelloController implements Initializable {
 
         //Creates the object
         Rectangle sprite = new Rectangle(smallanchorpane.getWidth()/35,smallanchorpane.getHeight()/20);
-        Ellipse circle = new Ellipse(smallanchorpane.getWidth()/70,smallanchorpane.getHeight()/40);
         assert component != null;
         sprite.setFill(new ImagePattern(component.getImageTexture()));
         sprite.setOpacity(0);
@@ -828,9 +827,9 @@ public class HelloController implements Initializable {
         smallanchorpane.setOnMouseReleased(mouseEvent -> {
             if(isEventEnabled[0]) { //makes sure you can only release once
                 //Creates the solid circle
-                Ellipse solidcircle = new Ellipse(smallanchorpane.getWidth()/70,smallanchorpane.getHeight()/40);
-                component.setComponentNode(solidcircle);
-                solidcircle.setFill(new ImagePattern(component.getImageTexture()));
+                Rectangle solidSprite = new Rectangle(smallanchorpane.getWidth()/35,smallanchorpane.getHeight()/20);
+                component.setComponentNode(solidSprite);
+                solidSprite.setFill(new ImagePattern(component.getImageTexture()));
 
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (smallanchorpane.getHeight() / 20);
@@ -852,10 +851,10 @@ public class HelloController implements Initializable {
                     if (Windex < 35 && Windex >= 0) {
                         component.setLocation(Windex, Hindex);
                         //snaps to grid
-                        solidcircle.setCenterY(Hindex * (Hspacing) + Hspacing / 2);
-                        solidcircle.setCenterX(Windex * (Wspacing) + Wspacing / 2);
-                        smallanchorpane.getChildren().add(solidcircle);
-                        solidcircle.toFront();
+                        solidSprite.setY(Hindex * (Hspacing));
+                        solidSprite.setX(Windex * (Wspacing));
+                        smallanchorpane.getChildren().add(solidSprite);
+                        solidSprite.toFront();
 
                         //Sandbox Matrix creation
                         BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
@@ -863,8 +862,8 @@ public class HelloController implements Initializable {
                     }
                 }
                 if(!mouseEvent.isShiftDown()){
-                    smallanchorpane.getChildren().remove(circle);
-                    anchorpane.getChildren().remove(circle);
+                    smallanchorpane.getChildren().remove(sprite);
+                    anchorpane.getChildren().remove(sprite);
 
                     isEventEnabled[0] = false;
                 }
@@ -874,4 +873,3 @@ public class HelloController implements Initializable {
 
 
 }
-
