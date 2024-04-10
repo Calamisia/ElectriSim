@@ -268,8 +268,15 @@ public class HelloController implements Initializable {
         return controllerx.getSmallanchorpane();
     }
 
-    public void showGrid(){
+    @FXML
+    public void showGrid(ActionEvent event){
+        if (checkGrid.isSelected())
 
+            checkGrid.setOpacity(0.5);
+
+        else
+
+            checkGrid.setOpacity(0);
     }
 
     public static Button returnCalButton(){
