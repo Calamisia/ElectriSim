@@ -187,7 +187,7 @@
                 </HBox>
                 <VBox alignment="CENTER" maxHeight="172.0" maxWidth="151.0" prefHeight="172.0" prefWidth="151.0" AnchorPane.bottomAnchor="0.0" VBox.vgrow="NEVER">
                     <children>
-                        <Button fx:id="cal" mnemonicParsing="false" onAction="#test" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Calculate">
+                        <Button fx:id="cal" mnemonicParsing="false" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Calculate">
                             <VBox.margin>
                                 <Insets bottom="60.0" />
                             </VBox.margin>
