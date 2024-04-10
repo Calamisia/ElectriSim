@@ -46,8 +46,8 @@ import static com.example.electriccircuit.Logic.SaveFiles.*;
 public class HelloController implements Initializable {
     private HelloApplication main;
     private Unlocks unlocked;
-    private double andwid;
-    private double andhit;
+    public static double ancwidth;
+    public static double ancheight;
     private int countee = 0;
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
 
@@ -268,15 +268,25 @@ public class HelloController implements Initializable {
         return controllerx.getSmallanchorpane();
     }
 
+
+
+
+    public static double getAncwidth(){
+        return ancwidth;
+    }
+    public static double getAncheight(){
+        return ancheight;
+    }
+
     @FXML
     public void showGrid(ActionEvent event){
         if (checkGrid.isSelected())
 
-            checkGrid.setOpacity(0.5);
+            togglegrid.setOpacity(0.5);
 
         else
 
-            checkGrid.setOpacity(0);
+            togglegrid.setOpacity(0);
     }
 
     public static Button returnCalButton(){
@@ -367,57 +377,6 @@ public class HelloController implements Initializable {
         });
     }
 
-    //Method for achievement hbox
-    public void achievelock(ImageView imageView, HBox hbox, Label label, Label dlabel){
-
-        double wfs = main.getMainContainer().getWidth() / 4;
-        double hfs = (main.getMainContainer().getHeight() / 4)*2.35;
-
-        // Choose the smaller font size to ensure it fits both width and height
-        double fs = Math.min(wfs, hfs) / 10;
-
-        // Set the font size of the label
-        if (fs != 0) {
-            label.setStyle("-fx-font-size: " + fs + "px");
-            dlabel.setStyle("-fx-font-size: " + fs + "px");
-        }
-
-
-        /* start of changing font size and label size */
-        main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
-            double widthFontSize = newWidth.doubleValue() / 4;
-            double heightFontSize = (main.getMainContainer().getHeight() / 4.5)*2.30;
-
-            // Choose the smaller font size to ensure it fits both width and height
-            double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
-
-            // Set the font size of the label
-            if (fontSize != 0) {
-                label.setStyle("-fx-font-size: " + fontSize + "px");
-                dlabel.setStyle("-fx-font-size: " + fontSize + "px");
-            }
-        });
-
-        main.getMainContainer().heightProperty().addListener((observable, oldValue, newHeight) -> {
-               double widthFontSize = main.getMainContainer().getWidth() / 4;
-               double heightFontSize = (newHeight.doubleValue() / 4.5)*2.30;
-
-               // Choose the smaller font size to ensure it fits both width and height
-               double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
-
-               // Set the font size of the label
-               if (fontSize != 0) {
-                    label.setStyle("-fx-font-size: " + fontSize + "px");
-                    dlabel.setStyle("-fx-font-size: " + fontSize + "px");
-               }
-        });
-
-        // Bind the lock image to the size of the HBox
-        imageView.setPreserveRatio(true); // Disable preserving aspect ratio
-        imageView.fitWidthProperty().bind(hbox.widthProperty()); // Bind fitWidth to HBox width
-        imageView.fitHeightProperty().bind(hbox.heightProperty()); // Bind fitHeight to HBox height
-    }
-
     /* Switch to achievements screen and initialize*/
     @FXML
     public void Achievements(ActionEvent event){
@@ -444,175 +403,49 @@ public class HelloController implements Initializable {
 
         //Hbox1
 
-        //Image image = new Image("lvl1.jpg");
-        //Check if the achievement is unlocked
-        //if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
-
-        //Method for binding both, above this one
+        //achieveunlock(controller1.getLockImage1(), new Image("lvl1.jpg"), 9);
         achievelock(controller1.getLockImage1(), hbox11, controller1.getAchievementLabel1(), controller1.getAchievementDLabel());
 
         //Hbox2
 
-        //image = new Image("lvl2.jpg");
-        //Check if the achievement is unlocked
-        //if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
-
-        //Method for binding both, above this one
+        //achieveunlock(controller1.getLockImage2(), new Image("lvl2.jpg"), 9);
         achievelock(controller1.getLockImage2(), hbox11, controller1.getAchievementLabel2(), controller1.getAchievementDLabel1());
 
         //Hbox3
 
-        //image = new Image("lvl3.jpg");
-        //Check if the achievement is unlocked
-        //if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
-
-        //Method for binding both, above this one
+        //achieveunlock(controller1.getLockImage3(), new Image("lvl3.jpg"), 9);
         achievelock(controller1.getLockImage3(), hbox11, controller1.getAchievementLabel3(), controller1.getAchievementDLabel2());
 
         //Hbox4
 
-        //image = new Image("lvl4.jpg");
-        //Check if the achievement is unlocked
-        //if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
-
-        //Method for binding both, above this one
+        //achieveunlock(controller1.getLockImage4(), new Image("lvl4.jpg"), 9);
         achievelock(controller1.getLockImage4(), hbox11, controller1.getAchievementLabel4(), controller1.getAchievementDLabel3());
 
         //Hbox5
 
-        //image = new Image("lvl5.jpg");
-        //Check if the achievement is unlocked
-        //if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
-
-        //Method for binding both, above this one
+        //achieveunlock(controller1.getLockImage5(), new Image("lvl5.jpg"), 9);
         achievelock(controller1.getLockImage5(), hbox11, controller1.getAchievementLabel5(), controller1.getAchievementDLabel4());
 
         //Hbox6
 
-        //image = new Image("lvl6.jpg");
-        //Check if the achievement is unlocked
-        //if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
-
-        //Method for binding both, above this one
+        //achieveunlock(controller1.getLockImage6(), new Image("lvl6.jpg"), 9);
         achievelock(controller1.getLockImage6(), hbox11, controller1.getAchievementLabel6(), controller1.getAchievementDLabel5());
 
         //Hbox7
 
-        //image = new Image("lvl7.jpg");
-        //Check if the achievement is unlocked
-        //if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
-
-        //Method for binding both, above this one
+        //achieveunlock(controller1.getLockImage7(), new Image("lvl7.jpg"), 9);
         achievelock(controller1.getLockImage7(), hbox11, controller1.getAchievementLabel7(), controller1.getAchievementDLabel6());
 
         //Hbox8
 
-        //image = new Image("lvl8.jpg");
-        //Check if the achievement is unlocked
-        //if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
-
-        //Method for binding both, above this one
+        //achieveunlock(controller1.getLockImage8(), new Image("lvl8.jpg"), 9);
         achievelock(controller1.getLockImage8(), hbox11, controller1.getAchievementLabel8(), controller1.getAchievementDLabel7());
 
         //Hbox9
 
-        //image = new Image("lvl8.jpg");
-        //Check if the achievement is unlocked
-        //if (unlocked.isAchievementUnlocked(1)) controller1.getLockImage1().setImage(image);
-
-        //Method for binding both, above this one
+        //achieveunlock(controller1.getLockImage9(), new Image("lvl9.jpg"), 9);
         achievelock(controller1.getLockImage9(), hbox11, controller1.getAchievementLabel9(), controller1.getAchievementDLabel8());
 
-    }
-
-    /* getter methods for the achievements screen (global containers)*/
-    public ScrollPane getScrollPaneachievement(){return this.scrollPaneachievement;}
-    public HBox getBiggesthbox(){return this.biggesthbox;}
-    public HBox getAchievementtitlehbox(){return this.achievementtitlehbox;}
-    public HBox getBaseHbox(){return this.achievementshbox;}
-
-    /* getter methods for the achievements screen (Hbox1)*/
-    public Label getAchievementLabel1(){return this.achievementlabel;}
-    public ImageView getLockImage1(){return this.lockimage;}
-    public Label getAchievementDLabel(){return this.achievementdlabel;}
-
-    /* getter methods for the achievements screen (Hbox2)*/
-    public Label getAchievementLabel2(){return this.achievementlabel1;}
-    public ImageView getLockImage2(){return this.lockimage1;}
-    public Label getAchievementDLabel1(){return this.achievementdlabel1;}
-
-    /* getter methods for the achievements screen (Hbox3)*/
-    public Label getAchievementLabel3(){return this.achievementlabel2;}
-    public ImageView getLockImage3(){return this.lockimage2;}
-    public Label getAchievementDLabel2(){return this.achievementdlabel2;}
-
-    /* getter methods for the achievements screen (Hbox4)*/
-    public Label getAchievementLabel4(){return this.achievementlabel3;}
-    public ImageView getLockImage4(){return this.lockimage3;}
-    public Label getAchievementDLabel3(){return this.achievementdlabel3;}
-
-    /* getter methods for the achievements screen (Hbox5)*/
-    public Label getAchievementLabel5(){return this.achievementlabel4;}
-    public ImageView getLockImage5(){return this.lockimage4;}
-    public Label getAchievementDLabel4(){return this.achievementdlabel4;}
-
-    /* getter methods for the achievements screen (Hbox6)*/
-    public Label getAchievementLabel6(){return this.achievementlabel5;}
-    public ImageView getLockImage6(){return this.lockimage5;}
-    public Label getAchievementDLabel5(){return this.achievementdlabel5;}
-
-    /* getter methods for the achievements screen (Hbox7)*/
-    public Label getAchievementLabel7(){return this.achievementlabel6;}
-    public ImageView getLockImage7(){return this.lockimage6;}
-    public Label getAchievementDLabel6(){return this.achievementdlabel6;}
-
-    /* getter methods for the achievements screen (Hbox8)*/
-    public Label getAchievementLabel8(){return this.achievementlabel7;}
-    public ImageView getLockImage8(){return this.lockimage7;}
-    public Label getAchievementDLabel7(){return this.achievementdlabel7;}
-
-    /* getter methods for the achievements screen (Hbox9)*/
-    public Label getAchievementLabel9(){return this.achievementlabel8;}
-    public ImageView getLockImage9(){return this.lockimage8;}
-    public Label getAchievementDLabel8(){return this.achievementdlabel8;}
-
-
-    public void levelimagelabel(HBox hbox, ImageView imageView, Label label, int lvlasked){
-        /* start of changing font size and label size */
-        main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
-            double widthFontSize = newWidth.doubleValue() / 4;
-            double heightFontSize = (main.getMainContainer().getHeight() / 4)*2.35;
-
-            // Choose the smaller font size to ensure it fits both width and height
-            double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
-
-            // Set the font size of the label
-            if (fontSize != 0) {
-                label.setStyle("-fx-font-size: " + fontSize + "px");
-            }
-        });
-
-        main.getMainContainer().heightProperty().addListener((observable, oldValue, newHeight) -> {
-            double widthFontSize = main.getMainContainer().getWidth() / 4;
-            double heightFontSize = (newHeight.doubleValue() / 4)*2.35;
-
-            // Choose the smaller font size to ensure it fits both width and height
-            double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
-
-            // Set the font size of the label
-            if (fontSize != 0) {
-                label.setStyle("-fx-font-size: " + fontSize + "px");
-            }
-        });
-
-        // Bind the lock image to the size of the HBox
-        imageView.setPreserveRatio(true); // Disable preserving aspect ratio
-        imageView.fitWidthProperty().bind(hbox.widthProperty()); // Bind fitWidth to HBox width
-        imageView.fitHeightProperty().bind(hbox.heightProperty()); // Bind fitHeight to HBox height
-
-        //Check if the level can be unlocked
-        //imageView.setMouseTransparent(true);
-        //if (unlocked.isLevelUnlocked(lvlasked) == true) imageView.setMouseTransparent(false);
     }
 
     /* Switch to level select screen and initialize*/
@@ -632,117 +465,44 @@ public class HelloController implements Initializable {
 
         //Other hbox wants to be 4/5 of the screen and 90% of the width
         controller1.getLevelselecthbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.8));
-
         controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(0.89));
-
 
         //container to base resizing on
         HBox hbox11 = controller1.getSmallhboxlvl1();
 
         //Lvl1
-
         //Method for binding both, above this one
         levelimagelabel(hbox11, controller1.getImageviewlvl1(), controller1.getLabellvl1(),1);
 
         //Lvl2
-
-        //Method for binding both, above this one
         levelimagelabel(hbox11, controller1.getImageviewlvl2(), controller1.getLabellvl2(),2);
 
         //Lvl3
-
-        //Method for binding both, above this one
         levelimagelabel(hbox11, controller1.getImageviewlvl3(), controller1.getLabellvl3(),3);
 
         //Lvl4
-
-        //Method for binding both, above this one
         levelimagelabel(hbox11, controller1.getImageviewlvl4(), controller1.getLabellvl4(),4);
 
         //Lvl5
-
-        //Method for binding both, above this one
         levelimagelabel(hbox11, controller1.getImageviewlvl5(), controller1.getLabellvl5(),5);
 
         //Lvl6
-
-        //Method for binding both, above this one
         levelimagelabel(hbox11, controller1.getImageviewlvl6(), controller1.getLabellvl6(),6);
 
         //Lvl7
-
-        //Method for binding both, above this one
         levelimagelabel(hbox11, controller1.getImageviewlvl7(), controller1.getLabellvl7(),7);
 
         //Lvl8
-
-        //Method for binding both, above this one
         levelimagelabel(hbox11, controller1.getImageviewlvl8(), controller1.getLabellvl8(),8);
 
         //Lvl9
-
-        //Method for binding both, above this one
         levelimagelabel(hbox11, controller1.getImageviewlvl9(), controller1.getLabellvl9(),9);
 
         //Lvl10
-
-        //Method for binding both, above this one
         levelimagelabel(hbox11, controller1.getImageviewlvl10(), controller1.getLabellvl10(),10);
 
 
     }
-
-    //Level selection screen getters
-
-    //Hbox for the top part of screen
-    public HBox getLeveltitlehbox(){return this.leveltitlehbox;}
-
-    //Hbox for rest of the screen
-    public HBox getLevelselecthbox(){return this.levelselecthbox;}
-
-    //Hbox for resizing images
-    public HBox getSmallhboxlvl1(){return this.smallhboxlvl1;}
-
-
-    //Level 1
-    public ImageView getImageviewlvl1(){return this.imageviewlvl1;}
-    public Label getLabellvl1(){return this.labellvl1;}
-
-    //Level 2
-    public ImageView getImageviewlvl2(){return this.imageviewlvl2;}
-    public Label getLabellvl2(){return this.labellvl2;}
-
-    //Level 3
-    public ImageView getImageviewlvl3(){return this.imageviewlvl3;}
-    public Label getLabellvl3(){return this.labellvl3;}
-
-    //Level 4
-    public ImageView getImageviewlvl4(){return this.imageviewlvl4;}
-    public Label getLabellvl4(){return this.labellvl4;}
-
-    //Level 5
-    public ImageView getImageviewlvl5(){return this.imageviewlvl5;}
-    public Label getLabellvl5(){return this.labellvl5;}
-
-    //Level 6
-    public ImageView getImageviewlvl6(){return this.imageviewlvl6;}
-    public Label getLabellvl6(){return this.labellvl6;}
-
-    //Level 7
-    public ImageView getImageviewlvl7(){return this.imageviewlvl7;}
-    public Label getLabellvl7(){return this.labellvl7;}
-
-    //Level 8
-    public ImageView getImageviewlvl8(){return this.imageviewlvl8;}
-    public Label getLabellvl8(){return this.labellvl8;}
-
-    //Level 9
-    public ImageView getImageviewlvl9(){return this.imageviewlvl9;}
-    public Label getLabellvl9(){return this.labellvl9;}
-
-    //Level 10
-    public ImageView getImageviewlvl10(){return this.imageviewlvl10;}
-    public Label getLabellvl10(){return this.labellvl10;}
 
     /* Switch to main screen and initialize*/
     @FXML
@@ -750,8 +510,12 @@ public class HelloController implements Initializable {
         if(countee == 0){
             main.maximise();
             countee++;
-            andwid = main.getMainContainer().getWidth();
-            andhit = main.getMainContainer().getHeight();
+            ancwidth = main.getMainContainer().getWidth() - 302;
+            ancheight = main.getMainContainer().getHeight() - 172;
+            HelloController.returnSmallAnchorPane().setMinWidth(ancwidth);
+            HelloController.returnSmallAnchorPane().setMaxWidth(ancwidth);
+            HelloController.returnSmallAnchorPane().setMinHeight(ancheight);
+            HelloController.returnSmallAnchorPane().setMaxHeight(ancheight);
         }
         // Fade in transition
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
@@ -762,11 +526,6 @@ public class HelloController implements Initializable {
         main.getMainContainer().getChildren().setAll(main.switchToMainScreen());
 
         HelloController controller1 = main.MainController();
-
-        controller1.getSmallanchorpane().setMinWidth(andwid-302);
-        controller1.getSmallanchorpane().setMinHeight(andhit-172);
-        controller1.getSmallanchorpane().setMaxWidth(andwid-302);
-        controller1.getSmallanchorpane().setMaxHeight(andhit-172);
 
         for (Node child : main.getMainContainer().getChildren()) {
             child.setMouseTransparent(false);
@@ -779,11 +538,6 @@ public class HelloController implements Initializable {
         controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(1199));
         loadGame();
        }
-
-    public HBox getScrollhbox(){return this.scrollhbox;}
-    public BorderPane getBorderPane(){return this.borderPane;}
-    public AnchorPane getAnchorpane(){return this.anchorpane;}
-    public AnchorPane getSmallanchorpane(){return this.smallanchorpane;}
 
     /* Settings */
     @FXML
@@ -920,5 +674,211 @@ public class HelloController implements Initializable {
     public void exit(ActionEvent event){
         System.exit(0);
     }
+
+    //Method for level selection binding
+    public void levelimagelabel(HBox hbox, ImageView imageView, Label label, int lvlasked){
+        /* start of changing font size and label size */
+        main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
+            double widthFontSize = newWidth.doubleValue() / 4;
+            double heightFontSize = (main.getMainContainer().getHeight() / 4)*2.35;
+
+            // Choose the smaller font size to ensure it fits both width and height
+            double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
+
+            // Set the font size of the label
+            if (fontSize != 0) {
+                label.setStyle("-fx-font-size: " + fontSize + "px");
+            }
+        });
+
+        main.getMainContainer().heightProperty().addListener((observable, oldValue, newHeight) -> {
+            double widthFontSize = main.getMainContainer().getWidth() / 4;
+            double heightFontSize = (newHeight.doubleValue() / 4)*2.35;
+
+            // Choose the smaller font size to ensure it fits both width and height
+            double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
+
+            // Set the font size of the label
+            if (fontSize != 0) {
+                label.setStyle("-fx-font-size: " + fontSize + "px");
+            }
+        });
+
+        // Bind the lock image to the size of the HBox
+        imageView.setPreserveRatio(true); // Disable preserving aspect ratio
+        imageView.fitWidthProperty().bind(hbox.widthProperty()); // Bind fitWidth to HBox width
+        imageView.fitHeightProperty().bind(hbox.heightProperty()); // Bind fitHeight to HBox height
+
+        //Check if the level can be unlocked
+        //imageView.setMouseTransparent(true);
+        //if (unlocked.isLevelUnlocked(lvlasked) == true) imageView.setMouseTransparent(false);
+    }
+
+    //Method for achievement hbox
+    public void achievelock(ImageView imageView, HBox hbox, Label label, Label dlabel){
+
+        double wfs = main.getMainContainer().getWidth() / 4;
+        double hfs = (main.getMainContainer().getHeight() / 4)*2.35;
+
+        // Choose the smaller font size to ensure it fits both width and height
+        double fs = Math.min(wfs, hfs) / 10;
+
+        // Set the font size of the label
+        if (fs != 0) {
+            label.setStyle("-fx-font-size: " + fs + "px");
+            dlabel.setStyle("-fx-font-size: " + fs + "px");
+        }
+
+
+        /* start of changing font size and label size */
+        main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
+            double widthFontSize = newWidth.doubleValue() / 4;
+            double heightFontSize = (main.getMainContainer().getHeight() / 4.5)*2.30;
+
+            // Choose the smaller font size to ensure it fits both width and height
+            double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
+
+            // Set the font size of the label
+            if (fontSize != 0) {
+                label.setStyle("-fx-font-size: " + fontSize + "px");
+                dlabel.setStyle("-fx-font-size: " + fontSize + "px");
+            }
+        });
+
+        main.getMainContainer().heightProperty().addListener((observable, oldValue, newHeight) -> {
+            double widthFontSize = main.getMainContainer().getWidth() / 4;
+            double heightFontSize = (newHeight.doubleValue() / 4.5)*2.30;
+
+            // Choose the smaller font size to ensure it fits both width and height
+            double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
+
+            // Set the font size of the label
+            if (fontSize != 0) {
+                label.setStyle("-fx-font-size: " + fontSize + "px");
+                dlabel.setStyle("-fx-font-size: " + fontSize + "px");
+            }
+        });
+
+        // Bind the lock image to the size of the HBox
+        imageView.setPreserveRatio(true); // Disable preserving aspect ratio
+        imageView.fitWidthProperty().bind(hbox.widthProperty()); // Bind fitWidth to HBox width
+        imageView.fitHeightProperty().bind(hbox.heightProperty()); // Bind fitHeight to HBox height
+    }
+    //method for changing achievement image if unlocked
+    public void achieveunlock(ImageView imageview, Image image, int num){
+        HelloController controller1 = main.AchievementsController();
+        //Check if the achievement is unlocked
+        //if (unlocked.isAchievementUnlocked(num)) imageview.setImage(image);
+    }
+
+
+    //Level selection screen getters
+
+    //Hbox for the top part of screen
+    public HBox getLeveltitlehbox(){return this.leveltitlehbox;}
+
+    //Hbox for rest of the screen
+    public HBox getLevelselecthbox(){return this.levelselecthbox;}
+
+    //Hbox for resizing images
+    public HBox getSmallhboxlvl1(){return this.smallhboxlvl1;}
+
+    //Level 1
+    public ImageView getImageviewlvl1(){return this.imageviewlvl1;}
+    public Label getLabellvl1(){return this.labellvl1;}
+
+    //Level 2
+    public ImageView getImageviewlvl2(){return this.imageviewlvl2;}
+    public Label getLabellvl2(){return this.labellvl2;}
+
+    //Level 3
+    public ImageView getImageviewlvl3(){return this.imageviewlvl3;}
+    public Label getLabellvl3(){return this.labellvl3;}
+
+    //Level 4
+    public ImageView getImageviewlvl4(){return this.imageviewlvl4;}
+    public Label getLabellvl4(){return this.labellvl4;}
+
+    //Level 5
+    public ImageView getImageviewlvl5(){return this.imageviewlvl5;}
+    public Label getLabellvl5(){return this.labellvl5;}
+
+    //Level 6
+    public ImageView getImageviewlvl6(){return this.imageviewlvl6;}
+    public Label getLabellvl6(){return this.labellvl6;}
+
+    //Level 7
+    public ImageView getImageviewlvl7(){return this.imageviewlvl7;}
+    public Label getLabellvl7(){return this.labellvl7;}
+
+    //Level 8
+    public ImageView getImageviewlvl8(){return this.imageviewlvl8;}
+    public Label getLabellvl8(){return this.labellvl8;}
+
+    //Level 9
+    public ImageView getImageviewlvl9(){return this.imageviewlvl9;}
+    public Label getLabellvl9(){return this.labellvl9;}
+
+    //Level 10
+    public ImageView getImageviewlvl10(){return this.imageviewlvl10;}
+    public Label getLabellvl10(){return this.labellvl10;}
+
+    /* getter methods for the achievements screen */
+    public ScrollPane getScrollPaneachievement(){return this.scrollPaneachievement;}
+    public HBox getBiggesthbox(){return this.biggesthbox;}
+    public HBox getAchievementtitlehbox(){return this.achievementtitlehbox;}
+    public HBox getBaseHbox(){return this.achievementshbox;}
+
+    //Hbox1
+    public Label getAchievementLabel1(){return this.achievementlabel;}
+    public ImageView getLockImage1(){return this.lockimage;}
+    public Label getAchievementDLabel(){return this.achievementdlabel;}
+
+    //Hbox2
+    public Label getAchievementLabel2(){return this.achievementlabel1;}
+    public ImageView getLockImage2(){return this.lockimage1;}
+    public Label getAchievementDLabel1(){return this.achievementdlabel1;}
+
+    //Hbox3
+    public Label getAchievementLabel3(){return this.achievementlabel2;}
+    public ImageView getLockImage3(){return this.lockimage2;}
+    public Label getAchievementDLabel2(){return this.achievementdlabel2;}
+
+    //Hbox4
+    public Label getAchievementLabel4(){return this.achievementlabel3;}
+    public ImageView getLockImage4(){return this.lockimage3;}
+    public Label getAchievementDLabel3(){return this.achievementdlabel3;}
+
+    //Hbox5
+    public Label getAchievementLabel5(){return this.achievementlabel4;}
+    public ImageView getLockImage5(){return this.lockimage4;}
+    public Label getAchievementDLabel4(){return this.achievementdlabel4;}
+
+    //Hbox6
+    public Label getAchievementLabel6(){return this.achievementlabel5;}
+    public ImageView getLockImage6(){return this.lockimage5;}
+    public Label getAchievementDLabel5(){return this.achievementdlabel5;}
+
+    //Hbox7
+    public Label getAchievementLabel7(){return this.achievementlabel6;}
+    public ImageView getLockImage7(){return this.lockimage6;}
+    public Label getAchievementDLabel6(){return this.achievementdlabel6;}
+
+    //Hbox8
+    public Label getAchievementLabel8(){return this.achievementlabel7;}
+    public ImageView getLockImage8(){return this.lockimage7;}
+    public Label getAchievementDLabel7(){return this.achievementdlabel7;}
+
+    //Hbox9
+    public Label getAchievementLabel9(){return this.achievementlabel8;}
+    public ImageView getLockImage9(){return this.lockimage8;}
+    public Label getAchievementDLabel8(){return this.achievementdlabel8;}
+
+    //main screen getters
+
+    public HBox getScrollhbox(){return this.scrollhbox;}
+    public BorderPane getBorderPane(){return this.borderPane;}
+    public AnchorPane getAnchorpane(){return this.anchorpane;}
+    public AnchorPane getSmallanchorpane(){return this.smallanchorpane;}
 }
 
