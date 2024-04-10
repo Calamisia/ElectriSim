@@ -44,26 +44,10 @@ import java.util.ResourceBundle;
 import static com.example.electriccircuit.Logic.SaveFiles.*;
 
 public class HelloController implements Initializable {
-    private HelloApplication main;
-    private Unlocks unlocked;
-    public static double ancwidth;
-    public static double ancheight;
-    private int countee = 0;
-    BuilderMatrix sandboxMatrix = new BuilderMatrix();
-
-
-    @FXML
-    private AnchorPane anchorpane;
-
-    @FXML
-    private AnchorPane smallanchorpane;
-
     @FXML
     private Label welcomeText;
-
     @FXML
     private ImageView imgv;
-
 
     //start of title screen ids
     @FXML
@@ -80,8 +64,6 @@ public class HelloController implements Initializable {
     private Button bt3;
     @FXML
     private Button bt4;
-
-    //end of title screen ids
 
     //start of achievements screen ids
     @FXML
@@ -150,7 +132,6 @@ public class HelloController implements Initializable {
     private Label achievementdlabel7;
     @FXML
     private Label achievementdlabel8;
-    //end of achievements screen ids
 
     //Start of level selection ids
     @FXML
@@ -201,9 +182,7 @@ public class HelloController implements Initializable {
     private ImageView imageviewlvl9;
     @FXML
     private ImageView imageviewlvl10;
-    //End of level selection ids
 
-    public static draggable draggableMaker = new draggable();
     //Start of main screen ids
     @FXML
     private HBox scrollhbox;
@@ -213,27 +192,16 @@ public class HelloController implements Initializable {
     private GridPane togglegrid;
     @FXML
     private CheckBox checkGrid;
-    //End of main screen ids
-
-    //Start of settings screen ids
     @FXML
-    private VBox settingsvbox;
-    //End of settings screen ids
+    private AnchorPane anchorpane;
+    @FXML
+    private AnchorPane smallanchorpane;
+    @FXML
+    public GridPane dataGrid;
+    @FXML
+    public Button cal;
 
-
-    public void setMain(HelloApplication main){
-        this.main = main;
-    }
-
-    public void setUnlocks(Unlocks unlocked) { this.unlocked = unlocked; }
-
-    //initialize variables
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
-
+    //components
     @FXML
     private HBox wire;
     @FXML
@@ -249,54 +217,28 @@ public class HelloController implements Initializable {
     @FXML
     private HBox wireSwitch;
 
-
+    //Start of settings screen ids
     @FXML
-    public GridPane dataGrid;
-    @FXML
-    public Button cal;
+    private VBox settingsvbox;
 
-    public static GridPane returnDataGrid(){
-        HelloController controllerx = HelloApplication.statMainController();
-        return controllerx.getDataGrid();
+    //Non fxml variables
+    private HelloApplication main;
+    private Unlocks unlocked;
+    public static double ancwidth;
+    public static double ancheight;
+    private int countee = 0;
+    public static draggable draggableMaker = new draggable();
+    BuilderMatrix sandboxMatrix = new BuilderMatrix();
+
+    //setters
+    public void setMain(HelloApplication main){
+        this.main = main;
     }
-    public GridPane getDataGrid(){
-        return dataGrid;
-    }
+    public void setUnlocks(Unlocks unlocked) { this.unlocked = unlocked; }
 
-    public static AnchorPane returnSmallAnchorPane(){
-        HelloController controllerx = HelloApplication.statMainController();
-        return controllerx.getSmallanchorpane();
-    }
-
-
-
-
-    public static double getAncwidth(){
-        return ancwidth;
-    }
-    public static double getAncheight(){
-        return ancheight;
-    }
-
-    @FXML
-    public void showGrid(ActionEvent event){
-        if (checkGrid.isSelected())
-
-            togglegrid.setOpacity(0.5);
-
-        else
-
-            togglegrid.setOpacity(0);
-    }
-
-    public static Button returnCalButton(){
-        HelloController controllerx = HelloApplication.statMainController();
-        return controllerx.getCal();
-    }
-
-    public Button getCal(){
-        return cal;
-    }
+    //initialize variables
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
 
     private static HelloController instance;
     public static HelloController getInstance() {
@@ -306,14 +248,13 @@ public class HelloController implements Initializable {
     //initialize variables
     public HelloController() {}
 
-    //bind the properties of imageview when launching title screen
+    //method for first initialization
     public void titleinitialize(){
         // Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToTitle());
         for (Node child : main.getMainContainer().getChildren()) {
             child.setMouseTransparent(false);
         }
-
         titlemethod();
     }
 
@@ -329,52 +270,7 @@ public class HelloController implements Initializable {
         for (Node child : main.getMainContainer().getChildren()) {
             child.setMouseTransparent(false);
         }
-
         titlemethod();
-    }
-
-    public void titlemethod(){
-        HelloController controller = main.TitleController();
-        controller.getLogotitle().fitWidthProperty().bind(controller.getTitleHbox().widthProperty()); // Bind fitWidth to HBox width
-        controller.getLogotitle().fitHeightProperty().bind(controller.getTitleHbox().heightProperty()); // Bind fitHeight to HBox height
-
-        buttontext(controller.getBt1()); //invoke the method for all buttons on title screen
-        buttontext(controller.getBt2());
-        buttontext(controller.getBt3());
-        buttontext(controller.getBt4());
-
-    }
-
-    //Getter methods for titlescreen
-    public ImageView getLogotitle(){
-        return logotitle;
-    }
-    public HBox getTitleHbox(){return logotitlehbox;}
-    public Button getBt1(){return  bt1;}
-    public Button getBt2(){return  bt2;}
-    public Button getBt3(){return  bt3;}
-    public Button getBt4(){return  bt4;}
-
-    //Method for button resizing
-    public void buttontext(Button button){
-        button.setStyle("-fx-font-size: " + button.getWidth()/10 + "px;");
-        button.widthProperty().addListener((obs, oldVal, newVal) -> {
-            double width = newVal.doubleValue();
-            double height = button.getHeight()*5;
-
-            // Adjust the font size based on the aspect ratio
-            double fontSize = Math.min(width, height) / 10; // Adjust the factor as needed
-            button.setStyle("-fx-font-size: " + fontSize + "px;");
-        });
-
-        button.heightProperty().addListener((obs, oldVal, newVal) -> {
-            double height = newVal.doubleValue()*5;
-            double width = button.getWidth();
-
-            // Adjust the font size based on the aspect ratio
-            double fontSize = Math.min(width, height) / 10; // Adjust the factor as needed
-            button.setStyle("-fx-font-size: " + fontSize + "px;");
-        });
     }
 
     /* Switch to achievements screen and initialize*/
@@ -507,25 +403,29 @@ public class HelloController implements Initializable {
     /* Switch to main screen and initialize*/
     @FXML
     private void MainScreen(ActionEvent event) {
+        //Replace current screen with the new one
+        main.getMainContainer().getChildren().setAll(main.switchToMainScreen());
+        HelloController controller1 = main.MainController();
+
         if(countee == 0){
             main.maximise();
             countee++;
-            ancwidth = main.getMainContainer().getWidth() - 302;
-            ancheight = main.getMainContainer().getHeight() - 172;
-            HelloController.returnSmallAnchorPane().setMinWidth(ancwidth);
-            HelloController.returnSmallAnchorPane().setMaxWidth(ancwidth);
-            HelloController.returnSmallAnchorPane().setMinHeight(ancheight);
-            HelloController.returnSmallAnchorPane().setMaxHeight(ancheight);
+            ancwidth = main.getMainContainer().getWidth() - 312;
+            ancheight = main.getMainContainer().getHeight() - 177;
+            controller1.getSmallanchorpane().setMinWidth(ancwidth);
+            controller1.getSmallanchorpane().setMaxWidth(ancwidth);
+            controller1.getSmallanchorpane().setMinHeight(ancheight);
+            controller1.getSmallanchorpane().setMaxHeight(ancheight);
+            controller1.getTogglegrid().setMinWidth(ancwidth);
+            controller1.getTogglegrid().setMaxWidth(ancwidth);
+            controller1.getTogglegrid().setMinHeight(ancheight);
+            controller1.getTogglegrid().setMaxHeight(ancheight);
         }
         // Fade in transition
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
-        //Replace current screen with the new one
-        main.getMainContainer().getChildren().setAll(main.switchToMainScreen());
-
-        HelloController controller1 = main.MainController();
 
         for (Node child : main.getMainContainer().getChildren()) {
             child.setMouseTransparent(false);
@@ -553,9 +453,6 @@ public class HelloController implements Initializable {
         controller1.getSettingsvbox().setMinHeight(350);
         controller1.getSettingsvbox().setMaxHeight(470);
     }
-
-    public VBox getSettingsvbox(){return this.settingsvbox;}
-
     /* exit settings */
     @FXML
     private void exitSettings(ActionEvent event) {
@@ -569,10 +466,6 @@ public class HelloController implements Initializable {
         if (controller1.getBorderPane() != null) controller1.getBorderPane().setMouseTransparent(true);
         if (controller2.getCal() != null && controller2.getCal().getId() != "calculatetrue") controller2.getCal().setMouseTransparent(true);
     }
-
-       public HelloController getMainController(){
-        return main.MainController();
-       }
 
     @FXML
     public void spawn(MouseEvent e) {
@@ -598,7 +491,7 @@ public class HelloController implements Initializable {
         }
 
         //Creates the object
-        Rectangle sprite = new Rectangle(smallanchorpane.getWidth()/35,smallanchorpane.getHeight()/20);
+        Rectangle sprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
         assert component != null;
         sprite.setFill(new ImagePattern(component.getImageTexture()));
         sprite.setOpacity(0);
@@ -617,7 +510,7 @@ public class HelloController implements Initializable {
         });
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
-            sprite.setX((smallanchorpane.getWidth() - anchorpane.getWidth()) / 2  + mouseEvent.getX() - sprite.getWidth() / 2);
+            sprite.setX((HelloController.getAncwidth() - (anchorpane.getWidth())) / 2  + mouseEvent.getX() - sprite.getWidth() / 2);
             sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
@@ -626,13 +519,13 @@ public class HelloController implements Initializable {
         smallanchorpane.setOnMouseReleased(mouseEvent -> {
             if(isEventEnabled[0]) { //makes sure you can only release once
                 //Creates the solid circle
-                Rectangle solidSprite = new Rectangle(smallanchorpane.getWidth()/35,smallanchorpane.getHeight()/20);
+                Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
                 component.setComponentNode(solidSprite);
                 solidSprite.setFill(new ImagePattern(component.getImageTexture()));
 
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
-                double Hspacing = (smallanchorpane.getHeight() / 20);
-                double Wspacing = (smallanchorpane.getWidth() / 35);
+                double Hspacing = (HelloController.getAncheight()/ 20);
+                double Wspacing = (HelloController.getAncwidth()/ 35);
 
                 int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing));
                 int Windex = (int)Math.round((mouseEvent.getX() - Wspacing / 2) / (Wspacing));
@@ -650,8 +543,8 @@ public class HelloController implements Initializable {
                     if (Windex < 35 && Windex >= 0) {
                         component.setLocation(Windex, Hindex);
                         //snaps to grid
-                        solidSprite.setY(Hindex * (Hspacing));
-                        solidSprite.setX(Windex * (Wspacing));
+                        solidSprite.setY(Hindex * (Hspacing)+10);
+                        solidSprite.setX(Windex * (Wspacing)+4);
                         smallanchorpane.getChildren().add(solidSprite);
                         solidSprite.toFront();
 
@@ -667,12 +560,49 @@ public class HelloController implements Initializable {
                     isEventEnabled[0] = false;
                 }
             }
+            System.out.println(HelloController.returnSmallAnchorPane().getWidth());
+            System.out.println(HelloController.returnSmallAnchorPane().getHeight());
+            System.out.println(ancwidth + " " + ancheight);
         });
     }
 
     @FXML
     public void exit(ActionEvent event){
         System.exit(0);
+    }
+
+    public void titlemethod(){
+        HelloController controller = main.TitleController();
+        controller.getLogotitle().fitWidthProperty().bind(controller.getTitleHbox().widthProperty()); // Bind fitWidth to HBox width
+        controller.getLogotitle().fitHeightProperty().bind(controller.getTitleHbox().heightProperty()); // Bind fitHeight to HBox height
+
+        buttontext(controller.getBt1()); //invoke the method for all buttons on title screen
+        buttontext(controller.getBt2());
+        buttontext(controller.getBt3());
+        buttontext(controller.getBt4());
+    }
+
+
+    //Method for button resizing
+    public void buttontext(Button button){
+        button.setStyle("-fx-font-size: " + button.getWidth()/10 + "px;");
+        button.widthProperty().addListener((obs, oldVal, newVal) -> {
+            double width = newVal.doubleValue();
+            double height = button.getHeight()*5;
+
+            // Adjust the font size based on the aspect ratio
+            double fontSize = Math.min(width, height) / 10; // Adjust the factor as needed
+            button.setStyle("-fx-font-size: " + fontSize + "px;");
+        });
+
+        button.heightProperty().addListener((obs, oldVal, newVal) -> {
+            double height = newVal.doubleValue()*5;
+            double width = button.getWidth();
+
+            // Adjust the font size based on the aspect ratio
+            double fontSize = Math.min(width, height) / 10; // Adjust the factor as needed
+            button.setStyle("-fx-font-size: " + fontSize + "px;");
+        });
     }
 
     //Method for level selection binding
@@ -771,9 +701,59 @@ public class HelloController implements Initializable {
         //if (unlocked.isAchievementUnlocked(num)) imageview.setImage(image);
     }
 
+    //Method for showing grid in main
+    @FXML
+    public void showGrid(ActionEvent event){
+        if (checkGrid.isSelected())
+
+            togglegrid.setOpacity(0.5);
+
+        else
+
+            togglegrid.setOpacity(0);
+    }
+
+    //Getters for static getters
+    public static double getAncwidth(){
+        return ancwidth;
+    }
+    public static double getAncheight(){
+        return ancheight;
+    }
+    public Button getCal(){
+        return cal;
+    }
+    public GridPane getDataGrid(){
+        return dataGrid;
+    }
+
+    //Static getters
+    public static GridPane returnDataGrid(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getDataGrid();
+    }
+
+    public static AnchorPane returnSmallAnchorPane(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getSmallanchorpane();
+    }
+
+    public static Button returnCalButton(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getCal();
+    }
+
+    //Getter methods for titlescreen
+    public ImageView getLogotitle(){
+        return logotitle;
+    }
+    public HBox getTitleHbox(){return logotitlehbox;}
+    public Button getBt1(){return  bt1;}
+    public Button getBt2(){return  bt2;}
+    public Button getBt3(){return  bt3;}
+    public Button getBt4(){return  bt4;}
 
     //Level selection screen getters
-
     //Hbox for the top part of screen
     public HBox getLeveltitlehbox(){return this.leveltitlehbox;}
 
@@ -875,10 +855,18 @@ public class HelloController implements Initializable {
     public Label getAchievementDLabel8(){return this.achievementdlabel8;}
 
     //main screen getters
-
     public HBox getScrollhbox(){return this.scrollhbox;}
     public BorderPane getBorderPane(){return this.borderPane;}
     public AnchorPane getAnchorpane(){return this.anchorpane;}
     public AnchorPane getSmallanchorpane(){return this.smallanchorpane;}
+    public GridPane getTogglegrid(){return this.togglegrid;}
+
+    //settings getters
+    public VBox getSettingsvbox(){return this.settingsvbox;}
+
+    //Random getters
+    public HelloController getMainController(){
+        return main.MainController();
+    }
 }
 
