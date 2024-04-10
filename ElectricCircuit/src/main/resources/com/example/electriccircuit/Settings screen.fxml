@@ -5,9 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane styleClass="stackpane-background" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+
+<StackPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
    <children>
-      <VBox fx:id="settingsvbox" alignment="TOP_CENTER" prefHeight="400.0" prefWidth="372.0" spacing="15.0" style="-fx-background-color: #808080; -fx-border-color: #000000;">
+      <Pane opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+      <VBox fx:id="settingsvbox" alignment="TOP_CENTER" prefHeight="400.0" prefWidth="372.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="136.0" prefWidth="360.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
