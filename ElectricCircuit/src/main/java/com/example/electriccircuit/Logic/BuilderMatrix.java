@@ -44,6 +44,11 @@ public class BuilderMatrix {
         new CalculatingGrid(getGrid());
     }
 
+    // Used to clear a grid space
+    public static void removeBoxID(int row, int column) {
+        grid[row][column] = 0;
+    }
+
     // Used to get the component at a certain box in the matrix
     public int getBoxID(int row, int column) {
         return grid[row][column];

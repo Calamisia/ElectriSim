@@ -182,26 +182,6 @@
     -fx-background-radius: 2px;
 }
 
-/*
-.reverstitlebutton:hover{
-    -fx-border-color: black;
-    -fx-background-color:
-            #090a0c,
-            linear-gradient(#1ecbe1, #E1141E, #E0041E),
-            radial-gradient(center 50% 0%, radius 100%, rgba(225, 52, 30,0.5),rgba(30, 203, 225,0.1) );
-    -fx-text-fill: linear-gradient(#000000, #000000);
-}
-
-.reverstitlebutton{
-    -fx-border-color: black;
-    -fx-background-color:
-            #090a0c,
-            linear-gradient(#E1141E, #E0041E,#1ecbe1),
-            radial-gradient(center 50% 0%, radius 100%, rgba(30, 203, 225,0.2),rgba(225, 52, 30,0.3) );
-    -fx-text-fill: linear-gradient(#000000, #000000);
-}
-
- */
 .labeldesc{
     -fx-text-fill: darkgoldenrod;
 }

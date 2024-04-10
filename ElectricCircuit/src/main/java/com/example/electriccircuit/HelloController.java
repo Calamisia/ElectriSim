@@ -4,6 +4,7 @@ import com.example.electriccircuit.Components.*;
 import com.example.electriccircuit.Logic.BuilderMatrix;
 import com.example.electriccircuit.Logic.CalculatingGrid;
 import com.example.electriccircuit.Logic.SaveFiles;
+import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.Logic.*;
 import javafx.animation.FadeTransition;
@@ -569,6 +570,15 @@ public class HelloController implements Initializable {
     @FXML
     public void exit(ActionEvent event){
         System.exit(0);
+    }
+    @FXML
+    public void clearGrid(ActionEvent event){
+        for(int i = 0; i < 20; i++){
+            for (int j = 0; j < 35; j++){
+                BuilderMatrix.removeBoxID(j,i);
+            }
+        }
+        smallanchorpane.getChildren().clear();
     }
 
     public void titlemethod(){
