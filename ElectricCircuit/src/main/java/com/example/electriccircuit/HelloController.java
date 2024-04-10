@@ -209,6 +209,10 @@ public class HelloController implements Initializable {
     private HBox scrollhbox;
     @FXML
     private BorderPane borderPane;
+    @FXML
+    private GridPane togglegrid;
+    @FXML
+    private CheckBox checkGrid;
     //End of main screen ids
 
     //Start of settings screen ids
@@ -257,6 +261,15 @@ public class HelloController implements Initializable {
     }
     public GridPane getDataGrid(){
         return dataGrid;
+    }
+
+    public static AnchorPane returnSmallAnchorPane(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getSmallanchorpane();
+    }
+
+    public void showGrid(){
+
     }
 
     public static Button returnCalButton(){

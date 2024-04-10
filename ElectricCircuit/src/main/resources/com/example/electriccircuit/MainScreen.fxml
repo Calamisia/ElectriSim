@@ -151,7 +151,7 @@
                 </ScrollPane>
                 <AnchorPane fx:id="smallanchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="924.4" styleClass="border" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <GridPane alignment="CENTER" gridLinesVisible="true" opacity="0.5" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <GridPane alignment="CENTER" fx:id="togglegrid" gridLinesVisible="true" opacity="0.5" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -232,22 +232,42 @@
                         <Insets />
                     </opaqueInsets>
                 </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutY="171.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="151.0" spacing="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="157.0">
-                    <children>
-                        <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
-                            <HBox.margin>
-                                <Insets bottom="10.0" top="10.0" />
-                            </HBox.margin></Circle>
-                        <Label alignment="CENTER" text="Hint?" textAlignment="CENTER">
-                            <HBox.margin>
-                                <Insets right="40.0" />
-                            </HBox.margin>
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </HBox>
+            <VBox layoutX="1093.5999755859375" layoutY="157.0" prefHeight="162.0" prefWidth="151.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="157.0">
+               <children>
+                      <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="151.0" spacing="15.0" VBox.vgrow="ALWAYS">
+                          <children>
+                              <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
+                                  <HBox.margin>
+                                      <Insets bottom="10.0" top="10.0" />
+                                  </HBox.margin>
+                        </Circle>
+                              <Label alignment="CENTER" text="Hint?" textAlignment="CENTER">
+                                  <HBox.margin>
+                                      <Insets right="40.0" />
+                                  </HBox.margin>
+                                  <font>
+                                      <Font name="System Bold" size="20.0" />
+                                  </font>
+                              </Label>
+                          </children>
+                      </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="151.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <CheckBox mnemonicParsing="false" text="Show Grid" styleClass="checkbox" fx:id="checkGrid" onAction="showGrid" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
                 <VBox alignment="CENTER" maxHeight="172.0" maxWidth="151.0" prefHeight="172.0" prefWidth="151.0" AnchorPane.bottomAnchor="0.0" VBox.vgrow="NEVER">
                     <children>
                         <Button fx:id="cal" mnemonicParsing="false" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Calculate">
