@@ -32,6 +32,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -828,29 +829,30 @@ public class HelloController implements Initializable {
         }
 
         //Creates the object
+        Rectangle sprite = new Rectangle(smallanchorpane.getWidth()/35,smallanchorpane.getHeight()/20);
         Ellipse circle = new Ellipse(smallanchorpane.getWidth()/70,smallanchorpane.getHeight()/40);
         assert component != null;
-        circle.setFill(new ImagePattern(component.getImageTexture()));
-        circle.setOpacity(0);
-        anchorpane.getChildren().add(circle);
-        smallanchorpane.getChildren().add(circle);
+        sprite.setFill(new ImagePattern(component.getImageTexture()));
+        sprite.setOpacity(0);
+        anchorpane.getChildren().add(sprite);
+        smallanchorpane.getChildren().add(sprite);
 
 
         final boolean[] isEventEnabled = {true};
 
         /*On mouse movement, calibrates to small and large anchor panes */
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
-            circle.setCenterX(mouseEvent.getX());
-            circle.setCenterY(mouseEvent.getY());
-            if (!circle.isFocused())
-                circle.setOpacity(100);
+            sprite.setX(mouseEvent.getX() - sprite.getWidth() / 2);
+            sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+            if (!sprite.isFocused())
+                sprite.setOpacity(100);
         });
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
-            circle.setCenterX((smallanchorpane.getWidth() - anchorpane.getWidth()) / 2  + mouseEvent.getX());
-            circle.setCenterY(mouseEvent.getY());
-            if (!circle.isFocused())
-                circle.setOpacity(100);
+            sprite.setX((smallanchorpane.getWidth() - anchorpane.getWidth()) / 2  + mouseEvent.getX() - sprite.getWidth() / 2);
+            sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+            if (!sprite.isFocused())
+                sprite.setOpacity(100);
         });
 
         smallanchorpane.setOnMouseReleased(mouseEvent -> {
