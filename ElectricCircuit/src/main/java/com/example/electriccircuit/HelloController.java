@@ -209,6 +209,10 @@ public class HelloController implements Initializable {
     private HBox scrollhbox;
     @FXML
     private BorderPane borderPane;
+    @FXML
+    private GridPane togglegrid;
+    @FXML
+    private CheckBox checkGrid;
     //End of main screen ids
 
     //Start of settings screen ids
@@ -257,6 +261,15 @@ public class HelloController implements Initializable {
     }
     public GridPane getDataGrid(){
         return dataGrid;
+    }
+
+    public static AnchorPane returnSmallAnchorPane(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getSmallanchorpane();
+    }
+
+    public void showGrid(){
+
     }
 
     public static Button returnCalButton(){
@@ -744,9 +757,9 @@ public class HelloController implements Initializable {
         HelloController controller1 = main.MainController();
 
         controller1.getSmallanchorpane().setMinWidth(andwid-302);
-        controller1.getSmallanchorpane().setMinHeight(andhit-150);
+        controller1.getSmallanchorpane().setMinHeight(andhit-172);
         controller1.getSmallanchorpane().setMaxWidth(andwid-302);
-        controller1.getSmallanchorpane().setMaxHeight(andhit-150);
+        controller1.getSmallanchorpane().setMaxHeight(andhit-172);
 
         for (Node child : main.getMainContainer().getChildren()) {
             child.setMouseTransparent(false);
