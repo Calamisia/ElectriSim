@@ -529,14 +529,13 @@ public class HelloController implements Initializable {
                 //Creates the solid circle
                 Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
                 component.setComponentNode(solidSprite);
-                //solidSprite.setFill(new ImagePattern(component.getImageTexture()));
-                solidSprite.setFill(Color.BLACK);
+                solidSprite.setFill(new ImagePattern(component.getImageTexture()));
 
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (HelloController.getAncheight()/ 20);
                 double Wspacing = (HelloController.getAncwidth()/ 35);
 
-                int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing) +);
+                int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing));
                 int Windex = (int)Math.round((mouseEvent.getX() - Wspacing / 2) / (Wspacing));
 
                 /* more fluid input */
@@ -550,15 +549,15 @@ public class HelloController implements Initializable {
 
                 if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                     if (Windex < 35 && Windex >= 0) {
-                        component.setLocation(Windex, Hindex);
                         //snaps to grid
-                        solidSprite.setY(Hindex * (Hspacing)+7);
+                        solidSprite.setY(Hindex * (Hspacing));
                         solidSprite.setX(Windex * (Wspacing));
                         smallanchorpane.getChildren().add(solidSprite);
                         solidSprite.toFront();
 
                         //Sandbox Matrix creation
                         BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
+                        component.setLocation(Windex, Hindex);
                         component.interact();
                     }
                 }
@@ -587,7 +586,7 @@ public class HelloController implements Initializable {
             }
         }
         smallanchorpane.getChildren().clear();
-        //Should also clear the components
+        //Should also clear the components!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (this is a future Alex problem don't worry about it)
         HelloController controller1 = main.MainController();
         controller1.getCal().setId("calculatefalse");
         controller1.getCal().setMouseTransparent(true);
