@@ -137,8 +137,8 @@ public class SaveFiles {
                     double Hspacing = (HelloController.getAncheight()/ 20);
                     double Wspacing = (HelloController.getAncwidth()/ 35);
 
-                    int Hindex = j;
-                    int Windex = i;
+                    int Hindex = i;
+                    int Windex = j;
 
                     if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                         if (Windex < 35 && Windex >= 0) {

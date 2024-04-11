@@ -529,13 +529,14 @@ public class HelloController implements Initializable {
                 //Creates the solid circle
                 Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
                 component.setComponentNode(solidSprite);
-                solidSprite.setFill(new ImagePattern(component.getImageTexture()));
+                //solidSprite.setFill(new ImagePattern(component.getImageTexture()));
+                solidSprite.setFill(Color.BLACK);
 
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (HelloController.getAncheight()/ 20);
                 double Wspacing = (HelloController.getAncwidth()/ 35);
 
-                int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing));
+                int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing) +);
                 int Windex = (int)Math.round((mouseEvent.getX() - Wspacing / 2) / (Wspacing));
 
                 /* more fluid input */
@@ -586,6 +587,7 @@ public class HelloController implements Initializable {
             }
         }
         smallanchorpane.getChildren().clear();
+        //Should also clear the components
         HelloController controller1 = main.MainController();
         controller1.getCal().setId("calculatefalse");
         controller1.getCal().setMouseTransparent(true);
