@@ -548,15 +548,15 @@ public class HelloController implements Initializable {
 
                 if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                     if (Windex < 35 && Windex >= 0) {
-                        component.setLocation(Windex, Hindex);
                         //snaps to grid
-                        solidSprite.setY(Hindex * (Hspacing)+7);
+                        solidSprite.setY(Hindex * (Hspacing));
                         solidSprite.setX(Windex * (Wspacing));
                         smallanchorpane.getChildren().add(solidSprite);
                         solidSprite.toFront();
 
                         //Sandbox Matrix creation
                         BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
+                        component.setLocation(Windex, Hindex);
                         component.interact();
                     }
                 }
@@ -586,6 +586,7 @@ public class HelloController implements Initializable {
             saveGame();
         }
         smallanchorpane.getChildren().clear();
+        //Should also clear the components!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (this is a future Alex problem don't worry about it)
         HelloController controller1 = main.MainController();
         controller1.getCal().setId("calculatefalse");
         controller1.getCal().setMouseTransparent(true);
