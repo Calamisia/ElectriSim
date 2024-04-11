@@ -110,7 +110,7 @@ public class SaveFiles {
                     Component component;
                     if(grid[j][i] == 1){
                         component = new Wire();
-                    } else if(grid[j][i] == 2){
+                    } else if(grid[j][i] == 2 || grid[j][i] == 9){
                         component = new PowerSupply();
                     } else if(grid[j][i] == 3){
                         component = new Resistors();
@@ -125,15 +125,17 @@ public class SaveFiles {
                         Debug.Info("wireSwitch found");
                     } else {
                         component = null;
-                        Debug.Error("Invalid spawn component");
+                        Debug.Error("Invalid spawn component" + grid[j][i]);
                     }
-                    Rectangle solidSprite = new Rectangle(HelloController.returnSmallAnchorPane().getWidth()/35,HelloController.returnSmallAnchorPane().getHeight()/20);
+                    Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
+                    Debug.Log(String.valueOf("According to save file, width is " + HelloController.getAncwidth()/35));
+                    Debug.Log(String.valueOf("According to save file, height is " + HelloController.getAncheight()/20));
                     component.setComponentNode(solidSprite);
                     solidSprite.setFill(new ImagePattern(component.getImageTexture()));
 
                     //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
-                    double Hspacing = (HelloController.returnSmallAnchorPane().getHeight() / 20);
-                    double Wspacing = (HelloController.returnSmallAnchorPane().getWidth() / 35);
+                    double Hspacing = (HelloController.getAncheight()/ 20);
+                    double Wspacing = (HelloController.getAncwidth()/ 35);
 
                     int Hindex = j;
                     int Windex = i;

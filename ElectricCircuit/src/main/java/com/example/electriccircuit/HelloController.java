@@ -48,6 +48,11 @@ public class HelloController implements Initializable {
     private Unlocks unlocked;
     private double andwid;
     private double andhit;
+
+    public static double ancwidth;
+
+    public static double ancheight;
+
     private int countee = 0;
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
 
@@ -266,6 +271,13 @@ public class HelloController implements Initializable {
     public static AnchorPane returnSmallAnchorPane(){
         HelloController controllerx = HelloApplication.statMainController();
         return controllerx.getSmallanchorpane();
+    }
+
+    public static double getAncwidth(){
+        return ancwidth;
+    }
+    public static double getAncheight(){
+        return ancheight;
     }
 
     @FXML
@@ -752,6 +764,8 @@ public class HelloController implements Initializable {
             countee++;
             andwid = main.getMainContainer().getWidth();
             andhit = main.getMainContainer().getHeight();
+            ancwidth = andwid;
+            ancheight = andhit;
         }
         // Fade in transition
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
@@ -879,6 +893,8 @@ public class HelloController implements Initializable {
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (smallanchorpane.getHeight() / 20);
                 double Wspacing = (smallanchorpane.getWidth() / 35);
+                Debug.Log(String.valueOf("According to spawn method, witdth is " + Wspacing));
+                Debug.Log(String.valueOf("According to spawn method, height is " + Hspacing));
 
                 int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing));
                 int Windex = (int)Math.round((mouseEvent.getX() - Wspacing / 2) / (Wspacing));
