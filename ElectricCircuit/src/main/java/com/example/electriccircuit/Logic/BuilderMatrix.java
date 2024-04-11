@@ -65,6 +65,7 @@ public class BuilderMatrix {
     // used to set the matrix (used to load the sandbox)
     public static void setGrid(int[][] grid) {
         BuilderMatrix.grid = grid;
+        new CalculatingGrid(getGrid());
     }
 
     // get the circuit path, used for calculating grid
