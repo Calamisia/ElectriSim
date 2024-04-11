@@ -4,6 +4,8 @@ import com.example.electriccircuit.Components.*;
 import com.example.electriccircuit.Logic.BuilderMatrix;
 import com.example.electriccircuit.Logic.CalculatingGrid;
 import com.example.electriccircuit.Logic.SaveFiles;
+
+import static com.example.electriccircuit.Components.Component.componentArray;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.Logic.*;
@@ -559,6 +561,8 @@ public class HelloController implements Initializable {
                         BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
                         component.setLocation(Windex, Hindex);
                         component.interact();
+                        Debug.Log("column is actually " + Windex + " and row is " + Hindex);
+                        componentArray[Windex][Hindex] = component;
                     }
                 }
                 if(!mouseEvent.isShiftDown()){

@@ -1,10 +1,13 @@
 package com.example.electriccircuit.Logic;
 
+import com.example.electriccircuit.Components.Component;
 import com.example.electriccircuit.HelloController;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import static com.example.electriccircuit.Components.Component.componentArray;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 
 public class BuilderMatrix {
@@ -41,7 +44,8 @@ public class BuilderMatrix {
     // Used to add a component Id to a box
     public static void setBoxID(int row, int column, int iD) {
         if(grid[row][column] != 0){
-
+            Debug.Log("Set box ID thinks row is " + row + " column is " + column);
+            componentArray[row][column].removeComponentNode();
         }
         grid[row][column] = iD;
         new CalculatingGrid(getGrid());
