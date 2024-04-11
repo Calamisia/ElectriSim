@@ -232,6 +232,10 @@ public class HelloController implements Initializable {
     private int countee = 0;
     public static draggable draggableMaker = new draggable();
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
+    Label resistance = new Label("1");
+    Label potential = new Label("2");
+    Label current = new Label("3");
+
 
     //setters
     public void setMain(HelloApplication main){
@@ -415,14 +419,9 @@ public class HelloController implements Initializable {
             countee++;
             ancwidth = main.getMainContainer().getWidth() - 309;
             ancheight = main.getMainContainer().getHeight() - 177;
-            controller1.getSmallanchorpane().setMinWidth(ancwidth);
-            controller1.getSmallanchorpane().setMaxWidth(ancwidth);
-            controller1.getSmallanchorpane().setMinHeight(ancheight);
-            controller1.getSmallanchorpane().setMaxHeight(ancheight);
-            controller1.getTogglegrid().setMinWidth(ancwidth);
-            controller1.getTogglegrid().setMaxWidth(ancwidth);
-            controller1.getTogglegrid().setMinHeight(ancheight);
-            controller1.getTogglegrid().setMaxHeight(ancheight);
+            limiter(controller1.getSmallanchorpane());
+            limiter(controller1.getTogglegrid());
+            controller1.getDataGrid().addRow(1,resistance,potential,current);
         }
         // Fade in transition
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
@@ -584,6 +583,7 @@ public class HelloController implements Initializable {
             for (int j = 0; j < 35; j++){
                 BuilderMatrix.removeBoxID(j,i);
             }
+            saveGame();
         }
         smallanchorpane.getChildren().clear();
         HelloController controller1 = main.MainController();
@@ -733,6 +733,15 @@ public class HelloController implements Initializable {
 
             togglegrid.setOpacity(0);
     }
+
+    //Method to bind the breadboard to a certainsize
+    public void limiter(Region region){
+        region.setMaxWidth(ancwidth);
+        region.setMinWidth(ancwidth);
+        region.setMaxHeight(ancheight);
+        region.setMinHeight(ancheight);
+    }
+
 
     //Getters for static getters
     public static double getAncwidth(){
