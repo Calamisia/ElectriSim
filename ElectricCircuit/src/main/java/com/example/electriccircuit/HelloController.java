@@ -1,9 +1,7 @@
 package com.example.electriccircuit;
 
 import com.example.electriccircuit.Components.*;
-import com.example.electriccircuit.Logic.BuilderMatrix;
-import com.example.electriccircuit.Logic.CalculatingGrid;
-import com.example.electriccircuit.Logic.SaveFiles;
+import com.example.electriccircuit.*;
 
 import static com.example.electriccircuit.Components.Component.componentArray;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
@@ -509,6 +507,13 @@ public class HelloController implements Initializable {
         anchorpane.getChildren().add(sprite);
         smallanchorpane.getChildren().add(sprite);
 
+        main.getMainContainer().setOnKeyPressed(event -> {
+            if (event.isControlDown() && event.getCode().toString().equals("R")) {
+                rotateComponent(sprite);
+
+            }
+        });
+
 
         final boolean[] isEventEnabled = {true};
 
@@ -533,10 +538,12 @@ public class HelloController implements Initializable {
                 Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
                 component.setComponentNode(solidSprite);
                 solidSprite.setFill(new ImagePattern(component.getImageTexture()));
+                solidSprite.setRotate(sprite.getRotate());
 
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (HelloController.getAncheight()/ 20);
                 double Wspacing = (HelloController.getAncwidth()/ 35);
+
 
                 int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing));
                 int Windex = (int)Math.round((mouseEvent.getX() - Wspacing / 2) / (Wspacing));
@@ -672,15 +679,9 @@ public class HelloController implements Initializable {
         //imageView.setMouseTransparent(true);
         //if (unlocked.isLevelUnlocked(lvlasked) == true) imageView.setMouseTransparent(false);
     }
-    //ROTATE METHOD
-        main.getMainContainer().setOnKeyPressed(event -> {
-        if (event.isControlDown() && event.getCode().toString().equals("R")) {
-            rotateComponent(sprite);
-        }
-    });
 
-    private void rotateComponent(Circle circle) {
-        circle.setRotate(circle.getRotate()+90);
+    private void rotateComponent(Rectangle rectangle) {
+        rectangle.setRotate(rectangle.getRotate()+90);
     }
 
     //Method for achievement hbox

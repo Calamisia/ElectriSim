@@ -1,6 +1,5 @@
 package com.example.electriccircuit;
 
-import com.example.electriccircuit.Logic.CalculatingGrid;
 import com.example.electriccircuit.Logic.Unlocks;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
