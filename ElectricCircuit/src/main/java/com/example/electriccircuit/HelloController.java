@@ -1,9 +1,7 @@
 package com.example.electriccircuit;
 
 import com.example.electriccircuit.Components.*;
-import com.example.electriccircuit.Logic.BuilderMatrix;
-import com.example.electriccircuit.Logic.CalculatingGrid;
-import com.example.electriccircuit.Logic.SaveFiles;
+import com.example.electriccircuit.*;
 
 import static com.example.electriccircuit.Components.Component.componentArray;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
@@ -234,6 +232,10 @@ public class HelloController implements Initializable {
     private int countee = 0;
     public static draggable draggableMaker = new draggable();
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
+    Label resistance = new Label("1");
+    Label potential = new Label("2");
+    Label current = new Label("3");
+
 
     //setters
     public void setMain(HelloApplication main){
@@ -419,14 +421,9 @@ public class HelloController implements Initializable {
             countee++;
             ancwidth = main.getMainContainer().getWidth() - 309;
             ancheight = main.getMainContainer().getHeight() - 177;
-            controller1.getSmallanchorpane().setMinWidth(ancwidth);
-            controller1.getSmallanchorpane().setMaxWidth(ancwidth);
-            controller1.getSmallanchorpane().setMinHeight(ancheight);
-            controller1.getSmallanchorpane().setMaxHeight(ancheight);
-            controller1.getTogglegrid().setMinWidth(ancwidth);
-            controller1.getTogglegrid().setMaxWidth(ancwidth);
-            controller1.getTogglegrid().setMinHeight(ancheight);
-            controller1.getTogglegrid().setMaxHeight(ancheight);
+            limiter(controller1.getSmallanchorpane());
+            limiter(controller1.getTogglegrid());
+            controller1.getDataGrid().addRow(1,resistance,potential,current);
         }
         // Fade in transition
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
@@ -449,7 +446,7 @@ public class HelloController implements Initializable {
             controller1.getCal().setMouseTransparent(false);
             controller1.getCal().setOpacity(1);
         }
-       }
+    }
 
     /* Settings */
     @FXML
@@ -510,6 +507,13 @@ public class HelloController implements Initializable {
         anchorpane.getChildren().add(sprite);
         smallanchorpane.getChildren().add(sprite);
 
+        main.getMainContainer().setOnKeyPressed(event -> {
+            if (event.isControlDown() && event.getCode().toString().equals("R")) {
+                rotateComponent(sprite);
+
+            }
+        });
+
 
         final boolean[] isEventEnabled = {true};
 
@@ -534,10 +538,12 @@ public class HelloController implements Initializable {
                 Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
                 component.setComponentNode(solidSprite);
                 solidSprite.setFill(new ImagePattern(component.getImageTexture()));
+                solidSprite.setRotate(sprite.getRotate());
 
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (HelloController.getAncheight()/ 20);
                 double Wspacing = (HelloController.getAncwidth()/ 35);
+
 
                 int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing));
                 int Windex = (int)Math.round((mouseEvent.getX() - Wspacing / 2) / (Wspacing));
@@ -591,6 +597,7 @@ public class HelloController implements Initializable {
                 BuilderMatrix.removeBoxID(j,i);
                 componentArray[j][i] = null;
             }
+            saveGame();
         }
         smallanchorpane.getChildren().clear();
         //Should also clear the components!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (this is a future Alex problem don't worry about it)
@@ -673,6 +680,10 @@ public class HelloController implements Initializable {
         //if (unlocked.isLevelUnlocked(lvlasked) == true) imageView.setMouseTransparent(false);
     }
 
+    private void rotateComponent(Rectangle rectangle) {
+        rectangle.setRotate(rectangle.getRotate()+90);
+    }
+
     //Method for achievement hbox
     public void achievelock(ImageView imageView, HBox hbox, Label label, Label dlabel){
 
@@ -741,6 +752,15 @@ public class HelloController implements Initializable {
 
             togglegrid.setOpacity(0);
     }
+
+    //Method to bind the breadboard to a certainsize
+    public void limiter(Region region){
+        region.setMaxWidth(ancwidth);
+        region.setMinWidth(ancwidth);
+        region.setMaxHeight(ancheight);
+        region.setMinHeight(ancheight);
+    }
+
 
     //Getters for static getters
     public static double getAncwidth(){
@@ -898,4 +918,3 @@ public class HelloController implements Initializable {
         return main.MainController();
     }
 }
-
