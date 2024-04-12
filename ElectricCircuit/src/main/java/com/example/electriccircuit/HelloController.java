@@ -265,6 +265,8 @@ public class HelloController implements Initializable {
 
     @FXML
     public void titleScreen(ActionEvent event) {
+        //save screen
+        saveGame();
         // Fade in transition
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
         fadeTransition.setFromValue(0);
@@ -587,6 +589,7 @@ public class HelloController implements Initializable {
         for(int i = 0; i < 20; i++){
             for (int j = 0; j < 35; j++){
                 BuilderMatrix.removeBoxID(j,i);
+                componentArray[j][i] = null;
             }
         }
         smallanchorpane.getChildren().clear();
