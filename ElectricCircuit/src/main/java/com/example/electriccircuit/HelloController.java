@@ -519,15 +519,23 @@ public class HelloController implements Initializable {
 
         /*On mouse movement, calibrates to small and large anchor panes */
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
-            sprite.setX(mouseEvent.getX() - sprite.getWidth() / 2);
-            sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+            if (sprite.getRotate()+360 % 180 == 0) {
+                sprite.setX(mouseEvent.getX() - sprite.getWidth() / 2);
+                sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+            }
+            else {
+                sprite.setX(mouseEvent.getX() - sprite.getHeight() / 2);
+                sprite.setY(mouseEvent.getY() - sprite.getWidth() / 2);
+            }
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
         });
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
-            sprite.setX((HelloController.getAncwidth() - (anchorpane.getWidth())) / 2  + mouseEvent.getX() - sprite.getWidth() / 2);
-            sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+            if (sprite.getRotate()+360 % 180 == 0) {
+                sprite.setX((HelloController.getAncwidth() - (anchorpane.getWidth())) / 2  + mouseEvent.getX() - sprite.getWidth() / 2);
+                sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+            }
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
         });
