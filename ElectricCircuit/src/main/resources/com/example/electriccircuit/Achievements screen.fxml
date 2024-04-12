@@ -12,7 +12,7 @@
                      <children>
                         <VBox fx:id="returnvbox" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button fx:id="achievementsreturn" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#titleScreen" text="Return" VBox.vgrow="ALWAYS">
+                              <Button fx:id="achievementsreturn" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#titleScreen" styleClass="button1" text="Return" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -36,17 +36,17 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <ScrollPane fx:id="scrollPaneachievement" fitToHeight="true" fitToWidth="true" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" VBox.vgrow="ALWAYS">
+                  <ScrollPane fx:id="scrollPaneachievement" fitToHeight="true" fitToWidth="true" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: transparent;" styleClass="scroll-pane" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" VBox.vgrow="ALWAYS">
                      <content>
-                        <ScrollPane fitToHeight="true" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="1422.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                        <ScrollPane fitToHeight="true" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="1422.0" vbarPolicy="NEVER">
                            <content>
-                              <HBox fx:id="biggesthbox" minHeight="0.0" minWidth="0.0" prefHeight="697.0" prefWidth="4000.0" style="-fx-background-color: #CE8864; -fx-border-color: transparent;">
+                              <HBox fx:id="biggesthbox" minHeight="0.0" minWidth="0.0" prefHeight="697.0" prefWidth="4000.0" styleClass="scroll-pane">
                                  <children>
-                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                    <HBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                        <children>
                                          <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                             <children>
-                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <ImageView fx:id="lockimage" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -55,11 +55,11 @@
                                                       </ImageView>
                                                    </children>
                                                 </HBox>
-                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementlabel" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementlabel" minHeight="0.0" minWidth="0.0" text="Business Man" styleClass="labelpopping" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="48.0" />
                                                                </font>
@@ -68,7 +68,7 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementdlabel" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementdlabel" minHeight="0.0" minWidth="0.0" styleClass="labeldesc" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="40.0" />
                                                                </font>
@@ -84,11 +84,11 @@
                                          </VBox>
                                        </children>
                                     </HBox>
-                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                    <HBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                        <children>
                                           <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                <HBox alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <ImageView fx:id="lockimage1" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -97,11 +97,11 @@
                                                       </ImageView>
                                                    </children>
                                                 </HBox>
-                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementlabel1" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementlabel1" minHeight="0.0" minWidth="0.0" styleClass="labelpopping" text="Speedster" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="48.0" />
                                                                </font>
@@ -110,7 +110,7 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementdlabel1" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementdlabel1" minHeight="0.0" minWidth="0.0" styleClass="labeldesc" text="Finish a level in less than 3 minutes." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="40.0" />
                                                                </font>
@@ -126,11 +126,11 @@
                                           </VBox>
                                        </children>
                                     </HBox>
-                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                    <HBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                        <children>
                                           <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                <HBox alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <ImageView fx:id="lockimage2" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -139,11 +139,11 @@
                                                       </ImageView>
                                                    </children>
                                                 </HBox>
-                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementlabel2" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementlabel2" minHeight="0.0" minWidth="0.0" styleClass="labelpopping" text="Crashing the game" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="48.0" />
                                                                </font>
@@ -152,7 +152,7 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" prefWidth="221.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementdlabel2" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementdlabel2" minHeight="0.0" minWidth="0.0" styleClass="labeldesc" text="Short-circuit yourself 5 times." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="40.0" />
                                                                </font>
@@ -168,11 +168,11 @@
                                           </VBox>
                                        </children>
                                     </HBox>
-                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                    <HBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                        <children>
                                           <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                <HBox alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <ImageView fx:id="lockimage3" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -181,11 +181,11 @@
                                                       </ImageView>
                                                    </children>
                                                 </HBox>
-                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementlabel3" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementlabel3" minHeight="0.0" minWidth="0.0" styleClass="labelpopping" text="Independence!" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="48.0" />
                                                                </font>
@@ -194,7 +194,7 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementdlabel3" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementdlabel3" minHeight="0.0" minWidth="0.0" styleClass="labeldesc" text="Beat a level with no hints." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="40.0" />
                                                                </font>
@@ -210,11 +210,11 @@
                                           </VBox>
                                        </children>
                                     </HBox>
-                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                    <HBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                        <children>
                                           <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                <HBox alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <ImageView fx:id="lockimage4" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -223,11 +223,11 @@
                                                       </ImageView>
                                                    </children>
                                                 </HBox>
-                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementlabel4" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementlabel4" minHeight="0.0" minWidth="0.0" styleClass="labelpopping" text="Kaboom!" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="48.0" />
                                                                </font>
@@ -236,7 +236,7 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementdlabel4" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementdlabel4" minHeight="0.0" minWidth="0.0" styleClass="labeldesc" text="Blow a capacitor." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="40.0" />
                                                                </font>
@@ -252,11 +252,11 @@
                                           </VBox>
                                        </children>
                                     </HBox>
-                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                    <HBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                        <children>
                                           <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                <HBox alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <ImageView fx:id="lockimage5" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -265,11 +265,11 @@
                                                       </ImageView>
                                                    </children>
                                                 </HBox>
-                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementlabel5" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementlabel5" minHeight="0.0" minWidth="0.0" styleClass="labelpopping" text="End of the world" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="48.0" />
                                                                </font>
@@ -278,7 +278,7 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementdlabel5" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementdlabel5" minHeight="0.0" minWidth="0.0" styleClass="labeldesc" text="Achieve breakdown voltage." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="40.0" />
                                                                </font>
@@ -294,11 +294,11 @@
                                           </VBox>
                                        </children>
                                     </HBox>
-                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                    <HBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                        <children>
                                           <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                <HBox alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <ImageView fx:id="lockimage6" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -307,11 +307,11 @@
                                                       </ImageView>
                                                    </children>
                                                 </HBox>
-                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementlabel6" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementlabel6" minHeight="0.0" minWidth="0.0" styleClass="labelpopping" text="Experienced!" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="48.0" />
                                                                </font>
@@ -320,7 +320,7 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementdlabel6" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementdlabel6" minHeight="0.0" minWidth="0.0" styleClass="labeldesc" text="Fail the same level 10 times." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="40.0" />
                                                                </font>
@@ -336,11 +336,11 @@
                                           </VBox>
                                        </children>
                                     </HBox>
-                                    <HBox minHeight="0.0" minWidth="0.0" style="-fx-background-color: #000000;" HBox.hgrow="ALWAYS">
+                                    <HBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                        <children>
                                           <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <HBox fx:id="achievementshbox" alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" style="-fx-background-color: #222222;" VBox.vgrow="ALWAYS">
+                                                <HBox alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <ImageView fx:id="lockimage7" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -349,11 +349,11 @@
                                                       </ImageView>
                                                    </children>
                                                 </HBox>
-                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" VBox.vgrow="ALWAYS">
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
                                                    <children>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementlabel7" minHeight="0.0" minWidth="0.0" text="Achievement name" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementlabel7" minHeight="0.0" minWidth="0.0" styleClass="labelpopping" text="Ready?" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="48.0" />
                                                                </font>
@@ -362,13 +362,55 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementdlabel7" minHeight="0.0" minWidth="0.0" text="Finish a level only using half the given budget." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementdlabel7" minHeight="0.0" minWidth="0.0" styleClass="labeldesc" text="Complete all achievements but one." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="40.0" />
                                                                </font>
                                                    <HBox.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox alignment="TOP_CENTER" fillHeight="false" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="499.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fx:id="lockimage8" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@lock.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <VBox minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="221.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementlabel8" minHeight="0.0" minWidth="0.0" styleClass="labelpopping" text="Beginner" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="48.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                                         <children>
+                                                            <Label fx:id="achievementdlabel8" minHeight="0.0" minWidth="0.0" styleClass="labeldesc" text="Finish every level." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font size="40.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets left="5.0" right="5.0" />
+                                                               </HBox.margin>
                                                             </Label>
                                                          </children>
                                                       </HBox>

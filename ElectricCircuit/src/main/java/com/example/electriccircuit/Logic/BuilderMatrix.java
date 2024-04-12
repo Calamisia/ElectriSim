@@ -1,5 +1,6 @@
 package com.example.electriccircuit.Logic;
 
+import com.example.electriccircuit.HelloController;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
@@ -40,8 +41,12 @@ public class BuilderMatrix {
     // Used to add a component Id to a box
     public static void setBoxID(int row, int column, int iD) {
         grid[row][column] = iD;
-        saveGame();
         new CalculatingGrid(getGrid());
+    }
+
+    // Used to clear a grid space
+    public static void removeBoxID(int row, int column) {
+        grid[row][column] = 0;
     }
 
     // Used to get the component at a certain box in the matrix
@@ -55,7 +60,7 @@ public class BuilderMatrix {
     }
 
     // used to set the matrix (used to load the sandbox)
-    public void setGrid(int[][] grid) {
+    public static void setGrid(int[][] grid) {
         BuilderMatrix.grid = grid;
     }
 

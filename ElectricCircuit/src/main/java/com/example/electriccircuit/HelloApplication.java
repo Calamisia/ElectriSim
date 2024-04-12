@@ -4,6 +4,7 @@ import com.example.electriccircuit.Logic.CalculatingGrid;
 import com.example.electriccircuit.Logic.Unlocks;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.electriccircuit.Logic.Debug.Logger;
+import static com.example.electriccircuit.Logic.SaveFiles.loadGame;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 
 public class HelloApplication extends Application {
@@ -20,9 +22,14 @@ public class HelloApplication extends Application {
     private Stage primaryStage;
     private Unlocks unlocked = new Unlocks();
     private Scene scene;
-    private Node scene1,scene2,scene3,scene4;
+    private Node scene1,scene2,scene3,scene4,scene5;
     private FXMLLoader fxmlLoader1,fxmlLoader2,fxmlLoader3,fxmlLoader4;
-    private HelloController controller1,controller2,controller3,controller4;
+    private HelloController controller1,controller2,controller3,controller4,controller5;
+    private static HelloController controllerx;
+
+
+    //No arg constructor
+    public HelloApplication(){};
 
     // Add mainContainer
     private StackPane mainContainer = new StackPane();
@@ -35,8 +42,10 @@ public class HelloApplication extends Application {
 
         // Initialize mainContainer
         mainContainer = new StackPane();
+        mainContainer.setAlignment(Pos.CENTER);
 
         scene = new Scene(mainContainer);
+        scene.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
 
         FXMLLoader fxmlLoader1 = new FXMLLoader(HelloApplication.class.getResource("title.fxml"));
         scene1 = fxmlLoader1.load();
@@ -53,13 +62,18 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader4 = new FXMLLoader(HelloApplication.class.getResource("MainScreen.fxml"));
         scene4 = fxmlLoader4.load();
         controller4 = fxmlLoader4.getController();
+        controllerx = fxmlLoader4.getController();
 
+        FXMLLoader fxmlLoader5 = new FXMLLoader(HelloApplication.class.getResource("Settings screen.fxml"));
+        scene5 = fxmlLoader5.load();
+        controller5 = fxmlLoader5.getController();
 
         //set the main for every screen
         controller1.setMain(this);
         controller2.setMain(this);
         controller3.setMain(this);
         controller4.setMain(this);
+        controller5.setMain(this);
 
         //set unlocked for the level select screen and achievements screen
         controller2.setUnlocks(this.unlocked);
@@ -81,15 +95,25 @@ public class HelloApplication extends Application {
     public StackPane getMainContainer() {
         return mainContainer;
     }
+    public HelloController MainController() {
+        return controller4;
+    }
+    public static HelloController statMainController() {
+        return controllerx;
+    }
 
     //Title screen switching methods
     public Node switchToTitle(){
+        primaryStage.setMinHeight(360);
+        primaryStage.setMinWidth(675);
         return scene1;
     }
     public HelloController TitleController(){return controller1;}
 
     //Level select switching methods
     public Node switchToLevelSelect(){
+        primaryStage.setMinHeight(360);
+        primaryStage.setMinWidth(675);
         return scene2;
     }
     public HelloController LevelSelectController(){return controller2;}
@@ -97,6 +121,8 @@ public class HelloApplication extends Application {
 
     //Achievements switching methods
     public HelloController AchievementsController(){
+        primaryStage.setMinHeight(360);
+        primaryStage.setMinWidth(675);
         return controller3;
     }
     public Node switchToAchievements(){
@@ -105,8 +131,17 @@ public class HelloApplication extends Application {
 
     //MainScreen switching methods
     public Node switchToMainScreen(){
+        primaryStage.setMinHeight(402);
+        primaryStage.setMinWidth(743);
         return scene4;
     }
 
+    //Settings
+    public Node settings(){return scene5;}
+    public HelloController settingsController(){return controller5;}
+
+    public void maximise(){
+        primaryStage.setMaximized(true);
+    }
 
 }

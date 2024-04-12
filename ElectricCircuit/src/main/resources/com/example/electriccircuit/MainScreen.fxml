@@ -12,19 +12,91 @@
     <children>
         <AnchorPane fx:id="anchorpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
             <children>
-                <ScrollPane layoutX="17.0" prefHeight="172.0" prefWidth="939.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="0.0">
+                <ScrollPane fx:id="pan" hbarPolicy="NEVER" layoutX="151.0" pannable="true" styleClass="scroll-pane1" vbarPolicy="NEVER" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="0.0">
                     <content>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="2100.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="938.0">
+                            <children>
+                                <GridPane fx:id="togglegrid" alignment="CENTER" gridLinesVisible="true" minHeight="0.0" minWidth="0.0" opacity="0.0" prefHeight="1000.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                    </rowConstraints>
+                                </GridPane>
+                                <AnchorPane fx:id="smallanchorpane" styleClass="smallborder" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </ScrollPane>
+                <ScrollPane layoutX="17.0" prefHeight="173.0" prefWidth="939.0" styleClass="scroll-pane1" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="152.0" AnchorPane.rightAnchor="0.0">
+                    <content>
+                        <HBox fx:id="scrollhbox">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
                             <children>
-                                <HBox fx:id="wire" layoutX="10.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="wire" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@wire.png" />
-                                            </image></ImageView>
+                                            </image>
+                                        </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Wire" />
@@ -36,12 +108,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="powerSupply" layoutX="310.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="powerSupply" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@power%20supply.png" />
-                                            </image></ImageView>
+                                                <Image url="@power supply.png" />
+                                            </image>
+                                        </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Power Supply" />
@@ -53,12 +126,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="resistor" layoutX="610.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="resistor" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@resistor.png" />
-                                            </image></ImageView>
+                                            </image>
+                                        </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Resistor" />
@@ -70,12 +144,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="capacitor" layoutX="910.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="capacitor" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@capacitor.png" />
-                                            </image></ImageView>
+                                            </image>
+                                        </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Capacitor" />
@@ -87,12 +162,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="merger" layoutX="1210.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="merger" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@openSwitch.png" />
-                                            </image></ImageView>
+                                            </image>
+                                        </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Merger" />
@@ -104,12 +180,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="splitter" layoutX="1510.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="splitter" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@Purplecolor.jpg" />
-                                            </image></ImageView>
+                                            </image>
+                                        </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Splitter" />
@@ -121,12 +198,13 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="wireSwitch" layoutX="1810.0" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0">
+                                <HBox fx:id="wireSwitch" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@Pink.jpg" />
-                                            </image></ImageView>
+                                            </image>
+                                        </ImageView>
                                         <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
                                             <children>
                                                 <Label alignment="CENTER" text="Label" />
@@ -139,18 +217,16 @@
                                     </children>
                                 </HBox>
                             </children>
-                        </AnchorPane>
+                        </HBox>
                     </content>
                 </ScrollPane>
-                <AnchorPane fx:id="smallanchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="924.4" style="-fx-background-color: #838383;" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="0.0" />
-                <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="-56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="151.0" spacing="20.0" style="-fx-background-color: #838383;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="-56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="152.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Circle fill="DODGERBLUE" radius="16.0" stroke="BLACK" strokeType="INSIDE">
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#titleScreen" prefHeight="26.0" prefWidth="30.0" styleClass="button1" text="X">
                             <HBox.margin>
-                                <Insets left="5.0" />
-                            </HBox.margin>
-                        </Circle>
-                        <Button mnemonicParsing="false" onAction="#Achievements" prefHeight="26.0" prefWidth="82.0" text="Settings">
+                                <Insets left="10.0" />
+                            </HBox.margin></Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#settings" prefHeight="26.0" prefWidth="82.0" styleClass="button1" text="Settings">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
@@ -163,72 +239,64 @@
                         <Insets />
                     </opaqueInsets>
                 </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutY="171.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="151.0" spacing="15.0" style="-fx-background-color: #838383;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="157.0">
+                <VBox layoutX="1093.5999755859375" layoutY="157.0" prefHeight="371.0" prefWidth="156.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="172.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="157.0">
                     <children>
-                        <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
-                            <HBox.margin>
-                                <Insets bottom="10.0" top="10.0" />
-                            </HBox.margin></Circle>
-                        <Label alignment="CENTER" text="Hint?" textAlignment="CENTER">
-                            <HBox.margin>
-                                <Insets right="40.0" />
-                            </HBox.margin>
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </HBox>
-            </children></AnchorPane>
-        <BorderPane minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" style="-fx-background-color: #FF000000;" StackPane.alignment="CENTER_RIGHT">
-            <!--Visual Pane-->
-            <left>
-                <!--Left side of border pane-->
-                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="628.0" prefWidth="151.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
-                    <!--Goal and budget visuals-->
-                    <children>
-                        <Line endX="50.0" startX="-100.0">
+                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="151.0" spacing="15.0" VBox.vgrow="NEVER">
+                            <children>
+                                <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
+                                    <HBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </HBox.margin>
+                                </Circle>
+                                <Label alignment="CENTER" text="Hint?" textAlignment="CENTER">
+                                    <HBox.margin>
+                                        <Insets right="40.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="151.0" VBox.vgrow="NEVER">
+                            <children>
+                                <CheckBox fx:id="checkGrid" mnemonicParsing="false" onAction="#showGrid" styleClass="checkbox" text="Show Grid" HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </CheckBox>
+                            </children>
                             <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
-                        </Line>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="150.0" text="Goal">
-                            <font>
-                                <Font name="Calibri" size="44.0" />
-                            </font>
-                            <padding>
-                                <Insets right="10.0" top="30.0" />
-                            </padding>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="162.0" prefWidth="150.0" text="Make a circuit with two resistors that get 10 volts each" wrapText="true">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                            <padding>
                                 <Insets left="10.0" />
-                            </padding>
-                        </Label>
-                        <Line endX="50.0" startX="-100.0" />
-                        <Label alignment="CENTER" prefHeight="78.0" prefWidth="150.0" text="Budget">
-                            <font>
-                                <Font name="Calibri" size="42.0" />
-                            </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="110.0" prefWidth="150.0" text="30$">
-                            <font>
-                                <Font size="40.0" />
-                            </font>
-                        </Label>
-                        <Line endX="50.0" startX="-100.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#clearGrid" styleClass="exitbutton" text="Clear">
+                                    <font>
+                                        <Font size="21.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </HBox>
                     </children>
-                    <BorderPane.margin>
-                        <Insets top="71.0" />
-                    </BorderPane.margin>
                 </VBox>
-            </left>
-            <right>
+                <VBox alignment="CENTER" maxHeight="172.0" maxWidth="151.0" prefHeight="172.0" prefWidth="152.0" AnchorPane.bottomAnchor="0.0" VBox.vgrow="NEVER">
+                    <children>
+                        <Button fx:id="cal" mnemonicParsing="false" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Calculate">
+                            <VBox.margin>
+                                <Insets bottom="60.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Button>
+                    </children></VBox>
                 <!--Right side of border pane -->
-                <VBox maxHeight="-Infinity" prefHeight="157.0" prefWidth="151.0" spacing="15.0" style="-fx-background-color: #838383;" BorderPane.alignment="TOP_CENTER">
+                <VBox maxHeight="-Infinity" prefHeight="157.0" prefWidth="156.0" spacing="15.0" style="-fx-background-color: #ffffff;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <!--Grid to give useful info -->
                     <children>
                         <GridPane fx:id="dataGrid" prefHeight="130.0" prefWidth="130.0">
@@ -248,8 +316,65 @@
                         </GridPane>
                         <Line endX="50.0" startX="-100.0" />
                     </children>
+                </VBox>
+            </children></AnchorPane>
+        <BorderPane fx:id="borderPane" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="700.0" prefWidth="1244.4444444444443" styleClass="borderpaneborder" StackPane.alignment="CENTER_RIGHT">
+            <!--Visual Pane-->
+            <left>
+                <!--Left side of border pane-->
+                <VBox minHeight="-Infinity" prefHeight="628.0" prefWidth="152.0" BorderPane.alignment="TOP_CENTER">
+                    <!--Goal and budget visuals-->
+                    <children>
+                        <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
+                        <VBox VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="150.0" text="Goal" VBox.vgrow="ALWAYS">
+                                    <font>
+                                        <Font name="Calibri" size="44.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets right="10.0" top="30.0" />
+                                    </padding>
+                                </Label>
+                                <Label alignment="CENTER" prefHeight="162.0" prefWidth="150.0" text="Make a circuit with two resistors that get 10 volts each" wrapText="true" VBox.vgrow="ALWAYS">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
+                        <VBox VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="78.0" prefWidth="150.0" text="Budget" VBox.vgrow="ALWAYS">
+                                    <font>
+                                        <Font name="Calibri" size="42.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" prefHeight="110.0" prefWidth="150.0" text="30$" VBox.vgrow="ALWAYS">
+                                    <font>
+                                        <Font size="40.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
+                    </children>
                     <BorderPane.margin>
-                        <Insets />
+                        <Insets top="74.0" />
+                    </BorderPane.margin>
+                    <padding>
+                        <Insets bottom="172.0" />
+                    </padding>
+                </VBox>
+            </left>
+            <right>
+                <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="156.0" spacing="20.0">
+                    <BorderPane.margin>
+                        <Insets bottom="172.0" />
                     </BorderPane.margin>
                 </VBox>
             </right>

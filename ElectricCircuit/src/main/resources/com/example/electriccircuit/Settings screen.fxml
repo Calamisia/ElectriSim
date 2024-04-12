@@ -6,39 +6,62 @@
 <?import javafx.scene.text.*?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="190.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="372.0" spacing="15.0">
+      <Pane opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
+      <VBox fx:id="settingsvbox" alignment="TOP_CENTER" prefHeight="400.0" prefWidth="372.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="211.0" text="Settings" textAlignment="CENTER">
+            <HBox alignment="TOP_CENTER" prefHeight="136.0" prefWidth="360.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets left="10.0" top="20.0" />
                </VBox.margin>
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#exitSettings" prefHeight="25.0" prefWidth="60.0" styleClass="button1" text="X" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <HBox alignment="TOP_CENTER" HBox.hgrow="NEVER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="250.0" text="Settings" textAlignment="CENTER" HBox.hgrow="NEVER">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="60.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="350.0" spacing="10.0" VBox.vgrow="ALWAYS">
                <children>
                   <Label text="Volume">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </Label>
-                  <Slider prefHeight="14.0" prefWidth="257.0" />
+                  <Slider blockIncrement="5.0" prefHeight="24.0" prefWidth="257.0" styleClass="slider" value="50.0" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>
-                  <Insets left="10.0" right="10.0" />
+                  <Insets left="5.0" right="15.0" />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="200.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets left="10.0" />
                </VBox.margin>
                <children>
-                  <CheckBox mnemonicParsing="false" prefHeight="38.0" prefWidth="224.0" text="CheckBox">
+                  <CheckBox mnemonicParsing="false" prefHeight="38.0" prefWidth="224.0" styleClass="checkbox" text="Enable Hints">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="10.0" />
                      </HBox.margin>
                      <font>
                         <Font size="26.0" />
@@ -46,7 +69,7 @@
                   </CheckBox>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" prefHeight="107.0" prefWidth="170.0" text="Exit">
+            <Button mnemonicParsing="false" onAction="#exit" prefHeight="107.0" prefWidth="170.0" styleClass="exitbutton" text="Exit">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
@@ -57,4 +80,4 @@
          </children>
       </VBox>
    </children>
-</AnchorPane>
+</StackPane>
