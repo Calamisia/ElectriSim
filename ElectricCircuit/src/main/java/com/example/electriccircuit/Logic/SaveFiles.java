@@ -9,6 +9,8 @@ import javafx.scene.shape.Rectangle;
 import java.io.*;
 import java.util.*;
 
+import static com.example.electriccircuit.Components.Component.componentArray;
+
 public class SaveFiles {
     private static String filePath = "ElectricCircuit/src/main/resources/SaveFiles/SaveFile.txt";
     public static Scanner Loader = new Scanner(filePath);
@@ -55,31 +57,6 @@ public class SaveFiles {
 
     // method that loads files
     public static void loadGame(){
-        /*BuilderMatrix grid = new BuilderMatrix();
-        String dataString = "";
-        int[][] data = new int[35][20];
-        int counter = 0;
-
-        // reads the matrix in string form
-        dataString = Loader.nextLine();
-
-        // assigns values to the matrix "data" from the string
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data[0].length; j++) {
-                data[i][j] = Character.getNumericValue(dataString.charAt(counter));
-                counter++;
-            }
-        }
-
-        // set the matrixBuilder grid to "data".
-        grid.setGrid(data);
-
-        //reads the second line of the save file and sets it as the users achievements.
-        Unlocks achievementLoader = new Unlocks();
-        dataString = "";
-        dataString = Loader.nextLine();
-        achievementLoader.setAchievementBitString(dataString); */
-
         File file = new File(filePath);
         try (Scanner loader = new Scanner(file)) {
             String dataString = loader.next();
@@ -96,8 +73,8 @@ public class SaveFiles {
                 }
             }
             Debug.printGrid(grid);
-            BuilderMatrix.setGrid(grid);
             handleUI(grid);
+            BuilderMatrix.setGrid(grid);
         } catch (FileNotFoundException e) {
             Debug.handleException(e);
         }
@@ -125,9 +102,11 @@ public class SaveFiles {
                         Debug.Info("wireSwitch found");
                     } else {
                         component = null;
-                        Debug.Error("Invalid spawn component");
+                        Debug.Error("Invalid spawn component" + grid[j][i]);
                     }
                     Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
+                    Debug.Log(String.valueOf("According to save file, width is " + HelloController.getAncwidth()/35));
+                    Debug.Log(String.valueOf("According to save file, height is " + HelloController.getAncheight()/20));
                     component.setComponentNode(solidSprite);
                     solidSprite.setFill(new ImagePattern(component.getImageTexture()));
 
@@ -135,8 +114,8 @@ public class SaveFiles {
                     double Hspacing = (HelloController.getAncheight()/ 20);
                     double Wspacing = (HelloController.getAncwidth()/ 35);
 
-                    int Hindex = j;
-                    int Windex = i;
+                    int Hindex = i;
+                    int Windex = j;
 
                     if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                         if (Windex < 35 && Windex >= 0) {
@@ -149,6 +128,7 @@ public class SaveFiles {
 
                             //Sandbox Matrix creation
                             component.interact();
+                            componentArray[Windex][Hindex] = component;
                         }
                     }
                 }

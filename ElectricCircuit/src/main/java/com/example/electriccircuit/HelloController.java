@@ -4,6 +4,8 @@ import com.example.electriccircuit.Components.*;
 import com.example.electriccircuit.Logic.BuilderMatrix;
 import com.example.electriccircuit.Logic.CalculatingGrid;
 import com.example.electriccircuit.Logic.SaveFiles;
+
+import static com.example.electriccircuit.Components.Component.componentArray;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.Logic.*;
@@ -267,6 +269,8 @@ public class HelloController implements Initializable {
 
     @FXML
     public void titleScreen(ActionEvent event) {
+        //save screen
+        saveGame();
         // Fade in transition
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
         fadeTransition.setFromValue(0);
@@ -548,16 +552,18 @@ public class HelloController implements Initializable {
 
                 if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                     if (Windex < 35 && Windex >= 0) {
-                        component.setLocation(Windex, Hindex);
                         //snaps to grid
-                        solidSprite.setY(Hindex * (Hspacing)+7);
+                        solidSprite.setY(Hindex * (Hspacing));
                         solidSprite.setX(Windex * (Wspacing));
                         smallanchorpane.getChildren().add(solidSprite);
                         solidSprite.toFront();
 
                         //Sandbox Matrix creation
                         BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
+                        component.setLocation(Windex, Hindex);
                         component.interact();
+                        Debug.Log("column is actually " + Windex + " and row is " + Hindex);
+                        componentArray[Windex][Hindex] = component;
                     }
                 }
                 if(!mouseEvent.isShiftDown()){
@@ -582,10 +588,12 @@ public class HelloController implements Initializable {
         for(int i = 0; i < 20; i++){
             for (int j = 0; j < 35; j++){
                 BuilderMatrix.removeBoxID(j,i);
+                componentArray[j][i] = null;
             }
             saveGame();
         }
         smallanchorpane.getChildren().clear();
+        //Should also clear the components!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (this is a future Alex problem don't worry about it)
         HelloController controller1 = main.MainController();
         controller1.getCal().setId("calculatefalse");
         controller1.getCal().setMouseTransparent(true);

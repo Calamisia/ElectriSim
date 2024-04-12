@@ -1,5 +1,6 @@
 package com.example.electriccircuit.Components;
 
+import com.example.electriccircuit.HelloController;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -9,6 +10,7 @@ public class Component {
     Image image;
     int Id;
     private int[] location = new int[2];
+    public static Component[][] componentArray = new Component[35][20];
 
     Component(Node node) {
         this.node = node;
@@ -23,6 +25,10 @@ public class Component {
 
     public void setComponentNode(Node node) {
         this.node = node;
+    }
+
+    public void removeComponentNode(){
+        HelloController.returnSmallAnchorPane().getChildren().remove(node);
     }
 
     public void setLocation(int row, int column) {
