@@ -1,43 +1,24 @@
 package com.example.electriccircuit.Logic;
 
-import com.example.electriccircuit.Components.Component;
-import com.example.electriccircuit.HelloController;
-import javafx.scene.layout.GridPane;
-
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 
 import static com.example.electriccircuit.Components.Component.componentArray;
-import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
-
 public class BuilderMatrix {
 
     private static int[][] grid = new int[35][20];
-    private final int WIREID = 1;
-    private final int POWERSUPPLYID = 2;
-    private final int RESISTORID = 3;
-    private final int CAPACITORID = 4;
-    private final int MERGERID = 5;
-    private final int SPLITTERID = 6;
-
-    private final int SWITCH = 10;
-    private boolean isClosedCircuit;
     private StringBuilder circuitPath = new StringBuilder(); // used for calculation grid
 
     public BuilderMatrix(){
         // initialize every value to zero
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                grid[i][j] = 0;
-            }
+        for (int[] ints : grid) {
+            Arrays.fill(ints, 0);
         }
     }
     public BuilderMatrix(int[][] matrix){
         // initialize every value to given value
         for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                grid[i][j] = matrix[i][j];
-            }
+            System.arraycopy(matrix[i], 0, grid[i], 0, grid[i].length);
         }
     }
 
@@ -50,36 +31,32 @@ public class BuilderMatrix {
         grid[row][column] = iD;
         new CalculatingGrid(getGrid());
     }
-
     // Used to clear a grid space
     public static void removeBoxID(int row, int column) {
         grid[row][column] = 0;
     }
-
     // Used to get the component at a certain box in the matrix
     public int getBoxID(int row, int column) {
         return grid[row][column];
     }
-
     // used to get the matrix (Used to save the sandbox)
     public static int[][] getGrid(){
         return grid;
     }
-
     // used to set the matrix (used to load the sandbox)
     public static void setGrid(int[][] grid) {
         BuilderMatrix.grid = grid;
         new CalculatingGrid(getGrid());
     }
-
     // get the circuit path, used for calculating grid
     public String getCircuitPath() {
         return circuitPath.toString();
     }
-    // set the circuit path
-    public void setCircuitPath(StringBuilder circuitPath) {
-        this.circuitPath = circuitPath;
-    }
+
+    // isValid method
+    // find power supply first method
+    // surrounding method
+    // isclosed cirtuit method
 
     // this method checks all 8 surrounding cases around a given case, to see if there is an ID in one of them.
     // it returns an ArrayList with the first index being a boolean, representing whether or not there is a surrounding ID.
@@ -172,7 +149,7 @@ public class BuilderMatrix {
                 }
             }
         }
-        if (foundPower == false) {
+        if (!foundPower) {
             // if no powerSupply was found, the circuit is, by deduction, not closed.
             return false;
         }
@@ -187,14 +164,19 @@ public class BuilderMatrix {
                 if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 9) {
                     circuitPath.append(2); // if it found the battery, return true
                     return true;
-                } else {
-                    // if the surrounding component isn't the battery, make that component the new center component.
-                    componentIndex[0] = (int) surroundingInfo.get(1);
-                    componentIndex[1] = (int) surroundingInfo.get(2);
-                    componentIndex[2] = (int) surroundingInfo.get(3);
-                    componentIndex[3] = (int) surroundingInfo.get(4);
-                    circuitPath.append(grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
                 }
+                // found a splitter
+                else if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 6) {
+                    circuitPath.append('X');
+                }
+                else {
+                        // if the surrounding component isn't the battery, make that component the new center component.
+                        componentIndex[0] = (int) surroundingInfo.get(1);
+                        componentIndex[1] = (int) surroundingInfo.get(2);
+                        componentIndex[2] = (int) surroundingInfo.get(3);
+                        componentIndex[3] = (int) surroundingInfo.get(4);
+                        circuitPath.append(grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
+                    }
             } else
                 return false;
         }
