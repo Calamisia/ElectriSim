@@ -28,8 +28,8 @@ public class HelloApplication extends Application {
     private HelloController controller1,controller2,controller3,controller4,controller5;
     private static HelloController controllerx;
     private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    public static int screenWidth = (int) Math.round(screenSize.getWidth());
-    public static int screenHeight = (int) Math.round(screenSize.getHeight());
+    public static int screenWidth = (int) Math.ceil(screenSize.getWidth());
+    public static int screenHeight = (int) Math.ceil(screenSize.getHeight());
 
 
     //No arg constructor
@@ -150,10 +150,10 @@ public class HelloApplication extends Application {
     public void maximise(){
         primaryStage.setMaximized(true);
     }
-    public static int getScreenWidth(){
+    public int getScreenWidth(){
         return screenWidth;
     }
-    public static int getScreenHeight(){
+    public int getScreenHeight(){
         return screenHeight;
     }
 

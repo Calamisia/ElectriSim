@@ -420,16 +420,14 @@ public class HelloController implements Initializable {
         //Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToMainScreen());
         HelloController controller1 = main.MainController();
-
-        if(countee == 0){
-            main.maximise();
-            countee++;
-            ancwidth = main.getMainContainer().getWidth() - 311;
-            ancheight = main.getMainContainer().getHeight() - 177;
+        if(controller1.getDataGrid().getChildren().equals(null)) {
+            controller1.getDataGrid().addRow(1, resistance, potential, current);
+        }
+        ancwidth = main.getScreenWidth() - 311;
+        ancheight = (double)((main.getScreenWidth() - 311)*20)/35;
+        System.out.println(ancwidth/35 + " " + ancheight/20);
             limiter(controller1.getSmallanchorpane());
             limiter(controller1.getTogglegrid());
-            controller1.getDataGrid().addRow(1,resistance,potential,current);
-        }
         // Fade in transition
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
         fadeTransition.setFromValue(0);
