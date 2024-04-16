@@ -370,7 +370,7 @@ public class HelloController implements Initializable {
         //controller1.getLeveltitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().subtract(Math.round(HelloApplication.getScreenHeight()*0.8)));
 
         //Other hbox wants to be 4/5 of the screen and 90% of the width
-        controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(20).multiply(0.89));
+        controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(20).multiply(0.90));
         controller1.getLevelselecthbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().subtract(100));
 
         //container to base resizing on
