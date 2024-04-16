@@ -438,7 +438,7 @@ public class HelloController implements Initializable {
             controller1.getCal().setMouseTransparent(true);
             controller1.getCal().setOpacity(0.5);
         }
-        controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(1199));
+        controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(main.getScreenWidth()*0.6));
         loadGame();
         if(sandboxMatrix.closedCircuit()) {
             controller1.getCal().setId("calculatetrue");
@@ -510,7 +510,7 @@ public class HelloController implements Initializable {
         });
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
-            sprite.setX((HelloController.getAncwidth() - (anchorpane.getWidth())) / 2  + mouseEvent.getX() - sprite.getWidth() / 2);
+            sprite.setX(mouseEvent.getX() - sprite.getWidth() / 2);
             sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
