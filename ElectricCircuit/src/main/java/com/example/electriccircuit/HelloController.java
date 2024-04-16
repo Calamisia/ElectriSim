@@ -510,7 +510,7 @@ public class HelloController implements Initializable {
         });
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
-            sprite.setX(mouseEvent.getX() - sprite.getWidth() / 2);
+            sprite.setX((mouseEvent.getX() - sprite.getWidth() / 2) - 154);
             sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
