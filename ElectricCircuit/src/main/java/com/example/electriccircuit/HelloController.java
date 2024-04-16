@@ -141,6 +141,8 @@ public class HelloController implements Initializable {
     private HBox levelselecthbox;
     @FXML
     private HBox smallhboxlvl1;
+    @FXML
+    private VBox mainlevelvbox;
 
     @FXML
     private Label labellvl1;
@@ -230,6 +232,7 @@ public class HelloController implements Initializable {
     public static double ancwidth;
     public static double ancheight;
     private int countee = 0;
+    private int countee2 = 0;
     public static draggable draggableMaker = new draggable();
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
     Label resistance = new Label("1");
@@ -295,7 +298,7 @@ public class HelloController implements Initializable {
 
         //controller1.getAchievementtitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.25));
 
-        //Bind the bighbox to twice the window size
+        //Bind the bighbox to 2.25 times the window size
         controller1.getBiggesthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(2.25));
 
         // Bind scroll pane height to maintain the desired ratio
@@ -364,11 +367,11 @@ public class HelloController implements Initializable {
         HelloController controller1 = main.LevelSelectController();
 
         //Hbox wants to be 1/5 of the screen
-        controller1.getLeveltitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.2));
+        //controller1.getLeveltitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().subtract(Math.round(HelloApplication.getScreenHeight()*0.8)));
 
         //Other hbox wants to be 4/5 of the screen and 90% of the width
-        controller1.getLevelselecthbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.8));
-        controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(0.89));
+        controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(20).multiply(0.89));
+        controller1.getLevelselecthbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().subtract(100));
 
         //container to base resizing on
         HBox hbox11 = controller1.getSmallhboxlvl1();
@@ -793,6 +796,8 @@ public class HelloController implements Initializable {
 
     //Hbox for resizing images
     public HBox getSmallhboxlvl1(){return this.smallhboxlvl1;}
+
+    public VBox getMainlevelvbox(){return this.mainlevelvbox;}
 
     //Level 1
     public ImageView getImageviewlvl1(){return this.imageviewlvl1;}
