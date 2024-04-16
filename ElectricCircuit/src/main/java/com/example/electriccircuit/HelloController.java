@@ -373,39 +373,49 @@ public class HelloController implements Initializable {
         controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(20).multiply(0.90));
         controller1.getLevelselecthbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().subtract(100));
 
+        main.getMainContainer().widthProperty().addListener((observable) -> {
+            if(controller1.getLevelselecthbox().widthProperty().doubleValue() < controller1.getLevelselecthbox().heightProperty().doubleValue())
+                controller1.getLevelselecthbox().prefWidthProperty().unbind();
+            if(controller1.getLevelselecthbox().widthProperty().doubleValue() > controller1.getLevelselecthbox().heightProperty().doubleValue())
+                controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(20).multiply(0.90));
+        });
+
+
         //container to base resizing on
         HBox hbox11 = controller1.getSmallhboxlvl1();
+        controller1.getImageviewlvl1().fitWidthProperty().bind(hbox11.widthProperty());
+        controller1.getImageviewlvl1().fitHeightProperty().bind(hbox11.heightProperty());
 
         //Lvl1
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl1(), controller1.getLabellvl1(),1);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl1(), controller1.getLabellvl1(),1);
 
         //Lvl2
-        levelimagelabel(hbox11, controller1.getImageviewlvl2(), controller1.getLabellvl2(),2);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl2(), controller1.getLabellvl2(),2);
 
         //Lvl3
-        levelimagelabel(hbox11, controller1.getImageviewlvl3(), controller1.getLabellvl3(),3);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl3(), controller1.getLabellvl3(),3);
 
         //Lvl4
-        levelimagelabel(hbox11, controller1.getImageviewlvl4(), controller1.getLabellvl4(),4);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl4(), controller1.getLabellvl4(),4);
 
         //Lvl5
-        levelimagelabel(hbox11, controller1.getImageviewlvl5(), controller1.getLabellvl5(),5);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl5(), controller1.getLabellvl5(),5);
 
         //Lvl6
-        levelimagelabel(hbox11, controller1.getImageviewlvl6(), controller1.getLabellvl6(),6);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl6(), controller1.getLabellvl6(),6);
 
         //Lvl7
-        levelimagelabel(hbox11, controller1.getImageviewlvl7(), controller1.getLabellvl7(),7);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl7(), controller1.getLabellvl7(),7);
 
         //Lvl8
-        levelimagelabel(hbox11, controller1.getImageviewlvl8(), controller1.getLabellvl8(),8);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl8(), controller1.getLabellvl8(),8);
 
         //Lvl9
-        levelimagelabel(hbox11, controller1.getImageviewlvl9(), controller1.getLabellvl9(),9);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl9(), controller1.getLabellvl9(),9);
 
         //Lvl10
-        levelimagelabel(hbox11, controller1.getImageviewlvl10(), controller1.getLabellvl10(),10);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl10(), controller1.getLabellvl10(),10);
 
 
     }
@@ -631,7 +641,8 @@ public class HelloController implements Initializable {
     }
 
     //Method for level selection binding
-    public void levelimagelabel(HBox hbox, ImageView imageView, Label label, int lvlasked){
+    public void levelimagelabel(ImageView image, ImageView imageView, Label label, int lvlasked){
+        HelloController controller1 = main.LevelSelectController();
         /* start of changing font size and label size */
         main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
             double widthFontSize = newWidth.doubleValue() / 4;
@@ -661,8 +672,10 @@ public class HelloController implements Initializable {
 
         // Bind the lock image to the size of the HBox
         imageView.setPreserveRatio(true); // Disable preserving aspect ratio
-        imageView.fitWidthProperty().bind(hbox.widthProperty()); // Bind fitWidth to HBox width
-        imageView.fitHeightProperty().bind(hbox.heightProperty()); // Bind fitHeight to HBox height
+        if (image != imageView) {
+            imageView.fitWidthProperty().bind(image.fitWidthProperty()); // Bind fitWidth to HBox width
+            imageView.fitHeightProperty().bind(image.fitHeightProperty()); // Bind fitHeight to HBox height
+        }
 
         //Check if the level can be unlocked
         //imageView.setMouseTransparent(true);

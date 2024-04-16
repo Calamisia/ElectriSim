@@ -15,7 +15,7 @@
                   <Insets left="15.0" top="15.0" />
                </HBox.margin>
             </Button>
-            <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label minHeight="0.0" minWidth="0.0" text="Level Selection">
                      <font>
@@ -32,16 +32,16 @@
             <Insets top="10.0" />
          </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER">
+      <HBox fx:id="levelselecthbox" alignment="CENTER" VBox.vgrow="ALWAYS">
          <children>
-            <HBox fx:id="levelselecthbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" spacing="5.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" spacing="5.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
                <children>
-                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
+                  <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                        <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
                               <HBox fx:id="smallhboxlvl1" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
@@ -66,39 +66,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl6" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Achilvl6to9.jpg" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label fx:id="labellvl6" minHeight="0.0" minWidth="0.0" text="Level 6" HBox.hgrow="ALWAYS">
-                                       <HBox.margin>
-                                          <Insets top="10.0" />
-                                       </HBox.margin>
-                                       <font>
-                                          <Font size="35.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </VBox>
-                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <children>
-                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
@@ -123,39 +91,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl7" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                            <Image url="@Achilvl6to9.jpg" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label fx:id="labellvl7" minHeight="0.0" minWidth="0.0" text="Level 7" HBox.hgrow="ALWAYS">
-                                       <HBox.margin>
-                                          <Insets top="10.0" />
-                                       </HBox.margin>
-                                       <font>
-                                          <Font size="35.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </VBox>
-                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <children>
-                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
@@ -180,39 +116,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl8" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Achilvl6to9.jpg" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label fx:id="labellvl8" minHeight="0.0" minWidth="0.0" text="Level 8" HBox.hgrow="ALWAYS">
-                                       <HBox.margin>
-                                          <Insets top="10.0" />
-                                       </HBox.margin>
-                                       <font>
-                                          <Font size="35.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </VBox>
-                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <children>
-                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
@@ -237,39 +141,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <ImageView fx:id="imageviewlvl9" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Achilvl6to9.jpg" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label fx:id="labellvl9" minHeight="0.0" minWidth="0.0" text="Level 9" HBox.hgrow="ALWAYS">
-                                       <HBox.margin>
-                                          <Insets top="10.0" />
-                                       </HBox.margin>
-                                       <font>
-                                          <Font size="35.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </VBox>
-                  <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <children>
-                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
@@ -294,7 +166,111 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="5.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl6" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Achilvl6to9.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="labellvl6" minHeight="0.0" minWidth="0.0" text="Level 6" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="35.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl7" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                            <Image url="@Achilvl6to9.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="labellvl7" minHeight="0.0" minWidth="0.0" text="Level 7" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="35.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl8" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Achilvl6to9.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                    </HBox>
+                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="labellvl8" minHeight="0.0" minWidth="0.0" text="Level 8" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="35.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageviewlvl9" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Achilvl6to9.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="labellvl9" minHeight="0.0" minWidth="0.0" text="Level 9" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="35.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
@@ -320,12 +296,9 @@
                            </children>
                         </VBox>
                      </children>
-                  </VBox>
+                  </HBox>
                </children>
-               <HBox.margin>
-                  <Insets left="5.0" right="5.0" />
-               </HBox.margin>
-            </HBox>
+            </VBox>
          </children>
       </HBox>
    </children>
