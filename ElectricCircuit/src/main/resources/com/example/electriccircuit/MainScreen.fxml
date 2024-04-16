@@ -7,10 +7,10 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
-        <AnchorPane fx:id="anchorpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
+        <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0">
             <children>
                 <ScrollPane layoutX="17.0" prefHeight="173.0" prefWidth="939.0" styleClass="scroll-pane1" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="152.0" AnchorPane.rightAnchor="0.0">
                     <content>
@@ -151,7 +151,7 @@
                 </ScrollPane>
             <ScrollPane fx:id="pan" hbarPolicy="NEVER" layoutX="151.0" pannable="true" styleClass="scroll-pane1" vbarPolicy="NEVER" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="0.0">
                <content>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="938.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0">
                      <children>
                               <GridPane fx:id="togglegrid" alignment="CENTER" gridLinesVisible="true" minHeight="0.0" minWidth="0.0" opacity="0.0" prefHeight="1000.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                   <columnConstraints>
@@ -214,7 +214,7 @@
                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
                                   </rowConstraints>
                               </GridPane>
-                            <AnchorPane fx:id="smallanchorpane" styleClass="smallborder" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                            <AnchorPane fx:id="smallanchorpane" styleClass="smallborder" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                 </AnchorPane>
                      </children>
                   </AnchorPane>

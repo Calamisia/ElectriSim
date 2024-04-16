@@ -262,9 +262,6 @@ public class HelloController implements Initializable {
     public void titleinitialize(){
         // Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToTitle());
-        for (Node child : main.getMainContainer().getChildren()) {
-            child.setMouseTransparent(false);
-        }
         titlemethod();
     }
 
@@ -277,9 +274,6 @@ public class HelloController implements Initializable {
         fadeTransition.play();
         // Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToTitle());
-        for (Node child : main.getMainContainer().getChildren()) {
-            child.setMouseTransparent(false);
-        }
         titlemethod();
     }
 
@@ -430,7 +424,7 @@ public class HelloController implements Initializable {
         if(countee == 0){
             main.maximise();
             countee++;
-            ancwidth = main.getMainContainer().getWidth() - 309;
+            ancwidth = main.getMainContainer().getWidth() - 311;
             ancheight = main.getMainContainer().getHeight() - 177;
             limiter(controller1.getSmallanchorpane());
             limiter(controller1.getTogglegrid());
@@ -442,10 +436,6 @@ public class HelloController implements Initializable {
         fadeTransition.setToValue(1);
         fadeTransition.play();
 
-        for (Node child : main.getMainContainer().getChildren()) {
-            child.setMouseTransparent(false);
-        }
-        controller1.getBorderPane().setMouseTransparent(true);
         if (controller1.getCal() != null && controller1.getCal().getId() != "calculatetrue") {
             controller1.getCal().setMouseTransparent(true);
             controller1.getCal().setOpacity(0.5);
@@ -463,14 +453,11 @@ public class HelloController implements Initializable {
     @FXML
     private void settings(ActionEvent event) {
         //Add the settings to the stage
-        for (Node child : main.getMainContainer().getChildren()) {
-            child.setMouseTransparent(true);
-        }
         main.getMainContainer().getChildren().add(main.settings());
         HelloController controller1 = main.settingsController();
         controller1.getSettingsvbox().setMinWidth(400);
         controller1.getSettingsvbox().setMaxWidth(400);
-        controller1.getSettingsvbox().setMinHeight(350);
+        controller1.getSettingsvbox().setMinHeight(370);
         controller1.getSettingsvbox().setMaxHeight(470);
     }
     /* exit settings */
@@ -478,13 +465,8 @@ public class HelloController implements Initializable {
     private void exitSettings(ActionEvent event) {
         //Remove the settings from the stage
         main.getMainContainer().getChildren().remove(main.settings());
-        for (Node child : main.getMainContainer().getChildren()) {
-            child.setMouseTransparent(false);
-        }
         HelloController controller1 = main.AchievementsController();
         HelloController controller2 = main.MainController();
-        if (controller1.getBorderPane() != null) controller1.getBorderPane().setMouseTransparent(true);
-        if (controller2.getCal() != null && controller2.getCal().getId() != "calculatetrue") controller2.getCal().setMouseTransparent(true);
     }
 
     @FXML
