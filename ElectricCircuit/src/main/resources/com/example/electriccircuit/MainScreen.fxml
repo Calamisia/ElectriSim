@@ -10,79 +10,8 @@
 <StackPane minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
-        <AnchorPane fx:id="anchorpane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1244.4444444444443">
+        <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0">
             <children>
-                <ScrollPane fx:id="pan" hbarPolicy="NEVER" layoutX="151.0" pannable="true" styleClass="scroll-pane1" vbarPolicy="NEVER" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="0.0">
-                    <content>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="938.0">
-                            <children>
-                                <GridPane fx:id="togglegrid" alignment="CENTER" gridLinesVisible="true" minHeight="0.0" minWidth="0.0" opacity="0.0" prefHeight="1000.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    </columnConstraints>
-                                    <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                                    </rowConstraints>
-                                </GridPane>
-                                <AnchorPane fx:id="smallanchorpane" styleClass="smallborder" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="0.0">
-                                </AnchorPane>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </ScrollPane>
                 <ScrollPane layoutX="17.0" prefHeight="173.0" prefWidth="939.0" styleClass="scroll-pane1" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="152.0" AnchorPane.rightAnchor="0.0">
                     <content>
                         <HBox fx:id="scrollhbox">
@@ -96,8 +25,8 @@
                                             <image>
                                                 <Image url="@wire.png" />
                                             </image>
-                                        </ImageView>
-                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                              </ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                             <children>
                                                 <Label alignment="CENTER" text="Wire" />
                                                 <Label text="Label" />
@@ -114,8 +43,8 @@
                                             <image>
                                                 <Image url="@power supply.png" />
                                             </image>
-                                        </ImageView>
-                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                              </ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                             <children>
                                                 <Label alignment="CENTER" text="Power Supply" />
                                                 <Label text="Label" />
@@ -132,8 +61,8 @@
                                             <image>
                                                 <Image url="@resistor.png" />
                                             </image>
-                                        </ImageView>
-                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                              </ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                             <children>
                                                 <Label alignment="CENTER" text="Resistor" />
                                                 <Label text="Label" />
@@ -150,8 +79,8 @@
                                             <image>
                                                 <Image url="@capacitor.png" />
                                             </image>
-                                        </ImageView>
-                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                              </ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                             <children>
                                                 <Label alignment="CENTER" text="Capacitor" />
                                                 <Label text="Label" />
@@ -168,8 +97,8 @@
                                             <image>
                                                 <Image url="@openSwitch.png" />
                                             </image>
-                                        </ImageView>
-                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                              </ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                             <children>
                                                 <Label alignment="CENTER" text="Merger" />
                                                 <Label text="Label" />
@@ -186,8 +115,8 @@
                                             <image>
                                                 <Image url="@Purplecolor.jpg" />
                                             </image>
-                                        </ImageView>
-                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                              </ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                             <children>
                                                 <Label alignment="CENTER" text="Splitter" />
                                                 <Label text="Label" />
@@ -200,12 +129,12 @@
                                 </HBox>
                                 <HBox fx:id="wireSwitch" onMousePressed="#spawn" prefHeight="150.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" HBox.hgrow="ALWAYS">
                                             <image>
                                                 <Image url="@Pink.jpg" />
                                             </image>
-                                        </ImageView>
-                                        <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                              </ImageView>
+                                        <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                             <children>
                                                 <Label alignment="CENTER" text="Label" />
                                                 <Label text="Label" />
@@ -220,6 +149,77 @@
                         </HBox>
                     </content>
                 </ScrollPane>
+            <ScrollPane fx:id="pan" hbarPolicy="NEVER" layoutX="151.0" pannable="true" styleClass="scroll-pane1" vbarPolicy="NEVER" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                              <GridPane fx:id="togglegrid" alignment="CENTER" gridLinesVisible="true" minHeight="0.0" minWidth="0.0" opacity="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <columnConstraints>
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                  </rowConstraints>
+                              </GridPane>
+                            <AnchorPane fx:id="smallanchorpane" styleClass="smallborder" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
                 <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="-56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="152.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#titleScreen" prefHeight="26.0" prefWidth="30.0" styleClass="button1" text="X">
