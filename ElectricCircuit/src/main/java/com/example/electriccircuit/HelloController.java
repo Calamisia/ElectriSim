@@ -501,7 +501,7 @@ public class HelloController implements Initializable {
         smallanchorpane.getChildren().add(sprite);
 
         main.getMainContainer().setOnKeyPressed(event -> {
-            if (event.isControlDown() && event.getCode().toString().equals("R")) {
+            if (event.isControlDown() || event.getCode().toString().equals("R")) {
                 rotateComponent(sprite);
 
             }
@@ -513,8 +513,8 @@ public class HelloController implements Initializable {
         /*On mouse movement, calibrates to small and large anchor panes */
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
             if (sprite.getRotate()+360 % 180 == 0) {
-                sprite.setX(mouseEvent.getX() - sprite.getWidth() / 2);
-                sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+                sprite.setX(mouseEvent.getY() - sprite.getWidth() / 2);
+                sprite.setY(mouseEvent.getX() - sprite.getHeight() / 2);
             }
             else {
                 sprite.setX(mouseEvent.getX() - sprite.getHeight() / 2);
@@ -571,7 +571,7 @@ public class HelloController implements Initializable {
                         component.setLocation(Windex, Hindex);
                         component.interact();
                         Debug.Log("column is actually " + Windex + " and row is " + Hindex);
-                       // componentArray[Windex][Hindex] = component;
+                        componentArray[Windex][Hindex] = component;
                     }
                 }
                 if(!mouseEvent.isShiftDown()){
@@ -593,7 +593,7 @@ public class HelloController implements Initializable {
         for(int i = 0; i < 20; i++){
             for (int j = 0; j < 35; j++){
                 BuilderMatrix.removeBoxID(j,i);
-             //   componentArray[j][i] = null;
+                componentArray[j][i] = null;
             }
             saveGame();
         }
