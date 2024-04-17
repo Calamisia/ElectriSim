@@ -70,7 +70,7 @@
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <ImageView fx:id="imageviewlvl2" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageviewlvl2" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
                                           <Image url="@lvl2.jpg" />
                                        </image>
@@ -95,7 +95,7 @@
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <ImageView fx:id="imageviewlvl3" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageviewlvl3" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
                                           <Image url="@lvl3.jpg" />
                                        </image>
@@ -120,7 +120,7 @@
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <ImageView fx:id="imageviewlvl4" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageviewlvl4" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
                                           <Image url="@lvl4.jpg" />
                                        </image>
@@ -145,7 +145,7 @@
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <ImageView fx:id="imageviewlvl5" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageviewlvl5" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
                                           <Image url="@lvl5.jpg" />
                                        </image>
@@ -174,7 +174,7 @@
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <ImageView fx:id="imageviewlvl6" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageviewlvl6" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
                                           <Image url="@Achilvl6to9.jpg" />
                                        </image>
@@ -199,7 +199,7 @@
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <ImageView fx:id="imageviewlvl7" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageviewlvl7" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
                                             <Image url="@Achilvl6to9.jpg" />
                                        </image>
@@ -224,7 +224,7 @@
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <ImageView fx:id="imageviewlvl8" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageviewlvl8" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
                                           <Image url="@Achilvl6to9.jpg" />
                                        </image>
@@ -249,7 +249,7 @@
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <ImageView fx:id="imageviewlvl9" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageviewlvl9" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
                                           <Image url="@Achilvl6to9.jpg" />
                                        </image>
@@ -274,7 +274,7 @@
                            <children>
                               <HBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <ImageView fx:id="imageviewlvl10" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageviewlvl10" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
                                           <Image url="@Skulllvl10.jpg" />
                                        </image>

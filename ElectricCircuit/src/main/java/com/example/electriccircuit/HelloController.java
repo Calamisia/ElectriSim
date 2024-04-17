@@ -370,7 +370,7 @@ public class HelloController implements Initializable {
         controller1.getLevelselecthbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().subtract(100));
 
         main.getMainContainer().widthProperty().addListener((observable) -> {
-            if(controller1.getLevelselecthbox().widthProperty().doubleValue() < controller1.getLevelselecthbox().heightProperty().doubleValue())
+            if(controller1.getLevelselecthbox().widthProperty().doubleValue() < controller1.getLevelselecthbox().heightProperty().doubleValue()*100)
                 controller1.getLevelselecthbox().prefWidthProperty().unbind();
             if(controller1.getLevelselecthbox().widthProperty().doubleValue() > controller1.getLevelselecthbox().heightProperty().doubleValue())
                 controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(20).multiply(0.90));
@@ -571,7 +571,7 @@ public class HelloController implements Initializable {
                         component.setLocation(Windex, Hindex);
                         component.interact();
                         Debug.Log("column is actually " + Windex + " and row is " + Hindex);
-                        componentArray[Windex][Hindex] = component;
+                       // componentArray[Windex][Hindex] = component;
                     }
                 }
                 if(!mouseEvent.isShiftDown()){
@@ -593,7 +593,7 @@ public class HelloController implements Initializable {
         for(int i = 0; i < 20; i++){
             for (int j = 0; j < 35; j++){
                 BuilderMatrix.removeBoxID(j,i);
-                componentArray[j][i] = null;
+             //   componentArray[j][i] = null;
             }
             saveGame();
         }
