@@ -560,9 +560,6 @@ public class HelloController implements Initializable {
                     isEventEnabled[0] = false;
                 }
             }
-            System.out.println(HelloController.returnSmallAnchorPane().getWidth());
-            System.out.println(HelloController.returnSmallAnchorPane().getHeight());
-            System.out.println(ancwidth + " " + ancheight);
         });
     }
 
