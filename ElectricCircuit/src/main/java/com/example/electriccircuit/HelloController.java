@@ -37,6 +37,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import static com.example.electriccircuit.Components.Component.componentArray;
 
 import java.io.IOException;
 import java.net.URL;
@@ -141,6 +142,24 @@ public class HelloController implements Initializable {
     private HBox levelselecthbox;
     @FXML
     private HBox smallhboxlvl1;
+    @FXML
+    private HBox smallhboxlvl2;
+    @FXML
+    private HBox smallhboxlvl3;
+    @FXML
+    private HBox smallhboxlvl4;
+    @FXML
+    private HBox smallhboxlvl5;
+    @FXML
+    private HBox smallhboxlvl6;
+    @FXML
+    private HBox smallhboxlvl7;
+    @FXML
+    private HBox smallhboxlvl8;
+    @FXML
+    private HBox smallhboxlvl9;
+    @FXML
+    private HBox smallhboxlvl10;
     @FXML
     private VBox mainlevelvbox;
 
@@ -362,57 +381,37 @@ public class HelloController implements Initializable {
 
         HelloController controller1 = main.LevelSelectController();
 
-        //Hbox wants to be 1/5 of the screen
-        //controller1.getLeveltitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().subtract(Math.round(HelloApplication.getScreenHeight()*0.8)));
-
         //Other hbox wants to be 4/5 of the screen and 90% of the width
-        controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(20).multiply(0.90));
-/*
-        main.getMainContainer().widthProperty().addListener((observable) -> {
-            if(controller1.getLevelselecthbox().widthProperty().doubleValue() < controller1.getLevelselecthbox().heightProperty().doubleValue()*2)
-                controller1.getLevelselecthbox().prefHeightProperty().unbind();
-            if(controller1.getLevelselecthbox().widthProperty().doubleValue() > controller1.getLevelselecthbox().heightProperty().doubleValue()*2){
-
-            }
-        });
-*/
-
+        controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(0.90));
         //container to base resizing on
         HBox hbox11 = controller1.getSmallhboxlvl1();
+
+        levelhboxbind();
+
         controller1.getImageviewlvl1().fitWidthProperty().bind(hbox11.widthProperty().multiply(0.9));
         controller1.getImageviewlvl1().fitHeightProperty().bind(hbox11.heightProperty());
 
+        //Bindings
         //Lvl1
-        //Method for binding both, above this one
         levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl1(), controller1.getLabellvl1(),1);
-
         //Lvl2
         levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl2(), controller1.getLabellvl2(),2);
-
         //Lvl3
         levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl3(), controller1.getLabellvl3(),3);
-
         //Lvl4
         levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl4(), controller1.getLabellvl4(),4);
-
         //Lvl5
         levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl5(), controller1.getLabellvl5(),5);
-
         //Lvl6
         levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl6(), controller1.getLabellvl6(),6);
-
         //Lvl7
         levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl7(), controller1.getLabellvl7(),7);
-
         //Lvl8
         levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl8(), controller1.getLabellvl8(),8);
-
         //Lvl9
         levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl9(), controller1.getLabellvl9(),9);
-
         //Lvl10
         levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl10(), controller1.getLabellvl10(),10);
-
 
     }
 
@@ -465,8 +464,6 @@ public class HelloController implements Initializable {
     private void exitSettings(ActionEvent event) {
         //Remove the settings from the stage
         main.getMainContainer().getChildren().remove(main.settings());
-        HelloController controller1 = main.AchievementsController();
-        HelloController controller2 = main.MainController();
     }
 
     @FXML
@@ -588,6 +585,7 @@ public class HelloController implements Initializable {
     public void exit(ActionEvent event){
         System.exit(0);
     }
+
     @FXML
     public void clearGrid(ActionEvent event){
         for(int i = 0; i < 20; i++){
@@ -605,6 +603,11 @@ public class HelloController implements Initializable {
         controller1.getCal().setOpacity(0.5);
     }
 
+    private void rotateComponent(Rectangle rectangle) {
+        rectangle.setRotate(rectangle.getRotate()+90);
+    }
+
+
     public void titlemethod(){
         HelloController controller = main.TitleController();
         controller.getLogotitle().fitWidthProperty().bind(controller.getTitleHbox().widthProperty()); // Bind fitWidth to HBox width
@@ -615,7 +618,6 @@ public class HelloController implements Initializable {
         buttontext(controller.getBt3());
         buttontext(controller.getBt4());
     }
-
 
     //Method for button resizing
     public void buttontext(Button button){
@@ -681,8 +683,19 @@ public class HelloController implements Initializable {
         //if (unlocked.isLevelUnlocked(lvlasked) == true) imageView.setMouseTransparent(false);
     }
 
-    private void rotateComponent(Rectangle rectangle) {
-        rectangle.setRotate(rectangle.getRotate()+90);
+    //Method for binding hbox
+    public void levelhboxbind(){
+        HelloController controller1 = main.LevelSelectController();
+        controller1.getSmallhboxlvl1().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
+        controller1.getSmallhboxlvl2().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
+        controller1.getSmallhboxlvl3().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
+        controller1.getSmallhboxlvl4().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
+        controller1.getSmallhboxlvl5().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
+        controller1.getSmallhboxlvl6().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
+        controller1.getSmallhboxlvl7().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
+        controller1.getSmallhboxlvl8().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
+        controller1.getSmallhboxlvl9().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
+        controller1.getSmallhboxlvl10().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
     }
 
     //Method for achievement hbox
@@ -735,6 +748,7 @@ public class HelloController implements Initializable {
         imageView.fitWidthProperty().bind(hbox.widthProperty()); // Bind fitWidth to HBox width
         imageView.fitHeightProperty().bind(hbox.heightProperty()); // Bind fitHeight to HBox height
     }
+
     //method for changing achievement image if unlocked
     public void achieveunlock(ImageView imageview, Image image, int num){
         HelloController controller1 = main.AchievementsController();
@@ -770,9 +784,11 @@ public class HelloController implements Initializable {
     public static double getAncheight(){
         return ancheight;
     }
+
     public Button getCal(){
         return cal;
     }
+
     public GridPane getDataGrid(){
         return dataGrid;
     }
@@ -804,6 +820,7 @@ public class HelloController implements Initializable {
     public Button getBt4(){return  bt4;}
 
     //Level selection screen getters
+
     //Hbox for the top part of screen
     public HBox getLeveltitlehbox(){return this.leveltitlehbox;}
 
@@ -812,6 +829,15 @@ public class HelloController implements Initializable {
 
     //Hbox for resizing images
     public HBox getSmallhboxlvl1(){return this.smallhboxlvl1;}
+    public HBox getSmallhboxlvl2(){return this.smallhboxlvl2;}
+    public HBox getSmallhboxlvl3(){return this.smallhboxlvl3;}
+    public HBox getSmallhboxlvl4(){return this.smallhboxlvl4;}
+    public HBox getSmallhboxlvl5(){return this.smallhboxlvl5;}
+    public HBox getSmallhboxlvl6(){return this.smallhboxlvl6;}
+    public HBox getSmallhboxlvl7(){return this.smallhboxlvl7;}
+    public HBox getSmallhboxlvl8(){return this.smallhboxlvl8;}
+    public HBox getSmallhboxlvl9(){return this.smallhboxlvl9;}
+    public HBox getSmallhboxlvl10(){return this.smallhboxlvl10;}
 
     public VBox getMainlevelvbox(){return this.mainlevelvbox;}
 
