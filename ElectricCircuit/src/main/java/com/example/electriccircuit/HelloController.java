@@ -367,19 +367,19 @@ public class HelloController implements Initializable {
 
         //Other hbox wants to be 4/5 of the screen and 90% of the width
         controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(20).multiply(0.90));
-        controller1.getLevelselecthbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().subtract(100));
-
+/*
         main.getMainContainer().widthProperty().addListener((observable) -> {
-            if(controller1.getLevelselecthbox().widthProperty().doubleValue() < controller1.getLevelselecthbox().heightProperty().doubleValue()*100)
-                controller1.getLevelselecthbox().prefWidthProperty().unbind();
-            if(controller1.getLevelselecthbox().widthProperty().doubleValue() > controller1.getLevelselecthbox().heightProperty().doubleValue())
-                controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(20).multiply(0.90));
-        });
+            if(controller1.getLevelselecthbox().widthProperty().doubleValue() < controller1.getLevelselecthbox().heightProperty().doubleValue()*2)
+                controller1.getLevelselecthbox().prefHeightProperty().unbind();
+            if(controller1.getLevelselecthbox().widthProperty().doubleValue() > controller1.getLevelselecthbox().heightProperty().doubleValue()*2){
 
+            }
+        });
+*/
 
         //container to base resizing on
         HBox hbox11 = controller1.getSmallhboxlvl1();
-        controller1.getImageviewlvl1().fitWidthProperty().bind(hbox11.widthProperty());
+        controller1.getImageviewlvl1().fitWidthProperty().bind(hbox11.widthProperty().multiply(0.9));
         controller1.getImageviewlvl1().fitHeightProperty().bind(hbox11.heightProperty());
 
         //Lvl1

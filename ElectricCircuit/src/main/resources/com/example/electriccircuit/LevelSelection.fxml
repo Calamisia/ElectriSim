@@ -8,7 +8,7 @@
 
 <VBox fx:id="mainlevelvbox" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
    <children>
-      <HBox fx:id="leveltitlehbox" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS">
+      <HBox fx:id="leveltitlehbox" minHeight="90.0" minWidth="0.0" VBox.vgrow="ALWAYS">
          <children>
             <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#titleScreen" prefHeight="25.0" prefWidth="55.0" styleClass="button1" text="Return" HBox.hgrow="ALWAYS">
                <HBox.margin>
