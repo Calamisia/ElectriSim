@@ -1,9 +1,9 @@
 package com.example.electriccircuit;
 
 import com.example.electriccircuit.Components.*;
-import com.example.electriccircuit.*;
-
-import static com.example.electriccircuit.Components.Component.componentArray;
+import com.example.electriccircuit.Logic.BuilderMatrix;
+import com.example.electriccircuit.Logic.CalculatingGrid;
+import com.example.electriccircuit.Logic.SaveFiles;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.Logic.*;
@@ -141,6 +141,8 @@ public class HelloController implements Initializable {
     private HBox levelselecthbox;
     @FXML
     private HBox smallhboxlvl1;
+    @FXML
+    private VBox mainlevelvbox;
 
     @FXML
     private Label labellvl1;
@@ -230,6 +232,7 @@ public class HelloController implements Initializable {
     public static double ancwidth;
     public static double ancheight;
     private int countee = 0;
+    private int countee2 = 0;
     public static draggable draggableMaker = new draggable();
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
     Label resistance = new Label("1");
@@ -259,9 +262,6 @@ public class HelloController implements Initializable {
     public void titleinitialize(){
         // Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToTitle());
-        for (Node child : main.getMainContainer().getChildren()) {
-            child.setMouseTransparent(false);
-        }
         titlemethod();
     }
 
@@ -276,9 +276,6 @@ public class HelloController implements Initializable {
         fadeTransition.play();
         // Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToTitle());
-        for (Node child : main.getMainContainer().getChildren()) {
-            child.setMouseTransparent(false);
-        }
         titlemethod();
     }
 
@@ -297,7 +294,7 @@ public class HelloController implements Initializable {
 
         //controller1.getAchievementtitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.25));
 
-        //Bind the bighbox to twice the window size
+        //Bind the bighbox to 2.25 times the window size
         controller1.getBiggesthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(2.25));
 
         // Bind scroll pane height to maintain the desired ratio
@@ -366,45 +363,46 @@ public class HelloController implements Initializable {
         HelloController controller1 = main.LevelSelectController();
 
         //Hbox wants to be 1/5 of the screen
-        controller1.getLeveltitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.2));
+        //controller1.getLeveltitlehbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().subtract(Math.round(HelloApplication.getScreenHeight()*0.8)));
 
         //Other hbox wants to be 4/5 of the screen and 90% of the width
-        controller1.getLevelselecthbox().prefHeightProperty().bind(main.getMainContainer().heightProperty().multiply(0.8));
-        controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().multiply(0.89));
+        controller1.getLevelselecthbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(20).multiply(0.90));
 
         //container to base resizing on
         HBox hbox11 = controller1.getSmallhboxlvl1();
+        controller1.getImageviewlvl1().fitWidthProperty().bind(hbox11.widthProperty().multiply(0.9));
+        controller1.getImageviewlvl1().fitHeightProperty().bind(hbox11.heightProperty());
 
         //Lvl1
         //Method for binding both, above this one
-        levelimagelabel(hbox11, controller1.getImageviewlvl1(), controller1.getLabellvl1(),1);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl1(), controller1.getLabellvl1(),1);
 
         //Lvl2
-        levelimagelabel(hbox11, controller1.getImageviewlvl2(), controller1.getLabellvl2(),2);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl2(), controller1.getLabellvl2(),2);
 
         //Lvl3
-        levelimagelabel(hbox11, controller1.getImageviewlvl3(), controller1.getLabellvl3(),3);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl3(), controller1.getLabellvl3(),3);
 
         //Lvl4
-        levelimagelabel(hbox11, controller1.getImageviewlvl4(), controller1.getLabellvl4(),4);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl4(), controller1.getLabellvl4(),4);
 
         //Lvl5
-        levelimagelabel(hbox11, controller1.getImageviewlvl5(), controller1.getLabellvl5(),5);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl5(), controller1.getLabellvl5(),5);
 
         //Lvl6
-        levelimagelabel(hbox11, controller1.getImageviewlvl6(), controller1.getLabellvl6(),6);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl6(), controller1.getLabellvl6(),6);
 
         //Lvl7
-        levelimagelabel(hbox11, controller1.getImageviewlvl7(), controller1.getLabellvl7(),7);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl7(), controller1.getLabellvl7(),7);
 
         //Lvl8
-        levelimagelabel(hbox11, controller1.getImageviewlvl8(), controller1.getLabellvl8(),8);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl8(), controller1.getLabellvl8(),8);
 
         //Lvl9
-        levelimagelabel(hbox11, controller1.getImageviewlvl9(), controller1.getLabellvl9(),9);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl9(), controller1.getLabellvl9(),9);
 
         //Lvl10
-        levelimagelabel(hbox11, controller1.getImageviewlvl10(), controller1.getLabellvl10(),10);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl10(), controller1.getLabellvl10(),10);
 
 
     }
@@ -415,31 +413,25 @@ public class HelloController implements Initializable {
         //Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToMainScreen());
         HelloController controller1 = main.MainController();
-
-        if(countee == 0){
-            main.maximise();
-            countee++;
-            ancwidth = main.getMainContainer().getWidth() - 309;
-            ancheight = main.getMainContainer().getHeight() - 177;
+        if(controller1.getDataGrid().getChildren().equals(null)) {
+            controller1.getDataGrid().addRow(1, resistance, potential, current);
+        }
+        ancwidth = main.getScreenWidth() - 311;
+        ancheight = (double)((main.getScreenWidth() - 311)*20)/35;
+        System.out.println(ancwidth/35 + " " + ancheight/20);
             limiter(controller1.getSmallanchorpane());
             limiter(controller1.getTogglegrid());
-            controller1.getDataGrid().addRow(1,resistance,potential,current);
-        }
         // Fade in transition
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), main.switchToMainScreen());
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
 
-        for (Node child : main.getMainContainer().getChildren()) {
-            child.setMouseTransparent(false);
-        }
-        controller1.getBorderPane().setMouseTransparent(true);
         if (controller1.getCal() != null && controller1.getCal().getId() != "calculatetrue") {
             controller1.getCal().setMouseTransparent(true);
             controller1.getCal().setOpacity(0.5);
         }
-        controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(1199));
+        controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(main.getScreenWidth()*0.6));
         loadGame();
         if(sandboxMatrix.closedCircuit()) {
             controller1.getCal().setId("calculatetrue");
@@ -452,14 +444,11 @@ public class HelloController implements Initializable {
     @FXML
     private void settings(ActionEvent event) {
         //Add the settings to the stage
-        for (Node child : main.getMainContainer().getChildren()) {
-            child.setMouseTransparent(true);
-        }
         main.getMainContainer().getChildren().add(main.settings());
         HelloController controller1 = main.settingsController();
         controller1.getSettingsvbox().setMinWidth(400);
         controller1.getSettingsvbox().setMaxWidth(400);
-        controller1.getSettingsvbox().setMinHeight(350);
+        controller1.getSettingsvbox().setMinHeight(370);
         controller1.getSettingsvbox().setMaxHeight(470);
     }
     /* exit settings */
@@ -467,13 +456,8 @@ public class HelloController implements Initializable {
     private void exitSettings(ActionEvent event) {
         //Remove the settings from the stage
         main.getMainContainer().getChildren().remove(main.settings());
-        for (Node child : main.getMainContainer().getChildren()) {
-            child.setMouseTransparent(false);
-        }
         HelloController controller1 = main.AchievementsController();
         HelloController controller2 = main.MainController();
-        if (controller1.getBorderPane() != null) controller1.getBorderPane().setMouseTransparent(true);
-        if (controller2.getCal() != null && controller2.getCal().getId() != "calculatetrue") controller2.getCal().setMouseTransparent(true);
     }
 
     @FXML
@@ -519,15 +503,23 @@ public class HelloController implements Initializable {
 
         /*On mouse movement, calibrates to small and large anchor panes */
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
-            sprite.setX(mouseEvent.getX() - sprite.getWidth() / 2);
-            sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+            if (sprite.getRotate()+360 % 180 == 0) {
+                sprite.setX(mouseEvent.getX() - sprite.getWidth() / 2);
+                sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+            }
+            else {
+                sprite.setX(mouseEvent.getX() - sprite.getHeight() / 2);
+                sprite.setY(mouseEvent.getY() - sprite.getWidth() / 2);
+            }
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
         });
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
-            sprite.setX((HelloController.getAncwidth() - (anchorpane.getWidth())) / 2  + mouseEvent.getX() - sprite.getWidth() / 2);
-            sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+            if (sprite.getRotate()+360 % 180 == 0) {
+                sprite.setX((mouseEvent.getX() - sprite.getWidth() / 2) - 154);
+                sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+            }
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
         });
@@ -570,7 +562,7 @@ public class HelloController implements Initializable {
                         component.setLocation(Windex, Hindex);
                         component.interact();
                         Debug.Log("column is actually " + Windex + " and row is " + Hindex);
-                        componentArray[Windex][Hindex] = component;
+                       // componentArray[Windex][Hindex] = component;
                     }
                 }
                 if(!mouseEvent.isShiftDown()){
@@ -580,9 +572,6 @@ public class HelloController implements Initializable {
                     isEventEnabled[0] = false;
                 }
             }
-            System.out.println(HelloController.returnSmallAnchorPane().getWidth());
-            System.out.println(HelloController.returnSmallAnchorPane().getHeight());
-            System.out.println(ancwidth + " " + ancheight);
         });
     }
 
@@ -595,7 +584,7 @@ public class HelloController implements Initializable {
         for(int i = 0; i < 20; i++){
             for (int j = 0; j < 35; j++){
                 BuilderMatrix.removeBoxID(j,i);
-                componentArray[j][i] = null;
+             //   componentArray[j][i] = null;
             }
             saveGame();
         }
@@ -642,7 +631,8 @@ public class HelloController implements Initializable {
     }
 
     //Method for level selection binding
-    public void levelimagelabel(HBox hbox, ImageView imageView, Label label, int lvlasked){
+    public void levelimagelabel(ImageView image, ImageView imageView, Label label, int lvlasked){
+        HelloController controller1 = main.LevelSelectController();
         /* start of changing font size and label size */
         main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
             double widthFontSize = newWidth.doubleValue() / 4;
@@ -672,8 +662,10 @@ public class HelloController implements Initializable {
 
         // Bind the lock image to the size of the HBox
         imageView.setPreserveRatio(true); // Disable preserving aspect ratio
-        imageView.fitWidthProperty().bind(hbox.widthProperty()); // Bind fitWidth to HBox width
-        imageView.fitHeightProperty().bind(hbox.heightProperty()); // Bind fitHeight to HBox height
+        if (image != imageView) {
+            imageView.fitWidthProperty().bind(image.fitWidthProperty()); // Bind fitWidth to HBox width
+            imageView.fitHeightProperty().bind(image.fitHeightProperty()); // Bind fitHeight to HBox height
+        }
 
         //Check if the level can be unlocked
         //imageView.setMouseTransparent(true);
@@ -811,6 +803,8 @@ public class HelloController implements Initializable {
 
     //Hbox for resizing images
     public HBox getSmallhboxlvl1(){return this.smallhboxlvl1;}
+
+    public VBox getMainlevelvbox(){return this.mainlevelvbox;}
 
     //Level 1
     public ImageView getImageviewlvl1(){return this.imageviewlvl1;}
