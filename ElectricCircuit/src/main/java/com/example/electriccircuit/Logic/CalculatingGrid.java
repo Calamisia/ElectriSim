@@ -20,7 +20,7 @@ public class CalculatingGrid {
         if(sandboxMatrix.closedCircuit()) {
             String circuitPath = sandboxMatrix.getCircuitPath();
             for(int i = 0; i < circuitPath.length(); i++){
-                if(circuitPath.charAt(i) == '2'){
+                if(circuitPath.charAt(i) == '2' || circuitPath.charAt(i) == '9'){
                     potential.setVolt(10);
                 } else if (circuitPath.charAt(i) == '3'){
                     resistance.setOhm(resistance.getOhm() + 50);

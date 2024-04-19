@@ -95,7 +95,7 @@
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@openSwitch.png" />
+                                                <Image url="@FourWayMerger.png" />
                                             </image>
                               </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
@@ -113,7 +113,7 @@
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@Purplecolor.jpg" />
+                                                <Image url="@FourWaySplitter.png" />
                                             </image>
                               </ImageView>
                                         <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
@@ -131,12 +131,12 @@
                                     <children>
                                         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" HBox.hgrow="ALWAYS">
                                             <image>
-                                                <Image url="@Pink.jpg" />
+                                                <Image url="@switchClosed.png" />
                                             </image>
                               </ImageView>
                                         <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                             <children>
-                                                <Label alignment="CENTER" text="Label" />
+                                                <Label alignment="CENTER" text="Switch" />
                                                 <Label text="Label" />
                                             </children>
                                             <padding>

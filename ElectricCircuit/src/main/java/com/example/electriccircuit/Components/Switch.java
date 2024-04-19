@@ -29,7 +29,7 @@ public class Switch extends Wire{
     public void interact(){
         node.setOnMousePressed(e -> { // When mouse pressed on the object
             if(isClosed){
-                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 0);
+                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 10);
                 InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/openSwitch.png");
                 assert in != null;
                 this.image = new Image(in);
@@ -37,7 +37,7 @@ public class Switch extends Wire{
                 BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 11);
                 isClosed = false;
             } else {
-                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 1);
+                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 11);
                 InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/switchClosed.png");
                 assert in != null;
                 this.image = new Image(in);

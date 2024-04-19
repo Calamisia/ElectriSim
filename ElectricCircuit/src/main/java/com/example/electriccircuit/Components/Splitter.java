@@ -14,7 +14,7 @@ public class Splitter extends Component{
     private static Wire outputWireThree;
 
     public Splitter(){
-        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/wire.png");
+        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/FourWaySplitter.png");
         assert in != null;
         this.image = new Image(in);
         this.Id = 6;

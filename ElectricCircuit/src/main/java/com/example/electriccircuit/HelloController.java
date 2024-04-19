@@ -362,7 +362,7 @@ public class HelloController implements Initializable {
         smallanchorpane.getChildren().add(sprite);
 
         main.getMainContainer().setOnKeyPressed(event -> {
-            if (event.isControlDown() || event.getCode().toString().equals("R")) {
+            if (event.isControlDown() && event.getCode().toString().equals("R")) {
                 rotateComponent(sprite);
 
             }

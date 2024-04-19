@@ -14,7 +14,7 @@ public class Merger extends Component{
     private static int nOfInputs;
 
     public Merger (){
-        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/wire.png");
+        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/FourWayMerger.png");
         assert in != null;
         this.image = new Image(in);
         this.Id = 5;
@@ -26,7 +26,7 @@ public class Merger extends Component{
         this.inputWireTwo = inputWireTwo;
         this.inputWireThree = inputWireThree;
 
-        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/wire.png");
+        InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/FourWayMerger.png");
         assert in != null;
         this.image = new Image(in);
         this.Id = 5;
