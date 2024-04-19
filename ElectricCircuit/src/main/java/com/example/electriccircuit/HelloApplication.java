@@ -1,6 +1,5 @@
 package com.example.electriccircuit;
 
-import com.example.electriccircuit.Logic.BuilderMatrix;
 import com.example.electriccircuit.Logic.Unlocks;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-
+import java.awt.*;
 import java.io.IOException;
 
 import static com.example.electriccircuit.Logic.Debug.Logger;
@@ -27,6 +26,9 @@ public class HelloApplication extends Application {
     private FXMLLoader fxmlLoader1,fxmlLoader2,fxmlLoader3,fxmlLoader4;
     private HelloController controller1,controller2,controller3,controller4,controller5;
     private static HelloController controllerx;
+    private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    public static int screenWidth = (int) Math.ceil(screenSize.getWidth());
+    public static int screenHeight = (int) Math.ceil(screenSize.getHeight());
 
 
     //No arg constructor
@@ -103,18 +105,22 @@ public class HelloApplication extends Application {
         return controllerx;
     }
 
+    //Method to set minimum of a screen
+    public void setMin(){
+        primaryStage.setMinHeight((Math.round((float) screenHeight /3)));
+        primaryStage.setMinWidth((Math.round((float) screenWidth /3)));
+    }
+
     //Title screen switching methods
     public Node switchToTitle(){
-        primaryStage.setMinHeight(360);
-        primaryStage.setMinWidth(675);
+        setMin();
         return scene1;
     }
     public HelloController TitleController(){return controller1;}
 
     //Level select switching methods
     public Node switchToLevelSelect(){
-        primaryStage.setMinHeight(360);
-        primaryStage.setMinWidth(675);
+        setMin();
         return scene2;
     }
     public HelloController LevelSelectController(){return controller2;}
@@ -122,11 +128,10 @@ public class HelloApplication extends Application {
 
     //Achievements switching methods
     public HelloController AchievementsController(){
-        primaryStage.setMinHeight(360);
-        primaryStage.setMinWidth(675);
         return controller3;
     }
     public Node switchToAchievements(){
+        setMin();
         return scene3;
     }
 
@@ -141,8 +146,12 @@ public class HelloApplication extends Application {
     public Node settings(){return scene5;}
     public HelloController settingsController(){return controller5;}
 
-    public void maximise(){
-        primaryStage.setMaximized(true);
+    //Other stuff
+    public int getScreenWidth(){
+        return screenWidth;
+    }
+    public int getScreenHeight(){
+        return screenHeight;
     }
 
 }
