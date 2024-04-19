@@ -374,8 +374,8 @@ public class HelloController implements Initializable {
         /*On mouse movement, calibrates to small and large anchor panes */
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
             if (sprite.getRotate()+360 % 180 == 0) {
-                sprite.setX(mouseEvent.getY() - sprite.getWidth() / 2);
-                sprite.setY(mouseEvent.getX() - sprite.getHeight() / 2);
+                sprite.setX(mouseEvent.getX() - sprite.getWidth() / 2);
+                sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
             }
             else {
                 sprite.setX(mouseEvent.getX() - sprite.getHeight() / 2);

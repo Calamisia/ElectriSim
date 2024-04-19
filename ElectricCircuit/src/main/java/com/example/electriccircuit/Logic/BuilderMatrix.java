@@ -142,6 +142,21 @@ public class BuilderMatrix {
         return arraylist;
     }
 
+    public int[] surroundingCheck(int row, int column) {
+        int[] surrounding = new int[4];
+
+        if (grid[row - 1][column] != 0){
+            surrounding[0] = 1;
+        } else if (grid[row][column - 1] != 0){
+            surrounding[1] = 1;
+        } else if (grid[row + 1][column] != 0){
+            surrounding[2] = 1;
+        } else if (grid[row][column + 1] != 0){
+            surrounding[3] = 1;
+        }
+        return surrounding;
+    }
+
 
     // this method is used to check if the circuit is closed, before doing any calculations.
     public boolean closedCircuit() {
