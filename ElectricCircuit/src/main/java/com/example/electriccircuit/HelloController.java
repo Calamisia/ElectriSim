@@ -638,18 +638,22 @@ public class HelloController implements Initializable {
     }
 
     //Method to keep the datagrid on the screen
+    private double limitwidth,limitheight;
+
     @FXML
     public void gridlimit(){
         HelloController controller = main.MainController();
-        controller.getDataGrid().setTranslateX(controller.getDataGrid().getWidth()/(-2));
-        controller.getDataGrid().setTranslateY(controller.getDataGrid().getHeight()/2);
+        limitwidth = (controller.getDataGrid().getWidth()/(-2));
+        limitheight = (controller.getDataGrid().getHeight()/2);
+        controller.getDataGrid().setTranslateX(limitwidth);
+        controller.getDataGrid().setTranslateY(limitheight);
     }
 
     @FXML
     public void gridrestore(){
         HelloController controller = main.MainController();
-        controller.getDataGrid().setTranslateX(controller.getDataGrid().getWidth()/(30));
-        controller.getDataGrid().setTranslateY(controller.getDataGrid().getHeight()/(12));
+        controller.getDataGrid().setTranslateX(-limitwidth);
+        controller.getDataGrid().setTranslateY(-limitheight);
     }
 
 
