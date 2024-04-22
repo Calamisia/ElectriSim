@@ -4,6 +4,8 @@ import com.example.electriccircuit.Components.*;
 import com.example.electriccircuit.Logic.BuilderMatrix;
 import com.example.electriccircuit.Logic.CalculatingGrid;
 import com.example.electriccircuit.Logic.SaveFiles;
+
+import static com.example.electriccircuit.Components.Component.componentArray;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.Logic.*;
@@ -494,7 +496,6 @@ public class HelloController implements Initializable {
         main.getMainContainer().setOnKeyPressed(event -> {
             if (event.isControlDown() && event.getCode().toString().equals("R")) {
                 rotateComponent(sprite);
-
             }
         });
 
@@ -526,16 +527,8 @@ public class HelloController implements Initializable {
 
         pan.setOnMouseReleased(mouseEvent -> {
             if(isEventEnabled[0]) { //makes sure you can only release once
-                //Creates the solid circle
-                Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
-                component.setComponentNode(solidSprite);
-                solidSprite.setFill(new ImagePattern(component.getImageTexture()));
-                solidSprite.setRotate(sprite.getRotate());
-
-                //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (HelloController.getAncheight()/ 20);
                 double Wspacing = (HelloController.getAncwidth()/ 35);
-
 
                 int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing));
                 int Windex = (int)Math.round((mouseEvent.getX() - Wspacing / 2) / (Wspacing));
@@ -543,14 +536,31 @@ public class HelloController implements Initializable {
                 /* more fluid input */
                 if(Hindex == 20){
                     Hindex = 19;
-                } if(Windex == -1){{
+                } if(Windex == -1){
                     Windex = 0;
-                }} if(Windex == 35){
+                } if(Windex == 35){
                     Windex = 34;
                 }
 
                 if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                     if (Windex < 35 && Windex >= 0) {
+                        Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
+                        component.setComponentNode(solidSprite);
+                        component.setLocation(Windex, Hindex);
+                        BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
+                        component.interact();
+                        componentArray[Windex][Hindex] = component;
+
+
+
+
+                        solidSprite.setFill(new ImagePattern(component.getImageTexture()));
+                        solidSprite.setRotate(sprite.getRotate());
+
+
+
+
+
                         //snaps to grid
                         solidSprite.setY(Hindex * (Hspacing));
                         solidSprite.setX(Windex * (Wspacing));
@@ -558,11 +568,7 @@ public class HelloController implements Initializable {
                         solidSprite.toFront();
 
                         //Sandbox Matrix creation
-                        BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
-                        component.setLocation(Windex, Hindex);
-                        component.interact();
-                        Debug.Log("column is actually " + Windex + " and row is " + Hindex);
-                       // componentArray[Windex][Hindex] = component;
+
                     }
                 }
                 if(!mouseEvent.isShiftDown()){

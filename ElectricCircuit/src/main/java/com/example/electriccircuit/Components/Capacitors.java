@@ -10,7 +10,7 @@ public class Capacitors extends Component{
     public Capacitors(){
         InputStream in = getClass().getResourceAsStream("com/example/electriccircuit/capacitor.png");
         assert in != null;
-        this.image = new Image(in);
+        this.image[0] = new Image(in);
         this.Id = 4;
     }
     private int capacitance;

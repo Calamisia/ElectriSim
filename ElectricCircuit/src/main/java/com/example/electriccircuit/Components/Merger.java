@@ -16,7 +16,7 @@ public class Merger extends Component{
     public Merger (){
         InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/wire.png");
         assert in != null;
-        this.image = new Image(in);
+        this.image[0] = new Image(in);
         this.Id = 5;
     } // no-arg constructor
 
@@ -28,7 +28,7 @@ public class Merger extends Component{
 
         InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/wire.png");
         assert in != null;
-        this.image = new Image(in);
+        this.image[0] = new Image(in);
         this.Id = 5;
     }
 

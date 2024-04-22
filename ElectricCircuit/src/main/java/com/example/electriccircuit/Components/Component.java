@@ -4,15 +4,16 @@ import com.example.electriccircuit.HelloController;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 
 public class Component {
-    Node node;
-    Image image;
+    Shape node;
+    Image image[] = new Image[3];
     int Id;
     private int[] location = new int[2];
     public static Component[][] componentArray = new Component[35][20];
 
-    Component(Node node) {
+    Component(Shape node) {
         this.node = node;
     }
 
@@ -23,7 +24,7 @@ public class Component {
         return this.node;
     }
 
-    public void setComponentNode(Node node) {
+    public void setComponentNode(Shape node) {
         this.node = node;
     }
 
@@ -57,11 +58,19 @@ public class Component {
     }
 
     public Image getImageTexture() {
-        return this.image;
+        return this.image[0];
+    }
+    public Image getImageTexture(int i) {
+        return this.image[i];
     }
 
     public void interact() {
     }
+    public void refreshComponent(){
 
+    }
+    public void mainRefreshComponent(){
+
+    }
 
 }

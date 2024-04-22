@@ -10,7 +10,7 @@ public class Resistors extends Component{
     public Resistors(){
         InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/resistor.png");
         assert in != null;
-        this.image = new Image(in);
+        this.image[0] = new Image(in);
         this.Id = 3;
     }
 

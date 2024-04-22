@@ -105,8 +105,6 @@ public class SaveFiles {
                         Debug.Error("Invalid spawn component" + grid[j][i]);
                     }
                     Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
-                    Debug.Log(String.valueOf("According to save file, width is " + HelloController.getAncwidth()/35));
-                    Debug.Log(String.valueOf("According to save file, height is " + HelloController.getAncheight()/20));
                     component.setComponentNode(solidSprite);
                     solidSprite.setFill(new ImagePattern(component.getImageTexture()));
 

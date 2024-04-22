@@ -16,7 +16,7 @@ public class Splitter extends Component{
     public Splitter(){
         InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/wire.png");
         assert in != null;
-        this.image = new Image(in);
+        this.image[0] = new Image(in);
         this.Id = 6;
     } // no-arg constructor
 
