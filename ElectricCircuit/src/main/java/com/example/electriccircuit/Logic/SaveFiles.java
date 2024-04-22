@@ -125,9 +125,11 @@ public class SaveFiles {
                         Debug.Info("wireSwitch found");
                     } else {
                         component = null;
-                        Debug.Error("Invalid spawn component");
+                        Debug.Error("Invalid spawn component" + grid[j][i]);
                     }
                     Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
+                    Debug.Log(String.valueOf("According to save file, width is " + HelloController.getAncwidth()/35));
+                    Debug.Log(String.valueOf("According to save file, height is " + HelloController.getAncheight()/20));
                     component.setComponentNode(solidSprite);
                     solidSprite.setFill(new ImagePattern(component.getImageTexture()));
 
@@ -135,8 +137,8 @@ public class SaveFiles {
                     double Hspacing = (HelloController.getAncheight()/ 20);
                     double Wspacing = (HelloController.getAncwidth()/ 35);
 
-                    int Hindex = j;
-                    int Windex = i;
+                    int Hindex = i;
+                    int Windex = j;
 
                     if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                         if (Windex < 35 && Windex >= 0) {

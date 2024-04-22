@@ -40,6 +40,9 @@ public class BuilderMatrix {
 
     // Used to add a component Id to a box
     public static void setBoxID(int row, int column, int iD) {
+        if(grid[row][column] != 0){
+
+        }
         grid[row][column] = iD;
         new CalculatingGrid(getGrid());
     }
@@ -62,6 +65,7 @@ public class BuilderMatrix {
     // used to set the matrix (used to load the sandbox)
     public static void setGrid(int[][] grid) {
         BuilderMatrix.grid = grid;
+        new CalculatingGrid(getGrid());
     }
 
     // get the circuit path, used for calculating grid
