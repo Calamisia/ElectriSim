@@ -146,9 +146,7 @@ public class HelloApplication extends Application {
     public Node settings(){return scene5;}
     public HelloController settingsController(){return controller5;}
 
-    public void maximise(){
-        primaryStage.setMaximized(true);
-    }
+    //Other stuff
     public int getScreenWidth(){
         return screenWidth;
     }
