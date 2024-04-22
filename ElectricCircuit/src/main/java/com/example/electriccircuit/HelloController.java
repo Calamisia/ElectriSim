@@ -291,8 +291,8 @@ public class HelloController implements Initializable {
             countee++;
         }
 
-        ancwidth = main.getScreenWidth() - 311;
-        ancheight = (double)((main.getScreenWidth() - 311)*20)/35;
+        ancwidth = main.getScreenWidth();
+        ancheight = (double)(main.getScreenWidth()*20)/35;
         limiter(controller1.getSmallanchorpane());
         limiter(controller1.getTogglegrid());
 
@@ -374,12 +374,12 @@ public class HelloController implements Initializable {
         /*On mouse movement, calibrates to small and large anchor panes */
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
             if (sprite.getRotate()+360 % 180 == 0) {
-                sprite.setX(mouseEvent.getX() - sprite.getWidth() / 2);
-                sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+                sprite.setX((mouseEvent.getX() - sprite.getWidth() / 2)*pan.getHvalue());
+                sprite.setY((mouseEvent.getY() - sprite.getHeight() / 2)*pan.getVvalue());
             }
             else {
-                sprite.setX(mouseEvent.getX() - sprite.getHeight() / 2);
-                sprite.setY(mouseEvent.getY() - sprite.getWidth() / 2);
+                sprite.setX((mouseEvent.getX() - sprite.getHeight() / 2)*pan.getHvalue());
+                sprite.setY((mouseEvent.getY() - sprite.getWidth() / 2)*pan.getVvalue());
             }
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
@@ -387,8 +387,8 @@ public class HelloController implements Initializable {
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
             if (sprite.getRotate()+360 % 180 == 0) {
-                sprite.setX((mouseEvent.getX() - sprite.getWidth() / 2) - 154);
-                sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+                sprite.setX((mouseEvent.getX() - sprite.getWidth() / 2)*pan.getHvalue());
+                sprite.setY((mouseEvent.getY() - sprite.getHeight() / 2)*pan.getVvalue());
             }
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
@@ -403,8 +403,8 @@ public class HelloController implements Initializable {
                 solidSprite.setRotate(sprite.getRotate());
 
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
-                double Hspacing = (HelloController.getAncheight()/ 20);
-                double Wspacing = (HelloController.getAncwidth()/ 35);
+                double Hspacing = ((HelloController.getAncheight()/ 20)*pan.getVvalue());
+                double Wspacing = ((HelloController.getAncwidth()/ 35)*pan.getHvalue());
 
 
                 int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing));
@@ -640,16 +640,11 @@ public class HelloController implements Initializable {
         region.setMinHeight(ancheight);
     }
 
-    //Method to keep the datagrid on the screen
-    private double limitwidth,limitheight;
-
     @FXML
     public void gridlimit(){
         HelloController controller = main.MainController();
-        limitwidth = (controller.getDataGrid().getWidth()/(-2));
-        limitheight = (controller.getDataGrid().getHeight()/2);
-        controller.getDataGrid().setTranslateX(limitwidth);
-        controller.getDataGrid().setTranslateY(limitheight);
+        controller.getDataGrid().setTranslateX(controller.getDataGrid().getWidth()/(-2));
+        controller.getDataGrid().setTranslateY(controller.getDataGrid().getHeight()/2);
     }
 
     @FXML
@@ -821,6 +816,7 @@ public class HelloController implements Initializable {
     public AnchorPane getAnchorpane(){return this.anchorpane;}
     public AnchorPane getSmallanchorpane(){return this.smallanchorpane;}
     public GridPane getTogglegrid(){return this.togglegrid;}
+    public ScrollPane getPan(){return this.pan;}
 
     //settings getters
     public VBox getSettingsvbox(){return this.settingsvbox;}
