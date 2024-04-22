@@ -8,9 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 public class CalculatingGrid {
-    Ohm resistance = new Ohm(0);
-    Volt potential = new Volt(0);
-    Amp current = new Amp(0);
+    private Ohm resistance = new Ohm(0);
+    private Volt potential = new Volt(0);
+    private Amp current = new Amp(0);
 
     GridPane dataGrid;
 
@@ -30,21 +30,19 @@ public class CalculatingGrid {
             HelloController.returnCalButton().setId("calculatetrue");
             HelloController.returnCalButton().setMouseTransparent(false);
             HelloController.returnCalButton().setOpacity(1);
-            HelloController.returnDataGrid().add(new Label(Double.toString(resistance.getOhm())), 0, 1);
-            HelloController.returnDataGrid().add(new Label(Double.toString(potential.getVolt())), 1, 1);
-            HelloController.returnDataGrid().add(new Label(Double.toString(current.getAmp())), 2, 1);
+            addLabel(1);
         }
         else{
             HelloController.returnCalButton().setId("calculatefalse");
             HelloController.returnCalButton().setMouseTransparent(true);
         }
     }
-    /*
-    public static void addLabel(int row){
+
+    public void addLabel(int row){
         HelloController.returnDataGrid().getChildren().remove(row, 1);
         HelloController.returnDataGrid().getChildren().remove(row, 2);
         HelloController.returnDataGrid().getChildren().remove(row, 3);
-        HelloController.returnDataGrid().addRow(row, new Label(Double.toString(resistance.getOhm())), new Label(Double.toString(potential.getVolt())),new Label(Double.toString(potential.getVolt())), new Label(Double.toString(current.getAmp())));
+        HelloController.returnDataGrid().addRow(row,new Label("R" + row), new Label(Double.toString(resistance.getOhm())), new Label(Double.toString(potential.getVolt())),new Label(Double.toString(potential.getVolt())), new Label(Double.toString(current.getAmp())));
     }
-    */
+
 }
