@@ -83,7 +83,22 @@
                   </AnchorPane>
                </content>
             </ScrollPane>
-                <ScrollPane layoutX="17.0" prefHeight="173.0" prefWidth="939.0" styleClass="scroll-pane1" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="152.0" AnchorPane.rightAnchor="0.0">
+            <VBox alignment="CENTER_LEFT" maxWidth="152.0" minWidth="152.0" prefWidth="152.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" width="186.0" />
+               </children>
+            </VBox>
+            <HBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="173.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="202.0" stroke="BLACK" strokeType="INSIDE" width="35.0" />
+               </children>
+            </HBox>
+            <VBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" maxWidth="152.0" minWidth="152.0" prefWidth="152.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" width="186.0" />
+               </children>
+            </VBox>
+                <ScrollPane layoutX="17.0" prefHeight="173.0" prefWidth="939.0" style="-fx-background-color: #ffffff;" styleClass="scroll-pane1" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="152.0" AnchorPane.rightAnchor="0.0">
                     <content>
                         <HBox fx:id="scrollhbox">
                             <VBox.margin>
@@ -220,7 +235,7 @@
                         </HBox>
                     </content>
                 </ScrollPane>
-                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="152.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="152.0" spacing="20.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#titleScreen" prefHeight="26.0" prefWidth="30.0" styleClass="button1" text="X">
                             <HBox.margin>
@@ -241,7 +256,7 @@
                     </opaqueInsets>
                 </HBox>
                 <!--Left side of border pane-->
-                <VBox layoutY="74.4000015258789" prefHeight="502.0" prefWidth="152.0" AnchorPane.bottomAnchor="173.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="74.0">
+                <VBox layoutY="74.4000015258789" prefHeight="502.0" prefWidth="152.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="173.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="74.0">
                     <!--Goal and budget visuals-->
                     <children>
                         <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
@@ -255,7 +270,7 @@
                                         <Insets right="10.0" top="30.0" />
                                     </padding>
                                 </Label>
-                                <Label alignment="CENTER" prefHeight="162.0" prefWidth="150.0" text="Make a circuit with two resistors that get 10 volts each" wrapText="true" VBox.vgrow="ALWAYS">
+                                <Label alignment="CENTER" prefHeight="168.0" prefWidth="150.0" text="Make a circuit with two resistors that get 10 volts each" wrapText="true" VBox.vgrow="ALWAYS">
                                     <font>
                                         <Font size="20.0" />
                                     </font>
@@ -283,7 +298,7 @@
                         <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
                     </children>
                 </VBox>
-                <VBox alignment="CENTER" layoutY="552.0" maxHeight="173.0" maxWidth="152.0" prefHeight="173.0" prefWidth="152.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                <VBox alignment="CENTER" layoutY="552.0" maxHeight="173.0" maxWidth="152.0" prefHeight="173.0" prefWidth="152.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
                     <children>
                         <Button fx:id="cal" mnemonicParsing="false" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Calculate">
                             <VBox.margin>
