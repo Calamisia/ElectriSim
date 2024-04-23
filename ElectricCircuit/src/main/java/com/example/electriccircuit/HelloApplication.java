@@ -1,6 +1,5 @@
 package com.example.electriccircuit;
 
-import com.example.electriccircuit.Logic.CalculatingGrid;
 import com.example.electriccircuit.Logic.Unlocks;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -147,9 +146,7 @@ public class HelloApplication extends Application {
     public Node settings(){return scene5;}
     public HelloController settingsController(){return controller5;}
 
-    public void maximise(){
-        primaryStage.setMaximized(true);
-    }
+    //Other stuff
     public int getScreenWidth(){
         return screenWidth;
     }

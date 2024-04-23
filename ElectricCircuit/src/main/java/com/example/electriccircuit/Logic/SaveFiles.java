@@ -9,6 +9,8 @@ import javafx.scene.shape.Rectangle;
 import java.io.*;
 import java.util.*;
 
+import static com.example.electriccircuit.Components.Component.componentArray;
+
 public class SaveFiles {
     private static String filePath = "ElectricCircuit/src/main/resources/SaveFiles/SaveFile.txt";
     public static Scanner Loader = new Scanner(filePath);
@@ -55,31 +57,6 @@ public class SaveFiles {
 
     // method that loads files
     public static void loadGame(){
-        /*BuilderMatrix grid = new BuilderMatrix();
-        String dataString = "";
-        int[][] data = new int[35][20];
-        int counter = 0;
-
-        // reads the matrix in string form
-        dataString = Loader.nextLine();
-
-        // assigns values to the matrix "data" from the string
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data[0].length; j++) {
-                data[i][j] = Character.getNumericValue(dataString.charAt(counter));
-                counter++;
-            }
-        }
-
-        // set the matrixBuilder grid to "data".
-        grid.setGrid(data);
-
-        //reads the second line of the save file and sets it as the users achievements.
-        Unlocks achievementLoader = new Unlocks();
-        dataString = "";
-        dataString = Loader.nextLine();
-        achievementLoader.setAchievementBitString(dataString); */
-
         File file = new File(filePath);
         try (Scanner loader = new Scanner(file)) {
             String dataString = loader.next();
@@ -96,8 +73,8 @@ public class SaveFiles {
                 }
             }
             Debug.printGrid(grid);
-            BuilderMatrix.setGrid(grid);
             handleUI(grid);
+            BuilderMatrix.setGrid(grid);
         } catch (FileNotFoundException e) {
             Debug.handleException(e);
         }
@@ -151,6 +128,7 @@ public class SaveFiles {
 
                             //Sandbox Matrix creation
                             component.interact();
+                            componentArray[Windex][Hindex] = component;
                         }
                     }
                 }
