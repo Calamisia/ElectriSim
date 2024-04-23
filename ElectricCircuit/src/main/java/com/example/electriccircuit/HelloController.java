@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -99,7 +100,7 @@ public class HelloController implements Initializable {
     @FXML
     private CheckBox checkGrid;
     @FXML
-    private AnchorPane anchorpane, smallanchorpane;
+    private AnchorPane anchorpane, smallanchorpane, anchoringgrid;
     @FXML
     public GridPane dataGrid;
     @FXML
@@ -291,10 +292,12 @@ public class HelloController implements Initializable {
             countee++;
         }
 
-        ancwidth = main.getScreenWidth();
+        ancwidth = main.getScreenWidth()-4;
         ancheight = (double)(main.getScreenWidth()*20)/35;
+
         limiter(controller1.getSmallanchorpane());
         limiter(controller1.getTogglegrid());
+        limiter(controller1.getAnchoringGrid());
 
         if (controller1.getCal() != null && controller1.getCal().getId() != "calculatetrue") {
             controller1.getCal().setMouseTransparent(true);
@@ -330,9 +333,13 @@ public class HelloController implements Initializable {
         main.getMainContainer().getChildren().remove(main.settings());
     }
 
+    private double contentX;
+    private double contentY;
+
     @FXML
     public void spawn(MouseEvent e) {
         Component component;
+        System.out.println("Worked");
         if(((HBox) e.getSource()).getId().equals(wire.getId())){
             component = new Wire();
         } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
@@ -352,6 +359,14 @@ public class HelloController implements Initializable {
             component = null;
             Debug.Error("Invalid spawn component");
         }
+
+        // Get the position of the content
+        pan.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> {
+            Bounds contentBounds = anchoringgrid.getBoundsInParent();
+            contentX = contentBounds.getMinX() + newValue.getMinX()+0.5;
+            contentY = contentBounds.getMinY() + newValue.getMinY()+0.5;
+        });
+        System.out.println("Content position: (" + contentX + ", " + contentY + ")");
 
         //Creates the object
         Rectangle sprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
@@ -374,12 +389,12 @@ public class HelloController implements Initializable {
         /*On mouse movement, calibrates to small and large anchor panes */
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
             if (sprite.getRotate()+360 % 180 == 0) {
-                sprite.setX((mouseEvent.getX() - sprite.getWidth() / 2)*pan.getHvalue());
-                sprite.setY((mouseEvent.getY() - sprite.getHeight() / 2)*pan.getVvalue());
+                sprite.setX((mouseEvent.getX() - contentX - sprite.getWidth() / 2));
+                sprite.setY((mouseEvent.getY() - contentY - sprite.getHeight() / 2));
             }
             else {
-                sprite.setX((mouseEvent.getX() - sprite.getHeight() / 2)*pan.getHvalue());
-                sprite.setY((mouseEvent.getY() - sprite.getWidth() / 2)*pan.getVvalue());
+                sprite.setX((mouseEvent.getX() - contentX - sprite.getHeight() / 2));
+                sprite.setY((mouseEvent.getY() - contentY - sprite.getWidth() / 2));
             }
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
@@ -387,8 +402,8 @@ public class HelloController implements Initializable {
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
             if (sprite.getRotate()+360 % 180 == 0) {
-                sprite.setX((mouseEvent.getX() - sprite.getWidth() / 2)*pan.getHvalue());
-                sprite.setY((mouseEvent.getY() - sprite.getHeight() / 2)*pan.getVvalue());
+                sprite.setX((mouseEvent.getX() - contentX - sprite.getWidth() / 2));
+                sprite.setY((mouseEvent.getY() - contentY - sprite.getHeight() / 2));
             }
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
@@ -403,12 +418,12 @@ public class HelloController implements Initializable {
                 solidSprite.setRotate(sprite.getRotate());
 
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
-                double Hspacing = ((HelloController.getAncheight()/ 20)*pan.getVvalue());
-                double Wspacing = ((HelloController.getAncwidth()/ 35)*pan.getHvalue());
+                double Hspacing = (Math.round(HelloController.getAncheight()/ 20));
+                double Wspacing = (Math.ceil(HelloController.getAncwidth()/ 35));
 
 
-                int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing));
-                int Windex = (int)Math.round((mouseEvent.getX() - Wspacing / 2) / (Wspacing));
+                int Hindex = (int)Math.round(((mouseEvent.getY() - contentY - Hspacing / 2) / (Hspacing)));
+                int Windex = (int)Math.round(((mouseEvent.getX() - contentX - Wspacing / 2) / (Wspacing)));
 
                 /* more fluid input */
                 if(Hindex == 20){
@@ -422,8 +437,8 @@ public class HelloController implements Initializable {
                 if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                     if (Windex < 35 && Windex >= 0) {
                         //snaps to grid
-                        solidSprite.setY(Hindex * (Hspacing));
-                        solidSprite.setX(Windex * (Wspacing));
+                        solidSprite.setY(Math.round(Hindex * (Hspacing)));
+                        solidSprite.setX(Math.ceil(Windex * (Wspacing)));
                         smallanchorpane.getChildren().add(solidSprite);
                         solidSprite.toFront();
 
@@ -817,6 +832,7 @@ public class HelloController implements Initializable {
     public AnchorPane getSmallanchorpane(){return this.smallanchorpane;}
     public GridPane getTogglegrid(){return this.togglegrid;}
     public ScrollPane getPan(){return this.pan;}
+    public AnchorPane getAnchoringGrid(){return this.anchoringgrid;}
 
     //settings getters
     public VBox getSettingsvbox(){return this.settingsvbox;}
