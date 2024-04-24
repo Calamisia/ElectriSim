@@ -1,8 +1,8 @@
 package com.example.electriccircuit.Logic;
 
 import com.example.electriccircuit.Components.*;
+import com.example.electriccircuit.Components.subcomponent.Switch;
 import com.example.electriccircuit.HelloController;
-import javafx.scene.layout.HBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 

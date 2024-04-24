@@ -1,5 +1,6 @@
 package com.example.electriccircuit.Components;
 
+import com.example.electriccircuit.DataTypes.Volt;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
@@ -13,13 +14,14 @@ public class PowerSupply extends Component{
         this.Id = 2;
     }
 
-    private int voltage;
+    private double voltage;
 
     public void setVoltage(int voltage) {
         this.voltage = voltage;
+        super.setPassingVoltage(voltage);
     } // setter
 
-    public int getVoltage() {
+    public double getVoltage() {
         return voltage;
     } // getter
 }

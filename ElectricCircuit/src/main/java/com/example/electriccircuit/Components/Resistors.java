@@ -13,14 +13,4 @@ public class Resistors extends Component{
         this.image[0] = new Image(in);
         this.Id = 3;
     }
-
-    private int resistance;
-
-    public void setResistance(int resistance) {
-        this.resistance = resistance;
-    } // setter
-
-    public int getResistance() {
-        return resistance;
-    } // getter
 }

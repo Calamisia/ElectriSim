@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import java.io.InputStream;
 
 public class Splitter extends Component{
-    private boolean inputDetected;
+    /*private boolean inputDetected;
     private static int nOfOutputs;
     private static Wire inputWire;
     private static Wire outputWireOne;
@@ -57,6 +57,6 @@ public class Splitter extends Component{
            } break;
         }
 
-    }
+    } */
 
 }

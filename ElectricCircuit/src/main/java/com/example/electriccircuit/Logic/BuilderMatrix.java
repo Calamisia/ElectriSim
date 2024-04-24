@@ -23,6 +23,7 @@ public class BuilderMatrix {
     private final int SWITCH = 10;
     private boolean isClosedCircuit;
     private StringBuilder circuitPath = new StringBuilder(); // used for calculation grid
+    private ArrayList<Component> objectPath = new ArrayList<Component>();
 
     public BuilderMatrix(){
         // initialize every value to zero
@@ -76,6 +77,11 @@ public class BuilderMatrix {
     public String getCircuitPath() {
         return circuitPath.toString();
     }
+
+    public ArrayList<Component> getObjectPath() {
+        return objectPath;
+    }
+
     // set the circuit path
     public void setCircuitPath(StringBuilder circuitPath) {
         this.circuitPath = circuitPath;
@@ -163,7 +169,6 @@ public class BuilderMatrix {
         int[] componentIndex = new int[4]; // indexes for a certain component
         boolean foundPower = false;
         ArrayList surroundingInfo = new ArrayList();
-
         outerloop:
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
@@ -178,6 +183,7 @@ public class BuilderMatrix {
                         componentIndex[2] = (int) surroundingInfo.get(3);
                         componentIndex[3] = (int) surroundingInfo.get(4);
                         grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] = 9;
+                        objectPath.add(componentArray[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
                         circuitPath.append(2);
                         foundPower = true;
                         System.out.println("Found index of powersupply " + i + " " + j);
@@ -200,6 +206,7 @@ public class BuilderMatrix {
             surroundingInfo = surrounding(componentIndex[0], componentIndex[1], componentIndex[2], componentIndex[3]);
             if ((boolean) (surroundingInfo.get(0))) {
                 if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 9) {
+                    objectPath.add(componentArray[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
                     circuitPath.append(2); // if it found the battery, return true
                     return true;
                 } else {
@@ -208,6 +215,7 @@ public class BuilderMatrix {
                     componentIndex[1] = (int) surroundingInfo.get(2);
                     componentIndex[2] = (int) surroundingInfo.get(3);
                     componentIndex[3] = (int) surroundingInfo.get(4);
+                    objectPath.add(componentArray[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
                     circuitPath.append(grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
                 }
             } else

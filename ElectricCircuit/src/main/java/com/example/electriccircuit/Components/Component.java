@@ -1,5 +1,6 @@
 package com.example.electriccircuit.Components;
 
+import com.example.electriccircuit.DataTypes.*;
 import com.example.electriccircuit.HelloController;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -12,6 +13,10 @@ public class Component {
     int Id;
     private int[] location = new int[2];
     public static Component[][] componentArray = new Component[35][20];
+
+    private double passingVoltage;
+    private double passingCurrent;
+    private double resistance;
 
     Component(Shape node) {
         this.node = node;
@@ -57,11 +62,23 @@ public class Component {
         return this.Id;
     }
 
+    public void setId(int Id){
+        this.Id = Id;
+    }
+
     public Image getImageTexture() {
         return this.image[0];
     }
     public Image getImageTexture(int i) {
         return this.image[i];
+    }
+
+    public void setImageTexture(Image image){
+        this.image[0] = image;
+    }
+
+    public void setImageTexture(Image image, int i){
+        this.image[i] = image;
     }
 
     public void interact() {
@@ -71,6 +88,29 @@ public class Component {
     }
     public void mainRefreshComponent(){
 
+    }
+
+    public void setPassingVoltage(double passingVoltage){
+        this.passingVoltage = passingVoltage;
+    }
+    public double getPassingVoltage(){
+        return passingVoltage;
+    }
+    public void setPassingCurrent(double passingCurrent){
+        this.passingCurrent = passingCurrent;
+    }
+    public double getPassingCurrent(){
+        return passingCurrent;
+    }
+    public void setResistance(double resistance){
+        this.resistance = resistance;
+    }
+    public double getResistance(){
+        return resistance;
+    }
+
+    public String toString(){
+        return Id + "";
     }
 
 }

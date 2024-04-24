@@ -1,11 +1,16 @@
 package com.example.electriccircuit.Logic;
 
+import com.example.electriccircuit.Components.Component;
+import com.example.electriccircuit.Components.PowerSupply;
+import com.example.electriccircuit.Components.Resistors;
 import com.example.electriccircuit.DataTypes.*;
 
 import com.example.electriccircuit.HelloApplication;
 import com.example.electriccircuit.HelloController;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+
+import java.util.ArrayList;
 
 public class CalculatingGrid {
     Ohm resistance = new Ohm(0);
@@ -16,15 +21,15 @@ public class CalculatingGrid {
 
     public CalculatingGrid(int[][] grid){
         BuilderMatrix sandboxMatrix = new BuilderMatrix(grid);
-        Debug.printGrid(grid);
         if(sandboxMatrix.closedCircuit()) {
             String circuitPath = sandboxMatrix.getCircuitPath();
-            for(int i = 0; i < circuitPath.length(); i++){
-                if(circuitPath.charAt(i) == '2'){
-                    potential.setVolt(10);
-                } else if (circuitPath.charAt(i) == '3'){
-                    resistance.setOhm(resistance.getOhm() + 50);
-                }
+            ArrayList<Component> objectPath = sandboxMatrix.getObjectPath();
+            potential.setVolt(objectPath.get(0).getPassingVoltage());
+            for(int i = 1; i < objectPath.size(); i++){
+                System.out.println(objectPath.get(i) + " is component " + i);
+                objectPath.get(i).setPassingVoltage(objectPath.get(i - 1).getPassingVoltage());
+                Debug.Log(objectPath.get(i).getPassingVoltage() + " is passing component voltage of " + i);
+                resistance.setOhm(resistance.getOhm() + objectPath.get(i).getResistance());
             }
             current.setAmp(current.ohmsLaw(potential, resistance));
             HelloController.returnCalButton().setId("calculatetrue");

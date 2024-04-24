@@ -22,9 +22,9 @@ public class Budget {
     } // get budget
 
     // determine the price of components
-    public double createWirePrice(Wire wire) {
-        return (wire.getLength() * WIREBASE);
-    }
+    //public double createWirePrice(Wire wire) {
+      //  return (wire.getLength() * WIREBASE);
+    //}
 
     public double createCapacitorPrice(Capacitors capacitor) {
         return (capacitor.getCapacitance() * CAPACITORBASE);

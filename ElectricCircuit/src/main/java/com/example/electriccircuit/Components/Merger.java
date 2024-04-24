@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import java.io.InputStream;
 
 public class Merger extends Component{
-    private static Wire inputWireOne;
+    /*private static Wire inputWireOne;
     private static Wire inputWireTwo;
     private static Wire inputWireThree;
     private static Wire outputWire;
@@ -54,6 +54,6 @@ public class Merger extends Component{
             } break;
 
         }
-    }
+    } */
 
 }

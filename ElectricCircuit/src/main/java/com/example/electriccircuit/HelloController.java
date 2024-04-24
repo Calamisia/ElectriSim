@@ -1,47 +1,29 @@
 package com.example.electriccircuit;
 
 import com.example.electriccircuit.Components.*;
+import com.example.electriccircuit.Components.subcomponent.Switch;
 import com.example.electriccircuit.Logic.BuilderMatrix;
-import com.example.electriccircuit.Logic.CalculatingGrid;
-import com.example.electriccircuit.Logic.SaveFiles;
 
 import static com.example.electriccircuit.Components.Component.componentArray;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.Logic.*;
 import javafx.animation.FadeTransition;
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
 import javafx.util.Duration;
-import static com.example.electriccircuit.Components.Component.componentArray;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -339,8 +321,11 @@ public class HelloController implements Initializable {
             component = new Wire();
         } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
             component = new PowerSupply();
+            ((PowerSupply) component).setVoltage(20);
+            Debug.Log(((PowerSupply) component).getVoltage() + " is voltage ");
         } else if(((HBox) e.getSource()).getId().equals(resistor.getId())){
             component = new Resistors();
+            component.setResistance(50);
         } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
             component = new Capacitors();
         } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
@@ -417,7 +402,6 @@ public class HelloController implements Initializable {
                         Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
                         component.setComponentNode(solidSprite);
                         component.setLocation(Windex, Hindex);
-                        BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
                         component.interact();
                         componentArray[Windex][Hindex] = component;
 
@@ -438,6 +422,7 @@ public class HelloController implements Initializable {
                         solidSprite.toFront();
 
                         //Sandbox Matrix creation
+                        BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
 
                     }
                 }
