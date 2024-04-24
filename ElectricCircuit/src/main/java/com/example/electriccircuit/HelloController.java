@@ -451,12 +451,7 @@ public class HelloController implements Initializable {
         component.interact();
 
 
-        if(component instanceof Wire){
-            component.mainRefreshComponent();
-        } else{
-            solidSprite.setFill(new ImagePattern(component.getImageTexture()));
-            solidSprite.setRotate(sprite.getRotate());
-        }
+
 
 
 
@@ -477,6 +472,13 @@ public class HelloController implements Initializable {
        /* if(component.getId() == 3){
             HelloController.returnDataGrid().addRow(HelloController.returnDataGrid().getRowCount(),new Label("R" + HelloController.returnDataGrid().getRowCount()));
         } */
+        if(component instanceof Wire){
+            component.mainRefreshComponent();
+        } else{
+            component.mainRefreshComponent();
+            solidSprite.setFill(new ImagePattern(component.getImageTexture()));
+            solidSprite.setRotate(sprite.getRotate());
+        }
         Debug.Log("column is actually " + Windex + " and row is " + Hindex);
     }
     @FXML

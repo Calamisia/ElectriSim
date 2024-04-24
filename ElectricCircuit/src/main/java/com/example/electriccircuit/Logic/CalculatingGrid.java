@@ -42,6 +42,9 @@ public class CalculatingGrid {
             HelloController.returnTotalOhmLabel().setText(String.valueOf(resistance.getOhm()));
         }
         else{
+            HelloController.returnTotalVoltLabel().setText(String.valueOf(0));
+            HelloController.returnTotalAmpLabel().setText(String.valueOf(0));
+            HelloController.returnTotalOhmLabel().setText(String.valueOf(0));
             HelloController.returnCalButton().setId("calculatefalse");
             HelloController.returnCalButton().setMouseTransparent(true);
         }

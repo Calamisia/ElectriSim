@@ -2,9 +2,12 @@ package com.example.electriccircuit.Components;
 
 import com.example.electriccircuit.DataTypes.*;
 import com.example.electriccircuit.HelloController;
+import com.example.electriccircuit.Logic.BuilderMatrix;
+import com.example.electriccircuit.Logic.Debug;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Shape;
 
 public class Component {
@@ -88,7 +91,33 @@ public class Component {
 
     }
     public void mainRefreshComponent(){
-
+            if(BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[0] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[1] == 1){
+                componentArray[getLocationRow() - 1][getLocationColumn()].refreshComponent();
+                componentArray[getLocationRow()][getLocationColumn() - 1].refreshComponent();
+            } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[0] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[2] == 1){
+                componentArray[getLocationRow() - 1][getLocationColumn()].refreshComponent();
+                componentArray[getLocationRow() + 1][getLocationColumn()].refreshComponent();
+            } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[0] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[3] == 1){
+                componentArray[getLocationRow() - 1][getLocationColumn()].refreshComponent();
+                componentArray[getLocationRow()][getLocationColumn() + 1].refreshComponent();
+            } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[1] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[2] == 1){
+                componentArray[getLocationRow()][getLocationColumn() - 1].refreshComponent();
+                componentArray[getLocationRow() + 1][getLocationColumn()].refreshComponent();
+            } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[1] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[3] == 1){
+                componentArray[getLocationRow()][getLocationColumn() - 1].refreshComponent();
+                componentArray[getLocationRow()][getLocationColumn() + 1].refreshComponent();
+            } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[2] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[3] == 1){
+                componentArray[getLocationRow() + 1][getLocationColumn()].refreshComponent();
+                componentArray[getLocationRow()][getLocationColumn() + 1].refreshComponent();
+            } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[0] == 1){
+                componentArray[getLocationRow() - 1][getLocationColumn()].refreshComponent();
+            } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[1] == 1){
+                componentArray[getLocationRow()][getLocationColumn() - 1].refreshComponent();
+            } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[2] == 1){
+                componentArray[getLocationRow() + 1][getLocationColumn()].refreshComponent();
+            } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[3] == 1){
+                componentArray[getLocationRow()][getLocationColumn() + 1].refreshComponent();
+            }
     }
 
     public void setPassingVoltage(double passingVoltage){
