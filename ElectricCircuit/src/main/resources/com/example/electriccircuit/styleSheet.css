@@ -182,9 +182,9 @@
 }
 
 .scroll-pane1{
-    -fx-border-color: #838383;
+    -fx-border-color: none;
     -fx-border-width: 1px;
-    -fx-background-color: none;
+    -fx-background-color: #ffffff;
 }
 
 .scroll-pane1 .thumb{
