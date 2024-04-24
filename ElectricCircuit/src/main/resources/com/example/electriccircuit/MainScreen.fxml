@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
         <AnchorPane fx:id="anchorpane">
@@ -425,6 +425,7 @@
                                         </columnConstraints>
                                         <rowConstraints>
                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         </rowConstraints>
                                         <VBox.margin>
                                             <Insets />
@@ -445,6 +446,21 @@
                                           <Font size="8.0" />
                                        </font>
                                     </Label>
+                                    <Label fx:id="totalOhms" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="8.0" />
+                                       </font>
+                                    </Label>
+                                     <Label fx:id="totalVolt" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                         <font>
+                                             <Font size="8.0" />
+                                         </font>
+                                     </Label>
+                                     <Label fx:id="totalAmp" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                         <font>
+                                             <Font size="8.0" />
+                                         </font>
+                                     </Label>
                                  </children>
                                     </GridPane>
                                 </children>

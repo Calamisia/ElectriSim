@@ -83,6 +83,8 @@ public class HelloController implements Initializable {
     @FXML
     private GridPane togglegrid, dataGrid;
     @FXML
+    private Label totalVolt, totalAmp, totalOhms;
+    @FXML
     private CheckBox checkGrid;
     @FXML
     private AnchorPane anchorpane, smallanchorpane, anchoringgrid;
@@ -319,30 +321,31 @@ public class HelloController implements Initializable {
     private double contentX;
     private double contentY;
 
+
     @FXML
     public void spawn(MouseEvent e) {
-        Component component;
+        final Component[] component = new Component[1];
         System.out.println("Worked");
         if(((HBox) e.getSource()).getId().equals(wire.getId())){
-            component = new Wire();
+            component[0] = new Wire();
         } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
-            component = new PowerSupply();
-            ((PowerSupply) component).setVoltage(20);
-            Debug.Log(((PowerSupply) component).getVoltage() + " is voltage ");
+            component[0] = new PowerSupply();
+            ((PowerSupply) component[0]).setVoltage(20);
+            Debug.Log(((PowerSupply) component[0]).getVoltage() + " is voltage ");
         } else if(((HBox) e.getSource()).getId().equals(resistor.getId())){
-            component = new Resistors();
-            component.setResistance(50);
+            component[0] = new Resistors();
+            component[0].setResistance(50);
         } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
-            component = new Capacitors();
+            component[0] = new Capacitors();
         } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
-            component = new Merger();
+            component[0] = new Merger();
         } else if(((HBox) e.getSource()).getId().equals(splitter.getId())){
-            component = new Splitter();
+            component[0] = new Splitter();
         } else if(((HBox) e.getSource()).getId().equals(wireSwitch.getId())){
-            component = new Switch();
+            component[0] = new Switch();
             Debug.Info("wireSwitch found");
         } else {
-            component = null;
+            component[0] = null;
             Debug.Error("Invalid spawn component");
         }
 
@@ -356,8 +359,8 @@ public class HelloController implements Initializable {
 
         //Creates the object
         Rectangle sprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
-        assert component != null;
-        sprite.setFill(new ImagePattern(component.getImageTexture()));
+        assert component[0] != null;
+        sprite.setFill(new ImagePattern(component[0].getImageTexture()));
         sprite.setOpacity(0);
         anchorpane.getChildren().add(sprite);
         smallanchorpane.getChildren().add(sprite);
@@ -412,38 +415,7 @@ public class HelloController implements Initializable {
 
                 if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                     if (Windex < 35 && Windex >= 0) {
-                        Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
-                        component.setComponentNode(solidSprite);
-                        component.setLocation(Windex, Hindex);
-                        component.interact();
-                        componentArray[Windex][Hindex] = component;
-
-
-
-
-                        solidSprite.setFill(new ImagePattern(component.getImageTexture()));
-                        solidSprite.setRotate(sprite.getRotate());
-
-
-
-
-
-                        //snaps to grid
-                        solidSprite.setY((Hindex * (Hspacing)));
-                        solidSprite.setX((Windex * (Wspacing))-5);
-                        smallanchorpane.getChildren().add(solidSprite);
-                        solidSprite.toFront();
-
-                        //Sandbox Matrix creation
-                        BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
-                        component.setLocation(Windex, Hindex);
-                        component.interact();
-                        if(component.getId() == 3){
-                            HelloController.returnDataGrid().addRow(HelloController.returnDataGrid().getRowCount(),new Label("R" + HelloController.returnDataGrid().getRowCount()));
-                        }
-                        Debug.Log("column is actually " + Windex + " and row is " + Hindex);
-                        componentArray[Windex][Hindex] = component;
-
+                        placeSolidSprite(component[0], Windex, Hindex, sprite, Hspacing, Wspacing);
                     }
                 }
                 if(!mouseEvent.isShiftDown()){
@@ -451,11 +423,49 @@ public class HelloController implements Initializable {
                     anchorpane.getChildren().remove(sprite);
 
                     isEventEnabled[0] = false;
+                } else{
+                    try {
+                        component[0] = component[0].getClass().newInstance();
+                    } catch (InstantiationException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (IllegalAccessException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
                 }
             }
         });
     }
+    public void placeSolidSprite(Component component, int Windex, int Hindex, Rectangle sprite, double Hspacing, double Wspacing){
+        Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
+        component.setComponentNode(solidSprite);
+        component.setLocation(Windex, Hindex);
+        component.interact();
 
+
+        solidSprite.setFill(new ImagePattern(component.getImageTexture()));
+        solidSprite.setRotate(sprite.getRotate());
+
+
+
+
+
+        //snaps to grid
+        solidSprite.setY((Hindex * (Hspacing)));
+        solidSprite.setX((Windex * (Wspacing))-5);
+        smallanchorpane.getChildren().add(solidSprite);
+        solidSprite.toFront();
+
+        //Sandbox Matrix creation
+
+        BuilderMatrix.setBoxID(Windex, Hindex, component.getId(), component);
+        component.setLocation(Windex, Hindex);
+        component.interact();
+        if(component.getId() == 3){
+            HelloController.returnDataGrid().addRow(HelloController.returnDataGrid().getRowCount(),new Label("R" + HelloController.returnDataGrid().getRowCount()));
+        }
+        Debug.Log("column is actually " + Windex + " and row is " + Hindex);
+    }
     @FXML
     public void exit(ActionEvent event){
         System.exit(0);
@@ -719,11 +729,32 @@ public class HelloController implements Initializable {
     public GridPane getDataGrid(){
         return dataGrid;
     }
+    public Label getTotalVoltLabel(){
+        return totalVolt;
+    }
+    public Label getTotalAmpLabel(){
+        return totalAmp;
+    }
+    public Label getTotalOhmLabel(){
+        return totalOhms;
+    }
 
     //Static getters
     public static GridPane returnDataGrid(){
         HelloController controllerx = HelloApplication.statMainController();
         return controllerx.getDataGrid();
+    }
+    public static Label returnTotalVoltLabel(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getTotalVoltLabel();
+    }
+    public static Label returnTotalAmpLabel(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getTotalAmpLabel();
+    }
+    public static Label returnTotalOhmLabel(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getTotalOhmLabel();
     }
 
     public static AnchorPane returnSmallAnchorPane(){

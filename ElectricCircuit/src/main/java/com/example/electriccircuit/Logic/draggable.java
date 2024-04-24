@@ -13,7 +13,7 @@ import static com.example.electriccircuit.HelloController.draggableMaker;
  * Any object that passes through a draggable object instance can be dragged
  */
 public class draggable {
-    // Mouse position X and Y
+    /* Mouse position X and Y
     private double mouseAnchorX;
     private double mouseAnchorY;
     final boolean[] isEventEnabled = {false};
@@ -50,7 +50,7 @@ public class draggable {
                 draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid, indexArray);
                 System.out.println(Hindex + " " + Windex);
 
-                /* more fluid input */
+
                 if (Hindex == 20) {
                     Hindex = 19;
                 }
@@ -79,4 +79,5 @@ public class draggable {
             }
         });
     }
+}  */
 }

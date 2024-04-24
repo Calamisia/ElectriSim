@@ -30,19 +30,19 @@ public class Switch extends Wire {
     public void interact(){
         getComponentNode().setOnMousePressed(e -> { // When mouse pressed on the object
             if(isClosed){
-                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 10);
+                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 10, this);
                 InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/openSwitch.png");
                 assert in != null;
                 setImageTexture(new Image(in));
                 Debug.Info(super.getLocationRow() + " " + super.getLocationColumn());
-                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 11);
+                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 11, this);
                 isClosed = false;
             } else {
-                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 11);
+                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 11, this);
                 InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/switchClosed.png");
                 assert in != null;
                 setImageTexture(new Image(in));
-                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 10);
+                BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 10, this);
                 isClosed = true;
             }
         });

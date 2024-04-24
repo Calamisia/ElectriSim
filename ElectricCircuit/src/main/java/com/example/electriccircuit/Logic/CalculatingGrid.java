@@ -20,6 +20,7 @@ public class CalculatingGrid {
     GridPane dataGrid;
 
     public CalculatingGrid(int[][] grid){
+        Debug.Log("Calculating Grid called");
         BuilderMatrix sandboxMatrix = new BuilderMatrix(grid);
         if(sandboxMatrix.closedCircuit()) {
             String circuitPath = sandboxMatrix.getCircuitPath();
@@ -35,7 +36,9 @@ public class CalculatingGrid {
             HelloController.returnCalButton().setId("calculatetrue");
             HelloController.returnCalButton().setMouseTransparent(false);
             HelloController.returnCalButton().setOpacity(1);
-            addLabel(1);
+            HelloController.returnTotalVoltLabel().setText(String.valueOf(potential.getVolt()));
+            HelloController.returnTotalAmpLabel().setText(String.valueOf(current.getAmp()));
+            HelloController.returnTotalOhmLabel().setText(String.valueOf(resistance.getOhm()));
         }
         else{
             HelloController.returnCalButton().setId("calculatefalse");
