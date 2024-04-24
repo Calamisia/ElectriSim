@@ -25,6 +25,7 @@ public class CalculatingGrid {
         if(sandboxMatrix.closedCircuit()) {
             String circuitPath = sandboxMatrix.getCircuitPath();
             ArrayList<Component> objectPath = sandboxMatrix.getObjectPath();
+            Debug.Log(objectPath.get(0) + " is object " + 0 + " and voltage is " + objectPath.get(0).getPassingVoltage());
             potential.setVolt(objectPath.get(0).getPassingVoltage());
             for(int i = 1; i < objectPath.size(); i++){
                 System.out.println(objectPath.get(i) + " is component " + i);

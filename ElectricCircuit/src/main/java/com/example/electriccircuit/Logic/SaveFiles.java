@@ -89,8 +89,10 @@ public class SaveFiles {
                         component = new Wire();
                     } else if(grid[j][i] == 2 || grid[j][i] == 9){
                         component = new PowerSupply();
+                        ((PowerSupply) component).setVoltage(20);
                     } else if(grid[j][i] == 3){
                         component = new Resistors();
+                        component.setResistance(50);
                     } else if(grid[j][i] == 4){
                         component = new Capacitors();
                     } else if(grid[j][i] == 5){

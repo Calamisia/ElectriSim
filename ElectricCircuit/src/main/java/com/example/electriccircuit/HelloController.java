@@ -461,9 +461,9 @@ public class HelloController implements Initializable {
         BuilderMatrix.setBoxID(Windex, Hindex, component.getId(), component);
         component.setLocation(Windex, Hindex);
         component.interact();
-        if(component.getId() == 3){
+       /* if(component.getId() == 3){
             HelloController.returnDataGrid().addRow(HelloController.returnDataGrid().getRowCount(),new Label("R" + HelloController.returnDataGrid().getRowCount()));
-        }
+        } */
         Debug.Log("column is actually " + Windex + " and row is " + Hindex);
     }
     @FXML
