@@ -17,6 +17,7 @@ public class Component {
     private double passingVoltage;
     private double passingCurrent;
     private double resistance;
+    private int[] connections = new int[4];
 
     Component(Shape node) {
         this.node = node;
@@ -107,6 +108,32 @@ public class Component {
     }
     public double getResistance(){
         return resistance;
+    }
+
+    public int[] getConnections(){
+        return connections;
+    }
+    public void setConnections(int[] connections){
+        this.connections = connections;
+    }
+    public void setConnections(int connection1, int connection2, int connection3, int connection4){
+        this.connections[0] = connection1;
+        this.connections[1] = connection2;
+        this.connections[2] = connection3;
+        this.connections[3] = connection4;
+    }
+    public void setConnections(boolean horizontal){
+        if(horizontal){
+            this.connections[0] = 0;
+            this.connections[1] = 1;
+            this.connections[2] = 0;
+            this.connections[3] = 1;
+        } else{
+            this.connections[0] = 1;
+            this.connections[1] = 0;
+            this.connections[2] = 1;
+            this.connections[3] = 0;
+        }
     }
 
     public String toString(){

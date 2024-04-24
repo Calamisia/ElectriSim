@@ -348,6 +348,7 @@ public class HelloController implements Initializable {
             component[0] = null;
             Debug.Error("Invalid spawn component");
         }
+        component[0].setConnections(0,1,0,1);
 
         // Get the position of the content
         pan.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> {
@@ -368,6 +369,13 @@ public class HelloController implements Initializable {
         main.getMainContainer().setOnKeyPressed(event -> {
             if (event.getCode().toString().equals("R")) {
                 rotateComponent(sprite);
+                for(int i = 0; i < component[0].getConnections().length; i++){
+                    if(component[0].getConnections()[i] == 0){
+                        component[0].getConnections()[i] = 1;
+                    } else{
+                        component[0].getConnections()[i] = 0;
+                    }
+                }
             }
         });
 
@@ -443,8 +451,13 @@ public class HelloController implements Initializable {
         component.interact();
 
 
-        solidSprite.setFill(new ImagePattern(component.getImageTexture()));
-        solidSprite.setRotate(sprite.getRotate());
+        if(component instanceof Wire){
+            component.mainRefreshComponent();
+        } else{
+            solidSprite.setFill(new ImagePattern(component.getImageTexture()));
+            solidSprite.setRotate(sprite.getRotate());
+        }
+
 
 
 
