@@ -12,6 +12,8 @@ import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -75,21 +77,19 @@ public class HelloController implements Initializable {
 
     //Start of main screen ids
     @FXML
-    private HBox scrollhbox;
+    private HBox scrollhbox, rectanglebottom;
     @FXML
-    private BorderPane borderPane;
+    private VBox retractableleft, rectangleleft, retractableright, rectangleright;
     @FXML
-    private GridPane togglegrid;
+    private GridPane togglegrid, dataGrid;
     @FXML
     private CheckBox checkGrid;
     @FXML
-    private AnchorPane anchorpane, smallanchorpane;
-    @FXML
-    public GridPane dataGrid;
+    private AnchorPane anchorpane, smallanchorpane, anchoringgrid;
     @FXML
     public Button cal;
     @FXML
-    public ScrollPane pan;
+    public ScrollPane pan, componentscroll;
 
     //components
     @FXML
@@ -275,10 +275,12 @@ public class HelloController implements Initializable {
             countee++;
         }
 
-        ancwidth = main.getScreenWidth() - 311;
-        ancheight = (double)((main.getScreenWidth() - 311)*20)/35;
+        ancwidth = main.getScreenWidth()-5;
+        ancheight = (double)(main.getScreenWidth()*20)/35;
+
         limiter(controller1.getSmallanchorpane());
         limiter(controller1.getTogglegrid());
+        limiter(controller1.getAnchoringGrid());
 
         if (controller1.getCal() != null && controller1.getCal().getId() != "calculatetrue") {
             controller1.getCal().setMouseTransparent(true);
@@ -314,9 +316,13 @@ public class HelloController implements Initializable {
         main.getMainContainer().getChildren().remove(main.settings());
     }
 
+    private double contentX;
+    private double contentY;
+
     @FXML
     public void spawn(MouseEvent e) {
         Component component;
+        System.out.println("Worked");
         if(((HBox) e.getSource()).getId().equals(wire.getId())){
             component = new Wire();
         } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
@@ -340,6 +346,14 @@ public class HelloController implements Initializable {
             Debug.Error("Invalid spawn component");
         }
 
+        // Get the position of the content
+        pan.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> {
+            Bounds contentBounds = anchoringgrid.getBoundsInParent();
+            contentX = contentBounds.getMinX() + newValue.getMinX()+0.5;
+            contentY = contentBounds.getMinY() + newValue.getMinY()+0.5;
+        });
+        //System.out.println("Content position: (" + contentX + ", " + contentY + ")");
+
         //Creates the object
         Rectangle sprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
         assert component != null;
@@ -349,7 +363,7 @@ public class HelloController implements Initializable {
         smallanchorpane.getChildren().add(sprite);
 
         main.getMainContainer().setOnKeyPressed(event -> {
-            if (event.isControlDown() || event.getCode().toString().equals("R")) {
+            if (event.getCode().toString().equals("R")) {
                 rotateComponent(sprite);
             }
         });
@@ -360,12 +374,12 @@ public class HelloController implements Initializable {
         /*On mouse movement, calibrates to small and large anchor panes */
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
             if (sprite.getRotate()+360 % 180 == 0) {
-                sprite.setX(mouseEvent.getX() - sprite.getWidth() / 2);
-                sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+                sprite.setX((mouseEvent.getX() - contentX - sprite.getWidth() / 2));
+                sprite.setY((mouseEvent.getY() - contentY - sprite.getHeight() / 2));
             }
             else {
-                sprite.setX(mouseEvent.getX() - sprite.getHeight() / 2);
-                sprite.setY(mouseEvent.getY() - sprite.getWidth() / 2);
+                sprite.setX((mouseEvent.getX() - contentX - sprite.getHeight() / 2));
+                sprite.setY((mouseEvent.getY() - contentY - sprite.getWidth() / 2));
             }
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
@@ -373,8 +387,8 @@ public class HelloController implements Initializable {
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
             if (sprite.getRotate()+360 % 180 == 0) {
-                sprite.setX((mouseEvent.getX() - sprite.getWidth() / 2) - 154);
-                sprite.setY(mouseEvent.getY() - sprite.getHeight() / 2);
+                sprite.setX((mouseEvent.getX() - contentX - sprite.getWidth() / 2));
+                sprite.setY((mouseEvent.getY() - contentY - sprite.getHeight() / 2));
             }
             if (!sprite.isFocused())
                 sprite.setOpacity(100);
@@ -382,12 +396,11 @@ public class HelloController implements Initializable {
 
         pan.setOnMouseReleased(mouseEvent -> {
             if(isEventEnabled[0]) { //makes sure you can only release once
-                double Hspacing = (HelloController.getAncheight()/ 20);
-                double Wspacing = (HelloController.getAncwidth()/ 35);
+                double Hspacing = (Math.round(HelloController.getAncheight()/ 20));
+                double Wspacing = (Math.ceil(HelloController.getAncwidth()/ 35));
 
-                int Hindex = (int)Math.round((mouseEvent.getY() - Hspacing / 2) / (Hspacing));
-                int Windex = (int)Math.round((mouseEvent.getX() - Wspacing / 2) / (Wspacing));
-
+                int Hindex = (int)Math.round(((mouseEvent.getY() - contentY - Hspacing / 2) / (Hspacing)));
+                int Windex = (int)Math.round(((mouseEvent.getX() - contentX - Wspacing / 2) / (Wspacing)));
                 /* more fluid input */
                 if(Hindex == 20){
                     Hindex = 19;
@@ -416,13 +429,20 @@ public class HelloController implements Initializable {
 
 
                         //snaps to grid
-                        solidSprite.setY(Hindex * (Hspacing));
-                        solidSprite.setX(Windex * (Wspacing));
+                        solidSprite.setY((Hindex * (Hspacing)));
+                        solidSprite.setX((Windex * (Wspacing))-5);
                         smallanchorpane.getChildren().add(solidSprite);
                         solidSprite.toFront();
 
                         //Sandbox Matrix creation
                         BuilderMatrix.setBoxID(Windex, Hindex, component.getId());
+                        component.setLocation(Windex, Hindex);
+                        component.interact();
+                        if(component.getId() == 3){
+                            HelloController.returnDataGrid().addRow(HelloController.returnDataGrid().getRowCount(),new Label("R" + HelloController.returnDataGrid().getRowCount()));
+                        }
+                        Debug.Log("column is actually " + Windex + " and row is " + Hindex);
+                        componentArray[Windex][Hindex] = component;
 
                     }
                 }
@@ -626,18 +646,15 @@ public class HelloController implements Initializable {
         region.setMinWidth(ancwidth);
         region.setMaxHeight(ancheight);
         region.setMinHeight(ancheight);
+        region.setPrefWidth(ancwidth);
+        region.setPrefHeight(ancheight);
     }
-
-    //Method to keep the datagrid on the screen
-    private double limitwidth,limitheight;
 
     @FXML
     public void gridlimit(){
         HelloController controller = main.MainController();
-        limitwidth = (controller.getDataGrid().getWidth()/(-2));
-        limitheight = (controller.getDataGrid().getHeight()/2);
-        controller.getDataGrid().setTranslateX(limitwidth);
-        controller.getDataGrid().setTranslateY(limitheight);
+        controller.getDataGrid().setTranslateX(controller.getDataGrid().getWidth()/(-2));
+        controller.getDataGrid().setTranslateY(controller.getDataGrid().getHeight()/2);
     }
 
     @FXML
@@ -645,6 +662,45 @@ public class HelloController implements Initializable {
         HelloController controller = main.MainController();
         controller.getDataGrid().setTranslateX(0);
         controller.getDataGrid().setTranslateY(0);
+    }
+
+    @FXML
+    public void retractRight(){
+        HelloController controller = main.MainController();
+        if(controller.getRetractableright().getTranslateX() == 0) {
+            controller.getRetractableright().setTranslateX(170);
+            controller.getRectangleright().setTranslateX(170);
+        }
+        else {
+            controller.getRetractableright().setTranslateX(0);
+            controller.getRectangleright().setTranslateX(0);
+        }
+    }
+
+    @FXML
+    public void retractLeft(){
+        HelloController controller = main.MainController();
+        if(controller.getRetractableleft().getTranslateX() == 0) {
+            controller.getRetractableleft().setTranslateX(-170);
+            controller.getRectangleleft().setTranslateX(-170);
+        }
+        else {
+            controller.getRetractableleft().setTranslateX(0);
+            controller.getRectangleleft().setTranslateX(0);
+        }
+    }
+
+    @FXML
+    public void retractBottom(){
+        HelloController controller = main.MainController();
+        if(controller.getComponentscroll().getTranslateY() == 0) {
+            controller.getComponentscroll().setTranslateY(200);
+            controller.getRectanglebottom().setTranslateY(200);
+        }
+        else {
+            controller.getComponentscroll().setTranslateY(0);
+            controller.getRectanglebottom().setTranslateY(0);
+        }
     }
 
 
@@ -805,10 +861,26 @@ public class HelloController implements Initializable {
 
     //main screen getters
     public HBox getScrollhbox(){return this.scrollhbox;}
-    public BorderPane getBorderPane(){return this.borderPane;}
+    public HBox getRectanglebottom(){return this.rectanglebottom;}
     public AnchorPane getAnchorpane(){return this.anchorpane;}
     public AnchorPane getSmallanchorpane(){return this.smallanchorpane;}
     public GridPane getTogglegrid(){return this.togglegrid;}
+    public ScrollPane getPan(){return this.pan;}
+    public ScrollPane getComponentscroll(){return this.componentscroll;}
+    public AnchorPane getAnchoringGrid(){return this.anchoringgrid;}
+
+    public VBox getRetractableright(){
+        return retractableright;
+    }
+    public VBox getRectangleright(){
+        return rectangleright;
+    }
+    public VBox getRetractableleft(){
+        return retractableleft;
+    }
+    public VBox getRectangleleft(){
+        return rectangleleft;
+    }
 
     //settings getters
     public VBox getSettingsvbox(){return this.settingsvbox;}
