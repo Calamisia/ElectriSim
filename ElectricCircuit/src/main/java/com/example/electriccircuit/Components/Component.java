@@ -5,23 +5,38 @@ import com.example.electriccircuit.HelloController;
 import com.example.electriccircuit.Logic.BuilderMatrix;
 import com.example.electriccircuit.Logic.Debug;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Shape;
 
+import java.io.InputStream;
+import java.util.Arrays;
+
 public class Component {
+    String name;
     Shape node;
     Image image[] = new Image[3];
     int Id;
     private int[] location = new int[2];
     public static Component[][] componentArray = new Component[35][20];
 
+    private boolean isDisplayed = false;
+
     private double passingVoltage;
+    private double voltage;
     private double passingCurrent;
     private double resistance;
     private double capacitance;
+    private double charge;
     private int[] connections = new int[4];
+    public Label labelName = new Label();
+    public Label labelResistance = new Label();
+    public Label labelPotential = new Label();
+    public Label labelCurrent = new Label();
+    public Label labelCapacitance = new Label();
+    public Label labelCharge = new Label();
 
     Component(Shape node) {
         this.node = node;
@@ -87,6 +102,21 @@ public class Component {
     }
 
     public void interact() {
+        getComponentNode().setOnMousePressed(e -> { // When mouse pressed on the object
+            labelName.setText(name + " " + HelloController.returnDataGrid().getRowCount());
+            refreshPersonalLabel();
+            if(!isDisplayed){
+                isDisplayed = true;
+                HelloController.returnDataGrid().addRow(
+                        HelloController.returnDataGrid().getRowCount(),
+                        labelName, labelResistance, labelPotential, labelCurrent, labelCapacitance, labelCharge
+                );
+            }
+            if (isDisplayed) {
+                //DELETE ROW CODE HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                //isDisplayed = false;
+            }
+        });
     }
     public void refreshComponent(){
 
@@ -127,6 +157,12 @@ public class Component {
     public double getPassingVoltage(){
         return passingVoltage;
     }
+    public void setVoltage(double voltage){
+        this.voltage = voltage;
+    }
+    public double getVoltage(){
+        return voltage;
+    }
     public void setPassingCurrent(double passingCurrent){
         this.passingCurrent = passingCurrent;
     }
@@ -147,6 +183,14 @@ public class Component {
 
     public double getCapacitance() {
         return capacitance;
+    } // getter
+
+    public void setCharge(double charge) {
+        this.charge = charge;
+    } // setter
+
+    public double getCharge() {
+        return charge;
     } // getter
 
     public int[] getConnections(){
@@ -173,6 +217,25 @@ public class Component {
             this.connections[2] = 1;
             this.connections[3] = 0;
         }
+    }
+
+    public void setIsDisplayed(boolean isDisplayed){
+        this.isDisplayed = isDisplayed;
+    }
+    public boolean isDisplayed(){
+        return isDisplayed;
+    }
+    public String getName(){
+        return name;
+    }
+
+    public void refreshPersonalLabel(){
+        labelResistance.setText(String.valueOf(resistance));
+        labelPotential.setText((String.valueOf(voltage)));
+        labelCurrent.setText(String.valueOf(passingCurrent));
+        labelCapacitance.setText(String.valueOf(capacitance));
+        labelCharge.setText(String.valueOf(charge));
+        Debug.Log("resistance is " + resistance);
     }
 
     public String toString(){
