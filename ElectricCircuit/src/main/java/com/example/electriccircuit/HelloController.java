@@ -2,7 +2,6 @@ package com.example.electriccircuit;
 
 import com.example.electriccircuit.Components.*;
 import com.example.electriccircuit.Logic.BuilderMatrix;
-import com.example.electriccircuit.Logic.CalculatingGrid;
 import com.example.electriccircuit.Logic.SaveFiles;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
@@ -37,6 +36,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 import static com.example.electriccircuit.Components.Component.componentArray;
 
 import java.io.IOException;
@@ -401,6 +405,7 @@ public class HelloController implements Initializable {
                 component.setComponentNode(solidSprite);
                 solidSprite.setFill(new ImagePattern(component.getImageTexture()));
                 solidSprite.setRotate(sprite.getRotate());
+                popSound();
 
                 //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                 double Hspacing = (HelloController.getAncheight()/ 20);
@@ -465,6 +470,7 @@ public class HelloController implements Initializable {
         controller1.getCal().setId("calculatefalse");
         controller1.getCal().setMouseTransparent(true);
         controller1.getCal().setOpacity(0.5);
+        wooshSound();
     }
 
     private void rotateComponent(Rectangle rectangle) {
@@ -654,6 +660,38 @@ public class HelloController implements Initializable {
         HelloController controller = main.MainController();
         controller.getDataGrid().setTranslateX(-limitwidth);
         controller.getDataGrid().setTranslateY(-limitheight);
+    }
+
+    // SOUND EFFECTS
+    public void popSound() {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("pop.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void correctSound(){
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("correct.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void wooshSound(){
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("woosh.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
 
