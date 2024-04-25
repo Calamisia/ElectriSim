@@ -1,5 +1,6 @@
 package com.example.electriccircuit.Logic;
 
+import com.example.electriccircuit.Components.Capacitors;
 import com.example.electriccircuit.Components.Component;
 import com.example.electriccircuit.Components.PowerSupply;
 import com.example.electriccircuit.Components.Resistors;
@@ -12,14 +13,16 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
 
 public class CalculatingGrid {
-    private Ohm resistance = new Ohm(0);
-    private Volt potential = new Volt(0);
+    static Ohm resistance = new Ohm(0);
+    static Volt potential = new Volt(0);
     private Amp current = new Amp(0);
-    private Capacitance farad = new Capacitance(0);
+    static Capacitance farad = new Capacitance(0);
     private Charge coulomb = new Charge(0);
     private int capacitorLocation;
+    static Capacitors chargedCapacitor;
 
     GridPane dataGrid;
 
@@ -27,6 +30,8 @@ public class CalculatingGrid {
         Debug.Log("Calculating Grid called");
         BuilderMatrix sandboxMatrix = new BuilderMatrix(grid);
         if(sandboxMatrix.closedCircuit()) {
+            resistance.setOhm(0);
+            potential.setVolt(0);
             String circuitPath = sandboxMatrix.getCircuitPath();
             ArrayList<Component> objectPath = sandboxMatrix.getObjectPath();
             Debug.Log(objectPath.get(0) + " is object " + 0 + " and voltage is " + objectPath.get(0).getPassingVoltage());
@@ -57,15 +62,16 @@ public class CalculatingGrid {
                 Thread thread1 = new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        //* HelloController.returnTimeSlider().getValue()
                         double start = System.currentTimeMillis();
                         while (objectPath.get(capacitorLocation).getVoltage() != potential.getVolt()) {
-                            objectPath.get(capacitorLocation).setVoltage(potential.getVolt() * (1 - Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));
+                            objectPath.get(capacitorLocation).setVoltage(potential.getVolt() * (1 - Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000) / (resistance.getOhm() * farad.getCapacitance()))));
                             if (objectPath.get(capacitorLocation).isDisplayed()) {
                                 Platform.runLater(() -> {
                                     objectPath.get(capacitorLocation).refreshPersonalLabel();
                                 });
                                 try {
-                                    Thread.sleep(500); // Sleep for 0.5 seconds
+                                    Thread.sleep(20);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -74,6 +80,7 @@ public class CalculatingGrid {
                     }
                 });
                 thread1.start();
+                chargedCapacitor = ((Capacitors)objectPath.get(capacitorLocation));
             }
 
             HelloController.returnCalButton().setId("calculatetrue");
@@ -112,6 +119,34 @@ public class CalculatingGrid {
             HelloController.returnTotalChargeLabel().setText(String.valueOf(0));
             HelloController.returnCalButton().setId("calculatefalse");
             HelloController.returnCalButton().setMouseTransparent(true);
+
+            if(chargedCapacitor != null){
+                Capacitors temporarycap = chargedCapacitor;
+                Debug.Log("unload");
+                Thread thread2 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //* HelloController.returnTimeSlider().getValue()
+                        double start = System.currentTimeMillis();
+                        while (temporarycap.getVoltage() != 0) {
+                            temporarycap.setVoltage(potential.getVolt() * (Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000) / (resistance.getOhm() * farad.getCapacitance()))));
+                            if (temporarycap.isDisplayed()) {
+                                Platform.runLater(() -> {
+                                    temporarycap.refreshPersonalLabel();
+                                });
+                                try {
+                                    Thread.sleep(20);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                });
+                thread2.start();
+                Debug.Log(temporarycap.getName() + " is at " + temporarycap.getVoltage());
+                chargedCapacitor = null;
+            }
         }
     }
 

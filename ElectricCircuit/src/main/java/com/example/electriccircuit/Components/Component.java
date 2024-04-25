@@ -17,7 +17,7 @@ import java.util.Arrays;
 public class Component {
     String name;
     Shape node;
-    Image image[] = new Image[3];
+    Image image[] = new Image[4];
     int Id;
     private int[] location = new int[2];
     public static Component[][] componentArray = new Component[35][20];
@@ -235,7 +235,13 @@ public class Component {
         labelCurrent.setText(String.valueOf(passingCurrent));
         labelCapacitance.setText(String.valueOf(capacitance));
         labelCharge.setText(String.valueOf(charge));
-        Debug.Log("resistance is " + resistance);
+    }
+    public void closedCircuitRefreshPersonalLabel(){
+        labelResistance.setText(String.valueOf(0));
+        labelPotential.setText((String.valueOf(0)));
+        labelCurrent.setText(String.valueOf(0));
+        labelCapacitance.setText(String.valueOf(0));
+        labelCharge.setText(String.valueOf(0));
     }
 
     public String toString(){
