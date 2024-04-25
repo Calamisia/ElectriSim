@@ -694,8 +694,8 @@ public class HelloController implements Initializable {
     public void retractRight(){
         HelloController controller = main.MainController();
         if(controller.getRetractableright().getTranslateX() == 0) {
-            controller.getRetractableright().setTranslateX(170);
-            controller.getRectangleright().setTranslateX(170);
+            controller.getRetractableright().setTranslateX(190);
+            controller.getRectangleright().setTranslateX(190);
         }
         else {
             controller.getRetractableright().setTranslateX(0);
@@ -707,8 +707,8 @@ public class HelloController implements Initializable {
     public void retractLeft(){
         HelloController controller = main.MainController();
         if(controller.getRetractableleft().getTranslateX() == 0) {
-            controller.getRetractableleft().setTranslateX(-170);
-            controller.getRectangleleft().setTranslateX(-170);
+            controller.getRetractableleft().setTranslateX(-190);
+            controller.getRectangleleft().setTranslateX(-190);
         }
         else {
             controller.getRetractableleft().setTranslateX(0);
