@@ -105,9 +105,9 @@
                                 <Insets />
                             </VBox.margin>
                             <children>
-                                <HBox fx:id="wire" onMousePressed="#spawn" prefHeight="150.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="wire" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                        <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@wire.png" />
                                             </image>
@@ -130,9 +130,9 @@
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="powerSupply" onMousePressed="#spawn" prefHeight="150.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="powerSupply" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                        <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@power supply.png" />
                                             </image>
@@ -155,9 +155,9 @@
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="resistor" onMousePressed="#spawn" prefHeight="150.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="resistor" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                        <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@resistor.png" />
                                             </image>
@@ -180,9 +180,9 @@
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="capacitor" onMousePressed="#spawn" prefHeight="150.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="capacitor" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                        <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@capacitor.png" />
                                             </image>
@@ -205,9 +205,9 @@
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="merger" onMousePressed="#spawn" prefHeight="150.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="merger" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                        <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@FourWayMerger.png" />
                                             </image>
@@ -230,9 +230,9 @@
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="splitter" onMousePressed="#spawn" prefHeight="150.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="splitter" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                                        <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
                                                 <Image url="@FourWaySplitter.png" />
                                             </image>
@@ -255,9 +255,9 @@
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="wireSwitch" onMousePressed="#spawn" prefHeight="150.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="wireSwitch" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" HBox.hgrow="ALWAYS">
+                                        <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" HBox.hgrow="ALWAYS">
                                             <image>
                                                 <Image url="@switchClosed.png" />
                                             </image>

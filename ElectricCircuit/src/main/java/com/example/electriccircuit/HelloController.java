@@ -277,8 +277,8 @@ public class HelloController implements Initializable {
             countee++;
         }
 
-        ancwidth = main.getScreenWidth()-5;
-        ancheight = (double)(main.getScreenWidth()*20)/35;
+        ancwidth = (Math.ceil((float) main.getScreenWidth() /35))*35;
+        ancheight = (float)(main.getScreenWidth()*20)/35;
 
         limiter(controller1.getSmallanchorpane());
         limiter(controller1.getTogglegrid());
@@ -408,7 +408,7 @@ public class HelloController implements Initializable {
         pan.setOnMouseReleased(mouseEvent -> {
             if(isEventEnabled[0]) { //makes sure you can only release once
                 double Hspacing = (Math.round(HelloController.getAncheight()/ 20));
-                double Wspacing = (Math.ceil(HelloController.getAncwidth()/ 35));
+                double Wspacing = (Math.round(HelloController.getAncwidth()/ 35));
 
                 int Hindex = (int)Math.round(((mouseEvent.getY() - contentY - Hspacing / 2) / (Hspacing)));
                 int Windex = (int)Math.round(((mouseEvent.getX() - contentX - Wspacing / 2) / (Wspacing)));
@@ -460,7 +460,7 @@ public class HelloController implements Initializable {
 
         //snaps to grid
         solidSprite.setY((Hindex * (Hspacing)));
-        solidSprite.setX((Windex * (Wspacing))-5);
+        solidSprite.setX((Windex * (Wspacing)));
         smallanchorpane.getChildren().add(solidSprite);
         solidSprite.toFront();
 
