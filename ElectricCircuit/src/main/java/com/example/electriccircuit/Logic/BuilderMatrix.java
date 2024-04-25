@@ -45,7 +45,7 @@ public class BuilderMatrix {
     // Used to add a component Id to a box
     public static void setBoxID(int row, int column, int iD, Component component) {
         Debug.printGrid(grid);
-        if(grid[row][column] != 0){
+        if(grid[row][column] != 0 && grid[row][column] != 7 && grid[row][column] != 8){
             componentArray[row][column].removeComponentNode();
             Debug.Log("Set box ID thinks row is " + row + " column is " + column);
             componentArray[row][column] = component;
@@ -99,7 +99,7 @@ public class BuilderMatrix {
     public boolean isValid(int row, int column, int prevRow, int prevCol){
         if (row < 0 || row >= grid.length || column < 0 || column >= grid[0].length)
             return false; //outofbounds searching excluded
-        else if(column == prevCol && row == prevRow || grid[row][column] == 0){
+        else if(column == prevCol && row == prevRow || grid[row][column] == 0 || grid[row][column] == 7){
             return false; //repeat component excluded and empty boxes
         }
         else{
