@@ -28,6 +28,7 @@ public class CalculatingGrid {
             Debug.Log(objectPath.get(0) + " is object " + 0 + " and voltage is " + objectPath.get(0).getPassingVoltage());
             potential.setVolt(objectPath.get(0).getPassingVoltage());
             for(int i = 1; i < objectPath.size(); i++){
+                Debug.Log("The possible connections of " + i + " is " + objectPath.get(i).getConnections()[0] + objectPath.get(i).getConnections()[1] + objectPath.get(i).getConnections()[2] + objectPath.get(i).getConnections()[3] + " and is at location " + objectPath.get(i).getLocationRow() + " " + objectPath.get(i).getLocationColumn());
                 System.out.println(objectPath.get(i) + " is component " + i);
                 objectPath.get(i).setPassingVoltage(objectPath.get(i - 1).getPassingVoltage());
                 Debug.Log(objectPath.get(i).getPassingVoltage() + " is passing component voltage of " + i);

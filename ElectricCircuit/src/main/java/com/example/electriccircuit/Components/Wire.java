@@ -107,7 +107,7 @@ public class Wire extends Component{
             node.setFill(new ImagePattern(getImageTexture(1)));
             node.setRotate(90);
             Debug.Log("refreshes1");
-            setConnections(0,0,1,1);
+            setConnections(1,0,0,1);
         } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[0] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[2] == 1){
             node.setFill(new ImagePattern(getImageTexture(0)));
             Debug.Log("refreshes2");
@@ -115,12 +115,12 @@ public class Wire extends Component{
         } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[0] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[3] == 1){
             node.setFill(new ImagePattern(getImageTexture(1)));
             Debug.Log("refreshes3");
-            setConnections(1,0,0,1);
+            setConnections(0,0,1,1);
         } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[1] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[2] == 1){
             node.setFill(new ImagePattern(getImageTexture(1)));
             node.setRotate(180);
             Debug.Log("refreshes4");
-            setConnections(0,1,1,0);
+            setConnections(1,1,0,0);
         } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[1] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[3] == 1){
             node.setFill(new ImagePattern(getImageTexture(0)));
             node.setRotate(90);
@@ -130,7 +130,7 @@ public class Wire extends Component{
             node.setFill(new ImagePattern(getImageTexture(1)));
             node.setRotate(-90);
             Debug.Log("refreshes6");
-            setConnections(1,1,0,0);
+            setConnections(0,1,1,0);
         } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[0] == 1){
             node.setFill(new ImagePattern(getImageTexture(0)));
             Debug.Log("refreshes7");
@@ -161,7 +161,7 @@ public class Wire extends Component{
             node.setRotate(90);
             componentArray[getLocationRow() - 1][getLocationColumn()].refreshComponent();
             componentArray[getLocationRow()][getLocationColumn() - 1].refreshComponent();
-            setConnections(0,0,1,1);
+            setConnections(1,0,0,1);
         } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[0] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[2] == 1){
             node.setFill(new ImagePattern(getImageTexture(0)));
             componentArray[getLocationRow() - 1][getLocationColumn()].refreshComponent();
@@ -171,13 +171,13 @@ public class Wire extends Component{
             node.setFill(new ImagePattern(getImageTexture(1)));
             componentArray[getLocationRow() - 1][getLocationColumn()].refreshComponent();
             componentArray[getLocationRow()][getLocationColumn() + 1].refreshComponent();
-            setConnections(1,0,0,1);
+            setConnections(0,0,1,1);
         } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[1] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[2] == 1){
             node.setFill(new ImagePattern(getImageTexture(1)));
             node.setRotate(180);
             componentArray[getLocationRow()][getLocationColumn() - 1].refreshComponent();
             componentArray[getLocationRow() + 1][getLocationColumn()].refreshComponent();
-            setConnections(0,1,1,0);
+            setConnections(1,1,0,0);
         } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[1] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[3] == 1){
             node.setFill(new ImagePattern(getImageTexture(0)));
             node.setRotate(90);
@@ -189,7 +189,7 @@ public class Wire extends Component{
             node.setRotate(-90);
             componentArray[getLocationRow() + 1][getLocationColumn()].refreshComponent();
             componentArray[getLocationRow()][getLocationColumn() + 1].refreshComponent();
-            setConnections(1,1,0,0);
+            setConnections(0,1,1,0);
         } else if (BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[0] == 1){
             node.setFill(new ImagePattern(getImageTexture(0)));
             componentArray[getLocationRow() - 1][getLocationColumn()].refreshComponent();
