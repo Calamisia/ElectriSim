@@ -48,7 +48,6 @@ public class BuilderMatrix {
         if(grid[row][column] != 0){
             componentArray[row][column].removeComponentNode();
             Debug.Log("Set box ID thinks row is " + row + " column is " + column);
-            Debug.printGrid(grid);
             componentArray[row][column] = component;
         }
         componentArray[row][column] = component;

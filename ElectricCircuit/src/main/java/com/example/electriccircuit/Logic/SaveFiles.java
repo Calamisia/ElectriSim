@@ -42,8 +42,26 @@ public class SaveFiles {
             }
         }
 
+        // gets the matrix, and creates a stringBuilder
+        StringBuilder rotationBitString = new StringBuilder(700);
+
+        // writes the matrix indices to the string
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if(grid[i][j] != 0 && grid[i][j] != 1){
+                    if(componentArray[i][j].getConnections()[0] == 1 && componentArray[i][j].getConnections()[2] == 1){
+                        rotationBitString.append(1);
+                    } else{
+                        rotationBitString.append(0);
+                    }
+                }
+            }
+        }
+
         //saves the matrix
         Saver.write(sandboxBitString.toString() + "\n");
+
+        Saver.write(rotationBitString.toString() + "\n");
 
         //gets the achievement bit string
         Unlocks achievementSaver = new Unlocks();
@@ -60,6 +78,7 @@ public class SaveFiles {
         File file = new File(filePath);
         try (Scanner loader = new Scanner(file)) {
             String dataString = loader.next();
+            String rotationString = loader.next();
             Debug.Log(dataString);
             int[][] grid = new int[35][20];
             int counter = 0;
@@ -74,50 +93,53 @@ public class SaveFiles {
             }
             BuilderMatrix builderMatrix = new BuilderMatrix();
             Debug.printGrid(grid);
-            handleUI(grid);
+            handleUI(grid, rotationString);
         } catch (FileNotFoundException e) {
             Debug.handleException(e);
         }
     }
 
-    public static void handleUI(int[][] grid){
+    public static void handleUI(int[][] grid, String rotationString){
+        Debug.Log("rotation string is " + rotationString);
+        int rotationCounter = 0;
         BuilderMatrix builderMatrix = new BuilderMatrix();
-        for(int i = 0; i < grid[i].length; i++){
-            for(int j = 0; j < grid.length; j++){
-                if(grid[j][i] > 0){
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[i].length; j++){
+                if(grid[i][j] > 0){
                     Component component;
-                    if(grid[j][i] == 1){
+                    if(grid[i][j] == 1){
                         component = new Wire();
-                    } else if(grid[j][i] == 2 || grid[j][i] == 9){
+                    } else if(grid[i][j] == 2 || grid[i][j] == 9){
                         component = new PowerSupply();
                         ((PowerSupply) component).setVoltage(20);
-                    } else if(grid[j][i] == 3){
+                    } else if(grid[i][j] == 3){
                         component = new Resistors();
                         component.setResistance(50);
-                    } else if(grid[j][i] == 4){
+                    } else if(grid[i][j] == 4){
                         component = new Capacitors();
-                    } else if(grid[j][i] == 5){
+                    } else if(grid[i][j] == 5){
                         component = new Merger();
-                    } else if(grid[j][i] == 6){
+                    } else if(grid[i][j] == 6){
                         component = new Splitter();
-                    } else if(grid[j][i] == 10){
+                    } else if(grid[i][j] == 10){
                         component = new Switch();
                         Debug.Info("wireSwitch found");
                     } else {
                         component = null;
-                        Debug.Error("Invalid spawn component" + grid[j][i]);
+                        Debug.Error("Invalid spawn component" + grid[i][j]);
                     }
-                    builderMatrix.setBoxID(j,i,component.getId(),component);
+                    builderMatrix.setBoxID(i,j,component.getId(),component);
                     Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
                     component.setComponentNode(solidSprite);
                     solidSprite.setFill(new ImagePattern(component.getImageTexture()));
+
 
                     //draggableMaker.dragging(solidcircle, iD, smallanchorpane, dataGrid);
                     double Hspacing = (HelloController.getAncheight()/ 20);
                     double Wspacing = (HelloController.getAncwidth()/ 35);
 
-                    int Hindex = i;
-                    int Windex = j;
+                    int Hindex = j;
+                    int Windex = i;
 
                     if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                         if (Windex < 35 && Windex >= 0) {
@@ -127,6 +149,17 @@ public class SaveFiles {
                             solidSprite.setX(Windex * (Wspacing));
                             HelloController.returnSmallAnchorPane().getChildren().add(solidSprite);
                             solidSprite.toFront();
+                            if(component.getId() != 0 && component.getId() != 1){
+                                Debug.Log("We here boys " + rotationCounter + " and " + rotationString.charAt(rotationCounter));
+                                if(rotationString.charAt(rotationCounter) == '1'){
+                                    component.getComponentNode().setRotate(90);
+                                    Debug.Log("And so we rotate");
+                                    component.setConnections(1, 0, 1, 0);
+                                } else{
+                                    component.setConnections(0,1,0,1);
+                                }
+                                rotationCounter++;
+                            }
 
                             //Sandbox Matrix creation
                             component.interact();
