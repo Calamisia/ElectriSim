@@ -105,7 +105,7 @@
                                 <Insets />
                             </VBox.margin>
                             <children>
-                                <HBox fx:id="wire" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="wire" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="NEVER">
                                     <children>
                                         <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
@@ -114,35 +114,10 @@
                               </ImageView>
                                     </children>
                                 </HBox>
-                                  <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                       <children>
                                           <Label alignment="CENTER" text="Wire" />
                                           <Label alignment="CENTER" contentDisplay="CENTER" text=" A simple component that relays everything together. An essential part of any circuit" wrapText="true">
-                                 <VBox.margin>
-                                    <Insets left="10.0" right="10.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets left="5.0" />
-                                 </padding>
-                              </Label>
-                                      </children>
-                                      <padding>
-                                          <Insets top="10.0" />
-                                      </padding>
-                                  </VBox>
-                                <HBox fx:id="powerSupply" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
-                                            <image>
-                                                <Image url="@power supply.png" />
-                                            </image>
-                              </ImageView>
-                                    </children>
-                                </HBox>
-                                  <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
-                                      <children>
-                                          <Label alignment="CENTER" text="Power Supply" />
-                                          <Label text="Most commonly referred to as a batter, this component allows for current to be distributed through the circuit" wrapText="true">
                                  <VBox.margin>
                                     <Insets left="5.0" right="10.0" />
                                  </VBox.margin>
@@ -155,7 +130,32 @@
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="resistor" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="powerSupply" onMousePressed="#spawn" prefHeight="175.0" styleClass="smallborder" HBox.hgrow="NEVER">
+                                    <children>
+                                        <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@power supply.png" />
+                                            </image>
+                              </ImageView>
+                                    </children>
+                                </HBox>
+                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="20.0" styleClass="smallborder" HBox.hgrow="ALWAYS">
+                                      <children>
+                                          <Label alignment="CENTER" text="Power Supply" />
+                                          <Label text="Most commonly referred to as a battery, this component allows for current to be distributed through the circuit" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="10.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                                      </children>
+                                      <padding>
+                                          <Insets top="10.0" />
+                                      </padding>
+                                  </VBox>
+                                <HBox fx:id="resistor" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="NEVER">
                                     <children>
                                         <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
@@ -164,7 +164,7 @@
                               </ImageView>
                                     </children>
                                 </HBox>
-                                  <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                       <children>
                                           <Label alignment="CENTER" text="Resistor" />
                                           <Label text="This is equivalent to anything that uses the current like a lightbulb. Usually, at least 1 is present or else the circuit has no purpose" wrapText="true">
@@ -180,7 +180,7 @@
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="capacitor" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="capacitor" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="NEVER">
                                     <children>
                                         <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
@@ -189,7 +189,7 @@
                               </ImageView>
                                     </children>
                                 </HBox>
-                                  <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                       <children>
                                           <Label alignment="CENTER" text="Capacitor" />
                                           <Label text="This is used to create more complicated circuit. Mostly used as storage." wrapText="true">
@@ -205,7 +205,7 @@
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="merger" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="merger" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="NEVER">
                                     <children>
                                         <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
@@ -214,7 +214,7 @@
                               </ImageView>
                                     </children>
                                 </HBox>
-                                  <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                       <children>
                                           <Label alignment="CENTER" text="Merger" />
                                           <Label text="A component to merge split paths into one" wrapText="true">
@@ -230,7 +230,7 @@
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="splitter" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="splitter" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="NEVER">
                                     <children>
                                         <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
@@ -239,7 +239,7 @@
                               </ImageView>
                                     </children>
                                 </HBox>
-                                  <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="150.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="20.0" HBox.hgrow="ALWAYS">
                                       <children>
                                           <Label alignment="CENTER" text="Splitter" />
                                           <Label text="A component to split one path into many" wrapText="true">
@@ -255,7 +255,7 @@
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="wireSwitch" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="ALWAYS">
+                                <HBox fx:id="wireSwitch" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="NEVER">
                                     <children>
                                         <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" HBox.hgrow="ALWAYS">
                                             <image>
@@ -264,7 +264,7 @@
                               </ImageView>
                                     </children>
                                 </HBox>
-                                  <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="150.0" prefWidth="150.0" spacing="20.0">
+                                  <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="175.0" prefWidth="175.0" spacing="20.0">
                                       <children>
                                           <Label alignment="CENTER" text="Switch" />
                                           <Label text="A component that allows a path to be disconnected from the battery at will." wrapText="true">
