@@ -20,7 +20,12 @@ public class Wire extends Component{
         this.image[1] = new Image(in2);
 
         this.Id = 1;
-    } /*
+        this.name = "Wire";
+    }
+
+    public Wire(boolean empty){
+
+    }/*
     private int length;
     private Color wireColor;
     private boolean isConnected;
