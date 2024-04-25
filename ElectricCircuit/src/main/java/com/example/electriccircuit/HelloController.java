@@ -465,7 +465,9 @@ public class HelloController implements Initializable {
                     isEventEnabled[0] = false;
                 } else{
                     try {
+                        int[] tempConnections = Arrays.copyOf(component[0].getConnections(), component[0].getConnections().length);
                         component[0] = component[0].getClass().newInstance();
+                        component[0].setConnections(tempConnections);
                     } catch (InstantiationException ex) {
                         throw new RuntimeException(ex);
                     } catch (IllegalAccessException ex) {

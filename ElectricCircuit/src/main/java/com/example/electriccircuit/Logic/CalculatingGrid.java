@@ -37,21 +37,15 @@ public class CalculatingGrid {
                 objectPath.get(i).setPassingVoltage(objectPath.get(i - 1).getPassingVoltage());
                 Debug.Log(objectPath.get(i).getPassingVoltage() + " is passing component voltage of " + i);
                 resistance.setOhm(resistance.getOhm() + objectPath.get(i).getResistance());
-
             }
             for(int i = 1; i < objectPath.size(); i++){
-                Debug.Log("The possible connections of " + i + " is " + objectPath.get(i).getConnections()[0] + objectPath.get(i).getConnections()[1] + objectPath.get(i).getConnections()[2] + objectPath.get(i).getConnections()[3] + " and is at location " + objectPath.get(i).getLocationRow() + " " + objectPath.get(i).getLocationColumn());
-                System.out.println(objectPath.get(i) + " is component " + i);
-                objectPath.get(i).setPassingVoltage(objectPath.get(i - 1).getPassingVoltage());
-                Debug.Log(objectPath.get(i).getPassingVoltage() + " is passing component voltage of " + i);
-                resistance.setOhm(resistance.getOhm() + objectPath.get(i).getResistance());
                 if(objectPath.get(i).getCapacitance() != 0){
                     capacitorLocation = i;
                     farad.setCapacitance(farad.getCapacitance() + ( 1 / objectPath.get(i).getCapacitance()));
                     Debug.Log(objectPath.get(i).getCapacitance() + " is passing component capacitance of " + i + " and farad is " + farad.getCapacitance());
                 }
             }
-            Debug.Log(potential.getVolt() + " ");
+            Debug.Log(resistance.getOhm() + " is the resistance is njiasd");
             current.setAmp(current.ohmsLaw(potential, resistance));
             if(farad.getCapacitance() != 0){
                 farad.setCapacitance(1 / farad.getCapacitance());
@@ -63,7 +57,6 @@ public class CalculatingGrid {
                 Thread thread1 = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        System.out.println("Task 1 is running");
                         double start = System.currentTimeMillis();
                         while (objectPath.get(capacitorLocation).getVoltage() != potential.getVolt()) {
                             objectPath.get(capacitorLocation).setVoltage(potential.getVolt() * (1 - Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));
@@ -77,9 +70,7 @@ public class CalculatingGrid {
                                     e.printStackTrace();
                                 }
                             }
-                            Debug.Log(objectPath.get(capacitorLocation).getVoltage() + " is voltage stuff");
                         }
-                        Debug.Log("we out");
                     }
                 });
                 thread1.start();
@@ -97,14 +88,15 @@ public class CalculatingGrid {
             for(int i = 1; i < objectPath.size(); i++){
                 objectPath.get(i).setPassingCurrent(current.getAmp());
                 if(objectPath.get(i).getResistance() != 0){
-                    objectPath.get(i).setCharge(coulomb.getCharge());
+                    objectPath.get(i).setVoltage(current.getAmp() * objectPath.get(i).getResistance());
                 } else if(objectPath.get(i).getCapacitance() != 0 && resistance.getOhm() == 0){
-                    objectPath.get(i).setCharge(coulomb.getCharge());
-                    objectPath.get(i).setVoltage(objectPath.get(i).getCharge() / objectPath.get(i).getCapacitance());
-                    Debug.Log(objectPath.get(i).getCharge() / objectPath.get(i).getCapacitance() + " should be the voltage");
+                        objectPath.get(i).setCharge(coulomb.getCharge());
+                        objectPath.get(i).setVoltage(objectPath.get(i).getCharge() / objectPath.get(i).getCapacitance());
+                        Debug.Log(objectPath.get(i).getCharge() / objectPath.get(i).getCapacitance() + " should be the voltage");
                 } else{
-                    objectPath.get(i).setVoltage(0);
+                        objectPath.get(i).setVoltage(0);
                 }
+
 
 
                if(objectPath.get(i).isDisplayed()){

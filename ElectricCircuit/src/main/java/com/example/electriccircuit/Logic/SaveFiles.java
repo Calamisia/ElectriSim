@@ -198,7 +198,6 @@ public class SaveFiles {
                             component.interact();
                             componentArray[Windex][Hindex] = component;
 
-                            Debug.Log(grid[j][i] + " is the index id at " + j + " " + i);
                             component.mainRefreshComponent();
                             new CalculatingGrid(BuilderMatrix.getGrid());
                             Debug.Log("orientation is " + component.getConnections()[0] + component.getConnections()[1] + component.getConnections()[2] + component.getConnections()[3]);
