@@ -622,3 +622,88 @@
 [Thu Apr 25 10:32:56 EDT 2024] column is actually 15 and row is 12
 [Thu Apr 25 10:32:58 EDT 2024] column is actually 11 and row is 11
 [Thu Apr 25 10:33:04 EDT 2024] column is actually 15 and row is 9
+[Thu Apr 25 10:40:03 EDT 2024] 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+[Thu Apr 25 10:40:03 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:07 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:07 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:07 EDT 2024] column is actually 23 and row is 9
+[Thu Apr 25 10:40:19 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:19 EDT 2024] refreshes 0100
+[Thu Apr 25 10:40:19 EDT 2024] refreshes8
+[Thu Apr 25 10:40:19 EDT 2024] refreshes8
+[Thu Apr 25 10:40:19 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:19 EDT 2024] column is actually 15 and row is 8
+[Thu Apr 25 10:40:20 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:20 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:20 EDT 2024] column is actually 15 and row is 6
+[Thu Apr 25 10:40:22 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:22 EDT 2024] refreshes 0001
+[Thu Apr 25 10:40:22 EDT 2024] refreshes8
+[Thu Apr 25 10:40:22 EDT 2024] refreshes 0101
+[Thu Apr 25 10:40:22 EDT 2024] refreshes5
+[Thu Apr 25 10:40:22 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:22 EDT 2024] column is actually 15 and row is 7
+[Thu Apr 25 10:40:24 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:24 EDT 2024] refreshes 1001
+[Thu Apr 25 10:40:24 EDT 2024] refreshes3
+[Thu Apr 25 10:40:24 EDT 2024] refreshes8
+[Thu Apr 25 10:40:24 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:24 EDT 2024] column is actually 14 and row is 6
+[Thu Apr 25 10:40:26 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:26 EDT 2024] refreshes 1010
+[Thu Apr 25 10:40:26 EDT 2024] refreshes2
+[Thu Apr 25 10:40:26 EDT 2024] refreshes8
+[Thu Apr 25 10:40:26 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:26 EDT 2024] column is actually 13 and row is 6
+[Thu Apr 25 10:40:28 EDT 2024] Set box ID thinks row is 15 column is 6
+[Thu Apr 25 10:40:28 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:28 EDT 2024] refreshes 1010
+[Thu Apr 25 10:40:28 EDT 2024] refreshes2
+[Thu Apr 25 10:40:28 EDT 2024] refreshes 0101
+[Thu Apr 25 10:40:28 EDT 2024] refreshes5
+[Thu Apr 25 10:40:28 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:28 EDT 2024] column is actually 15 and row is 6
+[Thu Apr 25 10:40:30 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:30 EDT 2024] refreshes 1010
+[Thu Apr 25 10:40:30 EDT 2024] refreshes2
+[Thu Apr 25 10:40:30 EDT 2024] refreshes8
+[Thu Apr 25 10:40:30 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:30 EDT 2024] column is actually 12 and row is 6
+[Thu Apr 25 10:40:32 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:32 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:32 EDT 2024] column is actually 12 and row is 8
+[Thu Apr 25 10:40:33 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:33 EDT 2024] refreshes 0011
+[Thu Apr 25 10:40:33 EDT 2024] refreshes6
+[Thu Apr 25 10:40:33 EDT 2024] refreshes 0100
+[Thu Apr 25 10:40:33 EDT 2024] refreshes8
+[Thu Apr 25 10:40:33 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:33 EDT 2024] column is actually 12 and row is 7
+[Thu Apr 25 10:40:35 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:35 EDT 2024] refreshes 1101
+[Thu Apr 25 10:40:35 EDT 2024] refreshes1
+[Thu Apr 25 10:40:35 EDT 2024] refreshes8
+[Thu Apr 25 10:40:35 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:35 EDT 2024] column is actually 11 and row is 7
+[Thu Apr 25 10:40:37 EDT 2024] Set box ID thinks row is 12 column is 7
+[Thu Apr 25 10:40:37 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:37 EDT 2024] refreshes 0010
+[Thu Apr 25 10:40:37 EDT 2024] refreshes8
+[Thu Apr 25 10:40:37 EDT 2024] refreshes 0011
+[Thu Apr 25 10:40:37 EDT 2024] refreshes6
+[Thu Apr 25 10:40:37 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:37 EDT 2024] column is actually 12 and row is 7
+[Thu Apr 25 10:40:38 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:38 EDT 2024] refreshes 0101
+[Thu Apr 25 10:40:38 EDT 2024] refreshes5
+[Thu Apr 25 10:40:38 EDT 2024] refreshes8
+[Thu Apr 25 10:40:38 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:38 EDT 2024] column is actually 12 and row is 9
+[Thu Apr 25 10:40:40 EDT 2024] Set box ID thinks row is 12 column is 7
+[Thu Apr 25 10:40:40 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:40 EDT 2024] refreshes 0010
+[Thu Apr 25 10:40:40 EDT 2024] refreshes8
+[Thu Apr 25 10:40:40 EDT 2024] refreshes 0011
+[Thu Apr 25 10:40:40 EDT 2024] refreshes6
+[Thu Apr 25 10:40:40 EDT 2024] Calculating Grid called
+[Thu Apr 25 10:40:40 EDT 2024] column is actually 12 and row is 7
