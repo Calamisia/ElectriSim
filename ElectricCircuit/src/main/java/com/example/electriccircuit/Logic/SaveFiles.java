@@ -51,6 +51,21 @@ public class SaveFiles {
                 if(grid[i][j] != 0 && grid[i][j] != 1){
                     if(componentArray[i][j].getConnections()[0] == 1 && componentArray[i][j].getConnections()[2] == 1){
                         rotationBitString.append(1);
+                        Debug.Log("chosen 1");
+                    } else if(componentArray[i][j].getConnections()[1] == 1 && componentArray[i][j].getConnections()[3] == 1){
+                        rotationBitString.append(0);
+                    } else if(componentArray[i][j].getConnections()[0] == 1){
+                        rotationBitString.append(2);
+                        Debug.Log("chosen 2");
+                    } else if(componentArray[i][j].getConnections()[1] == 1){
+                        rotationBitString.append(3);
+                        Debug.Log("chosen 3");
+                    } else if(componentArray[i][j].getConnections()[2] == 1){
+                        rotationBitString.append(4);
+                        Debug.Log("chosen 4");
+                    } else if(componentArray[i][j].getConnections()[3] == 1){
+                        rotationBitString.append(5);
+                        Debug.Log("chosen 5");
                     } else{
                         rotationBitString.append(0);
                     }
@@ -117,11 +132,12 @@ public class SaveFiles {
                         component.setResistance(50);
                     } else if(grid[i][j] == 4){
                         component = new Capacitors();
+                        component.setCapacitance(1E-6);
                     } else if(grid[i][j] == 5){
                         component = new Merger();
                     } else if(grid[i][j] == 6){
                         component = new Splitter();
-                    } else if(grid[i][j] == 10){
+                    } else if(grid[i][j] == 7 ||grid[i][j] == 8){
                         component = new Switch();
                         Debug.Info("wireSwitch found");
                     } else {
@@ -155,7 +171,24 @@ public class SaveFiles {
                                     component.getComponentNode().setRotate(90);
                                     Debug.Log("And so we rotate");
                                     component.setConnections(1, 0, 1, 0);
-                                } else{
+                                } else if(rotationString.charAt(rotationCounter) == '0'){
+                                    component.setConnections(0,1,0,1);
+                                }else if(rotationString.charAt(rotationCounter) == '2'){
+                                    component.getComponentNode().setRotate(-90);
+                                    Debug.Log("And so we rotate");
+                                    component.setConnections(1, 0, 0, 0);
+                                } else if(rotationString.charAt(rotationCounter) == '3'){
+                                    Debug.Log("And so we rotate");
+                                    component.setConnections(0, 1, 0, 0);
+                                } else if(rotationString.charAt(rotationCounter) == '4'){
+                                    component.getComponentNode().setRotate(90);
+                                    Debug.Log("And so we rotate");
+                                    component.setConnections(0, 0, 1, 0);
+                                } else if(rotationString.charAt(rotationCounter) == '5'){
+                                    component.getComponentNode().setRotate(180);
+                                    Debug.Log("And so we rotate");
+                                    component.setConnections(0, 0, 0, 1);
+                                }else{
                                     component.setConnections(0,1,0,1);
                                 }
                                 rotationCounter++;
