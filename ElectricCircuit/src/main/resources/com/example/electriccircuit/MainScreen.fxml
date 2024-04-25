@@ -328,12 +328,20 @@
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="57.0" prefHeight="32.0" prefWidth="46.0" text="1$" wrapText="true">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="22.0" />
+                                 </font>
+                              </Label>
                                       </children>
                                       <padding>
                                           <Insets top="10.0" />
                                       </padding>
                                   </VBox>
-                                <HBox fx:id="powerSupply" onMousePressed="#spawn" prefHeight="175.0" styleClass="smallborder" HBox.hgrow="NEVER">
+                                <HBox fx:id="powerSupply" onMousePressed="#spawn" prefHeight="175.0" HBox.hgrow="NEVER">
                                     <children>
                                         <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
@@ -342,9 +350,22 @@
                               </ImageView>
                                     </children>
                                 </HBox>
-                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="20.0" styleClass="smallborder" HBox.hgrow="ALWAYS">
+                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="5.0" HBox.hgrow="ALWAYS">
                                       <children>
-                                          <Label alignment="CENTER" text="Power Supply" />
+                                          <Label fx:id="voltTitle" alignment="CENTER" text="Power Supply (10 V)" />
+                              <HBox alignment="CENTER" spacing="5.0">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <TextField fx:id="voltsofbattery" alignment="CENTER" onAction="#writeVolt" prefHeight="25.0" prefWidth="80.0" text="10" />
+                                    <Label text="V">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
                                           <Label text="Most commonly referred to as a battery, this component allows for current to be distributed through the circuit" wrapText="true">
                                  <VBox.margin>
                                     <Insets left="5.0" right="10.0" />
@@ -353,6 +374,20 @@
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label fx:id="priceBattery" alignment="CENTER" prefHeight="32.0" prefWidth="164.0" text="20.0" textAlignment="JUSTIFY" HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="32.0" prefWidth="19.0" text="\$" HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
                                       </children>
                                       <padding>
                                           <Insets top="10.0" />
@@ -367,9 +402,22 @@
                               </ImageView>
                                     </children>
                                 </HBox>
-                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="5.0" HBox.hgrow="ALWAYS">
                                       <children>
-                                          <Label alignment="CENTER" text="Resistor" />
+                                          <Label fx:id="resitanceTitle" alignment="CENTER" text="Resistor (10 Ω)" />
+                                          <HBox alignment="CENTER" spacing="5.0">
+                                              <VBox.margin>
+                                                  <Insets left="10.0" right="10.0" />
+                                              </VBox.margin>
+                                              <children>
+                                                  <TextField fx:id="resistanceofresistor" alignment="CENTER" onAction="#writeOhms" prefHeight="25.0" prefWidth="80.0" text="10" />
+                                                  <Label text="Ω">
+                                                      <font>
+                                                          <Font size="16.0" />
+                                                      </font>
+                                                  </Label>
+                                              </children>
+                                          </HBox>
                                           <Label text="This is equivalent to anything that uses the current like a lightbulb. Usually, at least 1 is present or else the circuit has no purpose" wrapText="true">
                                  <VBox.margin>
                                     <Insets left="5.0" right="10.0" />
@@ -377,6 +425,11 @@
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="61.0" layoutY="20.0" prefHeight="32.0" prefWidth="162.0" text="10$">
+                                <font>
+                                  <Font name="System Bold" size="22.0" />
+                                </font>
                               </Label>
                                       </children>
                                       <padding>
@@ -392,9 +445,22 @@
                               </ImageView>
                                     </children>
                                 </HBox>
-                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                  <VBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="175.0" spacing="10.0" HBox.hgrow="ALWAYS">
                                       <children>
-                                          <Label alignment="CENTER" text="Capacitor" />
+                                          <Label fx:id="faradTitle" alignment="CENTER" text="Capacitor (10 F)" />
+                                          <HBox alignment="CENTER" spacing="5.0">
+                                              <VBox.margin>
+                                                  <Insets left="10.0" right="10.0" />
+                                              </VBox.margin>
+                                              <children>
+                                                  <TextField fx:id="faradsofcapacitor" alignment="CENTER" onAction="#writeFarads" prefHeight="25.0" prefWidth="80.0" text="10" />
+                                                  <Label text="F">
+                                                      <font>
+                                                          <Font size="16.0" />
+                                                      </font>
+                                                  </Label>
+                                              </children>
+                                          </HBox>
                                           <Label text="This is used to create more complicated circuit. Mostly used as storage." wrapText="true">
                                  <VBox.margin>
                                     <Insets left="5.0" right="10.0" />
@@ -403,6 +469,12 @@
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
+                              <Label alignment="CENTER" layoutX="61.0" layoutY="20.0" prefHeight="32.0" prefWidth="386.0" text="10$">
+                                <font>
+                                  <Font name="System Bold" size="22.0" />
+                                </font>
+                              </Label>
+
                                       </children>
                                       <padding>
                                           <Insets top="10.0" />
@@ -477,6 +549,11 @@
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="61.0" layoutY="20.0" prefHeight="32.0" prefWidth="145.0" text="10$">
+                                <font>
+                                  <Font name="System Bold" size="22.0" />
+                                </font>
                               </Label>
                                       </children>
                                       <padding>
