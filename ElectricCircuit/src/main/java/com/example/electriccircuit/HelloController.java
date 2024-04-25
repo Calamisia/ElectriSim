@@ -27,6 +27,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.electriccircuit.Logic.SaveFiles.*;
@@ -83,7 +84,7 @@ public class HelloController implements Initializable {
     @FXML
     private GridPane togglegrid, dataGrid;
     @FXML
-    private Label totalVolt, totalAmp, totalOhms;
+    private Label totalVolt, totalAmp, totalOhms, totalFarads;
     @FXML
     private CheckBox checkGrid;
     @FXML
@@ -337,6 +338,7 @@ public class HelloController implements Initializable {
             component[0].setResistance(50);
         } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
             component[0] = new Capacitors();
+            component[0].setCapacitance(3);
         } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
             component[0] = new Merger();
         } else if(((HBox) e.getSource()).getId().equals(splitter.getId())){
@@ -348,7 +350,11 @@ public class HelloController implements Initializable {
             component[0] = null;
             Debug.Error("Invalid spawn component");
         }
-        component[0].setConnections(0,1,0,1);
+        if(component[0] instanceof PowerSupply){
+            component[0].setConnections(0,1,0,0);
+        } else{
+            component[0].setConnections(0,1,0,1);
+        }
 
         // Get the position of the content
         pan.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> {
@@ -369,11 +375,23 @@ public class HelloController implements Initializable {
         main.getMainContainer().setOnKeyPressed(event -> {
             if (event.getCode().toString().equals("R")) {
                 rotateComponent(sprite);
-                for(int i = 0; i < component[0].getConnections().length; i++){
-                    if(component[0].getConnections()[i] == 0){
-                        component[0].getConnections()[i] = 1;
-                    } else{
-                        component[0].getConnections()[i] = 0;
+                if(component[0] instanceof PowerSupply){
+                    if(Objects.equals(component[0].getConnections(), new int[]{0, 1, 0, 0})){
+                        component[0].setConnections(0,0,1,0);
+                    } else if (Objects.equals(component[0].getConnections(), new int[]{0, 0, 1, 0})) {
+                        component[0].setConnections(0,0,0,1);
+                    } else if (Objects.equals(component[0].getConnections(), new int[]{0, 0, 0, 1})) {
+                        component[0].setConnections(1,0,0,0);
+                    } else if (Objects.equals(component[0].getConnections(), new int[]{1, 0, 0, 0})) {
+                        component[0].setConnections(0,1,0,0);
+                    }
+                } else{
+                    for(int i = 0; i < component[0].getConnections().length; i++){
+                        if(component[0].getConnections()[i] == 0){
+                            component[0].getConnections()[i] = 1;
+                        } else{
+                            component[0].getConnections()[i] = 0;
+                        }
                     }
                 }
             }
@@ -441,6 +459,7 @@ public class HelloController implements Initializable {
                     }
 
                 }
+
             }
         });
     }
@@ -754,6 +773,9 @@ public class HelloController implements Initializable {
     public Label getTotalOhmLabel(){
         return totalOhms;
     }
+    public Label getTotalFaradsLabel(){
+        return totalFarads;
+    }
 
     //Static getters
     public static GridPane returnDataGrid(){
@@ -771,6 +793,10 @@ public class HelloController implements Initializable {
     public static Label returnTotalOhmLabel(){
         HelloController controllerx = HelloApplication.statMainController();
         return controllerx.getTotalOhmLabel();
+    }
+    public static Label returnTotalFaradsLabel(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getTotalFaradsLabel();
     }
 
     public static AnchorPane returnSmallAnchorPane(){

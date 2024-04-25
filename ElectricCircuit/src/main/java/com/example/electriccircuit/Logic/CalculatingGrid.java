@@ -16,6 +16,7 @@ public class CalculatingGrid {
     private Ohm resistance = new Ohm(0);
     private Volt potential = new Volt(0);
     private Amp current = new Amp(0);
+    private Capacitance farad = new Capacitance(0);
 
     GridPane dataGrid;
 
@@ -33,14 +34,20 @@ public class CalculatingGrid {
                 objectPath.get(i).setPassingVoltage(objectPath.get(i - 1).getPassingVoltage());
                 Debug.Log(objectPath.get(i).getPassingVoltage() + " is passing component voltage of " + i);
                 resistance.setOhm(resistance.getOhm() + objectPath.get(i).getResistance());
+                if(objectPath.get(i).getCapacitance() != 0){
+                    farad.setCapacitance(farad.getCapacitance() + ( 1 / objectPath.get(i).getCapacitance()));
+                    Debug.Log(objectPath.get(i).getCapacitance() + " is passing component capacitance of " + i + " and farad is " + farad.getCapacitance());
+                }
             }
             current.setAmp(current.ohmsLaw(potential, resistance));
+            farad.setCapacitance(1 / farad.getCapacitance());
             HelloController.returnCalButton().setId("calculatetrue");
             HelloController.returnCalButton().setMouseTransparent(false);
             HelloController.returnCalButton().setOpacity(1);
             HelloController.returnTotalVoltLabel().setText(String.valueOf(potential.getVolt()));
             HelloController.returnTotalAmpLabel().setText(String.valueOf(current.getAmp()));
             HelloController.returnTotalOhmLabel().setText(String.valueOf(resistance.getOhm()));
+            HelloController.returnTotalFaradsLabel().setText(String.valueOf(farad.getCapacitance()));
         }
         else{
             HelloController.returnTotalVoltLabel().setText(String.valueOf(0));

@@ -20,6 +20,7 @@ public class Component {
     private double passingVoltage;
     private double passingCurrent;
     private double resistance;
+    private double capacitance;
     private int[] connections = new int[4];
 
     Component(Shape node) {
@@ -138,6 +139,15 @@ public class Component {
     public double getResistance(){
         return resistance;
     }
+
+
+    public void setCapacitance(double capacitance) {
+        this.capacitance = capacitance;
+    } // setter
+
+    public double getCapacitance() {
+        return capacitance;
+    } // getter
 
     public int[] getConnections(){
         return connections;

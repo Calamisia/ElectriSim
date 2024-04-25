@@ -134,7 +134,7 @@
                                     <children>
                                         <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@power supply.png" />
+                                                <Image url="@power%20supply.png" />
                                             </image>
                               </ImageView>
                                     </children>
@@ -457,6 +457,11 @@
                                          </font>
                                      </Label>
                                      <Label fx:id="totalAmp" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                         <font>
+                                             <Font size="8.0" />
+                                         </font>
+                                     </Label>
+                                     <Label fx:id="totalFarads" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                          <font>
                                              <Font size="8.0" />
                                          </font>

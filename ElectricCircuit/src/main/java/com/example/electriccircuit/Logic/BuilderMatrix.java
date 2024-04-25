@@ -99,10 +99,12 @@ public class BuilderMatrix {
     public boolean isValid(int row, int column, int prevRow, int prevCol){
         if (row < 0 || row >= grid.length || column < 0 || column >= grid[0].length)
             return false; //outofbounds searching excluded
-        else if(column == prevCol && row == prevRow || grid[row][column] == 0)
+        else if(column == prevCol && row == prevRow || grid[row][column] == 0){
             return false; //repeat component excluded and empty boxes
-        else
+        }
+        else{
             return true;
+        }
     }
 
     // this method checks all 8 surrounding cases around a given case, to see if there is an ID in one of them.
@@ -190,18 +192,23 @@ public class BuilderMatrix {
                 if ((boolean) (surroundingInfo.get(0))) {
                     // if there is a surrounding component, check if it's a powerSupply
                     if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2 || grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 9) {
-                        //if it is a power supply, make that the componentIndex, and start the circuitPath from there
-                        componentIndex[0] = (int) surroundingInfo.get(1);
-                        componentIndex[1] = (int) surroundingInfo.get(2);
-                        componentIndex[2] = (int) surroundingInfo.get(3);
-                        componentIndex[3] = (int) surroundingInfo.get(4);
-                        grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] = 9;
-                        objectPath.add(componentArray[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
-                        circuitPath.append(2);
-                        foundPower = true;
-                        System.out.println("Found index of powersupply " + i + " " + j);
-                        break outerloop;
-                        // we can break this loop, since we found the start of the circuit
+                            //if it is a power supply, make that the componentIndex, and start the circuitPath from there
+                            componentIndex[0] = (int) surroundingInfo.get(1);
+                            Debug.Log("surrounding at 1 " + surroundingInfo.get(1));
+                            componentIndex[1] = (int) surroundingInfo.get(2);
+                            Debug.Log("surrounding at 2 " + surroundingInfo.get(2));
+                            componentIndex[2] = (int) surroundingInfo.get(3);
+                            Debug.Log("surrounding at 3 " + surroundingInfo.get(3));
+                            componentIndex[3] = (int) surroundingInfo.get(4);
+                            Debug.Log("surrounding at 4 " + surroundingInfo.get(4));
+                            grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] = 9;
+                            objectPath.add(componentArray[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
+                            circuitPath.append(2);
+                            foundPower = true;
+                            System.out.println("Found index of powersupply " + i + " " + j);
+                            break outerloop;
+                            // we can break this loop, since we found the start of the circuit
+
                     }
                 }
             }

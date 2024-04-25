@@ -1,8 +1,6 @@
 package com.example.electriccircuit.Components;
 
-import com.example.electriccircuit.DataTypes.Volt;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 
 import java.io.InputStream;
 
