@@ -34,6 +34,7 @@ import javax.sound.sampled.Clip;
 import static com.example.electriccircuit.Components.Component.componentArray;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -91,7 +92,7 @@ public class HelloController implements Initializable {
     @FXML
     private GridPane togglegrid, dataGrid;
     @FXML
-    private Label totalVolt, totalAmp, totalOhms, totalFarads;
+    private Label totalVolt, totalAmp, totalOhms, totalFarads, totalCharge;
     @FXML
     private CheckBox checkGrid;
     @FXML
@@ -108,6 +109,8 @@ public class HelloController implements Initializable {
     //Start of settings screen ids
     @FXML
     private VBox settingsvbox;
+    @FXML
+    private Slider timeSlider;
 
     //Non fxml variables
     private HelloApplication main;
@@ -345,7 +348,7 @@ public class HelloController implements Initializable {
             component[0].setResistance(50);
         } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
             component[0] = new Capacitors();
-            component[0].setCapacitance(3);
+            component[0].setCapacitance(1E-6);
         } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
             component[0] = new Merger();
         } else if(((HBox) e.getSource()).getId().equals(splitter.getId())){
@@ -383,14 +386,16 @@ public class HelloController implements Initializable {
             if (event.getCode().toString().equals("R")) {
                 rotateComponent(sprite);
                 if(component[0] instanceof PowerSupply){
-                    if(Objects.equals(component[0].getConnections(), new int[]{0, 1, 0, 0})){
+                    if(Arrays.equals(component[0].getConnections(), new int[]{0, 1, 0, 0})){
                         component[0].setConnections(0,0,1,0);
-                    } else if (Objects.equals(component[0].getConnections(), new int[]{0, 0, 1, 0})) {
+                    } else if (Arrays.equals(component[0].getConnections(), new int[]{0, 0, 1, 0})){
                         component[0].setConnections(0,0,0,1);
-                    } else if (Objects.equals(component[0].getConnections(), new int[]{0, 0, 0, 1})) {
+                    } else if (Arrays.equals(component[0].getConnections(), new int[]{0, 0, 0, 1})){
                         component[0].setConnections(1,0,0,0);
-                    } else if (Objects.equals(component[0].getConnections(), new int[]{1, 0, 0, 0})) {
+                    } else if (Arrays.equals(component[0].getConnections(), new int[]{1, 0, 0, 0})){
                         component[0].setConnections(0,1,0,0);
+                    } else{
+                        Debug.Error("well this is weird");
                     }
                 } else{
                     for(int i = 0; i < component[0].getConnections().length; i++){
@@ -497,9 +502,6 @@ public class HelloController implements Initializable {
         BuilderMatrix.setBoxID(Windex, Hindex, component.getId(), component);
         component.setLocation(Windex, Hindex);
         component.interact();
-       /* if(component.getId() == 3){
-            HelloController.returnDataGrid().addRow(HelloController.returnDataGrid().getRowCount(),new Label("R" + HelloController.returnDataGrid().getRowCount()));
-        } */
         if(component instanceof Wire){
             component.mainRefreshComponent();
         } else{
@@ -531,6 +533,7 @@ public class HelloController implements Initializable {
         controller1.getCal().setMouseTransparent(true);
         controller1.getCal().setOpacity(0.5);
         wooshSound();
+        new CalculatingGrid(BuilderMatrix.getGrid());
     }
 
     private void rotateComponent(Rectangle rectangle) {
@@ -818,6 +821,12 @@ public class HelloController implements Initializable {
     public Label getTotalFaradsLabel(){
         return totalFarads;
     }
+    public Label getTotalChargeLabel(){
+        return totalCharge;
+    }
+    public Slider getTimeSlider(){
+        return timeSlider;
+    }
 
     //Static getters
     public static GridPane returnDataGrid(){
@@ -839,6 +848,14 @@ public class HelloController implements Initializable {
     public static Label returnTotalFaradsLabel(){
         HelloController controllerx = HelloApplication.statMainController();
         return controllerx.getTotalFaradsLabel();
+    }
+    public static Label returnTotalChargeLabel(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getTotalChargeLabel();
+    }
+    public static Slider returnTimeSlider(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getTimeSlider();
     }
 
     public static AnchorPane returnSmallAnchorPane(){
