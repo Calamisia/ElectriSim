@@ -98,7 +98,210 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" onMouseClicked="#retractRight" stroke="BLACK" strokeType="INSIDE" width="200.0" />
                </children>
             </VBox>
-                <ScrollPane fx:id="componentscroll" hbarPolicy="ALWAYS" layoutX="17.0" prefHeight="190.0" prefWidth="939.0" style="-fx-background-color: #ffffff;" styleClass="scroll-pane1" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="0.0">
+            <VBox fx:id="retractableleft" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="180.0" spacing="20.0" style="-fx-background-color: #ffffff;" VBox.vgrow="NEVER">
+                          <children>
+                              <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#titleScreen" prefHeight="26.0" prefWidth="30.0" styleClass="button1" text="X">
+                                  <HBox.margin>
+                                      <Insets left="10.0" />
+                                  </HBox.margin>
+                        </Button>
+                              <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#settings" prefHeight="26.0" prefWidth="82.0" styleClass="button1" text="Settings">
+                                  <HBox.margin>
+                                      <Insets />
+                                  </HBox.margin>
+                                  <padding>
+                                      <Insets right="20.0" />
+                                  </padding>
+                              </Button>
+                          </children>
+                          <opaqueInsets>
+                              <Insets />
+                          </opaqueInsets>
+                      </HBox>
+                      <!--Left side of border pane-->
+                      <VBox prefHeight="502.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
+                          <!--Goal and budget visuals-->
+                          <children>
+                              <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
+                              <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                                  <children>
+                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="150.0" text="Goal" VBox.vgrow="ALWAYS">
+                                          <font>
+                                              <Font name="Calibri" size="44.0" />
+                                          </font>
+                                          <padding>
+                                              <Insets right="10.0" top="30.0" />
+                                          </padding>
+                                      </Label>
+                                      <Label alignment="CENTER" prefHeight="168.0" prefWidth="150.0" text="Make a circuit with two resistors that get 10 volts each" wrapText="true" VBox.vgrow="ALWAYS">
+                                          <font>
+                                              <Font size="20.0" />
+                                          </font>
+                                          <padding>
+                                              <Insets left="10.0" />
+                                          </padding>
+                                      </Label>
+                                  </children>
+                              </VBox>
+                              <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
+                              <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                                  <children>
+                                      <Label alignment="CENTER" prefHeight="78.0" prefWidth="150.0" text="Budget" VBox.vgrow="ALWAYS">
+                                          <font>
+                                              <Font name="Calibri" size="42.0" />
+                                          </font>
+                                      </Label>
+                                      <Label alignment="CENTER" prefHeight="110.0" prefWidth="150.0" text="30$" VBox.vgrow="ALWAYS">
+                                          <font>
+                                              <Font size="40.0" />
+                                          </font>
+                                      </Label>
+                                  </children>
+                              </VBox>
+                              <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
+                          </children>
+                      </VBox>
+                      <VBox alignment="CENTER" maxHeight="190.0" maxWidth="180.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" VBox.vgrow="NEVER">
+                          <children>
+                              <Button fx:id="cal" mnemonicParsing="false" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Submit">
+                                  <VBox.margin>
+                                      <Insets bottom="60.0" />
+                                  </VBox.margin>
+                                  <font>
+                                      <Font size="15.0" />
+                                  </font>
+                              </Button>
+                          </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox fx:id="retractableright" layoutX="1088.800048828125" layoutY="157.0" prefWidth="180.0" AnchorPane.bottomAnchor="190.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane VBox.vgrow="ALWAYS">
+                     <children>
+                            <VBox maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
+                                <children>
+                                    <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="180.0" spacing="15.0" VBox.vgrow="ALWAYS">
+                                        <children>
+                                            <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
+                                                <HBox.margin>
+                                                    <Insets bottom="10.0" top="10.0" />
+                                                </HBox.margin>
+                                            </Circle>
+                                            <Label alignment="CENTER" text="Hint?" textAlignment="CENTER">
+                                                <HBox.margin>
+                                                    <Insets right="40.0" />
+                                                </HBox.margin>
+                                                <font>
+                                                    <Font name="System Bold" size="20.0" />
+                                                </font>
+                                            </Label>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="180.0" VBox.vgrow="ALWAYS">
+                                        <children>
+                                            <CheckBox fx:id="checkGrid" mnemonicParsing="false" onAction="#showGrid" styleClass="checkbox" text="Show Grid" HBox.hgrow="ALWAYS">
+                                                <HBox.margin>
+                                                    <Insets left="10.0" />
+                                                </HBox.margin>
+                                                <font>
+                                                    <Font size="18.0" />
+                                                </font>
+                                            </CheckBox>
+                                        </children>
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="180.0" VBox.vgrow="ALWAYS">
+                                        <children>
+                                            <Button mnemonicParsing="false" onAction="#clearGrid" styleClass="exitbutton" text="Clear">
+                                                <font>
+                                                    <Font size="21.0" />
+                                                </font>
+                                            </Button>
+                                        </children>
+                                    </HBox>
+                              <VBox alignment="CENTER" prefHeight="82.0" prefWidth="180.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Adjust time speed">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Slider blockIncrement="0.1" majorTickUnit="0.5" max="2.0" minorTickCount="1" showTickLabels="true" styleClass="slider1">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </Slider>
+                                 </children>
+                              </VBox>
+                                </children>
+                            </VBox>
+                            <!--Right side of border pane -->
+                            <VBox layoutX="0.5" layoutY="0.30000001192092896" maxHeight="-Infinity" prefHeight="180.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <!--Grid to give useful info -->
+                                <children>
+                                    <GridPane fx:id="dataGrid" alignment="CENTER" gridLinesVisible="true" nodeOrientation="LEFT_TO_RIGHT" onMouseEntered="#gridlimit" onMouseExited="#gridrestore" prefHeight="130.0" prefWidth="130.0" styleClass="datagridcss" VBox.vgrow="ALWAYS">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                 <children>
+                                    <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Resistance" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="24.0" text="Potential" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                       <font>
+                                          <Font size="8.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="24.0" text="Current" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+                                       <font>
+                                          <Font size="8.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="totalOhms" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                     <Label fx:id="totalVolt" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                         <font>
+                                             <Font size="16.0" />
+                                         </font>
+                                     </Label>
+                                     <Label fx:id="totalAmp" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                         <font>
+                                             <Font size="16.0" />
+                                         </font>
+                                     </Label>
+                                    <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Circuit" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                 </children>
+                                    </GridPane>
+                                </children>
+                            </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+                <ScrollPane fx:id="componentscroll" hbarPolicy="ALWAYS" layoutX="17.0" prefHeight="190.0" prefWidth="939.0" style="-fx-background-color: #ffffff;" styleClass="scroll-pane1" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="0.0">
                     <content>
                         <HBox fx:id="scrollhbox">
                             <VBox.margin>
@@ -134,7 +337,7 @@
                                     <children>
                                         <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@power%20supply.png" />
+                                                <Image url="@power supply.png" />
                                             </image>
                               </ImageView>
                                     </children>
@@ -284,196 +487,6 @@
                         </HBox>
                     </content>
                 </ScrollPane>
-            <VBox fx:id="retractableleft" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="160.0" spacing="20.0" style="-fx-background-color: #ffffff;" VBox.vgrow="NEVER">
-                          <children>
-                              <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#titleScreen" prefHeight="26.0" prefWidth="30.0" styleClass="button1" text="X">
-                                  <HBox.margin>
-                                      <Insets left="10.0" />
-                                  </HBox.margin>
-                        </Button>
-                              <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#settings" prefHeight="26.0" prefWidth="82.0" styleClass="button1" text="Settings">
-                                  <HBox.margin>
-                                      <Insets />
-                                  </HBox.margin>
-                                  <padding>
-                                      <Insets right="20.0" />
-                                  </padding>
-                              </Button>
-                          </children>
-                          <opaqueInsets>
-                              <Insets />
-                          </opaqueInsets>
-                      </HBox>
-                      <!--Left side of border pane-->
-                      <VBox prefHeight="502.0" prefWidth="160.0" style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
-                          <!--Goal and budget visuals-->
-                          <children>
-                              <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
-                              <VBox VBox.vgrow="ALWAYS">
-                                  <children>
-                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="150.0" text="Goal" VBox.vgrow="ALWAYS">
-                                          <font>
-                                              <Font name="Calibri" size="44.0" />
-                                          </font>
-                                          <padding>
-                                              <Insets right="10.0" top="30.0" />
-                                          </padding>
-                                      </Label>
-                                      <Label alignment="CENTER" prefHeight="168.0" prefWidth="150.0" text="Make a circuit with two resistors that get 10 volts each" wrapText="true" VBox.vgrow="ALWAYS">
-                                          <font>
-                                              <Font size="20.0" />
-                                          </font>
-                                          <padding>
-                                              <Insets left="10.0" />
-                                          </padding>
-                                      </Label>
-                                  </children>
-                              </VBox>
-                              <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
-                              <VBox VBox.vgrow="ALWAYS">
-                                  <children>
-                                      <Label alignment="CENTER" prefHeight="78.0" prefWidth="150.0" text="Budget" VBox.vgrow="ALWAYS">
-                                          <font>
-                                              <Font name="Calibri" size="42.0" />
-                                          </font>
-                                      </Label>
-                                      <Label alignment="CENTER" prefHeight="110.0" prefWidth="150.0" text="30$" VBox.vgrow="ALWAYS">
-                                          <font>
-                                              <Font size="40.0" />
-                                          </font>
-                                      </Label>
-                                  </children>
-                              </VBox>
-                              <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
-                          </children>
-                      </VBox>
-                      <VBox alignment="CENTER" maxHeight="190.0" maxWidth="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="160.0" style="-fx-background-color: #ffffff;" VBox.vgrow="NEVER">
-                          <children>
-                              <Button fx:id="cal" mnemonicParsing="false" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Submit">
-                                  <VBox.margin>
-                                      <Insets bottom="60.0" />
-                                  </VBox.margin>
-                                  <font>
-                                      <Font size="15.0" />
-                                  </font>
-                              </Button>
-                          </children>
-                  </VBox>
-               </children>
-            </VBox>
-            <VBox fx:id="retractableright" layoutX="1088.800048828125" layoutY="157.0" prefWidth="160.0" AnchorPane.bottomAnchor="190.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <AnchorPane VBox.vgrow="ALWAYS">
-                     <children>
-                            <VBox maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="160.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="160.0">
-                                <children>
-                                    <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="151.0" spacing="15.0" VBox.vgrow="NEVER">
-                                        <children>
-                                            <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
-                                                <HBox.margin>
-                                                    <Insets bottom="10.0" top="10.0" />
-                                                </HBox.margin>
-                                            </Circle>
-                                            <Label alignment="CENTER" text="Hint?" textAlignment="CENTER">
-                                                <HBox.margin>
-                                                    <Insets right="40.0" />
-                                                </HBox.margin>
-                                                <font>
-                                                    <Font name="System Bold" size="20.0" />
-                                                </font>
-                                            </Label>
-                                        </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="151.0" VBox.vgrow="NEVER">
-                                        <children>
-                                            <CheckBox fx:id="checkGrid" mnemonicParsing="false" onAction="#showGrid" styleClass="checkbox" text="Show Grid" HBox.hgrow="ALWAYS">
-                                                <HBox.margin>
-                                                    <Insets left="10.0" />
-                                                </HBox.margin>
-                                                <font>
-                                                    <Font size="18.0" />
-                                                </font>
-                                            </CheckBox>
-                                        </children>
-                                        <VBox.margin>
-                                            <Insets left="10.0" />
-                                        </VBox.margin>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                        <children>
-                                            <Button mnemonicParsing="false" onAction="#clearGrid" styleClass="exitbutton" text="Clear">
-                                                <font>
-                                                    <Font size="21.0" />
-                                                </font>
-                                            </Button>
-                                        </children>
-                                    </HBox>
-                                </children>
-                            </VBox>
-                            <!--Right side of border pane -->
-                            <VBox layoutX="0.5" layoutY="0.30000001192092896" maxHeight="-Infinity" prefHeight="160.0" prefWidth="160.0" style="-fx-background-color: #ffffff;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <!--Grid to give useful info -->
-                                <children>
-                                    <GridPane fx:id="dataGrid" alignment="CENTER" gridLinesVisible="true" nodeOrientation="LEFT_TO_RIGHT" onMouseEntered="#gridlimit" onMouseExited="#gridrestore" prefHeight="130.0" prefWidth="130.0" styleClass="datagridcss" VBox.vgrow="ALWAYS">
-                                        <columnConstraints>
-                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        </columnConstraints>
-                                        <rowConstraints>
-                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        </rowConstraints>
-                                        <VBox.margin>
-                                            <Insets />
-                                        </VBox.margin>
-                                 <children>
-                                    <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Resistance" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-                                       <font>
-                                          <Font size="8.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="24.0" text="Potential" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER">
-                                       <font>
-                                          <Font size="8.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="24.0" text="Current" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER">
-                                       <font>
-                                          <Font size="8.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="totalOhms" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                                       <font>
-                                          <Font size="8.0" />
-                                       </font>
-                                    </Label>
-                                     <Label fx:id="totalVolt" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                                         <font>
-                                             <Font size="8.0" />
-                                         </font>
-                                     </Label>
-                                     <Label fx:id="totalAmp" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                                         <font>
-                                             <Font size="8.0" />
-                                         </font>
-                                     </Label>
-                                     <Label fx:id="totalFarads" alignment="TOP_CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                                         <font>
-                                             <Font size="8.0" />
-                                         </font>
-                                     </Label>
-                                 </children>
-                                    </GridPane>
-                                </children>
-                            </VBox>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </VBox>
             </children></AnchorPane>
     </children>
 </StackPane>

@@ -5,6 +5,7 @@ import com.example.electriccircuit.Components.subcomponent.Switch;
 import com.example.electriccircuit.Logic.BuilderMatrix;
 
 import static com.example.electriccircuit.Components.Component.componentArray;
+import com.example.electriccircuit.Logic.SaveFiles;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.Logic.*;
@@ -25,6 +26,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
+import static com.example.electriccircuit.Components.Component.componentArray;
 
 import java.net.URL;
 import java.util.Objects;
@@ -427,6 +434,8 @@ public class HelloController implements Initializable {
             if(isEventEnabled[0]) { //makes sure you can only release once
                 double Hspacing = (Math.round(HelloController.getAncheight()/ 20));
                 double Wspacing = (Math.round(HelloController.getAncwidth()/ 35));
+                popSound();
+
 
                 int Hindex = (int)Math.round(((mouseEvent.getY() - contentY - Hspacing / 2) / (Hspacing)));
                 int Windex = (int)Math.round(((mouseEvent.getX() - contentX - Wspacing / 2) / (Wspacing)));
@@ -521,6 +530,7 @@ public class HelloController implements Initializable {
         controller1.getCal().setId("calculatefalse");
         controller1.getCal().setMouseTransparent(true);
         controller1.getCal().setOpacity(0.5);
+        wooshSound();
     }
 
     private void rotateComponent(Rectangle rectangle) {
@@ -713,8 +723,8 @@ public class HelloController implements Initializable {
     public void retractRight(){
         HelloController controller = main.MainController();
         if(controller.getRetractableright().getTranslateX() == 0) {
-            controller.getRetractableright().setTranslateX(170);
-            controller.getRectangleright().setTranslateX(170);
+            controller.getRetractableright().setTranslateX(190);
+            controller.getRectangleright().setTranslateX(190);
         }
         else {
             controller.getRetractableright().setTranslateX(0);
@@ -726,8 +736,8 @@ public class HelloController implements Initializable {
     public void retractLeft(){
         HelloController controller = main.MainController();
         if(controller.getRetractableleft().getTranslateX() == 0) {
-            controller.getRetractableleft().setTranslateX(-170);
-            controller.getRectangleleft().setTranslateX(-170);
+            controller.getRetractableleft().setTranslateX(-190);
+            controller.getRectangleleft().setTranslateX(-190);
         }
         else {
             controller.getRetractableleft().setTranslateX(0);
@@ -745,6 +755,38 @@ public class HelloController implements Initializable {
         else {
             controller.getComponentscroll().setTranslateY(0);
             controller.getRectanglebottom().setTranslateY(0);
+        }
+    }
+
+    // SOUND EFFECTS
+    public void popSound() {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("pop.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void correctSound(){
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("correct.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void wooshSound(){
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("woosh.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
