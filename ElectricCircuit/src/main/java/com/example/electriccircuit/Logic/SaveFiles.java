@@ -72,15 +72,16 @@ public class SaveFiles {
                     counter++;
                 }
             }
+            BuilderMatrix builderMatrix = new BuilderMatrix();
             Debug.printGrid(grid);
             handleUI(grid);
-            BuilderMatrix.setGrid(grid);
         } catch (FileNotFoundException e) {
             Debug.handleException(e);
         }
     }
 
     public static void handleUI(int[][] grid){
+        BuilderMatrix builderMatrix = new BuilderMatrix();
         for(int i = 0; i < grid[i].length; i++){
             for(int j = 0; j < grid.length; j++){
                 if(grid[j][i] > 0){
@@ -106,6 +107,7 @@ public class SaveFiles {
                         component = null;
                         Debug.Error("Invalid spawn component" + grid[j][i]);
                     }
+                    builderMatrix.setBoxID(j,i,component.getId(),component);
                     Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
                     component.setComponentNode(solidSprite);
                     solidSprite.setFill(new ImagePattern(component.getImageTexture()));
@@ -129,11 +131,15 @@ public class SaveFiles {
                             //Sandbox Matrix creation
                             component.interact();
                             componentArray[Windex][Hindex] = component;
+
+                            Debug.Log(grid[j][i] + " is the index id at " + j + " " + i);
+                            component.mainRefreshComponent();
+                            new CalculatingGrid(BuilderMatrix.getGrid());
+                            Debug.Log("orientation is " + component.getConnections()[0] + component.getConnections()[1] + component.getConnections()[2] + component.getConnections()[3]);
                         }
                     }
                 }
             }
-            System.out.println();
         }
     }
 

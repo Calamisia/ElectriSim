@@ -156,6 +156,7 @@ public class Wire extends Component{
     }
     @Override
     public void mainRefreshComponent(){
+        Debug.Log("got here");
         if(BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[0] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[1] == 1){
             node.setFill(new ImagePattern(getImageTexture(1)));
             node.setRotate(90);
