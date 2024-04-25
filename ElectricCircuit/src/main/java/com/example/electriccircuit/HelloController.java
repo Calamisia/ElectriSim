@@ -479,6 +479,7 @@ public class HelloController implements Initializable {
             solidSprite.setFill(new ImagePattern(component.getImageTexture()));
             solidSprite.setRotate(sprite.getRotate());
         }
+        new CalculatingGrid(BuilderMatrix.getGrid());
         Debug.Log("column is actually " + Windex + " and row is " + Hindex);
     }
     @FXML

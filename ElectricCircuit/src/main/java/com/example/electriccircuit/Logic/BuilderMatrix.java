@@ -122,7 +122,7 @@ public class BuilderMatrix {
             return arraylist;
         }
         //check to the left of component
-        else if (isValid(row, column-1, prevRow, prevCol) && connections[2] == 1){
+        else if (isValid(row, column-1, prevRow, prevCol) && connections[0] == 1){
             arraylist.add(true);
             arraylist.add(row);
             arraylist.add(column-1);
@@ -131,7 +131,7 @@ public class BuilderMatrix {
             return arraylist;
         }
         //check to the right of the component
-        else if (isValid(row, column+1, prevRow, prevCol) && connections[0] == 1){
+        else if (isValid(row, column+1, prevRow, prevCol) && connections[2] == 1){
             arraylist.add(true);
             arraylist.add(row);
             arraylist.add(column+1);
