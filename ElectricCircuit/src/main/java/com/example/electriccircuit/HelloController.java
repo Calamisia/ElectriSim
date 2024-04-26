@@ -106,6 +106,8 @@ public class HelloController implements Initializable {
     public ScrollPane pan, componentscroll;
     @FXML
     public TextField voltsofbattery,resistanceofresistor,faradsofcapacitor;
+    @FXML
+    private Slider timeSlider;
 
     //components
     @FXML
@@ -114,8 +116,6 @@ public class HelloController implements Initializable {
     //Start of settings screen ids
     @FXML
     private VBox settingsvbox;
-    @FXML
-    private Slider timeSlider;
 
     //Non fxml variables
     private HelloApplication main;
@@ -354,7 +354,7 @@ public class HelloController implements Initializable {
             component[0].setResistance(Integer.parseInt(String.valueOf(resistanceofresistor.getText())));
         } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
             component[0] = new Capacitors();
-            component[0].setCapacitance(1E-6);
+            component[0].setCapacitance(Double.parseDouble(String.valueOf(faradsofcapacitor.getText())));
         } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
             component[0] = new Merger();
         } else if(((HBox) e.getSource()).getId().equals(splitter.getId())){
@@ -520,6 +520,7 @@ public class HelloController implements Initializable {
         new CalculatingGrid(BuilderMatrix.getGrid());
         Debug.Log("column is actually " + Windex + " and row is " + Hindex);
     }
+
     @FXML
     public void exit(ActionEvent event){
         System.exit(0);
@@ -719,7 +720,7 @@ public class HelloController implements Initializable {
     @FXML
     public void gridlimit(){
         HelloController controller = main.MainController();
-        controller.getDataGrid().setTranslateX(controller.getDataGrid().getWidth()/(-2));
+        controller.getDataGrid().setTranslateX(((controller.getDataGrid().getWidth()/(-2))));
         controller.getDataGrid().setTranslateY(controller.getDataGrid().getHeight()/2);
     }
 
@@ -781,6 +782,7 @@ public class HelloController implements Initializable {
         if(voltstring.isEmpty() || Double.parseDouble(voltstring) < 0) {
             voltstring = "0";
             controller.getPriceBattery().setText("0");
+            controller.getVoltsofbattery().setText("0");
         }
         else if(Double.parseDouble(voltstring)*Double.parseDouble(voltstring)*0.2 > 2147483647){
             controller.getVoltsofbattery().setText("103621");
@@ -793,7 +795,6 @@ public class HelloController implements Initializable {
 
         controller.getVoltTitle().setText("Power Supply (" + voltstring + " V)");
 
-        //Setting the voltage
     }
 
     @FXML
@@ -805,8 +806,10 @@ public class HelloController implements Initializable {
                 resistancestring = resistancestring + controller.getResistanceofresistor().getText().charAt(i);
             }
         }
-        if(resistancestring.isEmpty() || Double.parseDouble(resistancestring) < 0)
+        if(resistancestring.isEmpty() || Double.parseDouble(resistancestring) < 0) {
             resistancestring = "0";
+            controller.getResistanceofresistor().setText("0");
+        }
         else if(Double.parseDouble(resistancestring) > 2147483647){
             resistancestring = "2147483647";
             controller.getResistanceofresistor().setText(resistancestring);
@@ -814,7 +817,6 @@ public class HelloController implements Initializable {
 
         controller.getResitanceTitle().setText("Resistor (" + resistancestring + " Ω)");
 
-        //Setting the resistance
     }
 
     @FXML
@@ -826,16 +828,16 @@ public class HelloController implements Initializable {
                 faradstring = faradstring + controller.getFaradsofcapacitor().getText().charAt(i);
             }
         }
-        if(faradstring.isEmpty() || Double.parseDouble(faradstring) < 0)
+        if(faradstring.isEmpty() || Double.parseDouble(faradstring) < 0) {
             faradstring = "0";
+            controller.getFaradsofcapacitor().setText("0");
+        }
         else if(Double.parseDouble(faradstring) > 2147483647){
             faradstring = "2147483647";
             controller.getResistanceofresistor().setText(faradstring);
         }
 
         controller.getFaradTitle().setText("Capacitor (" + faradstring + " F)");
-
-        //Setting the resistance
     }
 
     public double round(double value, int places) {

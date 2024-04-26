@@ -23,7 +23,7 @@ public class HelloApplication extends Application {
     private Unlocks unlocked = new Unlocks();
     private Scene scene;
     private Node scene1,scene2,scene3,scene4,scene5;
-    private FXMLLoader fxmlLoader1,fxmlLoader2,fxmlLoader3,fxmlLoader4;
+    //private FXMLLoader fxmlLoader1,fxmlLoader2,fxmlLoader3,fxmlLoader4;
     private HelloController controller1,controller2,controller3,controller4,controller5;
     private static HelloController controllerx;
     private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -84,7 +84,7 @@ public class HelloApplication extends Application {
 
         controller1.titleinitialize();
 
-        primaryStage.setTitle("Hello!");
+        primaryStage.setTitle("Electrisim");
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
         primaryStage.show();
@@ -98,9 +98,11 @@ public class HelloApplication extends Application {
     public StackPane getMainContainer() {
         return mainContainer;
     }
+
     public HelloController MainController() {
         return controller4;
     }
+
     public static HelloController statMainController() {
         return controllerx;
     }

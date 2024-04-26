@@ -149,12 +149,4 @@ public class CalculatingGrid {
             }
         }
     }
-
-    public void addLabel(int row){
-        HelloController.returnDataGrid().getChildren().remove(row, 1);
-        HelloController.returnDataGrid().getChildren().remove(row, 2);
-        HelloController.returnDataGrid().getChildren().remove(row, 3);
-        HelloController.returnDataGrid().addRow(row,new Label("R" + row), new Label(Double.toString(resistance.getOhm())), new Label(Double.toString(potential.getVolt())),new Label(Double.toString(potential.getVolt())), new Label(Double.toString(current.getAmp())));
-    }
-
 }

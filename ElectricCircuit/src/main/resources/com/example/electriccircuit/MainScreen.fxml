@@ -181,9 +181,9 @@
                <children>
                   <AnchorPane VBox.vgrow="ALWAYS">
                      <children>
-                            <VBox maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
+                            <VBox maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="270.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
                                 <children>
-                                    <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="180.0" spacing="15.0" VBox.vgrow="ALWAYS">
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="270.0" spacing="15.0" VBox.vgrow="ALWAYS">
                                         <children>
                                             <Circle fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
                                                 <HBox.margin>
@@ -200,7 +200,7 @@
                                             </Label>
                                         </children>
                                     </HBox>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="180.0" VBox.vgrow="ALWAYS">
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="270.0" VBox.vgrow="ALWAYS">
                                         <children>
                                             <CheckBox fx:id="checkGrid" mnemonicParsing="false" onAction="#showGrid" styleClass="checkbox" text="Show Grid" HBox.hgrow="ALWAYS">
                                                 <HBox.margin>
@@ -218,7 +218,7 @@
                                     <Insets left="10.0" />
                                  </padding>
                                     </HBox>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="180.0" VBox.vgrow="ALWAYS">
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="270.0" VBox.vgrow="ALWAYS">
                                         <children>
                                             <Button mnemonicParsing="false" onAction="#clearGrid" styleClass="exitbutton" text="Clear">
                                                 <font>
@@ -227,7 +227,7 @@
                                             </Button>
                                         </children>
                                     </HBox>
-                              <VBox alignment="CENTER" prefHeight="82.0" prefWidth="180.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                              <VBox alignment="CENTER" prefHeight="82.0" prefWidth="270.0" spacing="10.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <Label text="Adjust time speed">
                                        <font>
@@ -244,7 +244,7 @@
                                 </children>
                             </VBox>
                             <!--Right side of border pane -->
-                            <VBox layoutX="0.5" layoutY="0.30000001192092896" maxHeight="-Infinity" prefHeight="180.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <VBox layoutX="0.5" layoutY="0.30000001192092896" maxHeight="-Infinity" prefHeight="180.0" prefWidth="270.0" style="-fx-background-color: #ffffff;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <!--Grid to give useful info -->
                                 <children>
                                     <GridPane fx:id="dataGrid" alignment="CENTER" gridLinesVisible="true" nodeOrientation="LEFT_TO_RIGHT" onMouseEntered="#gridlimit" onMouseExited="#gridrestore" prefHeight="130.0" prefWidth="130.0" styleClass="datagridcss" VBox.vgrow="ALWAYS">
@@ -357,7 +357,7 @@
                                     <children>
                                         <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@power supply.png" />
+                                                <Image url="@capacitor.png" />
                                             </image>
                               </ImageView>
                                     </children>
@@ -452,7 +452,7 @@
                                     <children>
                                         <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true">
                                             <image>
-                                                <Image url="@capacitor.png" />
+                                                <Image url="@power supply.png" />
                                             </image>
                               </ImageView>
                                     </children>
@@ -465,7 +465,7 @@
                                                   <Insets left="10.0" right="10.0" />
                                               </VBox.margin>
                                               <children>
-                                                  <TextField fx:id="faradsofcapacitor" alignment="CENTER" onAction="#writeFarads" prefHeight="25.0" prefWidth="80.0" text="10" />
+                                                  <TextField fx:id="faradsofcapacitor" alignment="CENTER" onAction="#writeFarads" prefHeight="25.0" prefWidth="80.0" text="0.000001" />
                                                   <Label text="F">
                                                       <font>
                                                           <Font size="16.0" />
