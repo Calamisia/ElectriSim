@@ -577,6 +577,10 @@ public class HelloController implements Initializable {
         wooshSound();
         controller1.getBudgetlabel().setText("0$");
         budget = 0;
+        for(int i = 2; i < controller1.getDataGrid().getRowCount()-1;i++) {
+            int index = i;
+            HelloController.returnDataGrid().getChildren().removeIf(node -> GridPane.getRowIndex(node) != null && GridPane.getRowIndex(node) == index);
+        }
         new CalculatingGrid(BuilderMatrix.getGrid());
     }
 
