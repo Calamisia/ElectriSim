@@ -5,6 +5,7 @@ import com.example.electriccircuit.Components.subcomponent.Switch;
 import com.example.electriccircuit.Logic.BuilderMatrix;
 
 import static com.example.electriccircuit.Components.Component.componentArray;
+import com.example.electriccircuit.Logic.SaveFiles;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.Logic.*;
@@ -13,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -360,27 +362,23 @@ public class HelloController implements Initializable {
         System.out.println("Worked");
         if (((HBox) e.getSource()).getId().equals(wire.getId())) {
             component[0] = new Wire();
-            budget = budget + 1;
-        } else if (((HBox) e.getSource()).getId().equals(powerSupply.getId())) {
+        } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
             component[0] = new PowerSupply();
             if (voltsofbattery.getText().isBlank())
                 voltsofbattery.setText("0");
             ((PowerSupply) component[0]).setVoltage(Integer.parseInt(String.valueOf(voltsofbattery.getText())));
-            budget = budget + Double.parseDouble(priceBattery.getText());
             Debug.Log(((PowerSupply) component[0]).getVoltage() + " is voltage ");
         } else if (((HBox) e.getSource()).getId().equals(resistor.getId())) {
             component[0] = new Resistors();
             if (resistanceofresistor.getText().isBlank())
                 resistanceofresistor.setText("0");
             component[0].setResistance(Integer.parseInt(String.valueOf(resistanceofresistor.getText())));
-            budget = budget + 10;
-        } else if (((HBox) e.getSource()).getId().equals(capacitor.getId())) {
+        } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
             component[0] = new Capacitors();
             if (faradsofcapacitor.getText().isBlank())
                 faradsofcapacitor.setText("0");
             component[0].setCapacitance(Double.parseDouble(String.valueOf(faradsofcapacitor.getText())));
-            budget = budget + 10;
-        } else if (((HBox) e.getSource()).getId().equals(merger.getId())) {
+        } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
             component[0] = new Merger();
         } else if (((HBox) e.getSource()).getId().equals(splitter.getId())) {
             component[0] = new Splitter();
@@ -396,7 +394,6 @@ public class HelloController implements Initializable {
         } else {
             component[0].setConnections(0, 1, 0, 1);
         }
-        budgetlabel.setText(String.valueOf(budget) + "$");
 
         // Get the position of the content
         pan.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> {
@@ -471,6 +468,17 @@ public class HelloController implements Initializable {
                 double Hspacing = (Math.round(HelloController.getAncheight() / 20));
                 double Wspacing = (Math.round(HelloController.getAncwidth() / 35));
                 popSound();
+
+                switch(component[0].getId()){
+                    case 1: budget = budget + 1; break;
+                    case 2: budget = budget + Double.parseDouble(priceBattery.getText()); break;
+                    case 3: budget = budget + 10; break;
+                    case 4: budget = budget + 10; break;
+                    case 7: budget = budget + 10; break;
+                    default:
+                        budget = budget; break;
+                }
+                budgetlabel.setText(String.valueOf(budget) + "$");
 
 
                 int Hindex = (int) Math.round(((mouseEvent.getY() - contentY - Hspacing / 2) / (Hspacing)));

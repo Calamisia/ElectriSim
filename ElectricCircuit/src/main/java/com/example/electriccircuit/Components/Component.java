@@ -7,6 +7,7 @@ import com.example.electriccircuit.Logic.Debug;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Shape;
@@ -28,6 +29,7 @@ public class Component {
     private double voltage;
     private double passingCurrent;
     private double resistance;
+    private int displayrow;
     private double capacitance;
     private double charge;
     private int[] connections = new int[4];
@@ -105,16 +107,24 @@ public class Component {
         getComponentNode().setOnMousePressed(e -> { // When mouse pressed on the object
             labelName.setText(name + " " + HelloController.returnDataGrid().getRowCount());
             refreshPersonalLabel();
-            if(!isDisplayed){
+            System.out.println(isDisplayed);
+            if (isDisplayed) {
+                HelloController.returnDataGrid().getChildren().removeIf(node -> GridPane.getRowIndex(node) != null && GridPane.getRowIndex(node) == displayrow);
+                isDisplayed = false;
+                HelloController.returnDataGrid().getChildren().forEach(node -> {
+                    Integer rowIndex = GridPane.getRowIndex(node);
+                    if (rowIndex != null && rowIndex > displayrow) {
+                        GridPane.setRowIndex(node, rowIndex - 1);
+                    }
+                });
+            }
+            else if(!isDisplayed){
                 isDisplayed = true;
+                displayrow = HelloController.returnDataGrid().getRowCount();
                 HelloController.returnDataGrid().addRow(
                         HelloController.returnDataGrid().getRowCount(),
                         labelName, labelResistance, labelPotential, labelCurrent, labelCapacitance, labelCharge
                 );
-            }
-            if (isDisplayed) {
-                //DELETE ROW CODE HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                //isDisplayed = false;
             }
         });
     }
