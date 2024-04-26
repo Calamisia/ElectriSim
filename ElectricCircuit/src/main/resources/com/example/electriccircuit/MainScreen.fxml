@@ -234,7 +234,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Slider blockIncrement="0.1" majorTickUnit="0.5" max="2.0" minorTickCount="1" showTickLabels="true" styleClass="slider1">
+                                    <Slider fx:id="timeSlider" blockIncrement="0.1" majorTickUnit="0.5" max="2.0" minorTickCount="1" showTickLabels="true" styleClass="slider1">
                                        <VBox.margin>
                                           <Insets left="10.0" right="10.0" />
                                        </VBox.margin>

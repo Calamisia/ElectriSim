@@ -65,7 +65,7 @@ public class CalculatingGrid {
                         //* HelloController.returnTimeSlider().getValue()
                         double start = System.currentTimeMillis();
                         while (objectPath.get(capacitorLocation).getVoltage() != potential.getVolt()) {
-                            objectPath.get(capacitorLocation).setVoltage(potential.getVolt() * (1 - Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000) / (resistance.getOhm() * farad.getCapacitance()))));
+                            objectPath.get(capacitorLocation).setVoltage(potential.getVolt() * (1 - Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));
                             if (objectPath.get(capacitorLocation).isDisplayed()) {
                                 Platform.runLater(() -> {
                                     objectPath.get(capacitorLocation).refreshPersonalLabel();
@@ -129,7 +129,7 @@ public class CalculatingGrid {
                         //* HelloController.returnTimeSlider().getValue()
                         double start = System.currentTimeMillis();
                         while (temporarycap.getVoltage() != 0) {
-                            temporarycap.setVoltage(potential.getVolt() * (Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000) / (resistance.getOhm() * farad.getCapacitance()))));
+                            temporarycap.setVoltage(potential.getVolt() * (Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));
                             if (temporarycap.isDisplayed()) {
                                 Platform.runLater(() -> {
                                     temporarycap.refreshPersonalLabel();
