@@ -565,7 +565,9 @@ public class HelloController implements Initializable {
             }
             saveGame();
         }
+        CalculatingGrid.chargedCapacitor = new Capacitors();
         CalculatingGrid.chargedCapacitor = null;
+
         smallanchorpane.getChildren().clear();
         //Should also clear the components!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (this is a future Alex problem don't worry about it)
         HelloController controller1 = main.MainController();
