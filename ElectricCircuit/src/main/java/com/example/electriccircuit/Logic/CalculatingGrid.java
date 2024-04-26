@@ -22,7 +22,7 @@ public class CalculatingGrid {
     static Capacitance farad = new Capacitance(0);
     private Charge coulomb = new Charge(0);
     private int capacitorLocation;
-    static Capacitors chargedCapacitor;
+    public static Capacitors chargedCapacitor;
 
     GridPane dataGrid;
 
