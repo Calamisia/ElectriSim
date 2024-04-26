@@ -347,13 +347,19 @@ public class HelloController implements Initializable {
             component[0] = new Wire();
         } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
             component[0] = new PowerSupply();
+            if(voltsofbattery.getText().isBlank())
+                voltsofbattery.setText("0");
             ((PowerSupply) component[0]).setVoltage(Integer.parseInt(String.valueOf(voltsofbattery.getText())));
             Debug.Log(((PowerSupply) component[0]).getVoltage() + " is voltage ");
         } else if(((HBox) e.getSource()).getId().equals(resistor.getId())){
             component[0] = new Resistors();
+            if(resistanceofresistor.getText().isBlank())
+                resistanceofresistor.setText("0");
             component[0].setResistance(Integer.parseInt(String.valueOf(resistanceofresistor.getText())));
         } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
             component[0] = new Capacitors();
+            if(faradsofcapacitor.getText().isBlank())
+                faradsofcapacitor.setText("0");
             component[0].setCapacitance(Double.parseDouble(String.valueOf(faradsofcapacitor.getText())));
         } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
             component[0] = new Merger();
