@@ -9,6 +9,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.io.File;
 import java.io.InputStream;
 
 public class Switch extends Wire {
@@ -28,6 +32,7 @@ public class Switch extends Wire {
     @Override
     public void interact(){
         getComponentNode().setOnMousePressed(e -> { // When mouse pressed on the object
+            crankSound();
             if(isClosed){
                 BuilderMatrix.setBoxID(super.getLocationRow(), super.getLocationColumn(), 8, this);
                 InputStream in = getClass().getResourceAsStream("/com/example/electriccircuit/switchClosed.png");
@@ -45,4 +50,15 @@ public class Switch extends Wire {
             }
         });
     }
+    public void crankSound() {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("/com/example/electriccircuit/crank.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
 }

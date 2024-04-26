@@ -28,9 +28,11 @@ import javafx.util.Duration;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 import static com.example.electriccircuit.Components.Component.componentArray;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.net.URL;
@@ -60,11 +62,11 @@ public class HelloController implements Initializable {
     @FXML
     private HBox biggesthbox, achievementtitlehbox;
     @FXML
-    private ImageView lockimage, lockimage1,lockimage2,lockimage3,lockimage4,lockimage5,lockimage6,lockimage7,lockimage8;
+    private ImageView lockimage, lockimage1, lockimage2, lockimage3, lockimage4, lockimage5, lockimage6, lockimage7, lockimage8;
     @FXML
     private HBox achievementshbox;
     @FXML
-    private Label achievementlabel,achievementlabel1,achievementlabel2,achievementlabel3,achievementlabel4,achievementlabel5,achievementlabel6,achievementlabel7,achievementlabel8;
+    private Label achievementlabel, achievementlabel1, achievementlabel2, achievementlabel3, achievementlabel4, achievementlabel5, achievementlabel6, achievementlabel7, achievementlabel8;
 
     @FXML
     private Label achievementdlabel, achievementdlabel1, achievementdlabel2, achievementdlabel3, achievementdlabel4, achievementdlabel5, achievementdlabel6, achievementdlabel7, achievementdlabel8;
@@ -103,7 +105,7 @@ public class HelloController implements Initializable {
     @FXML
     public ScrollPane pan, componentscroll, gridscroll;
     @FXML
-    public TextField voltsofbattery,resistanceofresistor,faradsofcapacitor;
+    public TextField voltsofbattery, resistanceofresistor, faradsofcapacitor;
     @FXML
     private Slider timeSlider;
 
@@ -128,31 +130,37 @@ public class HelloController implements Initializable {
     private Label resistance = new Label(""), potential = new Label(""), current = new Label("");
 
     //setters
-    public void setMain(HelloApplication main){
+    public void setMain(HelloApplication main) {
         this.main = main;
     }
-    public void setUnlocks(Unlocks unlocked) { this.unlocked = unlocked; }
+
+    public void setUnlocks(Unlocks unlocked) {
+        this.unlocked = unlocked;
+    }
 
     //initialize variables
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {}
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
 
     private static HelloController instance;
+
     public static HelloController getInstance() {
         return instance;
     }
 
     //initialize variables
-    public HelloController() {}
+    public HelloController() {
+    }
 
     //method for first initialization
-    public void titleinitialize(){
+    public void titleinitialize() {
         // Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToTitle());
         titlemethod();
     }
 
-    public void FadeTransition(Node node){
+    public void FadeTransition(Node node) {
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), node);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
@@ -173,7 +181,7 @@ public class HelloController implements Initializable {
 
     /* Switch to achievements screen and initialize*/
     @FXML
-    public void Achievements(ActionEvent event){
+    public void Achievements(ActionEvent event) {
 
         // Fade in transition
         FadeTransition(main.switchToAchievements());
@@ -262,25 +270,25 @@ public class HelloController implements Initializable {
 
         //Bindings
         //Lvl1
-        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl1(), controller1.getLabellvl1(),1);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl1(), controller1.getLabellvl1(), 1);
         //Lvl2
-        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl2(), controller1.getLabellvl2(),2);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl2(), controller1.getLabellvl2(), 2);
         //Lvl3
-        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl3(), controller1.getLabellvl3(),3);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl3(), controller1.getLabellvl3(), 3);
         //Lvl4
-        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl4(), controller1.getLabellvl4(),4);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl4(), controller1.getLabellvl4(), 4);
         //Lvl5
-        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl5(), controller1.getLabellvl5(),5);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl5(), controller1.getLabellvl5(), 5);
         //Lvl6
-        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl6(), controller1.getLabellvl6(),6);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl6(), controller1.getLabellvl6(), 6);
         //Lvl7
-        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl7(), controller1.getLabellvl7(),7);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl7(), controller1.getLabellvl7(), 7);
         //Lvl8
-        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl8(), controller1.getLabellvl8(),8);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl8(), controller1.getLabellvl8(), 8);
         //Lvl9
-        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl9(), controller1.getLabellvl9(),9);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl9(), controller1.getLabellvl9(), 9);
         //Lvl10
-        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl10(), controller1.getLabellvl10(),10);
+        levelimagelabel(controller1.getImageviewlvl1(), controller1.getImageviewlvl10(), controller1.getLabellvl10(), 10);
 
     }
 
@@ -293,13 +301,13 @@ public class HelloController implements Initializable {
         main.getMainContainer().getChildren().setAll(main.switchToMainScreen());
         HelloController controller1 = main.MainController();
 
-        if(countee == 0) {
+        if (countee == 0) {
             controller1.getDataGrid().addRow(1, resistance, potential, current);
             countee++;
         }
 
-        ancwidth = (Math.ceil((float) main.getScreenWidth() /35))*35;
-        ancheight = (float)(main.getScreenWidth()*20)/35;
+        ancwidth = (Math.ceil((float) main.getScreenWidth() / 35)) * 35;
+        ancheight = (float) (main.getScreenWidth() * 20) / 35;
 
         limiter(controller1.getSmallanchorpane());
         limiter(controller1.getTogglegrid());
@@ -310,10 +318,10 @@ public class HelloController implements Initializable {
             controller1.getCal().setOpacity(0.5);
         }
 
-        controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(main.getScreenWidth()*0.6));
+        controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(main.getScreenWidth() * 0.6));
         loadGame();
 
-        if(sandboxMatrix.closedCircuit()) {
+        if (sandboxMatrix.closedCircuit()) {
             controller1.getCal().setId("calculatetrue");
             controller1.getCal().setMouseTransparent(false);
             controller1.getCal().setOpacity(1);
@@ -333,6 +341,7 @@ public class HelloController implements Initializable {
         controller1.getSettingsvbox().setMinHeight(370);
         controller1.getSettingsvbox().setMaxHeight(470);
     }
+
     /* exit settings */
     @FXML
     private void exitSettings(ActionEvent event) {
@@ -349,56 +358,56 @@ public class HelloController implements Initializable {
     public void spawn(MouseEvent e) {
         final Component[] component = new Component[1];
         System.out.println("Worked");
-        if(((HBox) e.getSource()).getId().equals(wire.getId())){
+        if (((HBox) e.getSource()).getId().equals(wire.getId())) {
             component[0] = new Wire();
             budget = budget + 1;
-        } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
+        } else if (((HBox) e.getSource()).getId().equals(powerSupply.getId())) {
             component[0] = new PowerSupply();
-            if(voltsofbattery.getText().isBlank())
+            if (voltsofbattery.getText().isBlank())
                 voltsofbattery.setText("0");
             ((PowerSupply) component[0]).setVoltage(Integer.parseInt(String.valueOf(voltsofbattery.getText())));
             budget = budget + Double.parseDouble(priceBattery.getText());
             Debug.Log(((PowerSupply) component[0]).getVoltage() + " is voltage ");
-        } else if(((HBox) e.getSource()).getId().equals(resistor.getId())){
+        } else if (((HBox) e.getSource()).getId().equals(resistor.getId())) {
             component[0] = new Resistors();
-            if(resistanceofresistor.getText().isBlank())
+            if (resistanceofresistor.getText().isBlank())
                 resistanceofresistor.setText("0");
             component[0].setResistance(Integer.parseInt(String.valueOf(resistanceofresistor.getText())));
             budget = budget + 10;
-        } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
+        } else if (((HBox) e.getSource()).getId().equals(capacitor.getId())) {
             component[0] = new Capacitors();
-            if(faradsofcapacitor.getText().isBlank())
+            if (faradsofcapacitor.getText().isBlank())
                 faradsofcapacitor.setText("0");
             component[0].setCapacitance(Double.parseDouble(String.valueOf(faradsofcapacitor.getText())));
             budget = budget + 10;
-        } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
+        } else if (((HBox) e.getSource()).getId().equals(merger.getId())) {
             component[0] = new Merger();
-        } else if(((HBox) e.getSource()).getId().equals(splitter.getId())){
+        } else if (((HBox) e.getSource()).getId().equals(splitter.getId())) {
             component[0] = new Splitter();
-        } else if(((HBox) e.getSource()).getId().equals(wireSwitch.getId())){
+        } else if (((HBox) e.getSource()).getId().equals(wireSwitch.getId())) {
             component[0] = new Switch();
             Debug.Info("wireSwitch found");
         } else {
             component[0] = null;
             Debug.Error("Invalid spawn component");
         }
-        if(component[0] instanceof PowerSupply){
-            component[0].setConnections(0,1,0,0);
-        } else{
-            component[0].setConnections(0,1,0,1);
+        if (component[0] instanceof PowerSupply) {
+            component[0].setConnections(0, 1, 0, 0);
+        } else {
+            component[0].setConnections(0, 1, 0, 1);
         }
         budgetlabel.setText(String.valueOf(budget) + "$");
 
         // Get the position of the content
         pan.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> {
             Bounds contentBounds = anchoringgrid.getBoundsInParent();
-            contentX = contentBounds.getMinX() + newValue.getMinX()+0.5;
-            contentY = contentBounds.getMinY() + newValue.getMinY()+0.5;
+            contentX = contentBounds.getMinX() + newValue.getMinX() + 0.5;
+            contentY = contentBounds.getMinY() + newValue.getMinY() + 0.5;
         });
         //System.out.println("Content position: (" + contentX + ", " + contentY + ")");
 
         //Creates the object
-        Rectangle sprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
+        Rectangle sprite = new Rectangle(HelloController.getAncwidth() / 35, HelloController.getAncheight() / 20);
         assert component[0] != null;
         sprite.setFill(new ImagePattern(component[0].getImageTexture()));
         sprite.setOpacity(0);
@@ -408,23 +417,23 @@ public class HelloController implements Initializable {
         main.getMainContainer().setOnKeyPressed(event -> {
             if (event.getCode().toString().equals("R")) {
                 rotateComponent(sprite);
-                if(component[0] instanceof PowerSupply){
-                    if(Arrays.equals(component[0].getConnections(), new int[]{0, 1, 0, 0})){
-                        component[0].setConnections(0,0,1,0);
-                    } else if (Arrays.equals(component[0].getConnections(), new int[]{0, 0, 1, 0})){
-                        component[0].setConnections(0,0,0,1);
-                    } else if (Arrays.equals(component[0].getConnections(), new int[]{0, 0, 0, 1})){
-                        component[0].setConnections(1,0,0,0);
-                    } else if (Arrays.equals(component[0].getConnections(), new int[]{1, 0, 0, 0})){
-                        component[0].setConnections(0,1,0,0);
-                    } else{
+                if (component[0] instanceof PowerSupply) {
+                    if (Arrays.equals(component[0].getConnections(), new int[]{0, 1, 0, 0})) {
+                        component[0].setConnections(0, 0, 1, 0);
+                    } else if (Arrays.equals(component[0].getConnections(), new int[]{0, 0, 1, 0})) {
+                        component[0].setConnections(0, 0, 0, 1);
+                    } else if (Arrays.equals(component[0].getConnections(), new int[]{0, 0, 0, 1})) {
+                        component[0].setConnections(1, 0, 0, 0);
+                    } else if (Arrays.equals(component[0].getConnections(), new int[]{1, 0, 0, 0})) {
+                        component[0].setConnections(0, 1, 0, 0);
+                    } else {
                         Debug.Error("well this is weird");
                     }
-                } else{
-                    for(int i = 0; i < component[0].getConnections().length; i++){
-                        if(component[0].getConnections()[i] == 0){
+                } else {
+                    for (int i = 0; i < component[0].getConnections().length; i++) {
+                        if (component[0].getConnections()[i] == 0) {
                             component[0].getConnections()[i] = 1;
-                        } else{
+                        } else {
                             component[0].getConnections()[i] = 0;
                         }
                     }
@@ -437,11 +446,10 @@ public class HelloController implements Initializable {
 
         /*On mouse movement, calibrates to small and large anchor panes */
         smallanchorpane.setOnMouseMoved(mouseEvent -> {
-            if (sprite.getRotate()+360 % 180 == 0) {
+            if (sprite.getRotate() + 360 % 180 == 0) {
                 sprite.setX((mouseEvent.getX() - contentX - sprite.getWidth() / 2));
                 sprite.setY((mouseEvent.getY() - contentY - sprite.getHeight() / 2));
-            }
-            else {
+            } else {
                 sprite.setX((mouseEvent.getX() - contentX - sprite.getHeight() / 2));
                 sprite.setY((mouseEvent.getY() - contentY - sprite.getWidth() / 2));
             }
@@ -450,7 +458,7 @@ public class HelloController implements Initializable {
         });
 
         anchorpane.setOnMouseMoved(mouseEvent -> {
-            if (sprite.getRotate()+360 % 180 == 0) {
+            if (sprite.getRotate() + 360 % 180 == 0) {
                 sprite.setX((mouseEvent.getX() - contentX - sprite.getWidth() / 2));
                 sprite.setY((mouseEvent.getY() - contentY - sprite.getHeight() / 2));
             }
@@ -459,34 +467,36 @@ public class HelloController implements Initializable {
         });
 
         pan.setOnMouseReleased(mouseEvent -> {
-            if(isEventEnabled[0]) { //makes sure you can only release once
-                double Hspacing = (Math.round(HelloController.getAncheight()/ 20));
-                double Wspacing = (Math.round(HelloController.getAncwidth()/ 35));
+            if (isEventEnabled[0]) { //makes sure you can only release once
+                double Hspacing = (Math.round(HelloController.getAncheight() / 20));
+                double Wspacing = (Math.round(HelloController.getAncwidth() / 35));
                 popSound();
 
 
-                int Hindex = (int)Math.round(((mouseEvent.getY() - contentY - Hspacing / 2) / (Hspacing)));
-                int Windex = (int)Math.round(((mouseEvent.getX() - contentX - Wspacing / 2) / (Wspacing)));
+                int Hindex = (int) Math.round(((mouseEvent.getY() - contentY - Hspacing / 2) / (Hspacing)));
+                int Windex = (int) Math.round(((mouseEvent.getX() - contentX - Wspacing / 2) / (Wspacing)));
                 /* more fluid input */
-                if(Hindex == 20){
+                if (Hindex == 20) {
                     Hindex = 19;
-                } if(Windex == -1){
+                }
+                if (Windex == -1) {
                     Windex = 0;
-                } if(Windex == 35){
+                }
+                if (Windex == 35) {
                     Windex = 34;
                 }
 
-                if(Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
+                if (Hindex < 20 && Hindex >= 0) { //if within bound of small anchor
                     if (Windex < 35 && Windex >= 0) {
                         placeSolidSprite(component[0], Windex, Hindex, sprite, Hspacing, Wspacing);
                     }
                 }
-                if(!mouseEvent.isShiftDown()){
+                if (!mouseEvent.isShiftDown()) {
                     smallanchorpane.getChildren().remove(sprite);
                     anchorpane.getChildren().remove(sprite);
 
                     isEventEnabled[0] = false;
-                } else{
+                } else {
                     try {
                         int[] tempConnections = Arrays.copyOf(component[0].getConnections(), component[0].getConnections().length);
                         component[0] = component[0].getClass().newInstance();
@@ -502,18 +512,12 @@ public class HelloController implements Initializable {
             }
         });
     }
-    public void placeSolidSprite(Component component, int Windex, int Hindex, Rectangle sprite, double Hspacing, double Wspacing){
-        Rectangle solidSprite = new Rectangle(HelloController.getAncwidth()/35,HelloController.getAncheight()/20);
+
+    public void placeSolidSprite(Component component, int Windex, int Hindex, Rectangle sprite, double Hspacing, double Wspacing) {
+        Rectangle solidSprite = new Rectangle(HelloController.getAncwidth() / 35, HelloController.getAncheight() / 20);
         component.setComponentNode(solidSprite);
         component.setLocation(Windex, Hindex);
         component.interact();
-
-
-
-
-
-
-
 
 
         //snaps to grid
@@ -527,9 +531,9 @@ public class HelloController implements Initializable {
         BuilderMatrix.setBoxID(Windex, Hindex, component.getId(), component);
         component.setLocation(Windex, Hindex);
         component.interact();
-        if(component instanceof Wire){
+        if (component instanceof Wire) {
             component.mainRefreshComponent();
-        } else{
+        } else {
             component.mainRefreshComponent();
             solidSprite.setFill(new ImagePattern(component.getImageTexture()));
             solidSprite.setRotate(sprite.getRotate());
@@ -539,16 +543,16 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    public void exit(ActionEvent event){
+    public void exit(ActionEvent event) {
         popSound();
         System.exit(0);
     }
 
     @FXML
-    public void clearGrid(ActionEvent event){
-        for(int i = 0; i < 20; i++){
-            for (int j = 0; j < 35; j++){
-                BuilderMatrix.removeBoxID(j,i);
+    public void clearGrid(ActionEvent event) {
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 35; j++) {
+                BuilderMatrix.removeBoxID(j, i);
                 componentArray[j][i] = null;
             }
             saveGame();
@@ -567,11 +571,11 @@ public class HelloController implements Initializable {
     }
 
     private void rotateComponent(Rectangle rectangle) {
-        rectangle.setRotate(rectangle.getRotate()+90);
+        rectangle.setRotate(rectangle.getRotate() + 90);
     }
 
 
-    public void titlemethod(){
+    public void titlemethod() {
         HelloController controller = main.TitleController();
         controller.getLogotitle().fitWidthProperty().bind(controller.getTitleHbox().widthProperty()); // Bind fitWidth to HBox width
         controller.getLogotitle().fitHeightProperty().bind(controller.getTitleHbox().heightProperty()); // Bind fitHeight to HBox height
@@ -583,11 +587,11 @@ public class HelloController implements Initializable {
     }
 
     //Method for button resizing
-    public void buttontext(Button button){
-        button.setStyle("-fx-font-size: " + button.getWidth()/10 + "px;");
+    public void buttontext(Button button) {
+        button.setStyle("-fx-font-size: " + button.getWidth() / 10 + "px;");
         button.widthProperty().addListener((obs, oldVal, newVal) -> {
             double width = newVal.doubleValue();
-            double height = button.getHeight()*5;
+            double height = button.getHeight() * 5;
 
             // Adjust the font size based on the aspect ratio
             double fontSize = Math.min(width, height) / 10; // Adjust the factor as needed
@@ -595,7 +599,7 @@ public class HelloController implements Initializable {
         });
 
         button.heightProperty().addListener((obs, oldVal, newVal) -> {
-            double height = newVal.doubleValue()*5;
+            double height = newVal.doubleValue() * 5;
             double width = button.getWidth();
 
             // Adjust the font size based on the aspect ratio
@@ -605,12 +609,12 @@ public class HelloController implements Initializable {
     }
 
     //Method for level selection binding
-    public void levelimagelabel(ImageView image, ImageView imageView, Label label, int lvlasked){
+    public void levelimagelabel(ImageView image, ImageView imageView, Label label, int lvlasked) {
         HelloController controller1 = main.LevelSelectController();
         /* start of changing font size and label size */
         main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
             double widthFontSize = newWidth.doubleValue() / 4;
-            double heightFontSize = (main.getMainContainer().getHeight() / 4)*2.35;
+            double heightFontSize = (main.getMainContainer().getHeight() / 4) * 2.35;
 
             // Choose the smaller font size to ensure it fits both width and height
             double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
@@ -623,7 +627,7 @@ public class HelloController implements Initializable {
 
         main.getMainContainer().heightProperty().addListener((observable, oldValue, newHeight) -> {
             double widthFontSize = main.getMainContainer().getWidth() / 4;
-            double heightFontSize = (newHeight.doubleValue() / 4)*2.35;
+            double heightFontSize = (newHeight.doubleValue() / 4) * 2.35;
 
             // Choose the smaller font size to ensure it fits both width and height
             double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
@@ -647,25 +651,25 @@ public class HelloController implements Initializable {
     }
 
     //Method for binding hbox
-    public void levelhboxbind(){
+    public void levelhboxbind() {
         HelloController controller1 = main.LevelSelectController();
-        controller1.getSmallhboxlvl1().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
-        controller1.getSmallhboxlvl2().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
-        controller1.getSmallhboxlvl3().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
-        controller1.getSmallhboxlvl4().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
-        controller1.getSmallhboxlvl5().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
-        controller1.getSmallhboxlvl6().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
-        controller1.getSmallhboxlvl7().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
-        controller1.getSmallhboxlvl8().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
-        controller1.getSmallhboxlvl9().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
-        controller1.getSmallhboxlvl10().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30)*4) /5)));
+        controller1.getSmallhboxlvl1().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30) * 4) / 5)));
+        controller1.getSmallhboxlvl2().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30) * 4) / 5)));
+        controller1.getSmallhboxlvl3().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30) * 4) / 5)));
+        controller1.getSmallhboxlvl4().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30) * 4) / 5)));
+        controller1.getSmallhboxlvl5().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30) * 4) / 5)));
+        controller1.getSmallhboxlvl6().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30) * 4) / 5)));
+        controller1.getSmallhboxlvl7().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30) * 4) / 5)));
+        controller1.getSmallhboxlvl8().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30) * 4) / 5)));
+        controller1.getSmallhboxlvl9().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30) * 4) / 5)));
+        controller1.getSmallhboxlvl10().prefWidthProperty().bind(main.getMainContainer().widthProperty().subtract(Math.round((float) ((main.getMainContainer().getWidth() - 30) * 4) / 5)));
     }
 
     //Method for achievement hbox
-    public void achievelock(ImageView imageView, HBox hbox, Label label, Label dlabel){
+    public void achievelock(ImageView imageView, HBox hbox, Label label, Label dlabel) {
 
         double wfs = main.getMainContainer().getWidth() / 4;
-        double hfs = (main.getMainContainer().getHeight() / 4)*2.35;
+        double hfs = (main.getMainContainer().getHeight() / 4) * 2.35;
 
         // Choose the smaller font size to ensure it fits both width and height
         double fs = Math.min(wfs, hfs) / 10;
@@ -680,7 +684,7 @@ public class HelloController implements Initializable {
         /* start of changing font size and label size */
         main.getMainContainer().widthProperty().addListener((observable, oldValue, newWidth) -> {
             double widthFontSize = newWidth.doubleValue() / 4;
-            double heightFontSize = (main.getMainContainer().getHeight() / 4.5)*2.30;
+            double heightFontSize = (main.getMainContainer().getHeight() / 4.5) * 2.30;
 
             // Choose the smaller font size to ensure it fits both width and height
             double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
@@ -694,7 +698,7 @@ public class HelloController implements Initializable {
 
         main.getMainContainer().heightProperty().addListener((observable, oldValue, newHeight) -> {
             double widthFontSize = main.getMainContainer().getWidth() / 4;
-            double heightFontSize = (newHeight.doubleValue() / 4.5)*2.30;
+            double heightFontSize = (newHeight.doubleValue() / 4.5) * 2.30;
 
             // Choose the smaller font size to ensure it fits both width and height
             double fontSize = Math.min(widthFontSize, heightFontSize) / 10;
@@ -713,7 +717,7 @@ public class HelloController implements Initializable {
     }
 
     //method for changing achievement image if unlocked
-    public void achieveunlock(ImageView imageview, Image image, int num){
+    public void achieveunlock(ImageView imageview, Image image, int num) {
         HelloController controller1 = main.AchievementsController();
         //Check if the achievement is unlocked
         //if (unlocked.isAchievementUnlocked(num)) imageview.setImage(image);
@@ -721,7 +725,7 @@ public class HelloController implements Initializable {
 
     //Method for showing grid in main
     @FXML
-    public void showGrid(ActionEvent event){
+    public void showGrid(ActionEvent event) {
         if (checkGrid.isSelected())
             togglegrid.setOpacity(0.5);
         else
@@ -729,7 +733,7 @@ public class HelloController implements Initializable {
     }
 
     //Method to bind the breadboard to a ancwidth / ancheight
-    public void limiter(Region region){
+    public void limiter(Region region) {
         region.setMaxWidth(ancwidth);
         region.setMinWidth(ancwidth);
         region.setMaxHeight(ancheight);
@@ -739,82 +743,77 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    public void gridlimit(){
+    public void gridlimit() {
         HelloController controller = main.MainController();
         //controller.getDataGrid().setTranslateX(((controller.getDataGrid().getWidth()/(-2))));
         //controller.getDataGrid().setTranslateY(controller.getDataGrid().getHeight()/2);
-        controller.getGridscroll().setTranslateX(((controller.getGridscroll().getWidth()/(-2))));
-        controller.getGridscroll().setTranslateY(((controller.getGridscroll().getHeight()/(2))));
+        controller.getGridscroll().setTranslateX(((controller.getGridscroll().getWidth() / (-2))));
+        controller.getGridscroll().setTranslateY(((controller.getGridscroll().getHeight() / (2))));
     }
 
     @FXML
-    public void gridrestore(){
+    public void gridrestore() {
         HelloController controller = main.MainController();
         //controller.getDataGrid().setTranslateX(0);
-       // controller.getDataGrid().setTranslateY(0);
+        // controller.getDataGrid().setTranslateY(0);
         controller.getGridscroll().setTranslateX(0);
         controller.getGridscroll().setTranslateY(0);
     }
 
     @FXML
-    public void retractRight(){
+    public void retractRight() {
         HelloController controller = main.MainController();
-        if(controller.getRetractableright().getTranslateX() == 0) {
+        if (controller.getRetractableright().getTranslateX() == 0) {
             controller.getRetractableright().setTranslateX(280);
             controller.getRectangleright().setTranslateX(280);
-        }
-        else {
+        } else {
             controller.getRetractableright().setTranslateX(0);
             controller.getRectangleright().setTranslateX(0);
         }
     }
 
     @FXML
-    public void retractLeft(){
+    public void retractLeft() {
         HelloController controller = main.MainController();
-        if(controller.getRetractableleft().getTranslateX() == 0) {
+        if (controller.getRetractableleft().getTranslateX() == 0) {
             controller.getRetractableleft().setTranslateX(-190);
             controller.getRectangleleft().setTranslateX(-190);
-        }
-        else {
+        } else {
             controller.getRetractableleft().setTranslateX(0);
             controller.getRectangleleft().setTranslateX(0);
         }
     }
 
     @FXML
-    public void retractBottom(){
+    public void retractBottom() {
         HelloController controller = main.MainController();
-        if(controller.getComponentscroll().getTranslateY() == 0) {
+        if (controller.getComponentscroll().getTranslateY() == 0) {
             controller.getComponentscroll().setTranslateY(200);
             controller.getRectanglebottom().setTranslateY(200);
-        }
-        else {
+        } else {
             controller.getComponentscroll().setTranslateY(0);
             controller.getRectanglebottom().setTranslateY(0);
         }
     }
 
     @FXML
-    public void writeVolt(){
+    public void writeVolt() {
         HelloController controller = main.MainController();
         voltstring = "";
-        for(int i = 0; i < controller.getVoltsofbattery().getLength(); i++) {
+        for (int i = 0; i < controller.getVoltsofbattery().getLength(); i++) {
             if (isDigit(controller.getVoltsofbattery().getText().charAt(i))) {
                 voltstring = voltstring + controller.getVoltsofbattery().getText().charAt(i);
             }
         }
-        if(voltstring.isEmpty() || Double.parseDouble(voltstring) < 0) {
+        if (voltstring.isEmpty() || Double.parseDouble(voltstring) < 0) {
             voltstring = "0";
             controller.getPriceBattery().setText("0");
             controller.getVoltsofbattery().setText("0");
-        }
-        else if(Double.parseDouble(voltstring)*Double.parseDouble(voltstring)*0.2 > 2147483647){
+        } else if (Double.parseDouble(voltstring) * Double.parseDouble(voltstring) * 0.2 > 2147483647) {
             controller.getVoltsofbattery().setText("103621");
             voltstring = "103621";
             controller.getPriceBattery().setText("2147483647");
-        }
-        else {
+        } else {
             controller.getPriceBattery().setText(String.valueOf(round(Double.parseDouble(voltstring) * Double.parseDouble(voltstring) * 0.2, 2)));
         }
 
@@ -823,19 +822,18 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    public void writeOhms(){
+    public void writeOhms() {
         HelloController controller = main.MainController();
         resistancestring = "";
-        for(int i = 0; i < controller.getResistanceofresistor().getLength(); i++) {
+        for (int i = 0; i < controller.getResistanceofresistor().getLength(); i++) {
             if (isDigit(controller.getResistanceofresistor().getText().charAt(i))) {
                 resistancestring = resistancestring + controller.getResistanceofresistor().getText().charAt(i);
             }
         }
-        if(resistancestring.isEmpty() || Double.parseDouble(resistancestring) < 0) {
+        if (resistancestring.isEmpty() || Double.parseDouble(resistancestring) < 0) {
             resistancestring = "0";
             controller.getResistanceofresistor().setText("0");
-        }
-        else if(Double.parseDouble(resistancestring) > 2147483647){
+        } else if (Double.parseDouble(resistancestring) > 2147483647) {
             resistancestring = "2147483647";
             controller.getResistanceofresistor().setText(resistancestring);
         }
@@ -845,19 +843,18 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    public void writeFarads(){
+    public void writeFarads() {
         HelloController controller = main.MainController();
         faradstring = "";
-        for(int i = 0; i < controller.getFaradsofcapacitor().getLength(); i++) {
+        for (int i = 0; i < controller.getFaradsofcapacitor().getLength(); i++) {
             if (isDigit(controller.getFaradsofcapacitor().getText().charAt(i))) {
                 faradstring = faradstring + controller.getFaradsofcapacitor().getText().charAt(i);
             }
         }
-        if(faradstring.isEmpty() || Double.parseDouble(faradstring) < 0) {
+        if (faradstring.isEmpty() || Double.parseDouble(faradstring) < 0) {
             faradstring = "0";
             controller.getFaradsofcapacitor().setText("0");
-        }
-        else if(Double.parseDouble(faradstring) > 2147483647){
+        } else if (Double.parseDouble(faradstring) > 2147483647) {
             faradstring = "2147483647";
             controller.getResistanceofresistor().setText(faradstring);
         }
@@ -874,14 +871,13 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    public void hint(){
+    public void hint() {
         HelloController controller = main.MainController();
-        if(controller.getHintlabel().getOpacity() != 0) {
+        if (controller.getHintlabel().getOpacity() != 0) {
             controller.getHintlabel().setOpacity(0);
             controller.getHintlabel().setMaxHeight(0);
             controller.getHintlabel().setMinHeight(0);
-        }
-        else {
+        } else {
             controller.getHintlabel().setOpacity(100);
             controller.getHintlabel().setMaxHeight(Region.USE_COMPUTED_SIZE);
             controller.getHintlabel().setMinHeight(Region.USE_COMPUTED_SIZE);
@@ -889,19 +885,18 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    public void seeHint(){
+    public void seeHint() {
         HelloController controller = main.MainController();
         HelloController controller1 = main.settingsController();
-        if(controller1.getHintcheck().isSelected()) {
+        if (controller1.getHintcheck().isSelected()) {
             controller.getHinthbox().setOpacity(100);
             controller.getHinthbox().setMaxHeight(Region.USE_COMPUTED_SIZE);
             controller.getHinthbox().setMinHeight(Region.USE_COMPUTED_SIZE);
-            if(controller.getHintlabel().getOpacity() != 0){
+            if (controller.getHintlabel().getOpacity() != 0) {
                 controller.getHintlabel().setMaxHeight(Region.USE_COMPUTED_SIZE);
                 controller.getHintlabel().setMinHeight(Region.USE_COMPUTED_SIZE);
             }
-        }
-        else {
+        } else {
             controller.getHinthbox().setOpacity(0);
             controller.getHinthbox().setMaxHeight(0);
             controller.getHinthbox().setMinHeight(0);
@@ -921,7 +916,8 @@ public class HelloController implements Initializable {
             ex.printStackTrace();
         }
     }
-    public void correctSound(){
+
+    public void correctSound() {
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("correct.wav"));
             Clip clip = AudioSystem.getClip();
@@ -931,9 +927,10 @@ public class HelloController implements Initializable {
             ex.printStackTrace();
         }
     }
-    public void wooshSound(){
+
+    public void wooshSound() {
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("woosh.wav"));
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("/com/example/electriccircuit/woosh.wav"));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
@@ -941,7 +938,6 @@ public class HelloController implements Initializable {
             ex.printStackTrace();
         }
     }
-
 
     //Getters for static getters
     public static double getAncwidth(){
