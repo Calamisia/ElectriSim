@@ -89,13 +89,13 @@ public class HelloController implements Initializable {
 
     //Start of main screen ids
     @FXML
-    private HBox scrollhbox, rectanglebottom;
+    private HBox scrollhbox, rectanglebottom, hintbutton, hinthbox;
     @FXML
     private VBox retractableleft, rectangleleft, retractableright, rectangleright;
     @FXML
     private GridPane togglegrid, dataGrid;
     @FXML
-    private Label totalVolt, totalAmp, totalOhms, priceBattery, voltTitle, resitanceTitle, faradTitle, totalFarads, totalCharge;
+    private Label totalVolt, totalAmp, totalOhms, priceBattery, voltTitle, resitanceTitle, faradTitle, totalFarads, totalCharge, hintlabel, budgetlabel;
     @FXML
     private CheckBox checkGrid;
     @FXML
@@ -103,7 +103,7 @@ public class HelloController implements Initializable {
     @FXML
     public Button cal;
     @FXML
-    public ScrollPane pan, componentscroll;
+    public ScrollPane pan, componentscroll, gridscroll;
     @FXML
     public TextField voltsofbattery,resistanceofresistor,faradsofcapacitor;
     @FXML
@@ -116,6 +116,8 @@ public class HelloController implements Initializable {
     //Start of settings screen ids
     @FXML
     private VBox settingsvbox;
+    @FXML
+    private CheckBox hintcheck;
 
     //Non fxml variables
     private HelloApplication main;
@@ -337,7 +339,7 @@ public class HelloController implements Initializable {
 
     private double contentX;
     private double contentY;
-
+    private double budget;
 
     @FXML
     public void spawn(MouseEvent e) {
@@ -345,22 +347,26 @@ public class HelloController implements Initializable {
         System.out.println("Worked");
         if(((HBox) e.getSource()).getId().equals(wire.getId())){
             component[0] = new Wire();
+            budget = budget + 1;
         } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
             component[0] = new PowerSupply();
             if(voltsofbattery.getText().isBlank())
                 voltsofbattery.setText("0");
             ((PowerSupply) component[0]).setVoltage(Integer.parseInt(String.valueOf(voltsofbattery.getText())));
+            budget = budget + Double.parseDouble(priceBattery.getText());
             Debug.Log(((PowerSupply) component[0]).getVoltage() + " is voltage ");
         } else if(((HBox) e.getSource()).getId().equals(resistor.getId())){
             component[0] = new Resistors();
             if(resistanceofresistor.getText().isBlank())
                 resistanceofresistor.setText("0");
             component[0].setResistance(Integer.parseInt(String.valueOf(resistanceofresistor.getText())));
+            budget = budget + 10;
         } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
             component[0] = new Capacitors();
             if(faradsofcapacitor.getText().isBlank())
                 faradsofcapacitor.setText("0");
             component[0].setCapacitance(Double.parseDouble(String.valueOf(faradsofcapacitor.getText())));
+            budget = budget + 10;
         } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
             component[0] = new Merger();
         } else if(((HBox) e.getSource()).getId().equals(splitter.getId())){
@@ -377,6 +383,7 @@ public class HelloController implements Initializable {
         } else{
             component[0].setConnections(0,1,0,1);
         }
+        budgetlabel.setText(String.valueOf(budget) + "$");
 
         // Get the position of the content
         pan.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> {
@@ -548,6 +555,8 @@ public class HelloController implements Initializable {
         controller1.getCal().setMouseTransparent(true);
         controller1.getCal().setOpacity(0.5);
         wooshSound();
+        controller1.getBudgetlabel().setText("0$");
+        budget = 0;
         new CalculatingGrid(BuilderMatrix.getGrid());
     }
 
@@ -726,23 +735,27 @@ public class HelloController implements Initializable {
     @FXML
     public void gridlimit(){
         HelloController controller = main.MainController();
-        controller.getDataGrid().setTranslateX(((controller.getDataGrid().getWidth()/(-2))));
-        controller.getDataGrid().setTranslateY(controller.getDataGrid().getHeight()/2);
+        //controller.getDataGrid().setTranslateX(((controller.getDataGrid().getWidth()/(-2))));
+        //controller.getDataGrid().setTranslateY(controller.getDataGrid().getHeight()/2);
+        controller.getGridscroll().setTranslateX(((controller.getGridscroll().getWidth()/(-2))));
+        controller.getGridscroll().setTranslateY(((controller.getGridscroll().getHeight()/(2))));
     }
 
     @FXML
     public void gridrestore(){
         HelloController controller = main.MainController();
-        controller.getDataGrid().setTranslateX(0);
-        controller.getDataGrid().setTranslateY(0);
+        //controller.getDataGrid().setTranslateX(0);
+       // controller.getDataGrid().setTranslateY(0);
+        controller.getGridscroll().setTranslateX(0);
+        controller.getGridscroll().setTranslateY(0);
     }
 
     @FXML
     public void retractRight(){
         HelloController controller = main.MainController();
         if(controller.getRetractableright().getTranslateX() == 0) {
-            controller.getRetractableright().setTranslateX(190);
-            controller.getRectangleright().setTranslateX(190);
+            controller.getRetractableright().setTranslateX(280);
+            controller.getRectangleright().setTranslateX(280);
         }
         else {
             controller.getRetractableright().setTranslateX(0);
@@ -854,6 +867,42 @@ public class HelloController implements Initializable {
         return bd.doubleValue();
     }
 
+    @FXML
+    public void hint(){
+        HelloController controller = main.MainController();
+        if(controller.getHintlabel().getOpacity() != 0) {
+            controller.getHintlabel().setOpacity(0);
+            controller.getHintlabel().setMaxHeight(0);
+            controller.getHintlabel().setMinHeight(0);
+        }
+        else {
+            controller.getHintlabel().setOpacity(100);
+            controller.getHintlabel().setMaxHeight(Region.USE_COMPUTED_SIZE);
+            controller.getHintlabel().setMinHeight(Region.USE_COMPUTED_SIZE);
+        }
+    }
+
+    @FXML
+    public void seeHint(){
+        HelloController controller = main.MainController();
+        HelloController controller1 = main.settingsController();
+        if(controller1.getHintcheck().isSelected()) {
+            controller.getHinthbox().setOpacity(100);
+            controller.getHinthbox().setMaxHeight(Region.USE_COMPUTED_SIZE);
+            controller.getHinthbox().setMinHeight(Region.USE_COMPUTED_SIZE);
+            if(controller.getHintlabel().getOpacity() != 0){
+                controller.getHintlabel().setMaxHeight(Region.USE_COMPUTED_SIZE);
+                controller.getHintlabel().setMinHeight(Region.USE_COMPUTED_SIZE);
+            }
+        }
+        else {
+            controller.getHinthbox().setOpacity(0);
+            controller.getHinthbox().setMaxHeight(0);
+            controller.getHinthbox().setMinHeight(0);
+            controller.getHintlabel().setMaxHeight(0);
+            controller.getHintlabel().setMinHeight(0);
+        }
+    }
 
     // SOUND EFFECTS
     public void popSound() {
@@ -1098,10 +1147,13 @@ public class HelloController implements Initializable {
     public TextField getVoltsofbattery(){return voltsofbattery;}
     public TextField getResistanceofresistor(){return resistanceofresistor;}
     public TextField getFaradsofcapacitor(){return faradsofcapacitor;}
+
     public Label getPriceBattery(){return this.priceBattery;}
     public Label getVoltTitle(){return this.voltTitle;}
     public Label getResitanceTitle(){return this.resitanceTitle;}
     public Label getFaradTitle(){return this.faradTitle;}
+
+    public Label getBudgetlabel(){return this.budgetlabel;}
 
     public VBox getRetractableright(){
         return retractableright;
@@ -1116,8 +1168,20 @@ public class HelloController implements Initializable {
         return rectangleleft;
     }
 
+    public HBox getHinthbox(){
+        return hinthbox;
+    }
+
+    public ScrollPane getGridscroll(){
+        return gridscroll;
+    }
+
+    public Label getHintlabel(){return this.hintlabel;}
+
     //settings getters
     public VBox getSettingsvbox(){return this.settingsvbox;}
+
+    public CheckBox getHintcheck(){return this.hintcheck;}
 
     //Random getters
     public HelloController getMainController(){

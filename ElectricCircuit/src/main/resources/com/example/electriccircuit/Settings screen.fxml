@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<StackPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
    <children>
       <Pane opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
       <VBox fx:id="settingsvbox" alignment="TOP_CENTER" prefHeight="400.0" prefWidth="372.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
@@ -59,7 +58,7 @@
                   <Insets left="10.0" />
                </VBox.margin>
                <children>
-                  <CheckBox mnemonicParsing="false" prefHeight="38.0" prefWidth="224.0" styleClass="checkbox" text="Enable Hints">
+                  <CheckBox fx:id="hintcheck" mnemonicParsing="false" onAction="#seeHint" prefHeight="38.0" prefWidth="224.0" selected="true" styleClass="checkbox" text="Enable Hints">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
