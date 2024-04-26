@@ -1,6 +1,7 @@
 package com.example.electriccircuit.Logic;
 
 import com.example.electriccircuit.Components.Component;
+import com.example.electriccircuit.Components.subcomponent.Switch;
 import com.example.electriccircuit.HelloController;
 import javafx.scene.layout.GridPane;
 
@@ -45,7 +46,7 @@ public class BuilderMatrix {
     // Used to add a component Id to a box
     public static void setBoxID(int row, int column, int iD, Component component) {
         Debug.printGrid(grid);
-        if(grid[row][column] != 0 && grid[row][column] != 7 && grid[row][column] != 8){
+        if(grid[row][column] != 0 && (grid[row][column] != 7 && grid[row][column] != 8 || !(component instanceof Switch))){
             componentArray[row][column].removeComponentNode();
             Debug.Log("Set box ID thinks row is " + row + " column is " + column);
             componentArray[row][column] = component;
