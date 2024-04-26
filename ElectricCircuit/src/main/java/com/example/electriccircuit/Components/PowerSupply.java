@@ -1,8 +1,6 @@
 package com.example.electriccircuit.Components;
 
-import com.example.electriccircuit.DataTypes.Volt;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 
 import java.io.InputStream;
 
@@ -12,6 +10,7 @@ public class PowerSupply extends Component{
         assert in != null;
         this.image[0] = new Image(in);
         this.Id = 2;
+        this.name = "Power Supply";
     }
 
     private double voltage;

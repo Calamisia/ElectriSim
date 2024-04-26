@@ -12,5 +12,6 @@ public class Resistors extends Component{
         assert in != null;
         this.image[0] = new Image(in);
         this.Id = 3;
+        this.name = "Resistor";
     }
 }
