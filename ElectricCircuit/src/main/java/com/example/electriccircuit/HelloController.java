@@ -5,7 +5,6 @@ import com.example.electriccircuit.Components.subcomponent.Switch;
 import com.example.electriccircuit.Logic.BuilderMatrix;
 
 import static com.example.electriccircuit.Components.Component.componentArray;
-import com.example.electriccircuit.Logic.SaveFiles;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.Logic.*;
@@ -14,7 +13,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -167,6 +165,7 @@ public class HelloController implements Initializable {
         saveGame();
         // Fade in transition
         FadeTransition(main.switchToTitle());
+        popSound();
         // Replace current screen with the new one
         main.getMainContainer().getChildren().setAll(main.switchToTitle());
         titlemethod();
@@ -178,6 +177,7 @@ public class HelloController implements Initializable {
 
         // Fade in transition
         FadeTransition(main.switchToAchievements());
+        popSound();
 
         main.getMainContainer().getChildren().setAll(main.switchToAchievements());
         HelloController controller1 = main.AchievementsController();
@@ -245,6 +245,7 @@ public class HelloController implements Initializable {
     public void LevelSelect(ActionEvent event) {
         // Fade in transition
         FadeTransition(main.switchToLevelSelect());
+        popSound();
 
         main.getMainContainer().getChildren().setAll(main.switchToLevelSelect());
         HelloController controller1 = main.LevelSelectController();
@@ -288,6 +289,7 @@ public class HelloController implements Initializable {
     private void MainScreen(ActionEvent event) {
         //Replace current screen with the new one
         FadeTransition(main.switchToMainScreen());
+        popSound();
         main.getMainContainer().getChildren().setAll(main.switchToMainScreen());
         HelloController controller1 = main.MainController();
 
@@ -323,6 +325,7 @@ public class HelloController implements Initializable {
     private void settings(ActionEvent event) {
         //Add the settings to the stage
         main.getMainContainer().getChildren().add(main.settings());
+        popSound();
         HelloController controller1 = main.settingsController();
 
         controller1.getSettingsvbox().setMinWidth(400);
@@ -335,6 +338,7 @@ public class HelloController implements Initializable {
     private void exitSettings(ActionEvent event) {
         //Remove the settings from the stage
         main.getMainContainer().getChildren().remove(main.settings());
+        popSound();
     }
 
     private double contentX;
@@ -536,6 +540,7 @@ public class HelloController implements Initializable {
 
     @FXML
     public void exit(ActionEvent event){
+        popSound();
         System.exit(0);
     }
 

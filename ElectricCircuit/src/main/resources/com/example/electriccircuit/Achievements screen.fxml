@@ -59,7 +59,7 @@
                                                    <children>
                                                       <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Label fx:id="achievementlabel" minHeight="0.0" minWidth="0.0" text="Business Man" styleClass="labelpopping" HBox.hgrow="ALWAYS">
+                                                            <Label fx:id="achievementlabel" minHeight="0.0" minWidth="0.0" styleClass="labelpopping" text="Business Man" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font size="48.0" />
                                                                </font>

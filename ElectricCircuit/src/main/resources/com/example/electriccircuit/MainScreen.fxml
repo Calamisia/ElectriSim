@@ -216,7 +216,7 @@
                                             </Label>
                                         </children>
                                     </HBox>
-                              <Label fx:id="hintlabel" alignment="CENTER" maxHeight="0.0" minHeight="0.0" mouseTransparent="true" opacity="0.0" prefHeight="0.0" prefWidth="270.0" text="Think about Ohm's law VI = R" textAlignment="CENTER" wrapText="true" />
+                              <Label fx:id="hintlabel" alignment="CENTER" maxHeight="0.0" minHeight="0.0" mouseTransparent="true" opacity="0.0" prefHeight="0.0" prefWidth="270.0" text="Think about Ohm's law V = IR" textAlignment="CENTER" wrapText="true" />
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="270.0" VBox.vgrow="ALWAYS">
                                         <children>
                                             <CheckBox fx:id="checkGrid" mnemonicParsing="false" onAction="#showGrid" styleClass="checkbox" text="Show Grid" HBox.hgrow="ALWAYS">
