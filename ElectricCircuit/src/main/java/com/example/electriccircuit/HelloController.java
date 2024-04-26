@@ -33,12 +33,15 @@ import javax.sound.sampled.Clip;
 
 import static com.example.electriccircuit.Components.Component.componentArray;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.electriccircuit.Logic.SaveFiles.*;
+import static java.lang.Character.isDigit;
 
 public class HelloController implements Initializable {
 
@@ -92,7 +95,7 @@ public class HelloController implements Initializable {
     @FXML
     private GridPane togglegrid, dataGrid;
     @FXML
-    private Label totalVolt, totalAmp, totalOhms, totalFarads, totalCharge;
+    private Label totalVolt, totalAmp, totalOhms, priceBattery, voltTitle, resitanceTitle, faradTitle, totalFarads, totalCharge;
     @FXML
     private CheckBox checkGrid;
     @FXML
@@ -101,6 +104,10 @@ public class HelloController implements Initializable {
     public Button cal;
     @FXML
     public ScrollPane pan, componentscroll;
+    @FXML
+    public TextField voltsofbattery,resistanceofresistor,faradsofcapacitor;
+    @FXML
+    private Slider timeSlider;
 
     //components
     @FXML
@@ -109,8 +116,6 @@ public class HelloController implements Initializable {
     //Start of settings screen ids
     @FXML
     private VBox settingsvbox;
-    @FXML
-    private Slider timeSlider;
 
     //Non fxml variables
     private HelloApplication main;
@@ -119,6 +124,7 @@ public class HelloController implements Initializable {
     private int countee = 0;
     public static draggable draggableMaker = new draggable();
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
+    private String voltstring, resistancestring, faradstring;
     private Label resistance = new Label(""), potential = new Label(""), current = new Label("");
 
     //setters
@@ -341,14 +347,14 @@ public class HelloController implements Initializable {
             component[0] = new Wire();
         } else if(((HBox) e.getSource()).getId().equals(powerSupply.getId())){
             component[0] = new PowerSupply();
-            ((PowerSupply) component[0]).setVoltage(20);
+            ((PowerSupply) component[0]).setVoltage(Integer.parseInt(String.valueOf(voltsofbattery.getText())));
             Debug.Log(((PowerSupply) component[0]).getVoltage() + " is voltage ");
         } else if(((HBox) e.getSource()).getId().equals(resistor.getId())){
             component[0] = new Resistors();
-            component[0].setResistance(50);
+            component[0].setResistance(Integer.parseInt(String.valueOf(resistanceofresistor.getText())));
         } else if(((HBox) e.getSource()).getId().equals(capacitor.getId())){
             component[0] = new Capacitors();
-            component[0].setCapacitance(1E-6);
+            component[0].setCapacitance(Double.parseDouble(String.valueOf(faradsofcapacitor.getText())));
         } else if(((HBox) e.getSource()).getId().equals(merger.getId())){
             component[0] = new Merger();
         } else if(((HBox) e.getSource()).getId().equals(splitter.getId())){
@@ -514,6 +520,7 @@ public class HelloController implements Initializable {
         new CalculatingGrid(BuilderMatrix.getGrid());
         Debug.Log("column is actually " + Windex + " and row is " + Hindex);
     }
+
     @FXML
     public void exit(ActionEvent event){
         System.exit(0);
@@ -713,7 +720,7 @@ public class HelloController implements Initializable {
     @FXML
     public void gridlimit(){
         HelloController controller = main.MainController();
-        controller.getDataGrid().setTranslateX(controller.getDataGrid().getWidth()/(-2));
+        controller.getDataGrid().setTranslateX(((controller.getDataGrid().getWidth()/(-2))));
         controller.getDataGrid().setTranslateY(controller.getDataGrid().getHeight()/2);
     }
 
@@ -762,6 +769,85 @@ public class HelloController implements Initializable {
             controller.getRectanglebottom().setTranslateY(0);
         }
     }
+
+    @FXML
+    public void writeVolt(){
+        HelloController controller = main.MainController();
+        voltstring = "";
+        for(int i = 0; i < controller.getVoltsofbattery().getLength(); i++) {
+            if (isDigit(controller.getVoltsofbattery().getText().charAt(i))) {
+                voltstring = voltstring + controller.getVoltsofbattery().getText().charAt(i);
+            }
+        }
+        if(voltstring.isEmpty() || Double.parseDouble(voltstring) < 0) {
+            voltstring = "0";
+            controller.getPriceBattery().setText("0");
+            controller.getVoltsofbattery().setText("0");
+        }
+        else if(Double.parseDouble(voltstring)*Double.parseDouble(voltstring)*0.2 > 2147483647){
+            controller.getVoltsofbattery().setText("103621");
+            voltstring = "103621";
+            controller.getPriceBattery().setText("2147483647");
+        }
+        else {
+            controller.getPriceBattery().setText(String.valueOf(round(Double.parseDouble(voltstring) * Double.parseDouble(voltstring) * 0.2, 2)));
+        }
+
+        controller.getVoltTitle().setText("Power Supply (" + voltstring + " V)");
+
+    }
+
+    @FXML
+    public void writeOhms(){
+        HelloController controller = main.MainController();
+        resistancestring = "";
+        for(int i = 0; i < controller.getResistanceofresistor().getLength(); i++) {
+            if (isDigit(controller.getResistanceofresistor().getText().charAt(i))) {
+                resistancestring = resistancestring + controller.getResistanceofresistor().getText().charAt(i);
+            }
+        }
+        if(resistancestring.isEmpty() || Double.parseDouble(resistancestring) < 0) {
+            resistancestring = "0";
+            controller.getResistanceofresistor().setText("0");
+        }
+        else if(Double.parseDouble(resistancestring) > 2147483647){
+            resistancestring = "2147483647";
+            controller.getResistanceofresistor().setText(resistancestring);
+        }
+
+        controller.getResitanceTitle().setText("Resistor (" + resistancestring + " Ω)");
+
+    }
+
+    @FXML
+    public void writeFarads(){
+        HelloController controller = main.MainController();
+        faradstring = "";
+        for(int i = 0; i < controller.getFaradsofcapacitor().getLength(); i++) {
+            if (isDigit(controller.getFaradsofcapacitor().getText().charAt(i))) {
+                faradstring = faradstring + controller.getFaradsofcapacitor().getText().charAt(i);
+            }
+        }
+        if(faradstring.isEmpty() || Double.parseDouble(faradstring) < 0) {
+            faradstring = "0";
+            controller.getFaradsofcapacitor().setText("0");
+        }
+        else if(Double.parseDouble(faradstring) > 2147483647){
+            faradstring = "2147483647";
+            controller.getResistanceofresistor().setText(faradstring);
+        }
+
+        controller.getFaradTitle().setText("Capacitor (" + faradstring + " F)");
+    }
+
+    public double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
+
 
     // SOUND EFFECTS
     public void popSound() {
@@ -1002,6 +1088,14 @@ public class HelloController implements Initializable {
     public ScrollPane getPan(){return this.pan;}
     public ScrollPane getComponentscroll(){return this.componentscroll;}
     public AnchorPane getAnchoringGrid(){return this.anchoringgrid;}
+
+    public TextField getVoltsofbattery(){return voltsofbattery;}
+    public TextField getResistanceofresistor(){return resistanceofresistor;}
+    public TextField getFaradsofcapacitor(){return faradsofcapacitor;}
+    public Label getPriceBattery(){return this.priceBattery;}
+    public Label getVoltTitle(){return this.voltTitle;}
+    public Label getResitanceTitle(){return this.resitanceTitle;}
+    public Label getFaradTitle(){return this.faradTitle;}
 
     public VBox getRetractableright(){
         return retractableright;
