@@ -83,7 +83,6 @@ public class HelloApplication extends Application {
         controller3.setUnlocks(this.unlocked);
 
         controller1.titleinitialize();
-
         primaryStage.setTitle("Electrisim");
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);

@@ -277,7 +277,7 @@
                                               </columnConstraints>
                                               <rowConstraints>
                                                   <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                               </rowConstraints>
                                               <VBox.margin>
                                                   <Insets />
