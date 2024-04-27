@@ -34,12 +34,10 @@ public class Wire extends Component{
     public Wire(boolean empty){
 
     }
+    //autoconnects wires
     @Override
     public void refreshComponent(){
-        //Debug.Log(BuilderMatrix.surroundingCheck(Windex, Hindex)[0] + " " + BuilderMatrix.surroundingCheck(Windex, Hindex)[1] + " " +
-        //BuilderMatrix.surroundingCheck(Windex, Hindex)[2] + " " + BuilderMatrix.surroundingCheck(Windex, Hindex)[3] + " ");
         Debug.Log("refreshes " + BuilderMatrix.surroundingCheck(getLocationRow(),getLocationColumn())[0] + BuilderMatrix.surroundingCheck(getLocationRow(),getLocationColumn())[1] + BuilderMatrix.surroundingCheck(getLocationRow(),getLocationColumn())[2] + BuilderMatrix.surroundingCheck(getLocationRow(),getLocationColumn())[3]);
-        //Switch row and columns !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! :(
         if(BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[0] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[1] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[2] == 1 && BuilderMatrix.surroundingCheck(getLocationRow(), getLocationColumn())[3] == 1){
             node.setFill(new ImagePattern(getImageTexture(3)));
             setConnections(1,1,1,1);

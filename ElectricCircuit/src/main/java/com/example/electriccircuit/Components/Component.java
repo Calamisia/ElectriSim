@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.util.Arrays;
 
 public class Component {
+    //Variables
     String name;
     Shape node;
     Image image[] = new Image[4];
@@ -45,6 +46,7 @@ public class Component {
     Component() {
     }
 
+    //Setters and getters
     public Node getComponentNode() {
         return this.node;
     }
@@ -101,6 +103,7 @@ public class Component {
         this.image[i] = image;
     }
 
+    //Interact module which is triggered on component click
     public void interact() {
         getComponentNode().setOnMousePressed(e -> { // When mouse pressed on the object
             labelName.setText(name + " " + HelloController.returnDataGrid().getRowCount());
@@ -118,6 +121,7 @@ public class Component {
             }
         });
     }
+    //Refresh system for wire and switch
     public void refreshComponent(){
 
     }
@@ -151,6 +155,7 @@ public class Component {
             }
     }
 
+    //Setters and getters for stats
     public void setPassingVoltage(double passingVoltage){
         this.passingVoltage = passingVoltage;
     }
@@ -193,6 +198,7 @@ public class Component {
         return charge;
     } // getter
 
+    //Connections is the possible places where a component can connect to
     public int[] getConnections(){
         return connections;
     }
@@ -219,6 +225,7 @@ public class Component {
         }
     }
 
+    ///displayed stats
     public void setIsDisplayed(boolean isDisplayed){
         this.isDisplayed = isDisplayed;
     }

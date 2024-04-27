@@ -51,21 +51,16 @@ public class SaveFiles {
                 if(grid[i][j] != 0 && grid[i][j] != 1){
                     if(componentArray[i][j].getConnections()[0] == 1 && componentArray[i][j].getConnections()[2] == 1){
                         rotationBitString.append(1);
-                        Debug.Log("chosen 1");
                     } else if(componentArray[i][j].getConnections()[1] == 1 && componentArray[i][j].getConnections()[3] == 1){
                         rotationBitString.append(0);
                     } else if(componentArray[i][j].getConnections()[0] == 1){
                         rotationBitString.append(2);
-                        Debug.Log("chosen 2");
                     } else if(componentArray[i][j].getConnections()[1] == 1){
                         rotationBitString.append(3);
-                        Debug.Log("chosen 3");
                     } else if(componentArray[i][j].getConnections()[2] == 1){
                         rotationBitString.append(4);
-                        Debug.Log("chosen 4");
                     } else if(componentArray[i][j].getConnections()[3] == 1){
                         rotationBitString.append(5);
-                        Debug.Log("chosen 5");
                     } else{
                         rotationBitString.append(0);
                     }
@@ -139,7 +134,6 @@ public class SaveFiles {
                         component = new Splitter();
                     } else if(grid[i][j] == 7 ||grid[i][j] == 8){
                         component = new Switch();
-                        Debug.Info("wireSwitch found");
                     } else {
                         component = null;
                         Debug.Error("Invalid spawn component" + grid[i][j]);
@@ -166,27 +160,21 @@ public class SaveFiles {
                             HelloController.returnSmallAnchorPane().getChildren().add(solidSprite);
                             solidSprite.toFront();
                             if(component.getId() != 0 && component.getId() != 1){
-                                Debug.Log("We here boys " + rotationCounter + " and " + rotationString.charAt(rotationCounter));
                                 if(rotationString.charAt(rotationCounter) == '1'){
                                     component.getComponentNode().setRotate(90);
-                                    Debug.Log("And so we rotate");
                                     component.setConnections(1, 0, 1, 0);
                                 } else if(rotationString.charAt(rotationCounter) == '0'){
                                     component.setConnections(0,1,0,1);
                                 }else if(rotationString.charAt(rotationCounter) == '2'){
                                     component.getComponentNode().setRotate(-90);
-                                    Debug.Log("And so we rotate");
                                     component.setConnections(1, 0, 0, 0);
                                 } else if(rotationString.charAt(rotationCounter) == '3'){
-                                    Debug.Log("And so we rotate");
                                     component.setConnections(0, 1, 0, 0);
                                 } else if(rotationString.charAt(rotationCounter) == '4'){
                                     component.getComponentNode().setRotate(90);
-                                    Debug.Log("And so we rotate");
                                     component.setConnections(0, 0, 1, 0);
                                 } else if(rotationString.charAt(rotationCounter) == '5'){
                                     component.getComponentNode().setRotate(180);
-                                    Debug.Log("And so we rotate");
                                     component.setConnections(0, 0, 0, 1);
                                 }else{
                                     component.setConnections(0,1,0,1);
