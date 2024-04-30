@@ -47,7 +47,7 @@ public class CalculatingGrid {
                 resistance.setOhm(resistance.getOhm() + objectPath.get(i).getResistance());
             }
 
-            //calculaates capacitance
+            //calculates capacitance
             for(int i = 1; i < objectPath.size(); i++){
                 if(objectPath.get(i).getCapacitance() != 0){
                     capacitorLocation = i;
