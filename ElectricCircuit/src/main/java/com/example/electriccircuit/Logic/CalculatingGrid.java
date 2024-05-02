@@ -24,6 +24,8 @@ public class CalculatingGrid {
     private int capacitorLocation;
     public static Capacitors chargedCapacitor;
 
+    public static Thread thread1;
+    public static Thread thread2;
     GridPane dataGrid;
 
     public CalculatingGrid(int[][] grid){
@@ -69,9 +71,12 @@ public class CalculatingGrid {
 
             //Real time capacitor in RC charging
             if(farad.getCapacitance() != 0 && resistance.getOhm() != 0){
-                Thread thread1 = new Thread(new Runnable() {
+                thread1 = new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        if(thread2 != null){
+                            thread2.interrupt();
+                        }
                         double start = System.currentTimeMillis();
                         while (objectPath.get(capacitorLocation).getVoltage() != potential.getVolt()) {
                             objectPath.get(capacitorLocation).setVoltage(potential.getVolt() * (1 - Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));
@@ -88,6 +93,7 @@ public class CalculatingGrid {
                                 }
                             }
                         }
+                        Debug.Log("ndajifbjaskfb is " + objectPath.get(capacitorLocation).getPassingCurrent());
                     }
                 });
                 thread1.start();
@@ -106,10 +112,14 @@ public class CalculatingGrid {
 
             //sets the display value for individual components
             for(int i = 1; i < objectPath.size(); i++){
-                objectPath.get(i).setPassingCurrent(current.getAmp());
+                if(objectPath.get(i).getCapacitance() == 0){
+                    objectPath.get(i).setPassingCurrent(current.getAmp());
+                }
+
                 if(objectPath.get(i).getResistance() != 0){
                     objectPath.get(i).setVoltage(current.getAmp() * objectPath.get(i).getResistance());
                 } else if(objectPath.get(i).getCapacitance() != 0 && resistance.getOhm() == 0){
+                        objectPath.get(i).setPassingCurrent(current.getAmp());
                         objectPath.get(i).setCharge(coulomb.getCharge());
                         objectPath.get(i).setVoltage(objectPath.get(i).getCharge() / objectPath.get(i).getCapacitance());
                 } else{
@@ -150,11 +160,12 @@ public class CalculatingGrid {
             if(chargedCapacitor != null){
                 Capacitors temporarycap = chargedCapacitor;
                 Debug.Log("unload");
-                Thread thread2 = new Thread(new Runnable() {
+                thread2 = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        //double _potential = temporarycap.getVoltage();
-                        //* HelloController.returnTimeSlider().getValue()
+                        if(thread1 != null){
+                            thread1.interrupt();
+                        }
                         double start = System.currentTimeMillis();
                         while (temporarycap.getVoltage() != 0) {
                             temporarycap.setVoltage(potential.getVolt() * (Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));

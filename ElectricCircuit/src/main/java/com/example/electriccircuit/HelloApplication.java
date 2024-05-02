@@ -1,5 +1,6 @@
 package com.example.electriccircuit;
 
+import com.example.electriccircuit.Logic.CalculatingGrid;
 import com.example.electriccircuit.Logic.Unlocks;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -89,8 +90,20 @@ public class HelloApplication extends Application {
         primaryStage.show();
 
         primaryStage.setOnCloseRequest( e -> {
+            if(CalculatingGrid.thread1 != null){
+                if(CalculatingGrid.thread1.isAlive()){
+                    CalculatingGrid.thread1.interrupt();
+                    System.out.println("thread 1 closed");
+                }
+            } if(CalculatingGrid.thread2 != null){
+                if(CalculatingGrid.thread2.isAlive()){
+                    CalculatingGrid.thread2.interrupt();
+                    System.out.println("thread 2 closed");
+                }
+            }
             saveGame();
             Logger.close();
+            System.exit(0);
         });
     }
 
