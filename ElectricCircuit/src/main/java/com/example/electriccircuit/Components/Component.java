@@ -28,6 +28,7 @@ public class Component {
 
     private double passingVoltage;
     private double voltage;
+    private double price;
     private double passingCurrent;
     private double resistance;
     private int displayrow;
@@ -130,6 +131,14 @@ public class Component {
                 );
             }
         });
+    }
+
+    public void setPrice(double price){
+        this.price = price;
+    }
+
+    public double getPrice(){
+        return price;
     }
 
     public int getDisplayrow(){return this.displayrow;}
