@@ -1,9 +1,6 @@
 package com.example.electriccircuit.Logic;
 
-import com.example.electriccircuit.Components.Capacitors;
-import com.example.electriccircuit.Components.Component;
-import com.example.electriccircuit.Components.PowerSupply;
-import com.example.electriccircuit.Components.Resistors;
+import com.example.electriccircuit.Components.*;
 import com.example.electriccircuit.DataTypes.*;
 
 import com.example.electriccircuit.HelloApplication;
@@ -14,6 +11,8 @@ import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
+
+import static com.example.electriccircuit.Components.Component.componentArray;
 
 public class CalculatingGrid {
     //Base stat variables
@@ -34,6 +33,8 @@ public class CalculatingGrid {
         if(sandboxMatrix.closedCircuit()) {
             resistance.setOhm(0);
             potential.setVolt(0);
+            farad.setCapacitance(0);
+            coulomb.setCharge(0);
 
             //the two main paths
             String circuitPath = sandboxMatrix.getCircuitPath();
@@ -47,9 +48,10 @@ public class CalculatingGrid {
                 resistance.setOhm(resistance.getOhm() + objectPath.get(i).getResistance());
             }
 
-            //calculaates capacitance
+            //calculates capacitance
             for(int i = 1; i < objectPath.size(); i++){
                 if(objectPath.get(i).getCapacitance() != 0){
+                    Debug.Log("here is cap");
                     capacitorLocation = i;
                     farad.setCapacitance(farad.getCapacitance() + ( 1 / objectPath.get(i).getCapacitance()));
                 }
@@ -63,6 +65,7 @@ public class CalculatingGrid {
                 farad.setCapacitance(1 / farad.getCapacitance());
             }
             coulomb.setCharge(farad.getCapacitance() * potential.getVolt());
+            Debug.Log(farad.getCapacitance() + " and " + coulomb.getCharge());
 
             //Real time capacitor in RC charging
             if(farad.getCapacitance() != 0 && resistance.getOhm() != 0){
@@ -72,6 +75,8 @@ public class CalculatingGrid {
                         double start = System.currentTimeMillis();
                         while (objectPath.get(capacitorLocation).getVoltage() != potential.getVolt()) {
                             objectPath.get(capacitorLocation).setVoltage(potential.getVolt() * (1 - Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));
+                            objectPath.get(capacitorLocation).setPassingCurrent(current.getAmp() * (Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));
+                            objectPath.get(capacitorLocation).setCharge(coulomb.getCharge() * (1 - Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));
                             if (objectPath.get(capacitorLocation).isDisplayed()) {
                                 Platform.runLater(() -> {
                                     objectPath.get(capacitorLocation).refreshPersonalLabel();
@@ -127,6 +132,19 @@ public class CalculatingGrid {
             HelloController.returnTotalChargeLabel().setText(String.valueOf(0));
             HelloController.returnCalButton().setId("calculatefalse");
             HelloController.returnCalButton().setMouseTransparent(true);
+            for (int i = 0; i < grid.length; i++) {
+                for (int j = 0; j < grid[i].length; j++) {
+                    if(componentArray[i][j] instanceof Resistors || componentArray[i][j] instanceof Wire){
+                        componentArray[i][j].setVoltage(0);
+                        componentArray[i][j].setPassingCurrent(0);
+
+                        if(componentArray[i][j].isDisplayed()){
+                            componentArray[i][j].refreshPersonalLabel();
+                        }
+                    }
+                }
+            }
+
 
             //Real time capacitor in RC discharging
             if(chargedCapacitor != null){
@@ -135,10 +153,13 @@ public class CalculatingGrid {
                 Thread thread2 = new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        //double _potential = temporarycap.getVoltage();
                         //* HelloController.returnTimeSlider().getValue()
                         double start = System.currentTimeMillis();
                         while (temporarycap.getVoltage() != 0) {
                             temporarycap.setVoltage(potential.getVolt() * (Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));
+                            temporarycap.setPassingCurrent((temporarycap.getCharge() / (resistance.getOhm() * farad.getCapacitance())) * (Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));
+                            temporarycap.setCharge(coulomb.getCharge() * (Math.pow(Math.E,(-(System.currentTimeMillis() - start) / 1000 * HelloController.returnTimeSlider().getValue()) / (resistance.getOhm() * farad.getCapacitance()))));
                             if (temporarycap.isDisplayed()) {
                                 Platform.runLater(() -> {
                                     temporarycap.refreshPersonalLabel();
@@ -157,5 +178,19 @@ public class CalculatingGrid {
                 chargedCapacitor = null;
             }
         }
+    }
+    public static double sigDigRounder(double value, int nSigDig, int dir) {
+
+        double intermediate = value/Math.pow(10,Math.floor(Math.log10(Math.abs(value)))-(nSigDig-1));
+        if(dir > 0)
+            intermediate = Math.ceil(intermediate);
+        else if (dir< 0)
+            intermediate = Math.floor(intermediate);
+        else
+            intermediate = Math.round(intermediate);
+
+        double result = intermediate * Math.pow(10,Math.floor(Math.log10(Math.abs(value)))-(nSigDig-1));
+        return(result);
+
     }
 }

@@ -293,6 +293,16 @@
                                                 <Font size="8.0" />
                                              </font>
                                           </Label>
+                                           <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="24.0" text="Capacitance" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+                                               <font>
+                                                   <Font size="8.0" />
+                                               </font>
+                                           </Label>
+                                           <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="24.0" text="Charge" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.halignment="CENTER">
+                                               <font>
+                                                   <Font size="8.0" />
+                                               </font>
+                                           </Label>
                                           <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="24.0" text="Current" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER">
                                              <font>
                                                 <Font size="8.0" />

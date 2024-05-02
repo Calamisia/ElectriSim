@@ -565,7 +565,6 @@ public class HelloController implements Initializable {
             }
             saveGame();
         }
-        CalculatingGrid.chargedCapacitor = new Capacitors();
         CalculatingGrid.chargedCapacitor = null;
 
         smallanchorpane.getChildren().clear();
