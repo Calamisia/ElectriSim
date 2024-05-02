@@ -773,7 +773,7 @@ public class HelloController implements Initializable {
     public void gridrestore() {
         HelloController controller = main.MainController();
         //controller.getDataGrid().setTranslateX(0);
-        // controller.getDataGrid().setTranslateY(0);
+        //controller.getDataGrid().setTranslateY(0);
         controller.getGridscroll().setTranslateX(0);
         controller.getGridscroll().setTranslateY(0);
     }
