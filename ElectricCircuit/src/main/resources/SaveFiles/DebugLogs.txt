@@ -3594,3 +3594,295 @@
 [Thu May 02 12:59:02 EDT 2024] surrounding at 4 11
 [Thu May 02 12:59:02 EDT 2024] unload
 [Thu May 02 12:59:02 EDT 2024] Capacitor is at 0.04043469739420158
+[Thu May 02 13:06:28 EDT 2024] 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000017100000000000000000409000000000000000001310000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+[Thu May 02 13:06:28 EDT 2024] rotation string is 1031
+[Thu May 02 13:06:28 EDT 2024] got here
+[Thu May 02 13:06:28 EDT 2024] orientation is 0000
+[Thu May 02 13:06:28 EDT 2024] got here
+[Thu May 02 13:06:28 EDT 2024] refreshes 0001
+[Thu May 02 13:06:28 EDT 2024] refreshes 110
+[Thu May 02 13:06:28 EDT 2024] refreshes8
+[Thu May 02 13:06:28 EDT 2024] orientation is 0010
+[Thu May 02 13:06:28 EDT 2024] got here
+[Thu May 02 13:06:28 EDT 2024] refreshes 0101
+[Thu May 02 13:06:28 EDT 2024] refreshes 5
+[Thu May 02 13:06:28 EDT 2024] refreshes8
+[Thu May 02 13:06:28 EDT 2024] orientation is 0010
+[Thu May 02 13:06:28 EDT 2024] refreshes 0011
+[Thu May 02 13:06:28 EDT 2024] refreshes 6
+[Thu May 02 13:06:28 EDT 2024] orientation is 0101
+[Thu May 02 13:06:28 EDT 2024] surrounding at 1 14
+[Thu May 02 13:06:28 EDT 2024] surrounding at 2 11
+[Thu May 02 13:06:28 EDT 2024] surrounding at 3 13
+[Thu May 02 13:06:28 EDT 2024] surrounding at 4 11
+[Thu May 02 13:06:28 EDT 2024] refreshes 0110
+[Thu May 02 13:06:28 EDT 2024] refreshes 4
+[Thu May 02 13:06:28 EDT 2024] surrounding at 1 14
+[Thu May 02 13:06:28 EDT 2024] surrounding at 2 11
+[Thu May 02 13:06:28 EDT 2024] surrounding at 3 13
+[Thu May 02 13:06:28 EDT 2024] surrounding at 4 11
+[Thu May 02 13:06:28 EDT 2024] orientation is 0100
+[Thu May 02 13:06:28 EDT 2024] surrounding at 1 14
+[Thu May 02 13:06:28 EDT 2024] surrounding at 2 11
+[Thu May 02 13:06:28 EDT 2024] surrounding at 3 13
+[Thu May 02 13:06:28 EDT 2024] surrounding at 4 11
+[Thu May 02 13:06:28 EDT 2024] got here
+[Thu May 02 13:06:28 EDT 2024] refreshes7
+[Thu May 02 13:06:28 EDT 2024] surrounding at 1 14
+[Thu May 02 13:06:28 EDT 2024] surrounding at 2 11
+[Thu May 02 13:06:28 EDT 2024] surrounding at 3 13
+[Thu May 02 13:06:28 EDT 2024] surrounding at 4 11
+[Thu May 02 13:06:28 EDT 2024] orientation is 0001
+[Thu May 02 13:06:28 EDT 2024] surrounding at 1 14
+[Thu May 02 13:06:28 EDT 2024] surrounding at 2 11
+[Thu May 02 13:06:28 EDT 2024] surrounding at 3 13
+[Thu May 02 13:06:28 EDT 2024] surrounding at 4 11
+[Thu May 02 13:06:28 EDT 2024] refreshes 1001
+[Thu May 02 13:06:28 EDT 2024] refreshes 3
+[Thu May 02 13:06:28 EDT 2024] surrounding at 1 14
+[Thu May 02 13:06:28 EDT 2024] surrounding at 2 11
+[Thu May 02 13:06:28 EDT 2024] surrounding at 3 13
+[Thu May 02 13:06:28 EDT 2024] surrounding at 4 11
+[Thu May 02 13:06:28 EDT 2024] orientation is 1010
+[Thu May 02 13:06:28 EDT 2024] surrounding at 1 14
+[Thu May 02 13:06:28 EDT 2024] surrounding at 2 11
+[Thu May 02 13:06:28 EDT 2024] surrounding at 3 13
+[Thu May 02 13:06:28 EDT 2024] surrounding at 4 11
+[Thu May 02 13:06:28 EDT 2024] got here
+[Thu May 02 13:06:28 EDT 2024] surrounding at 1 14
+[Thu May 02 13:06:28 EDT 2024] surrounding at 2 11
+[Thu May 02 13:06:28 EDT 2024] surrounding at 3 13
+[Thu May 02 13:06:28 EDT 2024] surrounding at 4 11
+[Thu May 02 13:06:28 EDT 2024] orientation is 1001
+[Thu May 02 13:06:28 EDT 2024] surrounding at 1 14
+[Thu May 02 13:06:28 EDT 2024] surrounding at 2 11
+[Thu May 02 13:06:28 EDT 2024] surrounding at 3 13
+[Thu May 02 13:06:28 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:11 EDT 2024] 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000017100000000000000000409000000000000000001310000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+[Thu May 02 13:07:11 EDT 2024] rotation string is 1031
+[Thu May 02 13:07:11 EDT 2024] got here
+[Thu May 02 13:07:11 EDT 2024] orientation is 0000
+[Thu May 02 13:07:11 EDT 2024] got here
+[Thu May 02 13:07:11 EDT 2024] refreshes 0001
+[Thu May 02 13:07:11 EDT 2024] refreshes 110
+[Thu May 02 13:07:11 EDT 2024] refreshes8
+[Thu May 02 13:07:11 EDT 2024] orientation is 0010
+[Thu May 02 13:07:11 EDT 2024] got here
+[Thu May 02 13:07:11 EDT 2024] refreshes 0101
+[Thu May 02 13:07:11 EDT 2024] refreshes 5
+[Thu May 02 13:07:11 EDT 2024] refreshes8
+[Thu May 02 13:07:11 EDT 2024] orientation is 0010
+[Thu May 02 13:07:11 EDT 2024] refreshes 0011
+[Thu May 02 13:07:11 EDT 2024] refreshes 6
+[Thu May 02 13:07:11 EDT 2024] orientation is 0101
+[Thu May 02 13:07:11 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:11 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:11 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:11 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:11 EDT 2024] refreshes 0110
+[Thu May 02 13:07:11 EDT 2024] refreshes 4
+[Thu May 02 13:07:11 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:11 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:11 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:11 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:11 EDT 2024] orientation is 0100
+[Thu May 02 13:07:11 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:11 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:11 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:11 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:11 EDT 2024] got here
+[Thu May 02 13:07:11 EDT 2024] refreshes7
+[Thu May 02 13:07:11 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:11 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:11 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:11 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:11 EDT 2024] orientation is 0001
+[Thu May 02 13:07:11 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:11 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:11 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:11 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:11 EDT 2024] refreshes 1001
+[Thu May 02 13:07:11 EDT 2024] refreshes 3
+[Thu May 02 13:07:11 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:11 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:11 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:11 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:11 EDT 2024] orientation is 1010
+[Thu May 02 13:07:11 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:11 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:11 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:11 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:11 EDT 2024] got here
+[Thu May 02 13:07:11 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:11 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:11 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:11 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:11 EDT 2024] orientation is 1001
+[Thu May 02 13:07:11 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:11 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:11 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:11 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:16 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:16 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:16 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:16 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:17 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:17 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:17 EDT 2024] surrounding at 3 14
+[Thu May 02 13:07:17 EDT 2024] surrounding at 4 12
+[Thu May 02 13:07:17 EDT 2024] The possible connections of 1 is 1001 and is at location 15 11
+[Thu May 02 13:07:17 EDT 2024] The possible connections of 2 is 1010 and is at location 15 10
+[Thu May 02 13:07:17 EDT 2024] The possible connections of 3 is 0011 and is at location 15 9
+[Thu May 02 13:07:17 EDT 2024] The possible connections of 4 is 0101 and is at location 14 9
+[Thu May 02 13:07:17 EDT 2024] The possible connections of 5 is 0110 and is at location 13 9
+[Thu May 02 13:07:17 EDT 2024] The possible connections of 6 is 1010 and is at location 13 10
+[Thu May 02 13:07:17 EDT 2024] The possible connections of 7 is 1100 and is at location 13 11
+[Thu May 02 13:07:17 EDT 2024] The possible connections of 8 is 0100 and is at location 14 11
+[Thu May 02 13:07:17 EDT 2024] here is cap
+[Thu May 02 13:07:17 EDT 2024] 1.0E-6 and 1.9999999999999998E-5
+[Thu May 02 13:07:21 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:21 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:21 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:21 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:21 EDT 2024] unload
+[Thu May 02 13:07:21 EDT 2024] Capacitor is at 0.0
+[Thu May 02 13:07:22 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:22 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:22 EDT 2024] surrounding at 3 14
+[Thu May 02 13:07:22 EDT 2024] surrounding at 4 12
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 1 is 1001 and is at location 15 11
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 2 is 1010 and is at location 15 10
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 3 is 0011 and is at location 15 9
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 4 is 0101 and is at location 14 9
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 5 is 0110 and is at location 13 9
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 6 is 1010 and is at location 13 10
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 7 is 1100 and is at location 13 11
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 8 is 0100 and is at location 14 11
+[Thu May 02 13:07:22 EDT 2024] here is cap
+[Thu May 02 13:07:22 EDT 2024] 1.0E-6 and 1.9999999999999998E-5
+[Thu May 02 13:07:22 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:22 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:22 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:22 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:22 EDT 2024] unload
+[Thu May 02 13:07:22 EDT 2024] Capacitor is at 0.0
+[Thu May 02 13:07:22 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:22 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:22 EDT 2024] surrounding at 3 14
+[Thu May 02 13:07:22 EDT 2024] surrounding at 4 12
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 1 is 1001 and is at location 15 11
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 2 is 1010 and is at location 15 10
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 3 is 0011 and is at location 15 9
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 4 is 0101 and is at location 14 9
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 5 is 0110 and is at location 13 9
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 6 is 1010 and is at location 13 10
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 7 is 1100 and is at location 13 11
+[Thu May 02 13:07:22 EDT 2024] The possible connections of 8 is 0100 and is at location 14 11
+[Thu May 02 13:07:22 EDT 2024] here is cap
+[Thu May 02 13:07:22 EDT 2024] 1.0E-6 and 1.9999999999999998E-5
+[Thu May 02 13:07:23 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:23 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:23 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:23 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:23 EDT 2024] unload
+[Thu May 02 13:07:23 EDT 2024] Capacitor is at 0.0
+[Thu May 02 13:07:23 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:23 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:23 EDT 2024] surrounding at 3 14
+[Thu May 02 13:07:23 EDT 2024] surrounding at 4 12
+[Thu May 02 13:07:23 EDT 2024] The possible connections of 1 is 1001 and is at location 15 11
+[Thu May 02 13:07:23 EDT 2024] The possible connections of 2 is 1010 and is at location 15 10
+[Thu May 02 13:07:23 EDT 2024] The possible connections of 3 is 0011 and is at location 15 9
+[Thu May 02 13:07:23 EDT 2024] The possible connections of 4 is 0101 and is at location 14 9
+[Thu May 02 13:07:23 EDT 2024] The possible connections of 5 is 0110 and is at location 13 9
+[Thu May 02 13:07:23 EDT 2024] The possible connections of 6 is 1010 and is at location 13 10
+[Thu May 02 13:07:23 EDT 2024] The possible connections of 7 is 1100 and is at location 13 11
+[Thu May 02 13:07:23 EDT 2024] The possible connections of 8 is 0100 and is at location 14 11
+[Thu May 02 13:07:23 EDT 2024] here is cap
+[Thu May 02 13:07:23 EDT 2024] 1.0E-6 and 1.9999999999999998E-5
+[Thu May 02 13:07:24 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:24 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:24 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:24 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:24 EDT 2024] unload
+[Thu May 02 13:07:24 EDT 2024] Capacitor is at 0.0
+[Thu May 02 13:07:24 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:24 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:24 EDT 2024] surrounding at 3 14
+[Thu May 02 13:07:24 EDT 2024] surrounding at 4 12
+[Thu May 02 13:07:24 EDT 2024] The possible connections of 1 is 1001 and is at location 15 11
+[Thu May 02 13:07:24 EDT 2024] The possible connections of 2 is 1010 and is at location 15 10
+[Thu May 02 13:07:24 EDT 2024] The possible connections of 3 is 0011 and is at location 15 9
+[Thu May 02 13:07:24 EDT 2024] The possible connections of 4 is 0101 and is at location 14 9
+[Thu May 02 13:07:24 EDT 2024] The possible connections of 5 is 0110 and is at location 13 9
+[Thu May 02 13:07:24 EDT 2024] The possible connections of 6 is 1010 and is at location 13 10
+[Thu May 02 13:07:24 EDT 2024] The possible connections of 7 is 1100 and is at location 13 11
+[Thu May 02 13:07:24 EDT 2024] The possible connections of 8 is 0100 and is at location 14 11
+[Thu May 02 13:07:24 EDT 2024] here is cap
+[Thu May 02 13:07:24 EDT 2024] 1.0E-6 and 1.9999999999999998E-5
+[Thu May 02 13:07:25 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:25 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:25 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:25 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:25 EDT 2024] unload
+[Thu May 02 13:07:25 EDT 2024] Capacitor is at 0.0
+[Thu May 02 13:07:25 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:25 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:25 EDT 2024] surrounding at 3 14
+[Thu May 02 13:07:25 EDT 2024] surrounding at 4 12
+[Thu May 02 13:07:25 EDT 2024] The possible connections of 1 is 1001 and is at location 15 11
+[Thu May 02 13:07:25 EDT 2024] The possible connections of 2 is 1010 and is at location 15 10
+[Thu May 02 13:07:25 EDT 2024] The possible connections of 3 is 0011 and is at location 15 9
+[Thu May 02 13:07:25 EDT 2024] The possible connections of 4 is 0101 and is at location 14 9
+[Thu May 02 13:07:25 EDT 2024] The possible connections of 5 is 0110 and is at location 13 9
+[Thu May 02 13:07:25 EDT 2024] The possible connections of 6 is 1010 and is at location 13 10
+[Thu May 02 13:07:25 EDT 2024] The possible connections of 7 is 1100 and is at location 13 11
+[Thu May 02 13:07:25 EDT 2024] The possible connections of 8 is 0100 and is at location 14 11
+[Thu May 02 13:07:25 EDT 2024] here is cap
+[Thu May 02 13:07:25 EDT 2024] 1.0E-6 and 1.9999999999999998E-5
+[Thu May 02 13:07:25 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:25 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:25 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:25 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:25 EDT 2024] unload
+[Thu May 02 13:07:25 EDT 2024] Capacitor is at 0.0
+[Thu May 02 13:07:26 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:26 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:26 EDT 2024] surrounding at 3 14
+[Thu May 02 13:07:26 EDT 2024] surrounding at 4 12
+[Thu May 02 13:07:26 EDT 2024] The possible connections of 1 is 1001 and is at location 15 11
+[Thu May 02 13:07:26 EDT 2024] The possible connections of 2 is 1010 and is at location 15 10
+[Thu May 02 13:07:26 EDT 2024] The possible connections of 3 is 0011 and is at location 15 9
+[Thu May 02 13:07:26 EDT 2024] The possible connections of 4 is 0101 and is at location 14 9
+[Thu May 02 13:07:26 EDT 2024] The possible connections of 5 is 0110 and is at location 13 9
+[Thu May 02 13:07:26 EDT 2024] The possible connections of 6 is 1010 and is at location 13 10
+[Thu May 02 13:07:26 EDT 2024] The possible connections of 7 is 1100 and is at location 13 11
+[Thu May 02 13:07:26 EDT 2024] The possible connections of 8 is 0100 and is at location 14 11
+[Thu May 02 13:07:26 EDT 2024] here is cap
+[Thu May 02 13:07:26 EDT 2024] 1.0E-6 and 1.9999999999999998E-5
+[Thu May 02 13:07:26 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:26 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:26 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:26 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:26 EDT 2024] unload
+[Thu May 02 13:07:26 EDT 2024] Capacitor is at 0.0
+[Thu May 02 13:07:27 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:27 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:27 EDT 2024] surrounding at 3 14
+[Thu May 02 13:07:27 EDT 2024] surrounding at 4 12
+[Thu May 02 13:07:27 EDT 2024] The possible connections of 1 is 1001 and is at location 15 11
+[Thu May 02 13:07:27 EDT 2024] The possible connections of 2 is 1010 and is at location 15 10
+[Thu May 02 13:07:27 EDT 2024] The possible connections of 3 is 0011 and is at location 15 9
+[Thu May 02 13:07:27 EDT 2024] The possible connections of 4 is 0101 and is at location 14 9
+[Thu May 02 13:07:27 EDT 2024] The possible connections of 5 is 0110 and is at location 13 9
+[Thu May 02 13:07:27 EDT 2024] The possible connections of 6 is 1010 and is at location 13 10
+[Thu May 02 13:07:27 EDT 2024] The possible connections of 7 is 1100 and is at location 13 11
+[Thu May 02 13:07:27 EDT 2024] The possible connections of 8 is 0100 and is at location 14 11
+[Thu May 02 13:07:27 EDT 2024] here is cap
+[Thu May 02 13:07:27 EDT 2024] 1.0E-6 and 1.9999999999999998E-5
+[Thu May 02 13:07:28 EDT 2024] surrounding at 1 14
+[Thu May 02 13:07:28 EDT 2024] surrounding at 2 11
+[Thu May 02 13:07:28 EDT 2024] surrounding at 3 13
+[Thu May 02 13:07:28 EDT 2024] surrounding at 4 11
+[Thu May 02 13:07:28 EDT 2024] unload
+[Thu May 02 13:07:28 EDT 2024] Capacitor is at 0.0
