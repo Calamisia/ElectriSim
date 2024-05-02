@@ -14,6 +14,7 @@ import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 public class BuilderMatrix {
 
     private static int[][] grid = new int[35][20];
+    private int[][] usedGrid = new int[35][20];
     private final int WIREID = 1;
     private final int POWERSUPPLYID = 2;
     private final int RESISTORID = 3;
@@ -31,6 +32,7 @@ public class BuilderMatrix {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 grid[i][j] = 0;
+                usedGrid[i][j] = 0;
             }
         }
     }
@@ -97,64 +99,59 @@ public class BuilderMatrix {
         this.circuitPath = circuitPath;
     }
 
-    public boolean isValid(int row, int column, int prevRow, int prevCol){
+    public boolean isValid(int row, int column){
+
         if (row < 0 || row >= grid.length || column < 0 || column >= grid[0].length)
             return false; //outofbounds searching excluded
-        else if(column == prevCol && row == prevRow || grid[row][column] == 0 || grid[row][column] == 7){
+
+        if (grid[row][column] == 0 || grid[row][column] == 7)
+            return false;
+
+        if (usedGrid[row][column] != 0)
             return false; //repeat component excluded and empty boxes
-        }
-        else{
-            return true;
-        }
+
+        usedGrid[row][column]++;
+        return true;
+
     }
 
     // this method checks all 8 surrounding cases around a given case, to see if there is an ID in one of them.
     // it returns an ArrayList with the first index being a boolean, representing whether or not there is a surrounding ID.
     // If there is a surroudning ID, the second and third entries in the ArrayList are its row and column coordinates.
-    public ArrayList surrounding(int row, int column, int prevRow, int prevCol, int[] connections) {
-        ArrayList arraylist = new ArrayList(5);
+    public ArrayList surrounding(int row, int column, int[] connections) {
+        ArrayList arraylist = new ArrayList(3);
 
         //check below component
-        if (isValid(row-1, column, prevRow, prevCol) && connections[3] == 1){
+        if (isValid(row-1, column) && connections[3] == 1){
             arraylist.add(true);
             arraylist.add(row - 1);
-            arraylist.add(column);
-            arraylist.add(row);
             arraylist.add(column);
             return arraylist;
         }
         //check to the left of component
-        else if (isValid(row, column-1, prevRow, prevCol) && connections[0] == 1){
+        else if (isValid(row, column-1) && connections[0] == 1){
             arraylist.add(true);
             arraylist.add(row);
             arraylist.add(column-1);
-            arraylist.add(row);
-            arraylist.add(column);
             return arraylist;
         }
         //check to the right of the component
-        else if (isValid(row, column+1, prevRow, prevCol) && connections[2] == 1){
+        else if (isValid(row, column+1) && connections[2] == 1){
             arraylist.add(true);
             arraylist.add(row);
             arraylist.add(column+1);
-            arraylist.add(row);
-            arraylist.add(column);
             return arraylist;
         }
         //check above component
-        else if(isValid(row+1, column, prevRow, prevCol) && connections[1] == 1){
+        else if(isValid(row+1, column) && connections[1] == 1){
             arraylist.add(true);
             arraylist.add(row+1);
-            arraylist.add(column);
-            arraylist.add(row);
             arraylist.add(column);
             return arraylist;
         }
         //no valid surrounding component
         else {
             arraylist.add(false);
-            arraylist.add(999);
-            arraylist.add(999);
             arraylist.add(999);
             arraylist.add(999);
         }
@@ -189,7 +186,7 @@ public class BuilderMatrix {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 // this checks every single box on the grid if for surrounding components
-                surroundingInfo = surrounding(i, j, 999, 999, new int[]{1, 1, 1, 1});
+                surroundingInfo = surrounding(i, j, new int[]{1, 1, 1, 1});
                 if ((boolean) (surroundingInfo.get(0))) {
                     // if there is a surrounding component, check if it's a powerSupply
                     if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 2 || grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 9) {
@@ -224,7 +221,7 @@ public class BuilderMatrix {
         // until we get back to the power supply.
 
         while (true) {
-            surroundingInfo = surrounding(componentIndex[0], componentIndex[1], componentIndex[2], componentIndex[3], componentArray[componentIndex[0]][componentIndex[1]].getConnections());
+            surroundingInfo = surrounding(componentIndex[0], componentIndex[1], componentArray[componentIndex[0]][componentIndex[1]].getConnections());
             if ((boolean) (surroundingInfo.get(0))) {
                 if (grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)] == 9) {
                     objectPath.add(componentArray[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
@@ -234,8 +231,6 @@ public class BuilderMatrix {
                     // if the surrounding component isn't the battery, make that component the new center component.
                     componentIndex[0] = (int) surroundingInfo.get(1);
                     componentIndex[1] = (int) surroundingInfo.get(2);
-                    componentIndex[2] = (int) surroundingInfo.get(3);
-                    componentIndex[3] = (int) surroundingInfo.get(4);
                     objectPath.add(componentArray[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
                     circuitPath.append(grid[(int) surroundingInfo.get(1)][(int) surroundingInfo.get(2)]);
                 }
@@ -244,6 +239,3 @@ public class BuilderMatrix {
         }
     }
 }
-
-// HAVE TO RECURSIVELY CALL THE METHOD ON SPLITTERS AND MERGERS
-// ALSO HAVE TO SPLIT THE CIRCUIT PATH STRING WHEN FINDING SPLITTERS AND MERGERS
