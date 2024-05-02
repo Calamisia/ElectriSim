@@ -235,6 +235,16 @@
     */
 
 }
+
+#nope{
+    -fx-border-radius: 2px;
+    -fx-border-color: darkred;
+}
+
+#normal{
+    -fx-border-color: none;
+    -fx-border-radius: 0px;
+}
 /*
 @keyframes animation-frames {
 

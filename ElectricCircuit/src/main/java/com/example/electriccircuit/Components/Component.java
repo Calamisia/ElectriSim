@@ -131,6 +131,9 @@ public class Component {
             }
         });
     }
+
+    public int getDisplayrow(){return this.displayrow;}
+
     //Refresh system for wire and switch
     public void refreshComponent(){
 
