@@ -109,7 +109,7 @@ public class HelloController implements Initializable {
     @FXML
     public ScrollPane pan, componentscroll, gridscroll;
     @FXML
-    public TextField voltsofbattery, resistanceofresistor, faradsofcapacitor;
+    public TextField voltsofbattery, resistanceofresistor, faradsofcapacitor, sigfig;
     @FXML
     private Slider timeSlider;
 
@@ -1189,7 +1189,9 @@ public class HelloController implements Initializable {
     public Slider getTimeSlider(){
         return timeSlider;
     }
-
+    public TextField getsigFig(){
+        return sigfig;
+    }
     //Static getters
     public static GridPane returnDataGrid(){
         HelloController controllerx = HelloApplication.statMainController();
@@ -1228,6 +1230,10 @@ public class HelloController implements Initializable {
     public static Button returnCalButton(){
         HelloController controllerx = HelloApplication.statMainController();
         return controllerx.getCal();
+    }
+    public static TextField returnSigFig(){
+        HelloController controllerx = HelloApplication.statMainController();
+        return controllerx.getsigFig();
     }
 
     //Getter methods for titlescreen
