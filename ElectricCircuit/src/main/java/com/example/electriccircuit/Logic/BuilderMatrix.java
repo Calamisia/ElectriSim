@@ -49,7 +49,7 @@ public class BuilderMatrix {
         if(grid[row][column] != 0 && (grid[row][column] != 7 && grid[row][column] != 8 || !(component instanceof Switch))){
             componentArray[row][column].removeComponentNode();
             if(componentArray[row][column].isDisplayed()) removeComponentfromGrid(componentArray[row][column].getDisplayrow());
-            HelloController.removefromBudget(componentArray[row][column].getId());
+            HelloController.removefromBudget(componentArray[row][column]);
             Debug.Log("Set box ID thinks row is " + row + " column is " + column);
             componentArray[row][column] = component;
         }

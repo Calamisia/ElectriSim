@@ -6,6 +6,8 @@ import com.example.electriccircuit.Logic.BuilderMatrix;
 
 import static com.example.electriccircuit.Components.Component.componentArray;
 import com.example.electriccircuit.Logic.SaveFiles;
+
+import static com.example.electriccircuit.Logic.Debug.Logger;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.Logic.*;
@@ -356,6 +358,13 @@ public class HelloController implements Initializable {
         popSound();
     }
 
+    @FXML
+    private void exitlevelfinish(ActionEvent event) {
+        //Remove level finish from the stage
+        main.getMainContainer().getChildren().remove(main.levelfinish());
+        titleScreen(event);
+    }
+
     private double contentX;
     private double contentY;
     private double budget;
@@ -475,7 +484,7 @@ public class HelloController implements Initializable {
 
                 switch(component[0].getId()){
                     case 1: budget = budget + 1; break;
-                    case 2: budget = budget + Double.parseDouble(priceBattery.getText()); break;
+                    case 2: budget = budget + Double.parseDouble(priceBattery.getText()); component[0].setPrice(Double.parseDouble(priceBattery.getText())); break;
                     case 3: budget = budget + 10; break;
                     case 4: budget = budget + 10; break;
                     case 7: budget = budget + 10; break;
@@ -557,6 +566,8 @@ public class HelloController implements Initializable {
     @FXML
     public void exit(ActionEvent event) {
         popSound();
+        saveGame();
+        Logger.close();
         System.exit(0);
     }
 
@@ -773,7 +784,7 @@ public class HelloController implements Initializable {
     public void gridrestore() {
         HelloController controller = main.MainController();
         //controller.getDataGrid().setTranslateX(0);
-        // controller.getDataGrid().setTranslateY(0);
+        //controller.getDataGrid().setTranslateY(0);
         controller.getGridscroll().setTranslateX(0);
         controller.getGridscroll().setTranslateY(0);
     }
@@ -928,7 +939,7 @@ public class HelloController implements Initializable {
         switch (levelmethod){
             case 1:
                 controller1.getGivenBudgetLabel().setText("50$");
-                controller1.getGoalLabel().setText("Make the total circuit current 1 amp");
+                controller1.getGoalLabel().setText("Make the total circuit current 2 amp");
                 controller1.getHintlabel().setText("Think about Ohm's law V = IR");
                 break;
             case 2:
@@ -1026,8 +1037,9 @@ public class HelloController implements Initializable {
             case 1:
                 System.out.println(Integer.parseInt(budgettext) + " " + Integer.parseInt(givenbudgettext));
                 if(round(Integer.parseInt(budgettext),0) < Integer.parseInt(givenbudgettext)){
-                   if(Double.parseDouble(controller1.getTotalAmpLabel().getText()) == 1) {
+                   if(Double.parseDouble(controller1.getTotalAmpLabel().getText()) == 2) {
                        correctSound();
+                       main.getMainContainer().getChildren().add(main.levelfinish());
                    }
                    else{
                        controller1.getBudgetlabel().setId("normal");
@@ -1090,12 +1102,12 @@ public class HelloController implements Initializable {
 
     }
 
-    public static void removefromBudget(int id){
+    public static void removefromBudget(Component component){
         HelloController controller = HelloApplication.statMainController();
         double statbudget = 0;
-        switch (id){
+        switch (component.getId()){
             case 1: statbudget = statbudget + 1; break;
-            case 2: statbudget = statbudget + Double.parseDouble(controller.getPriceBattery().getText()); break;
+            case 2: statbudget = statbudget + component.getPrice(); break;
             case 3: statbudget = statbudget + 10; break;
             case 4: statbudget = statbudget + 10; break;
             case 7: statbudget = statbudget + 10; break;
