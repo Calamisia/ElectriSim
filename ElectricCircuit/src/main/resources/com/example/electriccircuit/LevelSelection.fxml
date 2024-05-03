@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="mainlevelvbox" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<VBox fx:id="mainlevelvbox" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
    <children>
       <HBox fx:id="leveltitlehbox" minHeight="90.0" minWidth="0.0" VBox.vgrow="ALWAYS">
          <children>
@@ -43,7 +43,7 @@
                      <children>
                         <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox fx:id="smallhboxlvl1" alignment="CENTER" minHeight="0.0" minWidth="0.0" styleClass="smallborder" VBox.vgrow="ALWAYS">
+                              <HBox fx:id="smallhboxlvl1" alignment="CENTER" minHeight="0.0" minWidth="0.0" onMousePressed="#selectLevel1" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fx:id="imageviewlvl1" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                        <image>
@@ -68,7 +68,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox fx:id="smallhboxlvl2" alignment="CENTER" minHeight="0.0" minWidth="0.0" styleClass="smallborder" VBox.vgrow="ALWAYS">
+                              <HBox fx:id="smallhboxlvl2" alignment="CENTER" minHeight="0.0" minWidth="0.0" onMousePressed="#selectLevel2" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fx:id="imageviewlvl2" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
@@ -93,7 +93,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox fx:id="smallhboxlvl3" alignment="CENTER" minHeight="0.0" minWidth="0.0" styleClass="smallborder" VBox.vgrow="ALWAYS">
+                              <HBox fx:id="smallhboxlvl3" alignment="CENTER" minHeight="0.0" minWidth="0.0" onMousePressed="#selectLevel3" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fx:id="imageviewlvl3" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
@@ -118,7 +118,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox fx:id="smallhboxlvl4" alignment="CENTER" minHeight="0.0" minWidth="0.0" styleClass="smallborder" VBox.vgrow="ALWAYS">
+                              <HBox fx:id="smallhboxlvl4" alignment="CENTER" minHeight="0.0" minWidth="0.0" onMousePressed="#selectLevel4" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fx:id="imageviewlvl4" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
@@ -143,7 +143,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox fx:id="smallhboxlvl5" alignment="CENTER" minHeight="0.0" minWidth="0.0" styleClass="smallborder" VBox.vgrow="ALWAYS">
+                              <HBox fx:id="smallhboxlvl5" alignment="CENTER" minHeight="0.0" minWidth="0.0" onMousePressed="#selectLevel5" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fx:id="imageviewlvl5" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
@@ -172,7 +172,7 @@
                      <children>
                         <VBox minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox alignment="CENTER" fx:id="smallhboxlvl6" minHeight="0.0" minWidth="0.0" styleClass="smallborder" VBox.vgrow="ALWAYS">
+                              <HBox fx:id="smallhboxlvl6" alignment="CENTER" minHeight="0.0" minWidth="0.0" onMousePressed="#selectLevel6" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fx:id="imageviewlvl6" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
@@ -197,7 +197,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox alignment="CENTER" fx:id="smallhboxlvl7" minHeight="0.0" minWidth="0.0" styleClass="smallborder" VBox.vgrow="ALWAYS">
+                              <HBox fx:id="smallhboxlvl7" alignment="CENTER" minHeight="0.0" minWidth="0.0" onMousePressed="#selectLevel7" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fx:id="imageviewlvl7" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
@@ -222,7 +222,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox alignment="CENTER" fx:id="smallhboxlvl8" minHeight="0.0" minWidth="0.0" styleClass="smallborder" VBox.vgrow="ALWAYS">
+                              <HBox fx:id="smallhboxlvl8" alignment="CENTER" minHeight="0.0" minWidth="0.0" onMousePressed="#selectLevel8" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fx:id="imageviewlvl8" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
@@ -247,7 +247,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox alignment="CENTER" fx:id="smallhboxlvl9" minHeight="0.0" minWidth="0.0" styleClass="smallborder" VBox.vgrow="ALWAYS">
+                              <HBox fx:id="smallhboxlvl9" alignment="CENTER" minHeight="0.0" minWidth="0.0" onMousePressed="#selectLevel9" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fx:id="imageviewlvl9" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>
@@ -272,7 +272,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox alignment="CENTER" fx:id="smallhboxlvl10" minHeight="0.0" minWidth="0.0" styleClass="smallborder" VBox.vgrow="ALWAYS">
+                              <HBox fx:id="smallhboxlvl10" alignment="CENTER" minHeight="0.0" minWidth="0.0" onMousePressed="#selectLevel10" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fx:id="imageviewlvl10" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                                        <image>

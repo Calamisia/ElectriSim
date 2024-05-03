@@ -6,6 +6,8 @@ import com.example.electriccircuit.Logic.BuilderMatrix;
 
 import static com.example.electriccircuit.Components.Component.componentArray;
 import com.example.electriccircuit.Logic.SaveFiles;
+
+import static com.example.electriccircuit.Logic.Debug.Logger;
 import static com.example.electriccircuit.Logic.SaveFiles.saveGame;
 import com.example.electriccircuit.Logic.draggable;
 import com.example.electriccircuit.Logic.*;
@@ -97,7 +99,7 @@ public class HelloController implements Initializable {
     @FXML
     private GridPane togglegrid, dataGrid;
     @FXML
-    private Label totalVolt, totalAmp, totalOhms, priceBattery, voltTitle, resitanceTitle, faradTitle, totalFarads, totalCharge, hintlabel, budgetlabel;
+    private Label totalVolt, totalAmp, totalOhms, priceBattery, voltTitle, resitanceTitle, faradTitle, totalFarads, totalCharge, hintlabel, budgetlabel, goallabel, givenbudgetlabel;
     @FXML
     private CheckBox checkGrid;
     @FXML
@@ -126,6 +128,7 @@ public class HelloController implements Initializable {
     private Unlocks unlocked;
     public static double ancwidth, ancheight;
     private int countee = 0;
+    private static int level;
     public static draggable draggableMaker = new draggable();
     BuilderMatrix sandboxMatrix = new BuilderMatrix();
     private String voltstring, resistancestring, faradstring;
@@ -295,8 +298,7 @@ public class HelloController implements Initializable {
     }
 
     /* Switch to main screen and initialize*/
-    @FXML
-    private void MainScreen(ActionEvent event) {
+    private void MainScreen() {
         //Replace current screen with the new one
         FadeTransition(main.switchToMainScreen());
         popSound();
@@ -305,23 +307,27 @@ public class HelloController implements Initializable {
 
         if (countee == 0) {
             controller1.getDataGrid().addRow(1, resistance, potential, current);
+            ancwidth = (Math.ceil((float) main.getScreenWidth() / 35)) * 35;
+            ancheight = (float) (main.getScreenWidth() * 20) / 35;
+
+            limiter(controller1.getSmallanchorpane());
+            limiter(controller1.getTogglegrid());
+            limiter(controller1.getAnchoringGrid());
+            System.out.println("done");
             countee++;
         }
-
-        ancwidth = (Math.ceil((float) main.getScreenWidth() / 35)) * 35;
-        ancheight = (float) (main.getScreenWidth() * 20) / 35;
-
-        limiter(controller1.getSmallanchorpane());
-        limiter(controller1.getTogglegrid());
-        limiter(controller1.getAnchoringGrid());
 
         if (controller1.getCal() != null && controller1.getCal().getId() != "calculatetrue") {
             controller1.getCal().setMouseTransparent(true);
             controller1.getCal().setOpacity(0.5);
         }
 
+        levelmaking(level);
         controller1.getScrollhbox().prefWidthProperty().bind(main.getMainContainer().widthProperty().add(main.getScreenWidth() * 0.6));
-        loadGame();
+        if(level == 0) {
+            loadGame();
+            System.out.println("Loaded");
+        }
 
         if (sandboxMatrix.closedCircuit()) {
             controller1.getCal().setId("calculatetrue");
@@ -350,6 +356,13 @@ public class HelloController implements Initializable {
         //Remove the settings from the stage
         main.getMainContainer().getChildren().remove(main.settings());
         popSound();
+    }
+
+    @FXML
+    private void exitlevelfinish(ActionEvent event) {
+        //Remove level finish from the stage
+        main.getMainContainer().getChildren().remove(main.levelfinish());
+        titleScreen(event);
     }
 
     private double contentX;
@@ -471,7 +484,7 @@ public class HelloController implements Initializable {
 
                 switch(component[0].getId()){
                     case 1: budget = budget + 1; break;
-                    case 2: budget = budget + Double.parseDouble(priceBattery.getText()); break;
+                    case 2: budget = budget + Double.parseDouble(priceBattery.getText()); component[0].setPrice(Double.parseDouble(priceBattery.getText())); break;
                     case 3: budget = budget + 10; break;
                     case 4: budget = budget + 10; break;
                     case 7: budget = budget + 10; break;
@@ -553,11 +566,13 @@ public class HelloController implements Initializable {
     @FXML
     public void exit(ActionEvent event) {
         popSound();
+        saveGame();
+        Logger.close();
         System.exit(0);
     }
 
     @FXML
-    public void clearGrid(ActionEvent event) {
+    public void clearGrid() {
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 35; j++) {
                 BuilderMatrix.removeBoxID(j, i);
@@ -567,16 +582,16 @@ public class HelloController implements Initializable {
         }
         CalculatingGrid.chargedCapacitor = null;
 
-        smallanchorpane.getChildren().clear();
         //Should also clear the components!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (this is a future Alex problem don't worry about it)
         HelloController controller1 = main.MainController();
+        controller1.getSmallanchorpane().getChildren().clear();
         controller1.getCal().setId("calculatefalse");
         controller1.getCal().setMouseTransparent(true);
         controller1.getCal().setOpacity(0.5);
         wooshSound();
         controller1.getBudgetlabel().setText("0$");
         budget = 0;
-        for(int i = 2; i < controller1.getDataGrid().getRowCount()-1;i++) {
+        for(int i = 2; i < controller1.getDataGrid().getRowCount();i++) {
             int index = i;
             HelloController.returnDataGrid().getChildren().removeIf(node -> GridPane.getRowIndex(node) != null && GridPane.getRowIndex(node) == index);
         }
@@ -768,7 +783,7 @@ public class HelloController implements Initializable {
     public void gridrestore() {
         HelloController controller = main.MainController();
         //controller.getDataGrid().setTranslateX(0);
-        // controller.getDataGrid().setTranslateY(0);
+        //controller.getDataGrid().setTranslateY(0);
         controller.getGridscroll().setTranslateX(0);
         controller.getGridscroll().setTranslateY(0);
     }
@@ -916,6 +931,195 @@ public class HelloController implements Initializable {
             controller.getHintlabel().setMaxHeight(0);
             controller.getHintlabel().setMinHeight(0);
         }
+    }
+
+    public void levelmaking(int levelmethod){
+        HelloController controller1 = main.MainController();
+        switch (levelmethod){
+            case 1:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Make the total circuit current 2 amp");
+                controller1.getHintlabel().setText("Think about Ohm's law V = IR");
+                break;
+            case 2:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Keep voltage in a resistor that's not connected to a power supply");
+                controller1.getHintlabel().setText("Use a capacitor");
+                break;
+            case 3:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 4:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 5:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 6:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 7:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 8:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 9:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 10:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            default:
+                break;
+        }
+    }
+
+    @FXML
+    public void selectLevel1(){level = 1; MainScreen();}
+    @FXML
+    public void selectLevel2(){level = 2; MainScreen();}
+    @FXML
+    public void selectLevel3(){level = 3; MainScreen();}
+    @FXML
+    public void selectLevel4(){level = 4; MainScreen();}
+    @FXML
+    public void selectLevel5(){level = 5; MainScreen();}
+    @FXML
+    public void selectLevel6(){level = 6; MainScreen();}
+    @FXML
+    public void selectLevel7(){level = 7; MainScreen();}
+    @FXML
+    public void selectLevel8(){level = 8; MainScreen();}
+    @FXML
+    public void selectLevel9(){level = 9; MainScreen();}
+    @FXML
+    public void selectLevel10(){level = 10; MainScreen();}
+    @FXML
+    public void selectSandbox(){level = 0; MainScreen();}
+
+    @FXML
+    public void submit(){
+        HelloController controller1 = main.MainController();
+        String budgettext = "";
+        String givenbudgettext = "";
+        for (int i = 0; i < controller1.getBudgetlabel().getText().length(); i++) {
+            if(controller1.getBudgetlabel().getText().charAt(i) == '.')
+                break;
+            else if (isDigit(controller1.getBudgetlabel().getText().charAt(i))) {
+                budgettext = budgettext + controller1.getBudgetlabel().getText().charAt(i);
+            }
+        }
+
+        for (int i = 0; i < controller1.getGivenBudgetLabel().getText().length(); i++) {
+            if (isDigit(controller1.getGivenBudgetLabel().getText().charAt(i))) {
+                givenbudgettext = givenbudgettext + controller1.getGivenBudgetLabel().getText().charAt(i);
+            }
+        }
+        switch (level) {
+            case 1:
+                System.out.println(Integer.parseInt(budgettext) + " " + Integer.parseInt(givenbudgettext));
+                if(round(Integer.parseInt(budgettext),0) < Integer.parseInt(givenbudgettext)){
+                   if(Double.parseDouble(controller1.getTotalAmpLabel().getText()) == 2) {
+                       correctSound();
+                       main.getMainContainer().getChildren().add(main.levelfinish());
+                   }
+                   else{
+                       controller1.getBudgetlabel().setId("normal");
+                       controller1.getGoalLabel().setId("nope");
+                   }
+                }
+                else{
+                    controller1.getBudgetlabel().setId("nope");
+                    controller1.getGoalLabel().setId("normal");
+                }
+                break;
+            case 2:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Keep voltage in a resistor that's not connected to a power supply");
+                controller1.getHintlabel().setText("Use a capacitor");
+                break;
+            case 3:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 4:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 5:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 6:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 7:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 8:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 9:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            case 10:
+                controller1.getGivenBudgetLabel().setText("50$");
+                controller1.getGoalLabel().setText("Unknown");
+                controller1.getHintlabel().setText("How can I help?");
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    public static void removefromBudget(Component component){
+        HelloController controller = HelloApplication.statMainController();
+        double statbudget = 0;
+        switch (component.getId()){
+            case 1: statbudget = statbudget + 1; break;
+            case 2: statbudget = statbudget + component.getPrice(); break;
+            case 3: statbudget = statbudget + 10; break;
+            case 4: statbudget = statbudget + 10; break;
+            case 7: statbudget = statbudget + 10; break;
+            default:
+                statbudget = statbudget; break;
+        }
+        controller.updatebudget(statbudget);
+    }
+
+    public void updatebudget(double decrease){
+        HelloController controller = main.MainController();
+        budget = budget - decrease;
+        controller.getBudgetlabel().setText(String.valueOf(budget) + "$");
     }
 
     // SOUND EFFECTS
@@ -1167,6 +1371,8 @@ public class HelloController implements Initializable {
     public Label getVoltTitle(){return this.voltTitle;}
     public Label getResitanceTitle(){return this.resitanceTitle;}
     public Label getFaradTitle(){return this.faradTitle;}
+    public Label getGoalLabel(){return this.goallabel;}
+    public Label getGivenBudgetLabel(){return  this.givenbudgetlabel;}
 
     public Label getBudgetlabel(){return this.budgetlabel;}
 
@@ -1199,7 +1405,5 @@ public class HelloController implements Initializable {
     public CheckBox getHintcheck(){return this.hintcheck;}
 
     //Random getters
-    public HelloController getMainController(){
-        return main.MainController();
-    }
+
 }

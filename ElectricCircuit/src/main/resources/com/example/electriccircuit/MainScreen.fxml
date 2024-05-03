@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
+<StackPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electriccircuit.HelloController">
     <!--stackPane to have visual foreground and interactible background-->
     <children>
         <AnchorPane fx:id="anchorpane">
@@ -125,45 +125,45 @@
                           <!--Goal and budget visuals-->
                           <children>
                               <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
-                              <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                              <VBox alignment="TOP_CENTER" prefHeight="273.0" prefWidth="180.0" VBox.vgrow="ALWAYS">
                                   <children>
-                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="150.0" text="Goal" VBox.vgrow="ALWAYS">
+                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="150.0" text="Goal" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                           <font>
                                               <Font name="Calibri" size="44.0" />
                                           </font>
                                           <padding>
-                                              <Insets right="10.0" top="30.0" />
+                                              <Insets left="10.0" right="10.0" top="10.0" />
                                           </padding>
                                       </Label>
-                                      <Label alignment="CENTER" prefHeight="168.0" prefWidth="150.0" text="Make a circuit with two resistors that get 10 volts each" wrapText="true" VBox.vgrow="ALWAYS">
+                                      <Label fx:id="goallabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="248.0" prefWidth="150.0" text="Have fun" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                                           <font>
                                               <Font size="20.0" />
                                           </font>
                                           <padding>
-                                              <Insets left="10.0" />
+                                              <Insets left="10.0" right="10.0" />
                                           </padding>
                                       </Label>
                                   </children>
                               </VBox>
                               <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
-                              <VBox alignment="TOP_CENTER" prefHeight="197.0" prefWidth="180.0" VBox.vgrow="ALWAYS">
+                              <VBox alignment="TOP_CENTER" prefHeight="246.0" prefWidth="180.0" VBox.vgrow="ALWAYS">
                                   <children>
-                                      <Label alignment="CENTER" prefHeight="78.0" prefWidth="150.0" text="Budget" VBox.vgrow="ALWAYS">
+                                      <Label alignment="CENTER" prefHeight="78.0" prefWidth="150.0" text="Budget" VBox.vgrow="NEVER">
                                           <font>
                                               <Font name="Calibri" size="42.0" />
                                           </font>
                                       </Label>
-                                      <Label alignment="CENTER" prefHeight="110.0" prefWidth="150.0" text="30$" VBox.vgrow="ALWAYS">
+                                      <Label fx:id="givenbudgetlabel" alignment="CENTER" prefHeight="110.0" prefWidth="150.0" text="Infinite" VBox.vgrow="ALWAYS">
                                           <font>
                                               <Font size="40.0" />
                                           </font>
                                       </Label>
-                              <Label alignment="CENTER" layoutX="25.0" layoutY="10.0" prefHeight="78.0" prefWidth="150.0" text="Spent">
+                              <Label alignment="CENTER" layoutX="25.0" layoutY="10.0" prefHeight="78.0" prefWidth="150.0" text="Spent" VBox.vgrow="NEVER">
                                  <font>
                                     <Font name="Calibri" size="42.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="budgetlabel" alignment="CENTER" layoutX="25.0" layoutY="86.0" prefWidth="180.0" text="0$">
+                              <Label fx:id="budgetlabel" alignment="CENTER" layoutX="25.0" layoutY="86.0" prefHeight="73.0" prefWidth="160.0" text="0$">
                                  <font>
                                     <Font size="40.0" />
                                  </font>
@@ -176,9 +176,9 @@
                               <VBox prefHeight="2.0" prefWidth="100.0" styleClass="smallborder" />
                           </children>
                       </VBox>
-                      <VBox alignment="CENTER" maxHeight="190.0" maxWidth="180.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" VBox.vgrow="NEVER">
+                      <VBox alignment="CENTER" maxHeight="193.0" maxWidth="180.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" VBox.vgrow="NEVER">
                           <children>
-                              <Button fx:id="cal" mnemonicParsing="false" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Submit">
+                              <Button fx:id="cal" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="107.0" styleClass="calculatefalse" text="Submit">
                                   <VBox.margin>
                                       <Insets bottom="60.0" />
                                   </VBox.margin>
@@ -196,6 +196,12 @@
                      <children>
                             <VBox maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="270.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
                                 <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Sig figs" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
                                     <HBox fx:id="hinthbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="270.0" spacing="15.0" VBox.vgrow="ALWAYS">
                                         <children>
                                     <HBox fx:id="hintbutton" alignment="CENTER" onMouseClicked="#hint" prefHeight="42.0" prefWidth="30.0">
@@ -216,7 +222,7 @@
                                             </Label>
                                         </children>
                                     </HBox>
-                              <Label fx:id="hintlabel" alignment="CENTER" maxHeight="0.0" minHeight="0.0" mouseTransparent="true" opacity="0.0" prefHeight="0.0" prefWidth="270.0" text="Think about Ohm's law V = IR" textAlignment="CENTER" wrapText="true" />
+                              <Label fx:id="hintlabel" alignment="CENTER" maxHeight="0.0" minHeight="0.0" mouseTransparent="true" opacity="0.0" prefHeight="0.0" prefWidth="270.0" text="What did you expect?" textAlignment="CENTER" wrapText="true" />
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="270.0" VBox.vgrow="ALWAYS">
                                         <children>
                                             <CheckBox fx:id="checkGrid" mnemonicParsing="false" onAction="#showGrid" styleClass="checkbox" text="Show Grid" HBox.hgrow="ALWAYS">

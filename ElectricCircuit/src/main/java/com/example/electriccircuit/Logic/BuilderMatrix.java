@@ -48,6 +48,8 @@ public class BuilderMatrix {
         Debug.printGrid(grid);
         if(grid[row][column] != 0 && (grid[row][column] != 7 && grid[row][column] != 8 || !(component instanceof Switch))){
             componentArray[row][column].removeComponentNode();
+            if(componentArray[row][column].isDisplayed()) removeComponentfromGrid(componentArray[row][column].getDisplayrow());
+            HelloController.removefromBudget(componentArray[row][column]);
             Debug.Log("Set box ID thinks row is " + row + " column is " + column);
             componentArray[row][column] = component;
         }
@@ -61,6 +63,18 @@ public class BuilderMatrix {
 
         }
     }
+
+    //Removes a component from the grid
+    public static void removeComponentfromGrid(int displayrow){
+        HelloController.returnDataGrid().getChildren().removeIf(node -> GridPane.getRowIndex(node) != null && GridPane.getRowIndex(node) == displayrow);
+        HelloController.returnDataGrid().getChildren().forEach(node -> {
+            Integer rowIndex = GridPane.getRowIndex(node);
+            if (rowIndex != null && rowIndex > displayrow) {
+                GridPane.setRowIndex(node, rowIndex - 1);
+            }
+        });
+    }
+
 
     // Used to clear a grid space
     public static void removeBoxID(int row, int column) {

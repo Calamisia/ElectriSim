@@ -23,9 +23,9 @@ public class HelloApplication extends Application {
     private Stage primaryStage;
     private Unlocks unlocked = new Unlocks();
     private Scene scene;
-    private Node scene1,scene2,scene3,scene4,scene5;
+    private Node scene1,scene2,scene3,scene4,scene5,scene6;
     //private FXMLLoader fxmlLoader1,fxmlLoader2,fxmlLoader3,fxmlLoader4;
-    private HelloController controller1,controller2,controller3,controller4,controller5;
+    private HelloController controller1,controller2,controller3,controller4,controller5,controller6;
     private static HelloController controllerx;
     private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static int screenWidth = (int) Math.ceil(screenSize.getWidth());
@@ -72,12 +72,17 @@ public class HelloApplication extends Application {
         scene5 = fxmlLoader5.load();
         controller5 = fxmlLoader5.getController();
 
+        FXMLLoader fxmlLoader6= new FXMLLoader(HelloApplication.class.getResource("Finishlevel.fxml"));
+        scene6 = fxmlLoader6.load();
+        controller6 = fxmlLoader6.getController();
+
         //set the main for every screen
         controller1.setMain(this);
         controller2.setMain(this);
         controller3.setMain(this);
         controller4.setMain(this);
         controller5.setMain(this);
+        controller6.setMain(this);
 
         //set unlocked for the level select screen and achievements screen
         controller2.setUnlocks(this.unlocked);
@@ -159,6 +164,10 @@ public class HelloApplication extends Application {
     //Settings
     public Node settings(){return scene5;}
     public HelloController settingsController(){return controller5;}
+
+    //Level Finish
+    public Node levelfinish(){return scene6;}
+    public HelloController levelfinishController(){return controller6;}
 
     //Other stuff
     public int getScreenWidth(){

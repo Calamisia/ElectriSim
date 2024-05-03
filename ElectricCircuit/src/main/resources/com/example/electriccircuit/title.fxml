@@ -21,7 +21,7 @@
             </Button>
             </HBox>
             <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
-               <Button fx:id="bt3" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#MainScreen" prefHeight="110.0" prefWidth="500.0" styleClass="titlebutton" text="Sandbox">
+               <Button fx:id="bt3" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#selectSandbox" prefHeight="110.0" prefWidth="500.0" styleClass="titlebutton" text="Sandbox">
             </Button>
             </HBox>
             <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
