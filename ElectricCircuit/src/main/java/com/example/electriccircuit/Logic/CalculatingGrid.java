@@ -130,7 +130,7 @@ public class CalculatingGrid {
             HelloController.returnCalButton().setMouseTransparent(false);
             HelloController.returnCalButton().setOpacity(1);
             HelloController.returnTotalVoltLabel().setText(String.valueOf(sigDigRounder(potential.getVolt(), sigfig)));
-            HelloController.returnTotalAmpLabel().setText(String.valueOf(sigDigRounder(current.getAmp(), sigfig)));
+            HelloController.returnTotalAmpLabel().setText(String.valueOf(current.getAmp()));
             HelloController.returnTotalOhmLabel().setText(String.valueOf(sigDigRounder(resistance.getOhm(), sigfig)));
             HelloController.returnTotalFaradsLabel().setText(String.valueOf(sigDigRounder(farad.getCapacitance(), sigfig)));
             HelloController.returnTotalChargeLabel().setText(String.valueOf(sigDigRounder(coulomb.getCharge(), sigfig)));
