@@ -1,5 +1,7 @@
 # ElectriSim
 
+This is a tool to help others learn about building circuits with resistors, capacitors, and more. This software generates visual representations of circuits in real-time, as well as calculate all necessary circuit data.
+
 1	Introduction
 
 We aim to generate visual representations of circuits that allow users to determine optimal builds for maximum functionality, depending on their goals. This would make it easier to develop circuits for both the professional & personal spheres of work by providing a means to test out ideas and offering a projected budget. With a low entry-skill requirement coupled with a limitless skill ceiling, this software conforms to the needs of anyone who uses it. This project is made to facilitate understanding of circuits for any who need it by providing an easy building tool with a clear visual output. To add user retention, we will implement different challenges similar to levels to give an objective to the player and encourage them to think outside the box. We will also implement a sandbox to provide a way for the user to freely build the circuit of their choice. 
